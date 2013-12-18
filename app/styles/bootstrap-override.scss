@@ -3,6 +3,16 @@
 // Author: @iamcutler
 //
 
+a {
+	color: #FFF;
+	text-decoration: none;
+	
+	&:hover {
+		color: #FFF;
+		text-decoration: none;	
+	}
+}
+
 // Applicaiton Menu
 section.application-menu {
 	.row-fluid {
