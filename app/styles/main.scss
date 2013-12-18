@@ -30,6 +30,29 @@ html, body {
 }
 
 // ---------------------- Application Menu ----------------------
+section.menu-app-user {
+	font-size: 20px;
+	
+	div.thumb {
+		float: left;
+		background: #000;
+		width: 68px;
+		height: 68px;
+		overflow: hidden;
+		margin-right: 20px;
+		
+		img {
+			max-width: 80px;
+			min-height: 70px;
+		}
+	}	
+	
+	span {
+		float: left;
+		padding-top: 16px;
+	}
+}
+
 section.application-menu {
 	//Menu section headers
 	header.category {
