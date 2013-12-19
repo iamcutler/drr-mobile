@@ -1,11 +1,21 @@
 app.config(function($stateProvider, $urlRouterProvider) {
-  // For any unmated url, redirect to home
+  // For any unmatched url, redirect to home
   $urlRouterProvider.otherwise("/feed");
   
   $stateProvider
-    .state('newsFeed', {
+    .state("default", {
+      abstract: true,
+      views: {
+        "": {
+          controller: "ApplicationController",
+          templateUrl: "/views/layouts/default.html"
+        }
+      }
+    })
+    .state("newsFeed", {
+      parent: "default",
       url: "/feed",
-      templateUrl: "/views/news-feed/index.html",
-      controller: "MainCtrl"
+      controller: "MainCtrl",
+      templateUrl: "/views/news-feed/index.html"
     });
 });
