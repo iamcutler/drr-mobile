@@ -27,7 +27,7 @@ html, body {
   color: #FFF;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 // ---------------------------- Globals ------------------------------
@@ -44,34 +44,35 @@ h1, h2, h3, h4, h5 ,h6 {
   width: 100%;
   height: 100%;
   box-shadow: 0 0 8px #000;
+  overflow: auto;
   z-index: 2;
 }
 
 // ---------------------- Application Menu ----------------------
-section.menu-app-user {
-	font-size: 20px;
-	
-	div.thumb {
-		float: left;
-		background: #000;
-		width: 68px;
-		height: 68px;
-		overflow: hidden;
-		margin-right: 20px;
-		
-		img {
-			max-width: 80px;
-			min-height: 70px;
-		}
-	}	
-	
-	span {
-		float: left;
-		padding-top: 16px;
-	}
-}
-
 section.application-menu {
+  div.menu-app-user {
+  	font-size: 20px;
+  	
+  	div.thumb {
+  		float: left;
+  		background: #000;
+  		width: 68px;
+  		height: 68px;
+  		overflow: hidden;
+  		margin-right: 20px;
+  		
+  		img {
+  			max-width: 80px;
+  			min-height: 70px;
+  		}
+  	}	
+  	
+  	span {
+  		float: left;
+  		padding-top: 16px;
+  	}
+  }
+  
 	//Menu section headers
 	header.category {
 		background: #231f20;
