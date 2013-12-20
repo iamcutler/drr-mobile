@@ -238,6 +238,101 @@ section.friend-requests {
   }
 }
 
+// --------------------- Application Media ---------------------
+section.app-media {
+  padding: 10px;
+  
+  article {
+    margin-bottom: 26px;
+    
+    header {
+      div.thumb {
+        float: left;
+        background: #FFF;
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+        overflow: hidden;
+        
+        img {
+          min-width: 50px;
+          height: 50px;
+        }
+      }
+      
+      span {
+        &.user-name {
+          float: left;
+          font-size: 18px;
+          padding-top: 10px;
+        }
+        
+        &.timestamp {
+          float: right;
+          color: #b7272d;
+          padding-top: 12px;
+        }
+      }
+    }
+    
+    div.media-wrapper {
+      height: 416px;
+      margin-top: 6px;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        min-height: 416px;
+      }
+        
+      &.video {
+        img {
+          @include opacity(0.6);
+        }
+      }
+        
+      div.video-icon {
+        position: absolute;
+        right: 16px;
+        background: url("/images/video-media-icon.png") center bottom no-repeat;
+        width: 40px;
+        height: 38px;
+      }
+    }
+    
+    footer {
+      padding-top: 6px;
+      clear: both;
+      
+      .row, .row-fluid {
+        margin-left: 0;
+        margin-right: 0;
+        
+        &.media-actions {
+          padding-top: 6px;  
+        }
+        
+        .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6,
+        .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+          padding: 0;
+          
+          &.media-caption {
+            color: #bcbec0;
+            font-size: 14px;
+            font-weight: 400;
+          }
+          
+          &.media-stats {
+            color: #f3ca8a;
+            font-size: 14px;
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}
+
 // ---------------------- Report Problems ----------------------
 form[name="report-bug"] {
   padding: 20px;
