@@ -23,6 +23,13 @@ a {
     border: none;
     outline: none;
   }
+  
+  &.btn-primary {
+    @include background(linear-gradient(top, rgba(191,9,28,1) 0%,rgba(80,0,0,1) 100%));
+    font-size: 18px;
+    border: none;
+    outline: none;
+  }
 }
 
 // Main navbar
