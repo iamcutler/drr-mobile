@@ -15,6 +15,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
+    // New Feed
     .state("feed", {
       parent: "default",
       url: "/feed",
