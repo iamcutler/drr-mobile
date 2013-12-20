@@ -48,6 +48,19 @@ h1, h2, h3, h4, h5 ,h6 {
   z-index: 2;
 }
 
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: #808285;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #808285;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #808285;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #808285;
+}
+
 // ---------------------- Application Menu ----------------------
 section.application-menu {
   div.menu-app-user {
@@ -177,5 +190,28 @@ section#news-feed {
     height: 11px;
     padding: 30px 0 30px 0;
     margin: auto;
+  }
+}
+
+// ---------------------- Report Problems ----------------------
+form[name="report-bug"] {
+  padding: 20px;
+  
+  p {
+    // device information notice
+    &.notice {
+      color: #f4cb89;
+      font-size: 14px;
+    }
+  }
+  
+  select, textarea {
+    width: 100%;
+    color: #808285;
+    font-size: 18px;
+    padding: 10px;
+    -webkit-appearance: none;
+    appearance: none;
+    @include border-radius(8px);
   }
 }
