@@ -128,9 +128,8 @@ section#news-feed {
   
   article {
     background: #000 url("/images/ui-bg-texture.jpg") repeat;
-    min-height: 80px;
     margin-bottom: 10px;
-    @include border-radius(8px);
+    @include border-radius(6px);
     
     header {
       padding: 20px;
