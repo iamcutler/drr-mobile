@@ -21,6 +21,13 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: "FeedController",
       templateUrl: "/views/news-feed/index.html"
     })
+    // Friend Requests
+    .state("friend-requests", {
+      parent: "default",
+      url: "/requests",
+      controller: "RequestsController",
+      templateUrl: "/views/friend-requests/index.html"
+    })
     // Report bugs/problems
     .state("report-bug", {
       parent: "default",
