@@ -32,15 +32,19 @@ nav.navbar {
   @include border-radius(0);
   border: none;
   
-  button.navbar-toggle {
-    background: #63060d;
-    display: block;
-    box-shadow: inset 0 0 8px #111;
-    margin-left: 10px;
-    outline: none;
+  div.navbar-header {
+    position: absolute;
     
-    span.icon-bar {
-      background: #FFF;
+    button.navbar-toggle {
+      background: #63060d;
+      display: block;
+      box-shadow: inset 0 0 8px #111;
+      margin-left: 10px;
+      outline: none;
+      
+      span.icon-bar {
+        background: #FFF;
+      }
     }
   }
   
