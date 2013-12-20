@@ -193,6 +193,58 @@ section#news-feed {
   }
 }
 
+// ---------------------- Friend Requests ----------------------
+section.friend-requests {
+  padding: 10px;
+  
+  div.friend-request {
+    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    min-height: 40px;
+    padding: 10px;
+    margin-bottom: 10px;
+    @include border-radius(6px);
+    
+    div.thumb {
+      float: left;
+      background: #000;
+      width: 110px;
+      height: 110px;
+      overflow: hidden;
+      
+      img {
+        min-width: 110px;
+        height: 110px;
+      }
+    }
+    
+    div.request-actions {
+      padding-left: 130px;
+      padding-top: 12px;
+      
+      span.user-name {
+        color: #f4cb89;
+        font-size: 24px;
+        clear: both;
+      }
+    }   
+    
+    // Bootstrap row remove padding
+    div.row, div.row-fluid {
+      margin-left: 0;
+      margin-right: 0;
+      padding-top: 4px;
+            
+      .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6,
+      .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+        padding-left: 0;
+        padding-right: 0;
+        margin-right: 0;
+        margin-bottom: 6px;
+      }
+    }
+  }
+}
+
 // ---------------------- Report Problems ----------------------
 form[name="report-bug"] {
   padding: 20px;
