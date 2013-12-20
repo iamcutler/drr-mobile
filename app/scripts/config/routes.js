@@ -20,5 +20,12 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       url: "/feed",
       controller: "FeedController",
       templateUrl: "/views/news-feed/index.html"
+    })
+    // Report bugs/problems
+    .state("report-bug", {
+      parent: "default",
+      url: "/report",
+      controller: "ReportController",
+      templateUrl: "/views/report/bug.html"
     });
 });
