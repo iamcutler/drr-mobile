@@ -8,16 +8,10 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 @import "compass";
 @import "sass-bootstrap/lib/bootstrap";
+// Include our project defined variables, mixins, etc
+@import "lib.scss";
 // Include google Titillium font for now. Will embed fonts.
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,600,700,300,200);
-
-@mixin border-radius($radius) {
-     -moz-border-radius: $radius;
-  -webkit-border-radius: $radius;
-         -o-border-radius: $radius;
-      -ms-border-radius: $radius;
-            border-radius: $radius;
-}
 
 html, body {
 	background: #414042;

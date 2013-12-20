@@ -1,0 +1,18 @@
+//
+// SASS variables, mixins, etc for the project.
+// This will be imported into our SCSS stylesheets
+//
+
+@mixin border-radius($radius) {
+     -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+         -o-border-radius: $radius;
+      -ms-border-radius: $radius;
+            border-radius: $radius;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity)";
+  filter: alpha(opacity=$opacity);
+}
