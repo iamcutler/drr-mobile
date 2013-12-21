@@ -36,6 +36,13 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: "RequestsController",
       templateUrl: "/views/friend-requests/index.html"
     })
+    // Events
+    .state("search-events", {
+      parent: "default",
+      url: "/search-events",
+      controller: "EventsController",
+      templateUrl: "/views/events/search.html"
+    })
     // Media
     .state("media", {
       parent: "default",
