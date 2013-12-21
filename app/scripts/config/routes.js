@@ -36,7 +36,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: "RequestsController",
       templateUrl: "/views/friend-requests/index.html"
     })
-    //Media
+    // Media
     .state("media", {
       parent: "default",
       url: "/media",
