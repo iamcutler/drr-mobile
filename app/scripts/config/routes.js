@@ -22,6 +22,13 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: "FeedController",
       templateUrl: "/views/news-feed/index.html"
     })
+    // My Messages
+    .state("messages", {
+      parent: "default",
+      url: "/messages",
+      controller: "MessagesController",
+      templateUrl: "/views/messages/index.html"
+    })
     // Friend Requests
     .state("friend-requests", {
       parent: "default",
