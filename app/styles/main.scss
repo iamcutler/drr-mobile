@@ -118,6 +118,13 @@ section.application-menu {
 }
 
 // ---------------------- News Feed ----------------------
+.row, .row-fluid {
+  &.feed-actions {
+    background: #353535;
+    padding: 6px 10px;
+  }  
+}
+
 section#news-feed {
   padding: 10px;
   

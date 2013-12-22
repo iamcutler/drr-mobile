@@ -1,5 +1,18 @@
 <ng-include src="'views/shared-partials/navbar.html'"></ng-include>
 
+<div class="row feed-actions">
+  <div class="col-xs-6">
+    <a ng-href="">
+      <div class="btn btn-block btn-lg btn-default">New Status</div>
+    </a>
+  </div>
+  <div class="col-xs-6">
+    <a ng-href="">
+      <div class="btn btn-block btn-lg btn-default">New Media</div>
+    </a>
+  </div>
+</div>
+
 <section id="news-feed">
   <ng-include src="'/views/news-feed/feed-article.partial.html'"></ng-include>
   <ng-include src="'/views/news-feed/feed-article.partial.html'"></ng-include>
