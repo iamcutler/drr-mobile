@@ -3,6 +3,17 @@
 // Dec 2013 - Dirty Rotten Rides Hybrid Mobile Application
 //
 
+@font-face {
+    font-family: 'headliner';
+    src: url('/fonts/headliner.eot');
+    src: url('/fonts/headliner.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/headliner.woff') format('woff'),
+         url('/fonts/headliner.ttf') format('truetype'),
+         url('/fonts/headliner.svg#headliner') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
