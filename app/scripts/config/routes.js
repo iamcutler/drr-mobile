@@ -15,6 +15,13 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
+    // Authenicatation
+    .state("login", {
+      parent: "default",
+      url: "/login",
+      controller: "AuthController",
+      templateUrl: "/views/auth/login.html"
+    })
     // New Feed
     .state("feed", {
       parent: "default",
