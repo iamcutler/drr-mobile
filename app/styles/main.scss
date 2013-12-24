@@ -14,6 +14,16 @@
     font-style: normal;
 }
 
+// Dirty Rotten Rides Glyph Icons
+@font-face {
+    font-family: 'DRRGlyphs';
+    src: url('/fonts/drrglyphs.eot');
+    src: url('/fonts/drrglyphs.eot') format('embedded-opentype'),
+         url('/fonts/drrglyphs.woff') format('woff'),
+         url('/fonts/drrglyphs.ttf') format('truetype'),
+         url('/fonts/drrglyphs.svg#DRRGlyphs') format('svg');
+}
+
 $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
