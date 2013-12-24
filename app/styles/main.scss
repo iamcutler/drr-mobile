@@ -83,6 +83,17 @@ h1, h2, h3, h4, h5 ,h6 {
     color: #808285;
 }
 
+// Glyph icons in buttons
+.btn {
+  &.btn-default, &.btn-primary {
+    i {
+      font: 30px "DRRGlyphs";
+      font-style: normal;
+      line-height: 1px;
+    }
+  }
+}
+
 // ---------------------- Application Menu ----------------------
 section.application-menu {
   div.menu-app-user {
