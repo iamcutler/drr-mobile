@@ -118,6 +118,10 @@ section.application-menu {
 	}
 	
 	nav {
+	  .row, .row-fluid {
+  	  width: 90%;
+	  }
+	  
 		a.menu-link:Link, a.menu-link:Visited, a.menu-link:Hover {
 			color: #FFF;
 			text-decoration: none;
