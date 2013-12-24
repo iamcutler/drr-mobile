@@ -65,6 +65,13 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: "MediaController",
       templateUrl: "/views/media/index.html"
     })
+    // Voting
+    .state("vote", {
+      parent: "default",
+      url: "/vote",
+      controller: "VotingController",
+      templateUrl: "/views/voting/vote.html"
+    })
     // Report bugs/problems
     .state("report-bug", {
       parent: "default",
