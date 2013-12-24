@@ -135,12 +135,13 @@ section.application-menu {
 }
 
 // ---------------------- Authentication ----------------------
+div.drr-brand {
+  text-align: center;
+}
+
+// Login  
 section.user-login {
   padding: 0 30px;
-  
-  div.drr-brand {
-    text-align: center;
-  }
   
   // Login
   div.slogan {
@@ -212,6 +213,44 @@ section.user-login {
       
       &:Hover {
         color: #FFF;
+      }
+    }
+  }
+}
+
+// Register
+section.user-register {
+  padding: 0 30px;
+  
+  h2 {
+    color: #f4cb89;
+    font-size: 20px;
+  }
+  
+  form[name="user-register"] {
+    input {
+      padding: 8px;
+      border: none;
+      outline: none;
+      
+      &.form-control {
+        font-size: 18px;
+        min-height: 44px;
+      }
+    }
+  }
+  
+  .row, .row-fluid {
+    margin-left: 0;
+    margin-right: 0;
+    
+    .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, 
+    .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+      padding: 6px 0;
+      
+      // Register agree notice
+      &.register-agree-notice {
+        font-size: 14px;
       }
     }
   }

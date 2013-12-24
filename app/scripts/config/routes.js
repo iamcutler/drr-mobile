@@ -24,6 +24,12 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: "AuthController",
       templateUrl: "/views/auth/login.html"
     })
+    .state("registeration", {
+      parent: "auth",
+      url: "/register",
+      controller: "AuthController",
+      templateUrl: "/views/auth/register.html"
+    })
     // New Feed
     .state("feed", {
       parent: "default",
