@@ -134,6 +134,89 @@ section.application-menu {
 	}
 }
 
+// ---------------------- Authentication ----------------------
+section.user-login {
+  padding: 0 30px;
+  
+  div.drr-brand {
+    text-align: center;
+  }
+  
+  // Login
+  div.slogan {
+    color: #f4cb89;
+    font: 30px "headliner";
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+  }
+  
+  form[name="user-login"] {
+    div.fields-wrapper {
+      background: #231f20;
+      padding: 10px;
+      @include border-radius(12px);
+      
+      .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, 
+      .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+        padding: 0;
+      }
+      
+      input {
+        padding: 8px;
+        border: none;
+        outline: none;
+        
+        &.form-control {
+          font-size: 18px;
+          min-height: 44px;
+          
+          &[type="text"] {
+            @include border-top-left-radius(8px);
+            @include border-top-right-radius(8px);
+            @include border-bottom-left-radius(0);
+            @include border-bottom-right-radius(0);
+            border-bottom: 1px #CCC solid;
+          }
+          
+          &[type="password"] {
+            @include border-top-left-radius(0);
+            @include border-top-right-radius(0);
+            @include border-bottom-left-radius(8px);
+            @include border-bottom-right-radius(8px);
+            border-top: 1px #CCC solid;
+          }
+        }
+      }
+    }
+  }
+  
+  .row, .row-fluid {
+    margin: 0;
+  }
+  
+  .btn {
+    // Facebook login button
+    &.btn-facebook {
+      background: #3B5998;
+      
+      &:Hover {
+        color: #FFF;
+      }
+    }
+    
+    // Signup button
+    &.btn-signup {
+      @include background(linear-gradient(top, rgba(66,66,66,1) 0%,rgba(25,25,25,1) 100%));
+      border: none;
+      
+      &:Hover {
+        color: #FFF;
+      }
+    }
+  }
+}
+
 // ---------------------- News Feed ----------------------
 .row, .row-fluid {
   &.feed-actions {
