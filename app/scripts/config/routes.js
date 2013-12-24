@@ -6,18 +6,20 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise("/feed");
   
   $stateProvider
+    // Layouts
     .state("default", {
       abstract: true,
-      views: {
-        "": {
-          controller: "ApplicationController",
-          templateUrl: "/views/layouts/default.html"
-        }
-      }
+      controller: "ApplicationController",
+      templateUrl: "/views/layouts/default.html"
+    })
+    .state("auth", {
+      abstract: true,
+      controller: "ApplicationController",
+      templateUrl: "/views/layouts/auth.html"
     })
     // Authenicatation
     .state("login", {
-      parent: "default",
+      parent: "auth",
       url: "/login",
       controller: "AuthController",
       templateUrl: "/views/auth/login.html"
