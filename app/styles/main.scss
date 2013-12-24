@@ -52,6 +52,12 @@ h1, h2, h3, h4, h5 ,h6 {
   box-shadow: 0 0 8px #000;
   overflow: auto;
   z-index: 2;
+  
+  //Authentication
+  &.auth {
+    background: #000 url("/images/auth-bg.jpg") center top no-repeat;
+    background-size: cover;
+  }
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
