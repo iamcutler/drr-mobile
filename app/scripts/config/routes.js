@@ -65,6 +65,13 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: "MediaController",
       templateUrl: "/views/media/index.html"
     })
+    // Dirty Girls
+    .state("dirty-girls", {
+      parent: "default",
+      url: "/dirty-girls",
+      controller: "DirtyGirlsController",
+      templateUrl: "/views/dirty-girls/index.html"
+    })
     // Voting
     .state("vote", {
       parent: "default",
