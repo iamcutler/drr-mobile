@@ -564,6 +564,53 @@ section.user-messages {
   }
 }
 
+// ------------------------------ Voting ----------------------------
+section.dirty-voting {
+  padding: 20px;
+  
+  ul.voting-options {
+    margin: 0;
+    padding: 0;
+    
+    li {
+      background: #9c000d;
+      border: 1px #dbaa5c solid;
+      margin: 0 0 6px 0;
+      padding: 10px;
+      list-style: none;
+      @include border-radius(8px);
+      
+      div.thumb {
+        float: left;
+        background: #FFF;
+        width: 68px;
+        height: 68px;
+        margin-right: 20px;
+        overflow: hidden;
+        
+        img {
+          min-width: 68px;
+          height: 68px;
+        }
+      }
+      
+      span.option-title {
+        float: left;
+        font-size: 20px;
+        padding-top: 16px;
+      }
+      
+      div.vote-action {
+        margin-top: 12px;
+        
+        button {
+          color: #FFF;
+        }
+      }
+    }
+  }
+}
+
 // ------------------------------ Events ----------------------------
 div.events-map {
   background: #FFF;
