@@ -2,14 +2,10 @@
 
 <div class="row feed-actions">
   <div class="col-xs-6" style="padding-right: 6px;">
-    <a ng-href="">
-      <div class="btn btn-block btn-lg btn-default">Dirty Girls of the Month</div>
-    </a>
+    <toggle-dirty-girls class="btn btn-block btn-lg btn-default" category="monthly">Dirty Girls of the Month</toggle-dirty-girls>
   </div>
   <div class="col-xs-6" style="padding-left: 6px;">
-    <a ng-href="">
-      <div class="btn btn-block btn-lg btn-default">Dirty Girls Crew</div>
-    </a>
+    <toggle-dirty-girls class="btn btn-block btn-lg btn-default" category="crew">Dirty Girls Crew</toggle-dirty-girls>
   </div>
 </div>
 
@@ -22,7 +18,9 @@
   </ul>
 </section>
 
-<section class="dirty-girls-crew">
-  <ng-include src="'views/dirty-girls/dirty-girl-thumb.partial.html'"></ng-include>
-  <ng-include src="'views/dirty-girls/dirty-girl-thumb.partial.html'"></ng-include>
+<section class="dirty-girls-crew" style="display: none;">
+  <ul>
+    <ng-include src="'views/dirty-girls/dirty-girl-thumb.partial.html'"></ng-include>
+    <ng-include src="'views/dirty-girls/dirty-girl-thumb.partial.html'"></ng-include>
+  </ul>
 </section>
