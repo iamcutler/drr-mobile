@@ -623,6 +623,47 @@ section.dirty-voting {
   }
 }
 
+// ------------------------------ Dirty Girls ----------------------------
+section {
+  &.dirty-girls-of-the-month, &.dirty-girls-crew {
+    padding: 20px;
+    
+    ul {
+      padding: 0;
+      margin: 0;
+      
+      li {
+        position: relative;
+        background: #FFF;
+        height: 274px;
+        list-style: none;
+        margin-bottom: 20px;
+        overflow: hidden;
+        
+        div.name-stripe {
+          position: absolute;
+          background: rgba(0, 0, 0, 0.6);
+          top: 90px;
+          width: 100%;
+          color: #f4cb89;
+          font: 40px "halo";
+          text-align: center;
+          padding: 20px;
+        }
+        
+        img {
+          width: 100%;
+          min-height: 274px;
+        }
+      }
+    }
+  }
+  
+  &.dirty-girls-crew {
+    display: none;
+  }
+}
+
 // ------------------------------ Events ----------------------------
 div.events-map {
   background: #FFF;
