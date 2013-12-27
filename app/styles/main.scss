@@ -14,6 +14,18 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'halo';
+    src: url('/fonts/halohandletter.eot');
+    src: url('/fonts/halohandletter.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/halohandletter.woff') format('woff'),
+         url('/fonts/halohandletter.ttf') format('truetype'),
+         url('/fonts/halohandletter.svg#halohandletter') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 // Dirty Rotten Rides Glyph Icons
 @font-face {
     font-family: 'DRRGlyphs';
