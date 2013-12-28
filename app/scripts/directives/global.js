@@ -2,12 +2,12 @@
 
 app.directive("toggleNavigation", function () {
   return function(scope, elem, attrs) {
-    var appContainer = $("#app-container"),
-          docWidth = $(document).width(),
-          slideTiming = 400,
-          position = 0;
-    
     $(elem).click(function() {
+      var appContainer = $("#app-container"),
+           docWidth = $(document).width(),
+           slideTiming = 400,
+           position = 0;
+           
       // Set position/toggle on navigation
       if(elem.hasClass("showNavi")) {
         position = 0;
