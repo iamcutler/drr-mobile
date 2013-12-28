@@ -24,3 +24,24 @@ app.directive("toggleNavigation", function () {
     });
   };
 });
+
+app.directive("navigationItem", function() {
+  return {
+    restrict: 'E',
+    scope: {
+      ngHref: '@',
+      icon: '@',
+      title: '@'
+    },
+    template: '<a ng-href="{{ ngHref }}" class="menu-link"><div class="menu-icon">{{ icon }}</div>{{ title }}</a>',
+    link: function(scope, elem, attrs) {
+      // On click, close navigation
+      elem.bind("click", function() {
+        $("#app-container").animate({
+          left: "0px"
+        }, 400);
+        $("button.navbar-toggle").removeClass("showNavi");
+      });
+    }
+  }
+});
