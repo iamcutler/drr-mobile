@@ -45,3 +45,24 @@ app.directive("navigationItem", function() {
     }
   }
 });
+
+app.directive("navigationUser", function() {
+  return {
+    restrict: 'E',
+    scope: {
+      ngHref: '@',
+      name: '@',
+      thumbnail: '@'
+    },
+    template: '<a ng-href="{{ ngHref }}"><div class="thumb"><img ng-src="{{ thumbnail }}" /></div><span>{{ name }}</span></a>',
+    link: function(scope, elem, attrs) {
+      // On click, close navigation
+      elem.bind("click", function() {
+        $("#app-container").animate({
+          left: "0px"
+        }, 400);
+        $("button.navbar-toggle").removeClass("showNavi");
+      });
+    }
+  }
+});

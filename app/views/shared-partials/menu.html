@@ -1,9 +1,6 @@
 <section class="application-menu">
   <div class="menu-app-user">
-  	<a ng-href="">
-  		<div class="thumb"><img ng-src="http://image.shutterstock.com/display_pic_with_logo/102804/127420826/stock-photo-man-over-white-background-overreacting-with-hands-on-face-127420826.jpg" /></div>
-  		<span>John Westfield</span>
-  	</a>
+  	<navigation-user ng-href="/#/profile/{{ current_user.slug }}" name="{{ current_user.name }}" thumbnail="{{ current_user.thumbnail }}"></navigation-user>
   </div>
   
 	<!-- Social Navigation -->
