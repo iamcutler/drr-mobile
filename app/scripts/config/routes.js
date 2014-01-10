@@ -180,6 +180,15 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         require_user: true
       }
     })
+    .state("dirty-girl-page", {
+      parent: "default",
+      url: "/dirty-girl/:id",
+      controller: "DirtyGirlsController",
+      templateUrl: "/views/dirty-girls/page.html",
+      access: {
+        require_user: true
+      }
+    })
     // Voting
     .state("vote", {
       parent: "default",
