@@ -77,6 +77,79 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         require_user: true
       }
     })
+    //Profile
+    .state("profile", {
+      parent: "default",
+      url: "/profile/:slug",
+      controller: "ProfileController",
+      templateUrl: "/views/profile/index.html",
+      access: {
+        require_user: true
+      }
+    })
+    .state("profile-about", {
+      parent: "default",
+      url: "/profile/:slug/about",
+      controller: "ProfileController",
+      templateUrl: "/views/profile/about.html",
+      access: {
+        require_user: true
+      }
+    })
+    .state("profile-friends", {
+      parent: "default",
+      url: "/profile/:slug/friends",
+      controller: "ProfileController",
+      templateUrl: "/views/profile/friends.html",
+      access: {
+        require_user: true
+      }
+    })
+    .state("profile-albums", {
+      parent: "default",
+      url: "/profile/:slug/photos",
+      controller: "ProfileController",
+      templateUrl: "/views/profile/albums.html",
+      access: {
+        require_user: true
+      }
+    })
+    .state("profile-photos", {
+      parent: "default",
+      url: "/profile/:slug/photos/:id",
+      controller: "ProfileController",
+      templateUrl: "/views/profile/photos.html",
+      access: {
+        require_user: true
+      }
+    })
+    .state("profile-videos", {
+      parent: "default",
+      url: "/profile/:slug/videos",
+      controller: "ProfileController",
+      templateUrl: "/views/profile/videos.html",
+      access: {
+        require_user: true
+      }
+    })
+    .state("profile-events", {
+      parent: "default",
+      url: "/profile/:slug/events",
+      controller: "ProfileController",
+      templateUrl: "/views/profile/events.html",
+      access: {
+        require_user: true
+      }
+    })
+    .state("profile-groups", {
+      parent: "default",
+      url: "/profile/:slug/groups",
+      controller: "ProfileController",
+      templateUrl: "/views/profile/groups.html",
+      access: {
+        require_user: true
+      }
+    })
     // Events
     .state("search-events", {
       parent: "default",
@@ -123,6 +196,16 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       url: "/report",
       controller: "ReportController",
       templateUrl: "/views/report/bug.html",
+      access: {
+        require_user: true
+      }
+    })
+    // Errors
+    .state("profile404", {
+      parent: "default",
+      url: "/error/profile/404",
+      controller: "ProfileController",
+      templateUrl: "/views/profile/404.html",
       access: {
         require_user: true
       }
