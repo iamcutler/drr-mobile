@@ -106,6 +106,32 @@ h1, h2, h3, h4, h5 ,h6 {
   }
 }
 
+a.menu-link:Link, a.menu-link:Visited {
+  color: #FFF;
+  text-decoration: none;
+  
+  div.menu-icon {
+    width: 100px;
+    height: 100px;
+    border: 3px #6d6e71 solid;
+    margin: auto;
+    font: 64px "DRRGlyphs";
+    @include border-radius(100px);
+    padding-top: 18px;
+    margin-bottom: 6px;
+  }
+
+  // On click state
+  &:Hover, &:Active {
+    color: #f3ca8a;
+    
+    div.menu-icon {
+      border-color: #ed1c24;
+      @include background(radial-gradient(center, ellipse cover, rgba(188,188,188,0) 0%, rgba(2,2,2,0.4) 100%));
+    }
+  }
+}
+
 // ---------------------- Application Menu ----------------------
 section.application-menu {
   position: absolute;
@@ -150,31 +176,6 @@ section.application-menu {
 	  .row, .row-fluid {
   	  width: 90%;
 	  }
-	  
-		a.menu-link:Link, a.menu-link:Visited, a.menu-link:Hover {
-			color: #FFF;
-			text-decoration: none;
-			
-			div.menu-icon {
-				width: 100px;
-				height: 100px;
-				border: 3px #6d6e71 solid;
-				margin: auto;
-				font: 64px "DRRGlyphs";
-				@include border-radius(100px);
-				margin-bottom: 6px;
-			}
-		
-			// On click state
-			&:Active {
-				color: #f3ca8a;
-				
-				div.menu-icon {
-					border-color: #ed1c24;
-					@include background(radial-gradient(center, ellipse cover, rgba(188,188,188,0) 0%, rgba(2,2,2,0.4) 100%));
-				}
-			}
-		}
 	}
 }
 
