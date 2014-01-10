@@ -3,3 +3,9 @@ dist
 .tmp
 .sass-cache
 app/bower_components
+npm-debug.log
+
+#Project files
+.idea
+workspace.xml
+tasks.xml
