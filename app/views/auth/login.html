@@ -5,14 +5,24 @@
   
   <div class="slogan">Where Pinups and Rides Collide!</div>
   
-  <form name="user-login">
+  <div class="row" ng-if="loginSubmitted || loginError">
+    <div class="col-md-12">
+      <div class="alert alert-danger">
+        <div class="col-md-12 error" ng-show="userLoginForm.username.$error.required && loginSubmitted">&bull; username is required</div>
+        <div class="col-md-12 error" ng-show="userLoginForm.password.$error.required && loginSubmitted">&bull; password is required</div>
+        <div class="col-md-12 error" ng-if="loginError">&bull; {{ loginError }}</div>
+      </div>
+    </div>
+  </div>
+
+  <form name="userLoginForm" novalidate ng-submit="processLogin(userLoginForm)">
     <div class="fields-wrapper">
       <div class="row">
         <div class="col-md-12">
-          <input type="text" name="username" class="form-control" placeholder="username:" />
+          <input type="text" name="username" class="form-control" placeholder="username:" ng-model="login.username" required />
         </div>
         <div class="col-md-12">
-          <input type="password" name="password" class="form-control" placeholder="password:" />
+          <input type="password" name="password" class="form-control" placeholder="password:" ng-model="login.password" required />
         </div>
       </div>
     </div>

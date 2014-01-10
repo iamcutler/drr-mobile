@@ -2,32 +2,54 @@
   <div class="drr-brand">
     <img src="/images/drr-brand.png" />
   </div>
-  
-  <form name="user-register">
+
+  <form name="accountRegistration" novalidate ng-submit="processRegistration(accountRegistration)">
     <div class="row">
       <div class="col-md-12">
         <h2>Create your <strong>FREE</strong> account:</h2>
       </div>
       <div class="col-md-12">
-        <input type="text" name="" id="" class="form-control" placeholder="name:" />
+        <input type="text" name="name" class="form-control" ng-model="register.name" placeholder="name:" required />
       </div>
+      
+      <div class="col-md-12 error" ng-show="accountRegistration.name.$error.required && registerSubmitted">&bull; name is required</div>
+
       <div class="col-md-12">
-        <input type="text" name="" id="" class="form-control" placeholder="desired username:" />
+        <input type="text" name="username" class="form-control" ng-model="register.username" placeholder="desired username:" ng-minlength="6" ng-change="check_username_uniqueness()" required />
       </div>
+
+      <div class="col-md-12 error" ng-if="usernameTaken">&bull; username is already taken</div>
+      <div class="col-md-12 error" ng-show="accountRegistration.username.$error.required && registerSubmitted">&bull; desired username is required</div>
+      <div class="col-md-12 error" ng-show="accountRegistration.username.$error.minlength && registerSubmitted">&bull; username must be longer than 6 characters</div>
+
       <div class="col-md-12">
-        <input type="text" name="" id="" class="form-control" placeholder="email address:" />
+        <input type="email" name="email" class="form-control" ng-model="register.email" placeholder="email address:" required />
       </div>
+
+      <div class="col-md-12 error" ng-show="accountRegistration.email.$error.required && registerSubmitted">&bull; email address is required</div>
+      <div class="col-md-12 error" ng-show="accountRegistration.email.$error.email && registerSubmitted">&bull; email address is invalid</div>
+
       <div class="col-md-12">
-        <input type="text" name="" id="" class="form-control" placeholder="password:" />
+        <input type="password" name="password" class="form-control" ng-model="register.password" placeholder="password:" ng-minlength="6" required />
       </div>
+
+      <div class="col-md-12 error" ng-show="accountRegistration.password.$error.required && registerSubmitted">&bull; password is required</div>
+      <div class="col-md-12 error" ng-show="accountRegistration.password.$error.minlength && registerSubmitted">&bull; password must be longer than 6 characters</div>
+
       <div class="col-md-12">
-        <input type="date" name="" id="" class="form-control" placeholder="date of birth:" />
+        <input type="date" name="dob" class="form-control" ng-model="register.dob" placeholder="date of birth:" required />
       </div>
+
+      <div class="col-md-12 error" ng-show="accountRegistration.dob.$error.required && registerSubmitted">&bull; date of birth is required</div>
+
       <div class="col-md-12 register-agree-notice">
         By clicking sign Up, you agree to our Terms and Conditions and that you have read our Privacy Policy, including our Cookie Use. You may receive SMS notifications from Dirty Rotten Rides and can opt not at any time.
       </div>
+      
+      <div class="alert alert-danger register-errors" ng-if="registerErrors"></div>
+
       <div class="col-md-12">
-        <button type="submit" class="btn btn-block btn-lg btn-primary">Sign Up</button>
+        <button type="submit" class="btn btn-block btn-lg btn-primary" ng-click="alert('YAY')">Sign Up</button>
       </div>
     </div>
   </form>
