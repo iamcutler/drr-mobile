@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: MessagesCtrl', function () {
+describe('Controller: MessagesController', function () {
 
   // load the controller's module
   beforeEach(module('DRRMobileApp'));
 
-  var MessagesCtrl,
+  var MessagesController,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MessagesCtrl = $controller('MessagesCtrl', {
+    MessagesController = $controller('MessagesController', {
       $scope: scope
     });
   }));

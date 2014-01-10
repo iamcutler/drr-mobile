@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: AuthCtrl', function () {
+describe('Controller: AuthController', function () {
 
   // load the controller's module
   beforeEach(module('DRRMobileApp'));

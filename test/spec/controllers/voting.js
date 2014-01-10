@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: VotingCtrl', function () {
+describe('Controller: VotingController', function () {
 
   // load the controller's module
   beforeEach(module('DRRMobileApp'));
 
-  var VotingCtrl,
+  var VotingController,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    VotingCtrl = $controller('VotingCtrl', {
+    VotingController = $controller('VotingController', {
       $scope: scope
     });
   }));
