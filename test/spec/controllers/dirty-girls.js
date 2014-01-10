@@ -5,7 +5,7 @@ describe('Controller: DirtyGirlsController', function () {
   // load the controller's module
   beforeEach(module('DRRMobileApp'));
 
-  var DirtygirlsCtrl,
+  var DirtyGirlsController,
     scope;
 
   // Initialize the controller and a mock scope
