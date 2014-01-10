@@ -1,0 +1,30 @@
+<div class="user-profile-header">
+  <a ng-href="/#/profile/{{ $stateParams.slug }}/photos">
+    <div class="thumbnail">
+      <img ng-src="{{ cdnDomain + '/' + profile.user.avatar || cdnDomain + '/components/com_community/assets/user.png' }}" alt="" />
+    </div>
+  </a>
+
+  <div class="clearfix"></div>
+</div>
+
+<div class="row-fluid user-activities">
+  <div class="col-xs-3">
+    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/about" icon="A" title="About"></navigation-item>
+  </div>
+  <div class="col-xs-3">
+    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/friends" icon="P" title="Friends ({{ profile.friends.length | number }})"></navigation-item>
+  </div>
+  <div class="col-xs-3">
+    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/photos" icon="H" title="Photos ({{ profile.media.photos.length | number }})"></navigation-item>
+  </div>
+  <div class="col-xs-3">
+    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/videos" icon="Q" title="Videos ({{ profile.media.videos.length | number }})"></navigation-item>
+  </div>
+  <div class="col-xs-3">
+    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/events" icon="E" title="Events ({{ profile.events.length | number }})"></navigation-item>
+  </div>
+  <div class="col-xs-3">
+    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/groups" icon="U" title="Groups ({{ profile.groups.length | number }})"></navigation-item>
+  </div>
+</div>

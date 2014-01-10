@@ -1,0 +1,11 @@
+<ng-include src="'views/shared-partials/navbar.html'"></ng-include>
+
+<section id="user-photos">
+  <div class="row-fluid">
+    <div class="col-xs-4" ng-repeat="photo in profile.media.photos">
+      <div class="thumbnail">
+        <a ng-href=""><img ng-src="{{ cdnDomain }}{{ photo.thumbnail }}" alt="" /></a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+<ng-include src="'views/shared-partials/navbar.html'"></ng-include>
+
+<section id="user-albums">
+  <div class="row">
+    <a ng-href="/#/profile/{{ $stateParams.slug }}/photos/{{ album.id }}" ng-repeat="album in profile.media.photo_albums">
+      <div class="col-xs-12 user-album">
+        <div class="thumbnail"></div>
+        <span class="album-name">{{ album.name }}</span>
+      </div>
+    </a>
+  </div>
+</div>

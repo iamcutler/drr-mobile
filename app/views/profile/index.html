@@ -1,0 +1,25 @@
+<ng-include src="'views/shared-partials/navbar.html'"></ng-include>
+
+<div class="row feed-actions">
+  <div class="col-xs-6" style="padding-right: 6px;">
+    <a ng-href="">
+      <div class="btn btn-block btn-lg btn-default"><i>R</i> New Status</div>
+    </a>
+  </div>
+  <div class="col-xs-6" style="padding-left: 6px;">
+    <a ng-href="">
+      <div class="btn btn-block btn-lg btn-default"><i>I</i> New Media</div>
+    </a>
+  </div>
+</div>
+
+<section class="user-profile">
+  <!-- Profile top section-->
+  <ng-include src="'/views/profile/user-profile-header.partial.html'"></ng-include>
+
+  <div id="profile-feed">
+    <ng-include src="'/views/profile/feed-article.partial.html'"></ng-include>
+    <ng-include src="'/views/profile/feed-article.partial.html'"></ng-include>
+    <ng-include src="'/views/profile/feed-article.partial.html'"></ng-include>
+  </div>
+</section>
