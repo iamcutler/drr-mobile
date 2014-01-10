@@ -59,6 +59,7 @@ app.factory('AuthService', function ($http, $rootScope, $location, $cookieStore,
       console.log(user);
       $cookieStore.put('user_name', user.name);
       $cookieStore.put('username', user.username);
+      $cookieStore.put('user_thumbnail', user.thumbnail);
       $cookieStore.put('user_slug', user.slug);
       $cookieStore.put('user_hash', user.hash);
       $cookieStore.put('isLoggedIn', true);
@@ -66,6 +67,7 @@ app.factory('AuthService', function ($http, $rootScope, $location, $cookieStore,
     clear_user_session: function() {
       $cookieStore.remove('user_name');
       $cookieStore.remove('username');
+      $cookieStore.remove('user_thumbnail');
       $cookieStore.remove('user_slug');
       $cookieStore.remove('user_hash');
       $cookieStore.remove('isLoggedIn');
