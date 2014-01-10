@@ -38,6 +38,14 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         allowLoggedIn: false
       }
     })
+    .state("logout", {
+      parent: "default",
+      url: "/logout",
+      controller: "AuthController",
+      templateUrl: "/views/auth/logout.html",
+      access: {
+        require_user: true
+      }
     })
     // New Feed
     .state("feed", {
