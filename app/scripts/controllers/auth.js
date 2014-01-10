@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('AuthController', function ($scope) {
+app.controller('AuthController', function ($scope, $state, $location, $cookieStore, AuthService) {
   // Login
   if($state.current.name == "login") {
     $scope.login = {};
