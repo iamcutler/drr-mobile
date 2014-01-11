@@ -1,7 +1,7 @@
 <div class="user-profile-header">
   <a ng-href="/#/profile/{{ $stateParams.slug }}/photos">
     <div class="thumbnail">
-      <img ng-src="{{ cdnDomain + '/' + profile.user.avatar || cdnDomain + '/components/com_community/assets/user.png' }}" alt="" />
+      <img ng-src="{{ cdnDomain }}/{{ profile.user.avatar || 'components/com_community/assets/user.png' }}" alt="" />
     </div>
   </a>
 
