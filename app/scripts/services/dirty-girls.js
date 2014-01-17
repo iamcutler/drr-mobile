@@ -3,7 +3,7 @@
 app.factory('DirtyGirlsService', function ($http, $resource, apiPrefix) {
   return {
     get_dirty_girls: function (callback) {
-      $http.get(apiPrefix + '/dirty-girls').
+      $http.post(apiPrefix + '/dirty-girls').
         success(function(data) {
           if(typeof callback === "function") {
             callback(data);
