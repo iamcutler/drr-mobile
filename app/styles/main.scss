@@ -146,6 +146,24 @@ a.menu-link:Link, a.menu-link:Visited {
   }
 }
 
+// Page coming soon icon
+div.coming-soon-icon {
+  width: 200px;
+  height: 200px;
+  color: grey;
+  border: 4px grey solid;
+  padding: 30px;
+  text-align: center;
+  white-space: nowrap;
+  margin: 40px auto;
+  @include border-radius(100px);
+
+  span {
+    color: #F4CB89;
+    font: 150px 'DRRGlyphs';
+  }
+}
+
 // ---------------------- Application Menu ----------------------
 section.application-menu {
   position: absolute;
