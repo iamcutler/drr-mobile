@@ -220,3 +220,17 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       }
     });
 });
+
+// Show page loader when loading resources and views
+app.run(['$rootScope', function($root) {
+  $root.$on('$stateChangeStart', function(e, curr, prev) {
+    if(curr.resolve) {
+      // Show a loading message until promises are not resolved
+      $root.loadingView = true;
+    }
+  });
+  $root.$on('$stateChangeSuccess', function(e, curr, prev) {
+    // Hide loading message
+    $root.loadingView = false;
+  });
+}]);
