@@ -1,0 +1,14 @@
+<ng-include src="'views/shared-partials/navbar.html'"></ng-include>
+
+<section class="dirty-voting">
+  <h3 class="voting-thank-you">Thank you for voting!</h3>
+  <h6 class="voting-end">
+    Current Results!<br />
+    Poll ends: {{ voting.poll.date_end | date:'MM/dd/yyyy' }}
+  </h6>
+  <hr />
+
+  <ul class="voting-options" ng-if="voting">
+    <ng-include ng-repeat="answer in voting.answers | orderBy:predicate" src="'views/voting/result_option.partial.html'"></ng-include>
+  </ul>
+</section>
