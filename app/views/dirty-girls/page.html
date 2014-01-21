@@ -1,3 +1,10 @@
 <ng-include src="'views/shared-partials/navbar.html'"></ng-include>
 
-<h2>{{ dirty_girl.name }}</h2>
+<section class="dirty-girl-page">
+  <h4 ng-if="dirty_girl.type == 0">DIRTY GIRL {{ dirty_girl.campaign_month | uppercase }} {{ dirty_girl.campaign_year | uppercase }}:</h4>
+
+  <ng-include src="'views/dirty-girls/page-thumbnails.partial.html'"></ng-include>
+
+  <h2>About {{ dirty_girl.name }}</h2>
+  {{ dirty_girl.biography }}
+</section>
