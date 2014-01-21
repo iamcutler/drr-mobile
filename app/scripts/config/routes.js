@@ -178,6 +178,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "/views/dirty-girls/index.html",
       access: {
         require_user: true
+      },
+      resolve: {
+        dirty_girls: function(DirtyGirlsService) {
+          return DirtyGirlsService.get_dirty_girls();
+        }
       }
     })
     .state("dirty-girl-page", {
@@ -187,6 +192,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "/views/dirty-girls/page.html",
       access: {
         require_user: true
+      },
+      resolve: {
+        dirty_girls: function($stateParams, DirtyGirlsService) {
+          return DirtyGirlsService.get_girl_by_id($stateParams.id);
+        }
       }
     })
     // Voting
