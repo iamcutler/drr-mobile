@@ -1,12 +1,13 @@
 'use strict';
 
 app.factory('VotingService', function Voting($resource, $q, apiPrefix, AuthService) {
+  var Vote = $resource(apiPrefix + '/dirty-girls/voting/current', { user_hash: AuthService.current_user().hash });
+
   return {
     get_current_polling: function() {
-      var deferred = $q.defer(),
-        CurrentVote = $resource(apiPrefix + '/dirty-girls/voting/current', { user_hash: AuthService.current_user().hash });
+      var deferred = $q.defer();
 
-      CurrentVote.get({}, function(response) {
+      Vote.get({}, function(response) {
         deferred.resolve(response);
       }, function() {
         deferred.reject();
