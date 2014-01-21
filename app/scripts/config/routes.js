@@ -209,8 +209,8 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         require_user: true
       },
       resolve: {
-        votes: function(DirtyGirlsService) {
-          return DirtyGirlsService.get_current_polling();
+        votes: function(VotingService) {
+          return VotingService.get_current_polling();
         }
       }
     })
