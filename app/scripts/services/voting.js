@@ -14,8 +14,14 @@ app.factory('VotingService', function Voting($resource, $q, apiPrefix, AuthServi
 
       return deferred.promise;
     },
-    cast_vote: function() {
-
+    cast_vote: function(id, answer, callback) {
+      // Cast vote
+      var cast = Vote.get({}, function() {
+        cast.id_answer = answer;
+        cast.$save(function(response) {
+          callback(response);
+        });
+      });
     }
   };
 });
