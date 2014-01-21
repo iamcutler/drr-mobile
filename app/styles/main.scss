@@ -629,7 +629,21 @@ section.user-messages {
 // ------------------------------ Voting ----------------------------
 section.dirty-voting {
   padding: 20px;
-  
+
+  h1, h2, h3, h4, h5, h6 {
+    &.voting-thank-you {
+      color: #F4CB89;
+      font: 50px 'halo';
+      text-align: center;
+      margin: 0 0 20px 0;
+    }
+
+    &.voting-end {
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+
   ul.voting-options {
     margin: 0;
     padding: 0;
@@ -667,6 +681,16 @@ section.dirty-voting {
         
         button {
           color: #FFF;
+          width: 90px;
+
+          &.loading {
+            text-indent: -9999px;
+            background: #000 url('/images/loader-sm.gif') center center no-repeat;
+
+            &[disabled] {
+              @include opacity(1.0);
+            }
+          }
         }
       }
     }
