@@ -13,12 +13,10 @@ app.controller('DirtyGirlsController', function ($scope, $state, $stateParams, D
 
   // Dirty girl page
   if($state.current.name == "dirty-girl-page") {
-    // Watch dirty girl scope for changes
-    $scope.$watch('dirty_girls', function() {
-      // Find dirty girl by id and assign to scope
-      if($scope.dirty_girls !== undefined) {
-        $scope.dirty_girl = DirtyGirls.find_by_id($stateParams, $scope.dirty_girls);
-      }
+    // Call dirty girl service to fetch dirty girl data
+    DirtyGirlsService.find_by_id($stateParams.id, function(data) {
+      $scope.title = data.name;
+      $scope.dirty_girl = data;
     });
   }
 });

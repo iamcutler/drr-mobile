@@ -1,9 +1,27 @@
 'use strict';
 
-app.factory('DirtyGirlsService', function ($http, $resource, apiPrefix) {
+app.factory('DirtyGirlsService', function ($resource, apiPrefix, AuthService) {
+  var DirtyGirl = $resource(apiPrefix + '/dirty-girls/:id', {
+    user_hash: AuthService.current_user().hash
+  });
+
   return {
     get_dirty_girls: function (callback) {
-      $http.post(apiPrefix + '/dirty-girls').
+      DirtyGirl.query({}, function(data) {
+        if(typeof callback === "function" && data != undefined) {
+          callback(data);
+        } else {
+          console.log('Error fetching dirty girls');
+        }
+      });
+    },
+    find_by_id: function(id, callback) {
+      var girl = DirtyGirl.get({id: id}, function() {
+        if(typeof callback === "function" && girl != undefined) {
+          callback(girl);
+        }
+      });
+    }
         success(function(data) {
           if(typeof callback === "function") {
             callback(data);
