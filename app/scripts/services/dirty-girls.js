@@ -14,12 +14,12 @@ app.factory('DirtyGirlsService', function ($resource, $q, apiPrefix, AuthService
 
       return deferred.promise;
     },
-    get_girl_by_id: function() {
+    get_girl_by_id: function(id) {
       var deferred = $q.defer(),
           DirtyGirl = $resource(apiPrefix + '/dirty-girls/:id', { user_hash: AuthService.current_user().hash });
 
       // Call service to fetch dirty girl
-      DirtyGirl.get({id: 3}, function(response) {
+      DirtyGirl.get({id: id}, function(response) {
         deferred.resolve(response);
       }, function() {
         deferred.reject();
