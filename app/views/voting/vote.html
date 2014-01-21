@@ -4,4 +4,6 @@
   <ul class="voting-options" ng-if="voting">
     <ng-include ng-repeat="answer in voting.answers" src="'views/voting/vote_option.partial.html'"></ng-include>
   </ul>
+
+  <coming-soon-icon ng-if="voting.length == 0" icon="V" message="Voting coming soon.."></coming-soon-icon>
 </section>

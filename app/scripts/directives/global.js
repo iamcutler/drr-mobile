@@ -66,3 +66,14 @@ app.directive("navigationUser", function() {
     }
   }
 });
+
+app.directive("comingSoonIcon", function() {
+  return {
+    restrict: 'E',
+    scope: {
+      icon: '@',
+      message: '@'
+    },
+    template: '<div class="coming-soon-icon"><span class="clearfix">{{ icon }}</span> {{ message }}</div>'
+  };
+});
