@@ -214,6 +214,21 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
+    // Voting Results
+    .state("vote-results", {
+      parent: "default",
+      url: "/vote/results",
+      controller: "VotingController",
+      templateUrl: "/views/voting/results.html",
+      access: {
+        require_user: true
+      },
+      resolve: {
+        votes: function(VotingService) {
+          return VotingService.get_current_polling();
+        }
+      }
+    })
     // Report bugs/problems
     .state("report-bug", {
       parent: "default",
