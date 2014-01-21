@@ -1,11 +1,7 @@
 <ng-include src="'views/shared-partials/navbar.html'"></ng-include>
 
 <section class="dirty-voting">
-  <ul class="voting-options">
-    <ng-include src="'views/voting/vote_option.partial.html'"></ng-include>
-    <ng-include src="'views/voting/vote_option.partial.html'"></ng-include>
-    <ng-include src="'views/voting/vote_option.partial.html'"></ng-include>
-    <ng-include src="'views/voting/vote_option.partial.html'"></ng-include>
-    <ng-include src="'views/voting/vote_option.partial.html'"></ng-include>
+  <ul class="voting-options" ng-if="voting">
+    <ng-include ng-repeat="answer in voting.answers" src="'views/voting/vote_option.partial.html'"></ng-include>
   </ul>
 </section>

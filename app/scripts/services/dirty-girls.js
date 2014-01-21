@@ -26,20 +26,21 @@ app.factory('DirtyGirlsService', function ($resource, $q, apiPrefix, AuthService
       });
 
       return deferred.promise;
-    }
-    /*get_current_polling: function(callback) {
-      $http.post(apiPrefix + '/dirty-girls/current_voting', { user_hash: AuthService.current_user().hash }).
-        success(function(data) {
-          if(typeof callback === "function") {
-            callback(data);
-          }
-        }).
-        error(function() {
+    },
+    get_current_polling: function() {
+      var deferred = $q.defer(),
+          CurrentVote = $resource(apiPrefix + '/dirty-girls/voting/current', { user_hash: AuthService.current_user().hash });
 
-        });
+      CurrentVote.get({}, function(response) {
+        deferred.resolve(response);
+      }, function() {
+        deferred.reject();
+      });
+
+      return deferred.promise;
     },
     cast_vote: function() {
 
-    }*/
+    }
   };
 });

@@ -207,6 +207,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "/views/voting/vote.html",
       access: {
         require_user: true
+      },
+      resolve: {
+        votes: function(DirtyGirlsService) {
+          return DirtyGirlsService.get_current_polling();
+        }
       }
     })
     // Report bugs/problems

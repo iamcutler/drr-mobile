@@ -1,9 +1,9 @@
 <li>
   <a ng-href="">
     <div class="thumb">
-      <img src="http://image.shutterstock.com/display_pic_with_logo/102804/127420826/stock-photo-man-over-white-background-overreacting-with-hands-on-face-127420826.jpg" />
+      <img ng-src="{{ cdnDomain }}{{ answer.thumbnail }}" />
     </div>
-    <span class="option-title">John Westfield</span>
+    <span class="option-title">{{ answer.name }}</span>
   </a>
   <div class="vote-action pull-right">
     <button type="button" class="btn btn-lg btn-default">Vote</button>
