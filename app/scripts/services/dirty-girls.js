@@ -1,10 +1,11 @@
 'use strict';
 
 app.factory('DirtyGirlsService', function ($resource, $q, apiPrefix, AuthService) {
+  var DirtyGirl = $resource(apiPrefix + '/dirty-girls/:id', { user_hash: AuthService.current_user().hash });
+
   return {
     get_dirty_girls: function () {
-      var deferred = $q.defer(),
-          DirtyGirl = $resource(apiPrefix + '/dirty-girls', { user_hash: AuthService.current_user().hash });
+      var deferred = $q.defer();
 
       DirtyGirl.query({}, function(response) {
         deferred.resolve(response);
@@ -15,8 +16,7 @@ app.factory('DirtyGirlsService', function ($resource, $q, apiPrefix, AuthService
       return deferred.promise;
     },
     get_girl_by_id: function(id) {
-      var deferred = $q.defer(),
-          DirtyGirl = $resource(apiPrefix + '/dirty-girls/:id', { user_hash: AuthService.current_user().hash });
+      var deferred = $q.defer();
 
       // Call service to fetch dirty girl
       DirtyGirl.get({id: id}, function(response) {
