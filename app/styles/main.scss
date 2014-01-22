@@ -954,25 +954,27 @@ section.find-events {
 }
 
 // ---------------------- Report Problems ----------------------
-form[name="report-bug"] {
+section.report-bug {
   padding: 20px;
-  
-  p {
-    // device information notice
-    &.notice {
-      color: #f4cb89;
-      font-size: 14px;
+
+  form[name="reportBug"] {
+    p {
+      // device information notice
+      &.notice {
+        color: #f4cb89;
+        font-size: 14px;
+      }
     }
-  }
-  
-  select, textarea {
-    width: 100%;
-    color: #808285;
-    font-size: 18px;
-    padding: 10px;
-    -webkit-appearance: none;
-    appearance: none;
-    @include border-radius(8px);
+
+    select, textarea {
+      width: 100%;
+      color: #808285;
+      font-size: 18px;
+      padding: 10px;
+      -webkit-appearance: none;
+      appearance: none;
+      @include border-radius(8px);
+    }
   }
 }
 

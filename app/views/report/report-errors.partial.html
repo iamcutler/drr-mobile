@@ -1,0 +1,9 @@
+<div class="row" ng-if="reportSubmitted || reportError">
+  <div class="col-md-12">
+    <div class="alert alert-danger">
+      <div class="col-md-12 error" ng-show="reportBug.category.$error.required && reportSubmitted">&bull; Please select a category.</div>
+      <div class="col-md-12 error" ng-show="reportBug.message.$error.required && reportSubmitted">&bull; Please write a comment about the bug.</div>
+      <div class="col-md-12 error" ng-if="reportError">&bull; {{ reportError }}</div>
+    </div>
+  </div>
+</div>
