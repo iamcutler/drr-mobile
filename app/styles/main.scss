@@ -147,20 +147,21 @@ a.menu-link:Link, a.menu-link:Visited {
 }
 
 // Page coming soon icon
-div.coming-soon-icon {
-  width: 200px;
-  height: 200px;
+div.page-icon {
   color: grey;
-  border: 4px grey solid;
-  padding: 30px;
   text-align: center;
   white-space: nowrap;
   margin: 40px auto;
-  @include border-radius(100px);
 
-  span {
+  div {
+    width: 200px;
+    height: 200px;
     color: #F4CB89;
     font: 150px 'DRRGlyphs';
+    border: 4px grey solid;
+    line-height: 160px;
+    @include border-radius(100px);
+    margin: 20px auto;
   }
 }
 
