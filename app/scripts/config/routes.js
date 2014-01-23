@@ -249,6 +249,16 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         require_user: true
       }
     })
+    // Account settings
+    .state("account-settings", {
+      parent: "default",
+      url: "/account-settings",
+      controller: "UserController",
+      templateUrl: "/views/account/settings.html",
+      access: {
+        require_user: true
+      }
+    })
     // Errors
     .state("profile404", {
       parent: "default",
