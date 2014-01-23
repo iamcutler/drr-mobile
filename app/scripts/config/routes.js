@@ -75,6 +75,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "/views/friend-requests/index.html",
       access: {
         require_user: true
+      },
+      resolve: {
+        requests: function(RequestService) {
+          return RequestService.requests();
+        }
       }
     })
     //Profile
@@ -85,6 +90,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "/views/profile/index.html",
       access: {
         require_user: true
+      },
+      resolve: {
+        profile: function($stateParams, ProfileService) {
+          return ProfileService.getProfileData($stateParams);
+        }
       }
     })
     .state("profile-about", {
