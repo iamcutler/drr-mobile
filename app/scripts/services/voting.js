@@ -1,7 +1,7 @@
 'use strict';
 
-app.factory('VotingService', function Voting($resource, $q, apiPrefix, AuthService) {
-  var Vote = $resource(apiPrefix + '/dirty-girls/voting/current', { user_hash: AuthService.current_user().hash });
+app.factory('VotingService', function Voting($resource, $q, resourceApiPrefix, AuthService) {
+  var Vote = $resource(resourceApiPrefix + '/dirty-girls/voting/current', { user_hash: AuthService.current_user().hash });
 
   return {
     get_current_polling: function() {

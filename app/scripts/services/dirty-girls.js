@@ -1,7 +1,7 @@
 'use strict';
 
-app.factory('DirtyGirlsService', function ($resource, $q, apiPrefix, AuthService) {
-  var DirtyGirl = $resource(apiPrefix + '/dirty-girls/:id', { user_hash: AuthService.current_user().hash });
+app.factory('DirtyGirlsService', function ($resource, $q, resourceApiPrefix, AuthService) {
+  var DirtyGirl = $resource(resourceApiPrefix + '/dirty-girls/:id', { user_hash: AuthService.current_user().hash });
 
   return {
     get_dirty_girls: function () {
