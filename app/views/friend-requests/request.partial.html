@@ -1,17 +1,21 @@
 <div class="friend-request">
-  <a ng-href="">
+  <a ng-href="/#/profile/{{ request.slug }}">
     <div class="thumb">
-      <img src="http://image.shutterstock.com/display_pic_with_logo/102804/127420826/stock-photo-man-over-white-background-overreacting-with-hands-on-face-127420826.jpg" />
+      <img ng-src="{{ cdnDomain }}/{{ request.avatar }}" />
     </div>
   </a>
   <div class="request-actions">
-    <a ng-href=""><span class="user-name">John Westfield</span></a>
+    <a ng-href=""><span class="user-name">{{ request.name }}</span></a>
     <div class="row">
       <div class="col-xs-6" style="padding-right: 10px;">
-        <button type="button" class="btn btn-block btn-lg btn-default" name="" id=""><i>O</i> Accept</button>
+        <button type="button" class="btn btn-block btn-lg btn-default">
+          <i>O</i> Accept
+        </button>
       </div>
       <div class="col-xs-6">
-        <button type="button" class="btn btn-block btn-lg btn-default" name="" id=""><i>X</i> Decline</button>
+        <button type="button" class="btn btn-block btn-lg btn-default" request="{{ request.id }}" decline-friend-request>
+          <i>X</i> Decline
+        </button>
       </div>
     </div>
   </div>
