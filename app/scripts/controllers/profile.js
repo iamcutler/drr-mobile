@@ -1,16 +1,8 @@
 'use strict';
 
-app.controller('ProfileController', function ($scope, $state, $stateParams, $location, ProfileService) {
+app.controller('ProfileController', function ($scope, $state, $stateParams, $location, profile) {
   // Call profile service
-  ProfileService.getProfileData($stateParams, function(data) {
-    if(data === undefined) {
-      // Redirect to 404 profile view if error or not found
-      $location.path("/error/profile/404");
-    } else {
-      // Assign data to profile scope
-      $scope.profile = data;
-    }
-  });
+  $scope.profile = profile;
 
   // Check for current profile state
   if($state.current.name == "profile") {
