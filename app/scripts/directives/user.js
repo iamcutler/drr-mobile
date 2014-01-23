@@ -14,7 +14,6 @@ app.directive('declineFriendRequest', function(RequestService) {
           // Call request decline method in requests service
           RequestService.decline(request, function() {
             element.parent().parent().parent().parent().fadeOut();
-            console.log(decline);
           });
         }
       });
