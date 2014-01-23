@@ -1,7 +1,7 @@
 <div class="friend-request">
   <a ng-href="/#/profile/{{ request.slug }}">
     <div class="thumb">
-      <img ng-src="{{ cdnDomain }}/{{ request.avatar }}" />
+      <img ng-src="{{ cdnDomain }}/{{ request.avatar || 'components/com_community/assets/user.png' }}" />
     </div>
   </a>
   <div class="request-actions">
