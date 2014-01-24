@@ -8,12 +8,12 @@
     <a ng-href=""><span class="user-name">{{ request.name }}</span></a>
     <div class="row">
       <div class="col-xs-6" style="padding-right: 10px;">
-        <button type="button" class="btn btn-block btn-lg btn-default">
+        <button type="button" class="btn btn-block btn-lg btn-default" action="accept" request="{{ request.id }}" friend-request>
           <i>O</i> Accept
         </button>
       </div>
       <div class="col-xs-6">
-        <button type="button" class="btn btn-block btn-lg btn-default" request="{{ request.id }}" decline-friend-request>
+        <button type="button" class="btn btn-block btn-lg btn-default" action="decline" request="{{ request.id }}" friend-request>
           <i>X</i> Decline
         </button>
       </div>
