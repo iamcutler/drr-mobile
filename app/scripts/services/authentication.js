@@ -48,6 +48,7 @@ app.factory('AuthService', function ($http, $rootScope, $location, $cookieStore,
     },
     current_user: function() {
       return {
+        id: $cookieStore.get('user_id'),
         name: $cookieStore.get('user_name'),
         username: $cookieStore.get('username'),
         thumbnail: $cookieStore.get('user_thumbnail'),
@@ -57,6 +58,7 @@ app.factory('AuthService', function ($http, $rootScope, $location, $cookieStore,
     },
     set_user_session: function(user) {
       console.log(user);
+      $cookieStore.put('user_id', user.id);
       $cookieStore.put('user_name', user.name);
       $cookieStore.put('username', user.username);
       $cookieStore.put('user_thumbnail', user.thumbnail);
