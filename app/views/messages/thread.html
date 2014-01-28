@@ -1,0 +1,18 @@
+<ng-include src="'views/shared-partials/navbar.html'"></ng-include>
+
+<section class="message-thread">
+  <ng-include ng-repeat="message in thread.messages" src="'views/messages/thread-message.partial.html'"></ng-include>
+</section>
+
+<div class="add-thread">
+  <form name="AddThreadMessage">
+    <div class="row-fluid">
+      <div class="col-xs-10">
+        <input type="text" name="" />
+      </div>
+      <div class="col-xs-2">
+        <button type="submit">Send</button>
+      </div>
+    </div>
+  </form>
+</div>

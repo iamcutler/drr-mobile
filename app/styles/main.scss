@@ -627,6 +627,92 @@ section.user-messages {
   }
 }
 
+// Message thread
+
+section.message-thread {
+  padding: 20px;
+
+  div.message {
+    margin-bottom: 20px;
+    clear: both;
+
+    div.user-column {
+      float: left;
+      width: 44px;
+      overflow: hidden;
+
+      a.thumb:Link, a.thumb:Visited {
+        background: #FFF;
+        width: 44px;
+        height: 44px;
+        clear: both;
+        overflow: hidden;
+
+        img {
+          min-width: 44px;
+          height: 44px;
+        }
+      }
+
+      div.timestamp {
+        color: red;
+        font-size: 11px;
+        margin-top: 4px;
+        line-height: 14px;
+      }
+    }
+
+    div.body {
+      background: #000 url("/images/ui-bg-texture.jpg") repeat;
+      font-size: 14px;
+      padding: 12px;
+      margin-left: 66px;
+      @include border-radius(6px);
+    }
+
+    &.right {
+      div.user-column {
+        float: right;
+      }
+
+      div.body {
+        margin-left: 0;
+        margin-right: 66px;
+      }
+    }
+  }
+}
+
+div.add-thread {
+  position: fixed;
+  background: #000 url("/images/ui-bg-texture.jpg") repeat;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  box-shadow: 0 0 6px #000;
+
+  .row, .row-fluid {
+    input, button {
+      width: 100%;
+      height: 34px;
+      @include border-radius(6px);
+      border: none;
+    }
+
+    input {
+      padding: 10px;
+    }
+
+    .col-xs-10 {
+      padding-right: 5px;
+    }
+
+    .col-xs-2 {
+      padding-left: 5px;
+    }
+  }
+}
+
 // ------------------------------ Voting ----------------------------
 section.dirty-voting {
   padding: 20px;
