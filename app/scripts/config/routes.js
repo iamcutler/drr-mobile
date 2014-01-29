@@ -65,6 +65,25 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "/views/messages/index.html",
       access: {
         require_user: true
+      },
+      resolve: {
+        messages: function(MessageService) {
+          return MessageService.user_messages();
+        }
+      }
+    })
+    .state("message-thread", {
+      parent: "default",
+      url: "/messages/:id",
+      controller: "MessagesController",
+      templateUrl: "/views/messages/thread.html",
+      access: {
+        require_user: true
+      },
+      resolve: {
+        messages: function($stateParams, MessageService) {
+          return MessageService.message_thread($stateParams.id);
+        }
       }
     })
     // Friend Requests
