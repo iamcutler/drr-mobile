@@ -1,0 +1,10 @@
+<div class="message {{ message.from | MessageStructure:user_id }}">
+  <div class="user-column">
+    <a href="" class="thumb">
+      <img ng-src="{{ message | MessageThumbnail:user_id }}" alt="" />
+    </a>
+  </div>
+
+  <div class="body" ng-bind-html="message.message"></div>
+  <div class="timestamp clearfix" am-time-ago="message.posted_on"></div>
+</div>

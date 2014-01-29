@@ -629,8 +629,13 @@ section.user-messages {
 
 // Message thread
 
+div#topThread {
+  position: absolute;
+  top: 0;
+}
+
 section.message-thread {
-  padding: 20px;
+  padding: 20px 20px 80px 20px;
 
   div.message {
     margin-bottom: 20px;
@@ -653,13 +658,14 @@ section.message-thread {
           height: 44px;
         }
       }
+    }
 
-      div.timestamp {
-        color: red;
-        font-size: 11px;
-        margin-top: 4px;
-        line-height: 14px;
-      }
+    div.timestamp {
+      color: red;
+      font-size: 11px;
+      margin-top: 4px;
+      line-height: 14px;
+      text-align: right;
     }
 
     div.body {
@@ -678,6 +684,10 @@ section.message-thread {
       div.body {
         margin-left: 0;
         margin-right: 66px;
+      }
+
+      div.timestamp {
+        text-align: left;
       }
     }
   }

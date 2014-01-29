@@ -1,14 +1,15 @@
 <ng-include src="'views/shared-partials/navbar.html'"></ng-include>
 
+<div id="topThread"></div>
 <section class="message-thread">
   <ng-include ng-repeat="message in thread.messages" src="'views/messages/thread-message.partial.html'"></ng-include>
 </section>
 
 <div class="add-thread">
-  <form name="AddThreadMessage">
+  <form name="AddThreadMessage" ng-submit="processNewMessage(AddThreadMessage)" novalidate>
     <div class="row-fluid">
       <div class="col-xs-10">
-        <input type="text" name="" />
+        <input type="text" name="" ng-model="new_msg.message" required />
       </div>
       <div class="col-xs-2">
         <button type="submit">Send</button>
