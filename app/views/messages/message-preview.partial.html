@@ -4,7 +4,7 @@
       <img ng-src="{{ cdnDomain }}/{{ message.user.avatar || 'components/com_community/assets/user.png' }}" />
     </div>
     <div class="message-column">
-      <span class="timestamp">{{ message.message.posted_on | date: 'MMM dd @ h:mma' }}</span>
+      <span class="timestamp" am-time-ago="message.message.posted_on"></span>
       <span class="user-name">{{ message.user.name }}</span><br />
       <p>
         {{ message.message.message | substr: 0:150 }}
