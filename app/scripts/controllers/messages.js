@@ -8,8 +8,8 @@ app.controller('MessagesController', function ($scope, $state, $location, $ancho
 
     // Set message timestamps to js date local times
     // Detect user messages and replace with user thumbnail
-    angular.forEach($scope.messages.messages, function(val, key) {
-      val.posted_on = moment.utc(val.posted_on).local();
+    angular.forEach($scope.messages, function(val, key) {
+      val.message.posted_on = moment.utc(val.message.posted_on).local();
     });
   }
 
