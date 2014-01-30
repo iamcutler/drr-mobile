@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: report', function () {
+xdescribe('Directive: report', function () {
 
   // load the directive's module
   beforeEach(module('DRRMobileApp'));

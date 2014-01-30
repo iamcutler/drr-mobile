@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: vote', function () {
+xdescribe('Directive: vote', function () {
 
   // load the directive's module
   beforeEach(module('DRRMobileApp'));

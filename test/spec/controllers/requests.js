@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: RequestsCtrl', function () {
+xdescribe('Controller: RequestsCtrl', function () {
 
   // load the controller's module
   beforeEach(module('DRRMobileApp'));

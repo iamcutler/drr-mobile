@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: MediaController', function () {
+xdescribe('Controller: MediaController', function () {
 
   // load the controller's module
   beforeEach(module('DRRMobileApp'));

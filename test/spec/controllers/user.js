@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: UserCtrl', function () {
+xdescribe('Controller: UserCtrl', function () {
 
   // load the controller's module
   beforeEach(module('DRRMobileApp'));

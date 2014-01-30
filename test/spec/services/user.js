@@ -1,18 +1,18 @@
 'use strict';
 
-xdescribe('Service: Voting', function () {
+xdescribe('Service: User', function () {
 
   // load the service's module
   beforeEach(module('DrrmobileApp'));
 
   // instantiate service
-  var Voting;
-  beforeEach(inject(function (_Voting_) {
-    Voting = _Voting_;
+  var User;
+  beforeEach(inject(function (_User_) {
+    User = _User_;
   }));
 
   it('should do something', function () {
-    expect(!!Voting).toBe(true);
+    expect(!!User).toBe(true);
   });
 
 });

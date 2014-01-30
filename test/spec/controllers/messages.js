@@ -1,22 +1,26 @@
 'use strict';
 
-describe('Controller: MessagesController', function () {
+xdescribe('Controller: MessagesController', function () {
 
   // load the controller's module
   beforeEach(module('DRRMobileApp'));
 
   var MessagesController,
-    scope;
+      scope,
+      state;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function ($controller, $rootScope, $state) {
     scope = $rootScope.$new();
+    state = $state;
     MessagesController = $controller('MessagesController', {
       $scope: scope
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should have messages', function () {
+    if(state.current.name == "messages") {
+      expect(scope.title).not.toBe(null);
+    }
   });
 });

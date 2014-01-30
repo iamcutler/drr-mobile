@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: EventsController', function () {
+xdescribe('Controller: EventsController', function () {
 
   // load the controller's module
   beforeEach(module('DRRMobileApp'));

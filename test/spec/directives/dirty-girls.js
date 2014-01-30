@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: toggleDirtyGirls', function () {
+xdescribe('Directive: toggleDirtyGirls', function () {
 
   // load the directive's module
   beforeEach(module('DRRMobileApp'));

@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: VotingController', function () {
+xdescribe('Controller: VotingController', function () {
 
   // load the controller's module
   beforeEach(module('DRRMobileApp'));

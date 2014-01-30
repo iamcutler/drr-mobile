@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: ReportController', function () {
+xdescribe('Controller: ReportController', function () {
 
   // load the controller's module
   beforeEach(module('DRRMobileApp'));

@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Service: FriendRequests', function () {
+xdescribe('Service: FriendRequests', function () {
 
   // load the service's module
   beforeEach(module('DrrmobileApp'));

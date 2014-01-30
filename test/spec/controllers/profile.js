@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: ProfileController', function () {
+xdescribe('Controller: ProfileController', function () {
 
   // load the controller's module
   beforeEach(module('DRRMobileApp'));
