@@ -271,7 +271,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     // Account settings
     .state("account-settings", {
       parent: "default",
-      url: "/account-settings",
+      url: "/preferences",
       controller: "UserController",
       templateUrl: "/views/account/settings.html",
       access: {
