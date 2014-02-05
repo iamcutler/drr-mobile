@@ -5,10 +5,9 @@ app.factory('ProfileService', function ($http, $q, apiPrefix, AuthService) {
     getProfileData: function (params) {
       var deferred = $q.defer();
 
-      $http.get(apiPrefix + "/profile/" + params.slug + "?user_hash=" + AuthService.current_user().hash).
+      $http.get(apiPrefix + "/user/profile/" + params.slug + "?user_hash=" + AuthService.current_user().hash).
         success(function(response) {
-          console.log(response);
-          deferred.resolve();
+          deferred.resolve(response);
         }).
         error(function() {
           deferred.reject();
