@@ -1,10 +1,12 @@
 <ng-include src="'views/shared-partials/navbar.html'"></ng-include>
 
 <section id="user-albums">
-  <div class="row">
-    <a ng-href="/#/profile/{{ $stateParams.slug }}/photos/{{ album.id }}" ng-repeat="album in profile.media.photo_albums">
+  <div class="row photo-album" ng-repeat="album in albums" ng-if="album.permissions != '40' || profile.relation.friends == 'true' && album.permission != '40' || profile.relation.self == true && album.permissions == '40'">
+    <a ng-href="/#/profile/{{ $stateParams.slug }}/photos/{{ album.id }}">
       <div class="col-xs-12 user-album">
-        <div class="thumbnail"></div>
+        <div class="thumbnail">
+          <img ng-src="{{ cdnDomain }}/{{ album.thumbnail || 'components/com_community/assets/user.png' }}" alt="" />
+        </div>
         <span class="album-name">{{ album.name }}</span>
       </div>
     </a>

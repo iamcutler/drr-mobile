@@ -113,7 +113,8 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         profile: function($stateParams, ProfileService) {
           return ProfileService.getProfileData($stateParams);
-        }
+        },
+        content: function() {}
       }
     })
     .state("profile-about", {
@@ -123,7 +124,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "/views/profile/about.html",
       access: {
         require_user: true
-      }
+      },
+      resolve: {
+        profile: function() {}
+      },
+      content: function() {}
     })
     .state("profile-friends", {
       parent: "default",
@@ -132,15 +137,31 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "/views/profile/friends.html",
       access: {
         require_user: true
+      },
+      resolve: {
+        profile: function($stateParams, ProfileService) {
+          return ProfileService.getProfileData($stateParams);
+        },
+        content: function($stateParams, ProfileService) {
+          return ProfileService.user_friends($stateParams);
+        }
       }
     })
     .state("profile-albums", {
       parent: "default",
-      url: "/profile/:slug/photos",
+      url: "/profile/:slug/albums",
       controller: "ProfileController",
       templateUrl: "/views/profile/albums.html",
       access: {
         require_user: true
+      },
+      resolve: {
+        profile: function($stateParams, ProfileService) {
+          return ProfileService.getProfileData($stateParams);
+        },
+        content: function($stateParams, ProfileService) {
+          return ProfileService.user_albums($stateParams);
+        }
       }
     })
     .state("profile-photos", {

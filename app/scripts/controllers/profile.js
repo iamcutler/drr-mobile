@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('ProfileController', function ($scope, $state, $stateParams, $location, profile) {
+app.controller('ProfileController', function ($scope, $state, $stateParams, $location, profile, content) {
   // Call profile service
   $scope.profile = profile;
 
@@ -14,17 +14,18 @@ app.controller('ProfileController', function ($scope, $state, $stateParams, $loc
 
   // About
   if($state.current.name == "profile-about") {
-
+    $scope.title = "About" + $scope.profile.user.name;
   }
 
   // Friends
   if($state.current.name == "profile-friends") {
-    $scope.title = "iamcutler friends";
+    $scope.title = $scope.profile.user.name + "'s friends";
   }
   
   // Albums
   if($state.current.name == "profile-albums") {
-    $scope.title = "iamcutler albums";
+    $scope.title = $scope.profile.user.name + "'s albums";
+    $scope.albums = content;
   }
 
   // Photos

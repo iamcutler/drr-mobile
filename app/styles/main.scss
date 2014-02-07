@@ -964,6 +964,10 @@ section#user-albums {
   padding: 20px;
 
   .row, .row-fluid {
+    &.photo-album {
+      margin-bottom: 10px;
+    }
+
     .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, 
     .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
       &.user-album {
@@ -973,15 +977,15 @@ section#user-albums {
 
         div.thumbnail {
           float: left;
-          width: 100px;
-          height: 100px;
+          width: 60px;
+          height: 60px;
           margin: 0 20px 0 0;
         }  
 
         span.album-name {
           float: left;
-          font-size: 20px;
-          padding-top: 34px;
+          font-size: 18px;
+          padding-top: 16px;
         }
       }
     }
