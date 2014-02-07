@@ -23,14 +23,15 @@ app.controller('ProfileController', function ($scope, $state, $stateParams, $loc
   }
   
   // Albums
-  if($state.current.name == "profile-albums") {
+  if($state.current.name == "photo-albums") {
     $scope.title = $scope.profile.user.name + "'s albums";
     $scope.albums = content;
   }
 
   // Photos
-  if($state.current.name == "profile-photos") {
-    $scope.title = "iamcutler photos";
+  if($state.current.name == "album-photos") {
+    $scope.title = content.name;
+    $scope.photos = content;
   }
 
   // Videos

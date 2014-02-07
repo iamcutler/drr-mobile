@@ -147,9 +147,9 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
-    .state("profile-albums", {
+    .state("photo-albums", {
       parent: "default",
-      url: "/profile/:slug/albums",
+      url: "/profile/:slug/photo_albums",
       controller: "ProfileController",
       templateUrl: "/views/profile/albums.html",
       access: {
@@ -164,13 +164,21 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
-    .state("profile-photos", {
+    .state("album-photos", {
       parent: "default",
-      url: "/profile/:slug/photos/:id",
+      url: "/profile/:slug/album/:id",
       controller: "ProfileController",
       templateUrl: "/views/profile/photos.html",
       access: {
         require_user: true
+      },
+      resolve: {
+        profile: function($stateParams, ProfileService) {
+          return ProfileService.getProfileData($stateParams);
+        },
+        content: function($stateParams, ProfileService) {
+          return ProfileService.album_photos($stateParams);
+        }
       }
     })
     .state("profile-videos", {
