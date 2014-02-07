@@ -4,27 +4,26 @@
       <img ng-src="{{ cdnDomain }}/{{ profile.user.avatar || 'components/com_community/assets/user.png' }}" alt="" />
     </div>
   </a>
-
   <div class="clearfix"></div>
 </div>
 
-<div class="row-fluid user-activities">
+<div class="row-fluid user-activities" ng-if="profile.profile.settings.privacyProfileView != '40' && profile.relation.friends == true || profile.relation.self == true">
   <div class="col-xs-3">
     <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/about" icon="A" title="About"></navigation-item>
   </div>
   <div class="col-xs-3">
-    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/friends" icon="P" title="Friends ({{ profile.friends.length | number }})"></navigation-item>
+    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/friends" icon="P" title="Friends ({{ profile.profile.counts.friends | number }})"></navigation-item>
   </div>
   <div class="col-xs-3">
-    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/photos" icon="H" title="Photos ({{ profile.media.photos.length | number }})"></navigation-item>
+    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/photo_albums" icon="H" title="Photos ({{ profile.profile.counts.photos | number }})"></navigation-item>
   </div>
   <div class="col-xs-3">
-    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/videos" icon="Q" title="Videos ({{ profile.media.videos.length | number }})"></navigation-item>
+    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/videos" icon="Q" title="Videos ({{ profile.profile.counts.videos | number }})"></navigation-item>
   </div>
   <div class="col-xs-3">
-    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/events" icon="E" title="Events ({{ profile.events.length | number }})"></navigation-item>
+    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/events" icon="E" title="Events ({{ profile.profile.counts.events | number }})"></navigation-item>
   </div>
   <div class="col-xs-3">
-    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/groups" icon="U" title="Groups ({{ profile.groups.length | number }})"></navigation-item>
+    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/groups" icon="U" title="Groups ({{ profile.profile.counts.groups | number }})"></navigation-item>
   </div>
 </div>
