@@ -42,6 +42,20 @@ app.factory('ProfileService', function ($http, $q, apiPrefix, AuthService) {
         });
 
       return deferred.promise;
+    },
+    album_photos: function(params) {
+      var deferred = $q.defer();
+
+      $http.get(apiPrefix + "/user/profile/album/" + params.id + "?user_hash=" + AuthService.current_user().hash).
+        success(function(response) {
+          deferred.resolve(response);
+        }).
+        error(function() {
+          deferred.reject();
+          console.log('Error fetching user photos');
+        });
+
+      return deferred.promise;
     }
   };
 });
