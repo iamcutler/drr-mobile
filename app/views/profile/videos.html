@@ -1,1 +1,13 @@
-<ng-include src="'views/shared-partials/navbar.html'"></ng-include>
+<ng-include src="'views/shared-partials/navbar-back.html'"></ng-include>
+
+<section id="user-videos">
+  <div class="row-fluid">
+    <div class="col-xs-4" ng-repeat="video in videos" ng-if="video.permissions == '0' || profile.relation.friends == true && video.permissions == '30' || profile.relation.self == true && video.permissions == '40' || profile.relation.self == true">
+      <div class="thumbnail">
+        <a ng-href=""><img ng-src="{{ cdnDomain }}/{{ video.thumb }}" alt="" /></a>
+      </div>
+    </div>
+  </div>
+
+  <page-icon ng-if="videos.length == 0" icon="Q" message="No current videos."></page-icon>
+</section>
