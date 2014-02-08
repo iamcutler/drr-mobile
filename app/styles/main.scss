@@ -995,6 +995,17 @@ section#user-albums {
 // User Photos
 section#user-photos {
   padding: 20px;
+
+  // Override bootstrap thumbnail styling
+  div.thumbnail {
+    padding: 0;
+    @include border-radius(0);
+    overflow: hidden;
+
+    img {
+      min-width: 100%;
+    }
+  }
 }
 
 // ------------------------------ Events ----------------------------
