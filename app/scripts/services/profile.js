@@ -46,7 +46,7 @@ app.factory('ProfileService', function ($http, $q, apiPrefix, AuthService) {
     album_photos: function(params) {
       var deferred = $q.defer();
 
-      $http.get(apiPrefix + "/user/profile/album/" + params.id + "?user_hash=" + AuthService.current_user().hash).
+      $http.get(apiPrefix + "/user/profile/album/" + params.slug + "/" + params.id + "?user_hash=" + AuthService.current_user().hash).
         success(function(response) {
           deferred.resolve(response);
         }).
