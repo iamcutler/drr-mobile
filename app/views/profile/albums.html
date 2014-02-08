@@ -1,4 +1,4 @@
-<ng-include src="'views/shared-partials/navbar.html'"></ng-include>
+<ng-include src="'views/shared-partials/navbar-back.html'"></ng-include>
 
 <section id="user-albums">
   <div class="row photo-album" ng-repeat="album in albums" ng-if="album.permissions != '40' || profile.relation.friends == 'true' && album.permission != '40' || profile.relation.self == true && album.permissions == '40'">
