@@ -32,6 +32,11 @@ app.controller('ProfileController', function ($scope, $state, $stateParams, $loc
   if($state.current.name == "album-photos") {
     $scope.title = content.name;
     $scope.photos = content;
+
+    // Redirect if private album only to self or correct owner
+    if(content.permission == '40' && profile.relation.self != true || content.album_owner == false) {
+      window.history.back();
+    }
   }
 
   // Videos
