@@ -188,6 +188,14 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "/views/profile/videos.html",
       access: {
         require_user: true
+      },
+      resolve: {
+        profile: function($stateParams, ProfileService) {
+          return ProfileService.getProfileData($stateParams);
+        },
+        content: function($stateParams, ProfileService) {
+          return ProfileService.user_videos($stateParams);
+        }
       }
     })
     .state("profile-events", {

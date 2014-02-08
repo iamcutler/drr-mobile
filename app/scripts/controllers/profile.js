@@ -41,7 +41,8 @@ app.controller('ProfileController', function ($scope, $state, $stateParams, $loc
 
   // Videos
   if($state.current.name == "profile-videos") {
-
+    $scope.title = $scope.profile.user.name + "'s videos";
+    $scope.videos = content;
   }
 
   // Events

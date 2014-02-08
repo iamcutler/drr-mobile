@@ -24,7 +24,7 @@ app.factory('ProfileService', function ($http, $q, apiPrefix, AuthService) {
         }).
         error(function() {
           deferred.reject();
-          console.log('Error fetching profile service: User friends');
+          console.error('Error fetching profile service: User friends');
         });
 
       return deferred.promise;
@@ -38,7 +38,7 @@ app.factory('ProfileService', function ($http, $q, apiPrefix, AuthService) {
         }).
         error(function() {
           deferred.reject();
-          console.log('Error fetching profile service: User photo albums');
+          console.error('Error fetching profile service: User photo albums');
         });
 
       return deferred.promise;
@@ -52,7 +52,20 @@ app.factory('ProfileService', function ($http, $q, apiPrefix, AuthService) {
         }).
         error(function() {
           deferred.reject();
-          console.log('Error fetching user photos');
+          console.error('Error fetching profile service: User photos');
+        });
+
+      return deferred.promise;
+    },
+    user_videos: function(params) {
+      var deferred = $q.defer();
+
+      $http.get(apiPrefix + "/user/profile/videos/" + params.slug + "?user_hash=" + AuthService.current_user().hash).
+        success(function(response) {
+          deferred.resolve(response);
+        }).
+        error(function() {
+          console.error('Error fetching profile service: User videos');
         });
 
       return deferred.promise;
