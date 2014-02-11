@@ -1008,6 +1008,46 @@ section#user-photos {
   }
 }
 
+// User Videos
+section#user-videos {
+  padding: 20px;
+
+  // Override bootstrap thumbnail styling
+  div.thumbnail {
+    padding: 0;
+    @include border-radius(0);
+    overflow: hidden;
+
+    img {
+      min-width: 100%;
+    }
+  }
+}
+
+// User groups
+section#user-groups {
+  padding: 20px;
+
+  div.group {
+    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    @include border-radius(8px);
+    padding: 10px;
+    margin-bottom: 10px;
+
+    div.thumbnail {
+      float: left;
+      width: 60px;
+      height: 60px;
+      margin: 0 16px 0 0;
+    }
+
+    span {
+      float: left;
+      margin-top: 18px;
+    }
+  }
+}
+
 // ------------------------------ Events ----------------------------
 div.events-map {
   background: #FFF;
