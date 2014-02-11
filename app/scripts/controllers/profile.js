@@ -13,23 +13,23 @@ app.controller('ProfileController', function ($scope, $state, $stateParams, $loc
   }
 
   // About
-  if($state.current.name == "profile-about") {
+  if($state.current.name == "profile.about") {
     $scope.title = "About" + $scope.profile.user.name;
   }
 
   // Friends
-  if($state.current.name == "profile-friends") {
+  if($state.current.name == "profile.friends") {
     $scope.title = $scope.profile.user.name + "'s friends";
   }
   
   // Albums
-  if($state.current.name == "photo-albums") {
+  if($state.current.name == "profile.albums") {
     $scope.title = $scope.profile.user.name + "'s albums";
     $scope.albums = content;
   }
 
   // Photos
-  if($state.current.name == "album-photos") {
+  if($state.current.name == "profile.albums.photos") {
     $scope.title = content.name;
     $scope.photos = content;
 
@@ -40,18 +40,17 @@ app.controller('ProfileController', function ($scope, $state, $stateParams, $loc
   }
 
   // Videos
-  if($state.current.name == "profile-videos") {
+  if($state.current.name == "profile.videos") {
     $scope.title = $scope.profile.user.name + "'s videos";
     $scope.videos = content;
   }
 
   // Events
-  if($state.current.name == "profile-events") {
-
+  if($state.current.name == "profile.events") {
   }
 
   // Groups
-  if($state.current.name == "profile-groups") {
+  if($state.current.name == "profile.groups") {
     $scope.title = $scope.profile.user.name + "'s groups";
     $scope.groups = content;
   }

@@ -117,7 +117,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         content: function() {}
       }
     })
-    .state("profile-about", {
+    .state("profile.about", {
       parent: "default",
       url: "/profile/:slug/about",
       controller: "ProfileController",
@@ -130,7 +130,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       },
       content: function() {}
     })
-    .state("profile-friends", {
+    .state("profile.friends", {
       parent: "default",
       url: "/profile/:slug/friends",
       controller: "ProfileController",
@@ -147,7 +147,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
-    .state("photo-albums", {
+    .state("profile.albums", {
       parent: "default",
       url: "/profile/:slug/photo_albums",
       controller: "ProfileController",
@@ -164,7 +164,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
-    .state("album-photos", {
+    .state("profile.albums.photos", {
       parent: "default",
       url: "/profile/:slug/album/:id",
       controller: "ProfileController",
@@ -181,7 +181,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
-    .state("profile-videos", {
+    .state("profile.videos", {
       parent: "default",
       url: "/profile/:slug/videos",
       controller: "ProfileController",
@@ -198,7 +198,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
-    .state("profile-events", {
+    .state("profile.events", {
       parent: "default",
       url: "/profile/:slug/events",
       controller: "ProfileController",
@@ -213,7 +213,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         content: function() {}
       }
     })
-    .state("profile-groups", {
+    .state("profile.groups", {
       parent: "default",
       url: "/profile/:slug/groups",
       controller: "ProfileController",
