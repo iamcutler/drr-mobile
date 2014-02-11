@@ -1,1 +1,13 @@
-<ng-include src="'views/shared-partials/navbar.html'"></ng-include>
+<ng-include src="'views/shared-partials/navbar-back.html'"></ng-include>
+
+<section id="user-groups">
+  <a ng-href="/#/groups/{{ group.id }}" ng-repeat="group in groups">
+    <div class="group">
+      <div class="thumbnail">
+        <img ng-src="{{ cdnDomain }}/{{ group.thumbnail || imgPlaceholder }}" alt="" />
+      </div>
+      <span>{{ group.name }}</span>
+      <div class="clearfix"></div>
+    </div>
+  </a>
+</section>
