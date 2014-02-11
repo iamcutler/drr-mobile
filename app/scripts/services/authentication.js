@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('AuthService', function ($http, $rootScope, $location, $cookieStore, $state, apiPrefix) {
+app.factory('AuthService', function ($http, $rootScope, $cookieStore, $state, apiPrefix) {
   return {
     login: function(data, callback) {
       $http.post(apiPrefix + "/user/login", data).
@@ -16,7 +16,7 @@ app.factory('AuthService', function ($http, $rootScope, $location, $cookieStore,
       $cookieStore.remove('user_hash');
       $cookieStore.put('isLoggedIn', false);
       // Redirect to login screen
-      $location.path('/login');
+      $state.go('login');
     },
     check_username_uniqueness: function(username, callback) {
       $http.post(apiPrefix + '/check/username/' + username, {}).
@@ -38,12 +38,12 @@ app.factory('AuthService', function ($http, $rootScope, $location, $cookieStore,
     check_user_access: function() {
       // Check if required user and logged in
       if($state.current.access.require_user && $cookieStore.get('user_hash') === undefined) {
-        $location.path('/login');
+        $state.go('login');
       }
 
       // Check if current user can access current controller
       if(!$state.current.access.require_user && !$state.current.access.allowLoggedIn && $cookieStore.get('user_hash') !== undefined) {
-        $location.path('/feed');
+        $state.go('feed');
       }
     },
     current_user: function() {
