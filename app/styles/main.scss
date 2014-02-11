@@ -1048,6 +1048,45 @@ section#user-groups {
   }
 }
 
+// ------------------------------ Groups ----------------------------
+section#group {
+  padding: 20px;
+
+  // Header
+  div.group-header {
+    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    color: #FFF;
+    padding: 10px;
+    @include border-radius(6px);
+    @include text-shadow(0 0 6px #000);
+
+    div.thumbnail {
+      float: left;
+      width: 180px;
+      height: 120px;
+      margin: 0 16px 0 0;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        min-height: 100%;
+      }
+    }
+
+    span {
+      color: #f3ca8a;
+    }
+
+    a:link, a:visited {
+      color: #f3ca8a;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
 // ------------------------------ Events ----------------------------
 div.events-map {
   background: #FFF;

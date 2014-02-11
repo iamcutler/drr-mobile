@@ -231,6 +231,21 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       }
     })
     // Events
+    // -------------------- Groups --------------------
+    .state("group", {
+      parent: "default",
+      url: "/groups/:id",
+      controller: "GroupController",
+      templateUrl: "/views/groups/index.html",
+      access: {
+        require_user: true
+      },
+      resolve: {
+        group: function($stateParams, GroupService) {
+          return GroupService.find_group($stateParams.id);
+        }
+      }
+    })
     .state("search-events", {
       parent: "default",
       url: "/search-events",

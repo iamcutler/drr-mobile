@@ -1,0 +1,20 @@
+<ng-include src="'views/shared-partials/navbar.html'"></ng-include>
+
+<section id="group">
+  <div class="group-header">
+    <a ng-href="">
+      <div class="thumbnail">
+        <img ng-src="{{ cdnDomain }}/{{ group.avatar || imgPlaceholder }}" alt="" />
+      </div>
+    </a>
+    <div class="group-info">
+      Category: <span>{{ group.category }}</span><br />
+      Created: <span am-time-ago="group.created"></span><br />
+      Group Admin(s):<br />
+      <a ng-href="/#/profile/{{ member.slug }}" ng-repeat="member in group.members" ng-if="member.permissions == 1">
+        {{ member.name }}
+      </a>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</section>
