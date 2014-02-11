@@ -4,7 +4,7 @@
   <div class="row-fluid">
     <div class="col-xs-4" ng-repeat="video in videos" ng-if="video.permissions == '0' || profile.relation.friends == true && video.permissions == '30' || profile.relation.self == true && video.permissions == '40' || profile.relation.self == true">
       <div class="thumbnail">
-        <a ng-href=""><img ng-src="{{ cdnDomain }}/{{ video.thumb || 'components/com_community/assets/user.png' }}" alt="" /></a>
+        <a ng-href=""><img ng-src="{{ cdnDomain }}/{{ video.thumb || imgPlaceholder }}" alt="" /></a>
       </div>
     </div>
   </div>
