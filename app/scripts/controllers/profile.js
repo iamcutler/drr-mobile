@@ -52,6 +52,7 @@ app.controller('ProfileController', function ($scope, $state, $stateParams, $loc
 
   // Groups
   if($state.current.name == "profile-groups") {
-
+    $scope.title = $scope.profile.user.name + "'s groups";
+    $scope.groups = content;
   }
 });
