@@ -205,6 +205,12 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "/views/profile/events.html",
       access: {
         require_user: true
+      },
+      resolve: {
+        profile: function($stateParams, ProfileService) {
+          return ProfileService.getProfileData($stateParams);
+        },
+        content: function() {}
       }
     })
     .state("profile-groups", {
