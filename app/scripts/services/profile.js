@@ -69,6 +69,20 @@ app.factory('ProfileService', function ($http, $q, apiPrefix, AuthService) {
         });
 
       return deferred.promise;
+    },
+    user_groups: function(params) {
+      var deferred = $q.defer();
+
+      $http.get(apiPrefix + "/user/profile/groups/" + params.slug + "?user_hash=" + AuthService.current_user().hash).
+        success(function(response) {
+          deferred.resolve(response);
+        }).
+        error(function() {
+          console.error('Error fetching profile service: user groups');
+          deferred.reject();
+        });
+
+      return deferred.promise;
     }
   };
 });

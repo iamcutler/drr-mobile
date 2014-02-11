@@ -214,6 +214,14 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "/views/profile/groups.html",
       access: {
         require_user: true
+      },
+      resolve: {
+        profile: function($stateParams, ProfileService) {
+          return ProfileService.getProfileData($stateParams);
+        },
+        content: function($stateParams, ProfileService) {
+          return ProfileService.user_groups($stateParams);
+        }
       }
     })
     // Events
