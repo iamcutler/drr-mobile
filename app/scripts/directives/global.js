@@ -77,3 +77,27 @@ app.directive("pageIcon", function() {
     template: '<div class="page-icon"><div class="clearfix">{{ icon }}</div>{{ message }}</div>'
   };
 });
+
+app.directive("likeThis", function(LikeService) {
+  return {
+    restrict: 'E',
+    scope: {
+      model: '=',
+      element: '@',
+      id: '@'
+    },
+    replace: true,
+    template: '<a href="javascript:void(0);">Like</a>',
+    link: function(scope, elem, attrs) {
+      // On click, fetch data to assign correct likes
+      elem.bind('click', function() {
+        var like = LikeService.like(scope.element, scope.id);
+        like.then(function(response) {
+          // Update model scope binding
+          scope.model.stats.likes = response.like.likes;
+          scope.model.stats.dislikes = response.like.dislikes;
+        });
+      });
+    }
+  };
+});
