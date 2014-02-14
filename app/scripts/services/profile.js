@@ -83,6 +83,20 @@ app.factory('ProfileService', function ($http, $q, apiPrefix, AuthService) {
         });
 
       return deferred.promise;
+    },
+    user_events: function(params) {
+      var defer = $q.defer();
+
+      $http.get(apiPrefix + "/user/profile/events/" + params.slug + "?user_hash=" + AuthService.current_user().hash)
+        .success(function(response) {
+          defer.resolve(response);
+        })
+        .error(function() {
+          console.error('Error fetching profile service: user_events');
+          defer.reject();
+        });
+
+      return defer.promise;
     }
   };
 });
