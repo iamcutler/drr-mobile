@@ -1,6 +1,6 @@
 'use strict';
 
-app.service('EventService', function EventService($resource, $q, resourceApiPrefix, AuthService) {
+app.service('EventService', function EventService($http, $resource, $q, apiPrefix, resourceApiPrefix, AuthService) {
   var resource = $resource(resourceApiPrefix + "/user/events/:id", {
     id: '@id',
     user_hash: AuthService.current_user().hash
@@ -16,6 +16,20 @@ app.service('EventService', function EventService($resource, $q, resourceApiPref
         console.error('Error fetching events service: find_event');
         defer.reject();
       });
+
+      return defer.promise;
+    },
+    activity: function(id, offset) {
+      var defer = $q.defer();
+
+      $http.get(apiPrefix + "/user/activity/event?id=" + id + "&offset=" + offset + "&user_hash=" + AuthService.current_user().hash).
+        success(function(response) {
+          defer.resolve(response);
+        }).
+        error(function() {
+          defer.reject();
+          console.error('Error fetching event activity');
+        });
 
       return defer.promise;
     }
