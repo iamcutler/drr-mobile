@@ -48,3 +48,11 @@
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity)";
   filter: alpha(opacity=$opacity);
 }
+
+@mixin text-shadow($shadow) {
+  -webkit-text-shadow: $shadow;
+     -moz-text-shadow: $shadow;
+       -o-text-shadow: $shadow;
+      -ms-text-shadow: $shadow;
+          text-shadow: $shadow;
+}
