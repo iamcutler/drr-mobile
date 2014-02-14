@@ -210,7 +210,9 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         profile: function($stateParams, ProfileService) {
           return ProfileService.getProfileData($stateParams);
         },
-        content: function() {}
+        content: function($stateParams, ProfileService) {
+          return ProfileService.user_events($stateParams);
+        }
       }
     })
     .state("profile.groups", {
