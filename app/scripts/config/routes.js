@@ -101,7 +101,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
-    //Profile
+    // ---------------- Profile ------------------
     .state("profile", {
       parent: "default",
       url: "/profile/:slug",
@@ -230,7 +230,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
-    // Events
     // -------------------- Groups --------------------
     .state("group", {
       parent: "default",
@@ -270,7 +269,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         require_user: true
       }
     })
-    // Media
+    // -------------------- Media --------------------
     .state("media", {
       parent: "default",
       url: "/media",
@@ -280,7 +279,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         require_user: true
       }
     })
-    // Dirty Girls
+    // -------------------- Dirty Girls --------------------
     .state("dirty-girls", {
       parent: "default",
       url: "/dirty-girls",
@@ -309,7 +308,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
-    // Voting
+    // -------------------- Voting --------------------
     .state("vote", {
       parent: "default",
       url: "/vote",
@@ -339,7 +338,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
-    // Report bugs/problems
+    // -------------------- Report bugs/problems --------------------
     .state("report-bug", {
       parent: "default",
       url: "/report",
