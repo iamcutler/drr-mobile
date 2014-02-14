@@ -1,0 +1,39 @@
+<section id="event-feed" infinite-scroll="feedLoader.load()" infinite-scroll-immediate-check="false">
+  <article class="feed-article" ng-repeat="article in event.activity" ng-if="event.activity.length > 0">
+    <header>
+      <a ng-href="/#/profile/{{ article.user.slug }}">
+        <div class="thumb">
+          <img ng-src="{{ cdnDomain }}/{{ article.user.thumbnail || imgPlaceholder }}" />
+        </div>
+      </a>
+      <h2>{{ article.user.name }}</h2>
+      <span am-time-ago="article.created"></span>
+      <div class="clearfix"></div>
+    </header>
+
+    <p>{{ article.title }}</p>
+
+    <footer>
+      <span class="stats"><a ng-href="{{ article.id }}">4 likes &bull; {{ article.comments.length }} comments</a></span>
+
+      <div class="row">
+        <div class="col-xs-6">
+          <button type="button" class="btn btn-block btn-lg btn-default" element="{{ article.like_type }}" id="{{ article.like_id }}" like="1" model="article" like-this><i>T</i> I Like This</button>
+        </div>
+        <div class="col-xs-6">
+          <button type="button" class="btn btn-block btn-lg btn-default"><i>K</i> Comment</button>
+        </div>
+      </div>
+    </footer>
+  </article>
+
+  <page-icon ng-if="event.activity.length == 0" icon="F" message="No current activity. Be the first!"></page-icon>
+
+  <div class="row-fluid" ng-if="event.activity.length == 0">
+    <div class="col-xs-12" ng-show="!profile.relation.request_sent">
+      <a ng-href="" class="btn btn-block btn-primary">Add Comment</a>
+    </div>
+  </div>
+
+  <div class="feed-loader" ng-show="busy"></div>
+</section>

@@ -247,6 +247,21 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       }
     })
     .state("search-events", {
+    // -------------------- Events --------------------
+    .state("event", {
+      parent: "default",
+      url: "/events/:id",
+      controller: "EventsController",
+      templateUrl: "/views/events/index.html",
+      access: {
+        require_user: true
+      },
+      resolve: {
+        event: function($stateParams, EventService) {
+          return EventService.find_event($stateParams.id);
+        }
+      }
+    })
       parent: "default",
       url: "/search-events",
       controller: "EventsController",
