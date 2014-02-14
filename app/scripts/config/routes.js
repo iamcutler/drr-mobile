@@ -247,7 +247,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
-    .state("search-events", {
     // -------------------- Events --------------------
     .state("event", {
       parent: "default",
@@ -263,6 +262,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
+    .state("event.search", {
       parent: "default",
       url: "/search-events",
       controller: "EventsController",
