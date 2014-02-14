@@ -1,0 +1,19 @@
+<header class="event-header">
+  <a ng-href="">
+    <div class="thumbnail">
+      <img ng-src="{{ cdnDomain }}/{{ event.event.avatar || imgPlaceholder }}" alt="" />
+    </div>
+  </a>
+  <div class="group-info">
+    Category: <span>{{ event.event.category }}</span><br />
+    Time: {{ event.event.start_date | date:'mediumDate' }} @ {{ event.event.start_date | date:'shortTime' }} - {{ event.event.end_date | date:'mediumDate' }} @ {{ event.event.end_date | date:'shortTime' }}<span></span><br />
+    Location: <span>{{ event.event.location }}</span><br />
+    Event Admin(s):
+    <a ng-href="/#/profile/{{ member.slug }}" ng-repeat="member in event.event.members" ng-if="member.permission == 1">
+      {{ member.name }}
+    </a><br />
+    <a href="javascript:void(0);" element="events" id="{{ event.event.id }}" like="1" model="event.event" like-this>Like</a> ({{ event.event.stats.likes }})
+    <a href="javascript:void(0);" element="events" id="{{ event.event.id }}" like="0" model="event.event" like-this>Dislike</a> ({{ event.event.stats.dislikes }})
+  </div>
+  <div class="clearfix"></div>
+</header>

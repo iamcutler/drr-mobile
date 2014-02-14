@@ -1,0 +1,12 @@
+<section id="event-members">
+  <div class="row-fluid">
+    <div class="col-xs-3" ng-repeat="member in event.event.members">
+      <a ng-href="/#/profile/{{ member.slug }}">
+        <div class="thumbnail">
+          <img ng-src="{{ cdnDomain }}/{{ member.thumbnail || imgPlaceholder }}" alt="" />
+        </div>
+      </a>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</section>
