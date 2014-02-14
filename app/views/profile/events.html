@@ -1,1 +1,16 @@
 <ng-include src="'views/shared-partials/navbar-back.html'"></ng-include>
+
+<section id="user-events">
+  <a ng-href="/#/events/{{ event.id }}" ng-repeat="event in events" ng-if="events.length != '0' && profile.profile.settings.privacyProfileView == '0' || events.length != '0' && profile.relation.self == true && profile.profile.settings.privacyProfileView == '40' || events.length != '0' && profile.relation.friends == true">
+    <div class="event">
+      <div class="thumbnail">
+        <img ng-src="{{ cdnDomain }}/{{ event.thumbnail || imgPlaceholder }}" alt="" />
+      </div>
+      <span>{{ event.title }}</span>
+      <div class="clearfix"></div>
+    </div>
+  </a>
+
+  <page-icon ng-if="events.length == '0' && profile.profile.settings.privacyProfileView == '0' || events.length == 0 && profile.relation.self == true || events.length == '0' && profile.relation.friends == true" icon="E" message="No current events."></page-icon>
+  <page-icon ng-if="profile.profile.settings.privacyProfileView = '40' && profile.relation.friends == false && profile.relation.self != true" icon="P" message="Only friends of {{ profile.user.name }} can view this profile."></page-icon>
+</section>
