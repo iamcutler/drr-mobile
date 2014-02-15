@@ -1,7 +1,7 @@
 <ng-include src="'views/shared-partials/navbar.html'"></ng-include>
 
 <section id="group">
-  <div class="group-header">
+  <header class="group-header">
     <a ng-href="">
       <div class="thumbnail">
         <img ng-src="{{ cdnDomain }}/{{ group.avatar || imgPlaceholder }}" alt="" />
@@ -17,5 +17,5 @@
       <like-this element="groups" id="{{ group.id }}" model="group"></like-this> ({{ group.stats.likes }}) Dislike ({{ group.stats.dislikes }})
     </div>
     <div class="clearfix"></div>
-  </div>
+  </header>
 </section>
