@@ -13,7 +13,7 @@ app.controller('MessagesController', function ($scope, $state, $location, $ancho
     });
   }
 
-  if($state.current.name == "message-thread") {
+  if($state.current.name == "messages.thread") {
     // Set recepient name as the page title
     $scope.title = messages.user.name;
     // New message scope object

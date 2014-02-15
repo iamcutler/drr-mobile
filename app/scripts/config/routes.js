@@ -72,7 +72,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
-    .state("message-thread", {
+    .state("messages.thread", {
       parent: "default",
       url: "/messages/:id",
       controller: "MessagesController",
