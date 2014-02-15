@@ -6,7 +6,7 @@
   </a>
   <div class="group-info">
     Category: <span>{{ event.event.category }}</span><br />
-    Time: {{ event.event.start_date | date:'mediumDate' }} @ {{ event.event.start_date | date:'shortTime' }} - {{ event.event.end_date | date:'mediumDate' }} @ {{ event.event.end_date | date:'shortTime' }}<span></span><br />
+    Time: <span>{{ event.event.start_date | date:'mediumDate' }} @ {{ event.event.start_date | date:'shortTime' }} - {{ event.event.end_date | date:'mediumDate' }} @ {{ event.event.end_date | date:'shortTime' }}</span><br />
     Location: <span>{{ event.event.location }}</span><br />
     Event Admin(s):
     <a ng-href="/#/profile/{{ member.slug }}" ng-repeat="member in event.event.members" ng-if="member.permission == 1">

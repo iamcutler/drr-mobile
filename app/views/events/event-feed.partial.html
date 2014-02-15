@@ -14,7 +14,7 @@
     <p>{{ article.title }}</p>
 
     <footer>
-      <span class="stats"><a ng-href="{{ article.id }}">4 likes &bull; {{ article.comments.length }} comments</a></span>
+      <span class="stats"><a ng-href="{{ article.id }}">{{ article.stats.likes }} likes &bull; {{ article.comments.length }} comments</a></span>
 
       <div class="row">
         <div class="col-xs-6">
