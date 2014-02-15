@@ -1,7 +1,7 @@
 <a ng-href="/#/messages/{{ message.user.slug }}">
   <div class="message">
     <div class="thumb">
-      <img ng-src="{{ cdnDomain }}/{{ message.user.avatar || 'components/com_community/assets/user.png' }}" />
+      <img ng-src="{{ cdnDomain }}/{{ message.user.avatar || imgPlaceholder }}" />
     </div>
     <div class="message-column">
       <span class="timestamp" am-time-ago="message.message.posted_on"></span>
