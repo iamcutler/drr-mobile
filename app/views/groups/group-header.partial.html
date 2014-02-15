@@ -1,0 +1,18 @@
+<header class="group-header">
+  <a ng-href="">
+    <div class="thumbnail">
+      <img ng-src="{{ cdnDomain }}/{{ group.avatar || imgPlaceholder }}" alt="" />
+    </div>
+  </a>
+  <div class="group-info">
+    Category: <span>{{ group.category }}</span><br />
+    Created: <span am-time-ago="group.created"></span><br />
+    Group Admin(s):
+    <a ng-href="/#/profile/{{ member.slug }}" ng-repeat="member in group.members" ng-if="member.permissions == 1">
+      {{ member.name }}
+    </a><br />
+    <a href="javascript:void(0);" element="groups" id="{{ group.id }}" type="1" model="group" like-this>Like</a> ({{ group.stats.likes }})
+    <a href="javascript:void(0);" element="groups" id="{{ group.id }}" type="0" model="group" like-this>Dislike</a> ({{ group.stats.dislikes }})
+  </div>
+  <div class="clearfix"></div>
+</header>

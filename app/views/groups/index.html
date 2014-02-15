@@ -1,21 +1,5 @@
 <ng-include src="'views/shared-partials/navbar.html'"></ng-include>
 
 <section id="group">
-  <header class="group-header">
-    <a ng-href="">
-      <div class="thumbnail">
-        <img ng-src="{{ cdnDomain }}/{{ group.avatar || imgPlaceholder }}" alt="" />
-      </div>
-    </a>
-    <div class="group-info">
-      Category: <span>{{ group.category }}</span><br />
-      Created: <span am-time-ago="group.created"></span><br />
-      Group Admin(s):
-      <a ng-href="/#/profile/{{ member.slug }}" ng-repeat="member in group.members" ng-if="member.permissions == 1">
-        {{ member.name }}
-      </a><br />
-      <like-this element="groups" id="{{ group.id }}" model="group"></like-this> ({{ group.stats.likes }}) Dislike ({{ group.stats.dislikes }})
-    </div>
-    <div class="clearfix"></div>
-  </header>
+  <ng-include src="'views/groups/group-header.partial.html'"></ng-include>
 </section>
