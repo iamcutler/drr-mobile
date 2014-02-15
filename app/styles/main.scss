@@ -1057,12 +1057,36 @@ section#user-groups {
   }
 }
 
+// User events
+section#user-events {
+  padding: 20px;
+
+  div.event {
+    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    @include border-radius(8px);
+    padding: 10px;
+    margin-bottom: 10px;
+
+    div.thumbnail {
+      float: left;
+      width: 60px;
+      height: 60px;
+      margin: 0 16px 0 0;
+    }
+
+    span {
+      float: left;
+      margin-top: 18px;
+    }
+  }
+}
+
 // ------------------------------ Groups ----------------------------
 section#group {
   padding: 20px;
 
   // Header
-  div.group-header {
+  header.group-header {
     background: #000 url("/images/ui-bg-texture.jpg") repeat;
     color: #FFF;
     padding: 10px;
@@ -1097,6 +1121,87 @@ section#group {
 }
 
 // ------------------------------ Events ----------------------------
+section#event {
+  padding: 20px;
+
+  // Header
+  header.event-header {
+    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    color: #FFF;
+    padding: 10px;
+    @include border-radius(6px);
+    @include text-shadow(0 0 6px #000);
+
+    div.thumbnail {
+      float: left;
+      width: 180px;
+      height: 120px;
+      margin: 0 16px 0 0;
+      padding: 0;
+      border: none;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        min-height: 100%;
+      }
+    }
+
+    div.group-info {
+      margin-left: 200px;
+    }
+
+    span {
+      color: #f3ca8a;
+    }
+
+    a:link, a:visited {
+      color: #f3ca8a;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Event navigation
+  .row, .row-fluid {
+    &.event-navi {
+      margin: 20px 0;
+    }
+  }
+
+  // Event sections
+  section {
+    margin: 20px 0;
+
+    &#event-feed {
+      overflow: auto;
+    }
+
+    &#event-details, &#event-members {
+      background: #000 url("/images/ui-bg-texture.jpg") repeat;
+      padding: 20px;
+      @include border-radius(6px);
+      display: none;
+
+      div.thumbnail {
+        width: 76px;
+        height: 76px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        @include border-radius(0);
+        
+        img {
+          width: 100%;
+          min-height: 76px;
+        }
+      }
+    }
+  }
+}
+
 div.events-map {
   background: #FFF;
   height: 440px;
