@@ -19,15 +19,29 @@ app.controller('EventsController', function ($scope, $state, EventService, AuthS
       });
     });
 
-    // Check if current user is a attaining member of the event
-    $scope.isMember = function() {
-      angular.forEach($scope.event.event.members, function(value, key) {
-        if(value.id == AuthService.current_user().id && value.status == 1) {
-          return true;
-        }
-      });
+    $scope.is = {
+      // Check if current user is a attaining member of the event
+      member: function() {
+        var member = false;
+        angular.forEach($scope.event.event.members, function(value, key) {
+          if(value.id == AuthService.current_user().id && value.status == 1) {
+            member = true;
+          }
+        });
 
-      return false;
+        return member;
+      },
+      // Check if currect user is an admin
+      admin: function() {
+        var admin = false;
+        angular.forEach($scope.event.event.members, function(value, key) {
+          if(value.id == AuthService.current_user().id && value.permission == 1) {
+            admin = true;
+          }
+        });
+
+        return admin;
+      }
     };
 
     // Infinite scrolling function
