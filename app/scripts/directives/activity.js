@@ -28,3 +28,29 @@ app.directive("likeThis", function(LikeService) {
     }
   };
 });
+
+app.directive("removeActivity", function(ActivityService) {
+  return {
+    restrict: 'A',
+    scope: {
+      model: '=',
+      index: '@',
+      app: '@',
+      target: '@'
+    },
+    link: function(scope, elem, attrs) {
+      elem.bind('click', function() {
+        //if(confirm('Are you sure?')) {
+          var remove = ActivityService.delete(scope.target, scope.app);
+
+          remove.then(function() {
+            scope.model.splice(scope.index, 1);
+            scope.$apply();
+          }, function(response) {
+            console.error(response);
+          });
+        //}
+      });
+    }
+  };
+});
