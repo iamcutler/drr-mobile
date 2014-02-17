@@ -22,7 +22,7 @@ app.service('EventService', function EventService($http, $resource, $q, apiPrefi
     activity: function(id, offset) {
       var defer = $q.defer();
 
-      $http.get(apiPrefix + "/user/activity/event?id=" + id + "&offset=" + offset + "&user_hash=" + AuthService.current_user().hash).
+      $http.get(apiPrefix + "/user/feed_activity/event?id=" + id + "&offset=" + offset + "&user_hash=" + AuthService.current_user().hash).
         success(function(response) {
           defer.resolve(response);
         }).
