@@ -45,7 +45,6 @@ app.directive("removeActivity", function(ActivityService) {
 
           remove.then(function() {
             scope.model.splice(scope.index, 1);
-            scope.$apply();
           }, function(response) {
             console.error(response);
           });
