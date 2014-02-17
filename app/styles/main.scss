@@ -199,6 +199,15 @@ article.feed-article {
     span {
       color: #b7272d;
     }
+
+    // Admin remove icon
+    span.glyphicon {
+      &.glyphicon-remove {
+        float: right;
+        width: inherit;
+        cursor: pointer;
+      }
+    }
   }
 
   // status article
