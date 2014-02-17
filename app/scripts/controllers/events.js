@@ -16,13 +16,18 @@ app.controller('EventsController', function ($scope, $state, EventService, AuthS
     $scope.event.event.end_date = new Date($scope.event.event.end_date);
     $scope.event.event.created = new Date($scope.event.event.created);
 
-    // Format feed dates
-    angular.forEach($scope.event.activity, function(value, key) {
-      moment.utc($scope.event.activity[key].created).local();
-      angular.forEach(value.comments, function(v, k) {
-        moment.utc(v.created).local();
+    var formatDateTimeUTC = function(scope) {
+
+      angular.forEach(scope, function(value, key) {
+        value.created = moment.utc(value.created).local();
+        angular.forEach(value.comments, function(v, k) {
+          v.created = moment.utc(v.created).local();
+        });
       });
-    });
+    };
+
+    // Format feed dates
+    formatDateTimeUTC($scope.event.activity);
 
     $scope.is = {
       // Check if current user is a attaining member of the event
@@ -71,6 +76,7 @@ app.controller('EventsController', function ($scope, $state, EventService, AuthS
           new_activity.then(function(response) {
             $scope.new_activity.message = '';
             $scope.event.activity.unshift(response.activity[0]);
+            formatDateTimeUTC($scope.event.activity);
           }, function() {});
         }
       }
