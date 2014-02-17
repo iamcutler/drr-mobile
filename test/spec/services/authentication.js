@@ -2,17 +2,35 @@
 
 xdescribe('Service: AuthService', function () {
 
-  // load the service's module
-  beforeEach(module('DrrmobileApp'));
+  var httpMock,
+      apiPrefix,
+      Auth;
 
-  // instantiate service
-  var Authentication;
-  beforeEach(inject(function (_Authentication_) {
-    Authentication = _Authentication_;
+  // load the service's module
+  beforeEach(module('DRRMobileApp'));
+
+  beforeEach(inject(function($injector) {
+    Auth = $injector.get('AuthService');
+    httpMock = $injector.get('$httpBackend');
+    apiPrefix = $injector.get('apiPrefix');
+    httpMock.whenPOST(apiPrefix + "/check/username/UniqueUserName").respond({ unique: true });
+    //httpMock.whenPOST(apiPrefix + "/check/username/iamcutler").respond({ unique: false });
   }));
 
-  it('should do something', function () {
-    expect(!!Authentication).toBe(true);
-  });
+  it('Should have a working authentication service',
+    inject(['AuthService', function (Auth) {
 
+    expect(Auth.check_username_uniqueness('UniqueUserName')).not.toBeNull();
+    expect(Auth.register({})).not.toBeNull();
+    expect(Auth.login({})).not.toBeNull();
+  }]));
+
+  it('should return unique username', function() {
+    var username = Auth.check_username_uniqueness('UniqueUserName', function(response) {
+      return response;
+    });
+
+    httpMock.flush();
+    expect(username.unique).toBeTruthy();
+  });
 });

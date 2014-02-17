@@ -3,16 +3,15 @@
 describe('Service: Event', function () {
 
   // load the service's module
-  beforeEach(module('DrrmobileApp'));
+  beforeEach(module('DRRMobileApp'));
 
   // instantiate service
   var Event;
-  beforeEach(inject(function (_Event_) {
-    Event = _Event_;
+  beforeEach(inject(function (_EventService_) {
+    Event = _EventService_;
   }));
 
   it('should do something', function () {
     expect(!!Event).toBe(true);
   });
-
 });

@@ -6,9 +6,11 @@ describe('Service: Activity', function () {
   beforeEach(module('DRRMobileApp'));
 
   // instantiate service
-  var Activity;
-  beforeEach(inject(function (_ActivityService_) {
-    Activity = _ActivityService_;
+  var Activity, mock;
+
+  beforeEach(inject(function($injector) {
+    mock = {};
+    Activity = $injector.get('ActivityService');
   }));
 
   it('should do something', function () {
