@@ -1186,6 +1186,25 @@ section#event {
 
     &#event-feed {
       overflow: auto;
+
+      div.new-event-activity {
+        background: #000 url("/images/ui-bg-texture.jpg") repeat;
+        padding: 20px;
+        @include border-radius(6px);
+        margin-bottom: 10px;
+
+        input, textarea {
+          background: #000;
+          width: 100%;
+          color: #CCC;
+          padding: 10px;
+          @include border-radius(6px);
+          border: none;
+          resize: none;
+          outline: none;
+          margin-bottom: 6px;
+        }
+      }
     }
 
     &#event-details, &#event-members {

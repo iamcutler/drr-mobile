@@ -1,11 +1,16 @@
 'use strict';
 
-app.controller('EventsController', function ($scope, $state, EventService, AuthService, event) {
+app.controller('EventsController', function ($scope, $state, EventService, AuthService, ActivityService, event) {
   if($state.current.name = "event") {
     $scope.title = event.event.title;
     $scope.event = event;
     $scope.busy = false;
     $scope.activity_counter = 10;
+    $scope.new_activity = {
+      event_id: event.event.id,
+      actor: AuthService.current_user().id,
+      app: 'events.wall'
+    };
     // Format group timestamp created to utc local
     $scope.event.event.start_date = new Date($scope.event.event.start_date);
     $scope.event.event.end_date = new Date($scope.event.event.end_date);
@@ -45,7 +50,7 @@ app.controller('EventsController', function ($scope, $state, EventService, AuthS
     };
 
     // Infinite scrolling function
-    $scope.feedLoader = {
+    $scope.feed = {
       load: function() {
         var activity = EventService.activity($scope.event.event.id, $scope.activity_counter);
 
@@ -58,6 +63,16 @@ app.controller('EventsController', function ($scope, $state, EventService, AuthS
           }
           $scope.busy = false;
         });
+      },
+      new: function(form) {
+        if(form.$valid) {
+          var new_activity = ActivityService.new($scope.new_activity);
+
+          new_activity.then(function(response) {
+            $scope.new_activity.message = '';
+            $scope.event.activity.unshift(response.activity[0]);
+          }, function() {});
+        }
       }
     };
   }

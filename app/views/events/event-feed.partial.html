@@ -1,4 +1,6 @@
-<section id="event-feed" infinite-scroll="feedLoader.load()" infinite-scroll-immediate-check="false">
+<section id="event-feed" infinite-scroll="feed.load()" infinite-scroll-immediate-check="false">
+  <ng-include src="'views/events/new-activity.partial.html'"></ng-include>
+
   <article class="feed-article" ng-repeat="article in event.activity" ng-if="event.activity.length > 0">
     <header>
       <span class="glyphicon glyphicon-remove" ng-if="article.user.id === current_user.id || is.admin()" target="{{ article.id }}" app="{{ article.app }}" model="event.activity" index="{{ $index }}" remove-activity></span>

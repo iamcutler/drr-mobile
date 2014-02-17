@@ -1,0 +1,6 @@
+<div class="new-event-activity" ng-if="is.member()">
+  <form name="newActivity" ng-submit="feed.new(newActivity)" novalidate>
+    <textarea placeholder="write something..." ng-model="new_activity.message" required></textarea>
+    <button type="submit" class="btn btn-block btn-lg btn-primary">Post</button>
+  </form>
+</div>

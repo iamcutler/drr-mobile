@@ -7,6 +7,22 @@ app.factory('ActivityService', function ActivityService($resource, $q, resourceA
   }, {});
 
   return {
+    new: function(data) {
+      var defer = $q.defer();
+
+      resource.save(data, function(response) {
+        if(response.result) {
+          defer.resolve(response);
+        } else {
+          defer.reject();
+        }
+      }, function() {
+        console.error('Error saving activity.');
+        defer.reject();
+      });
+
+      return defer.promise;
+    },
     delete: function(id, app) {
       var defer = $q.defer();
 
