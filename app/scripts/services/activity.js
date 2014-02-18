@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('ActivityService', function ActivityService($resource, $q, resourceApiPrefix, AuthService) {
+app.factory('ActivityService', function ActivityService($http, $resource, $q, apiPrefix, resourceApiPrefix, AuthService) {
   var resource = $resource(resourceApiPrefix + "/user/activity/:id", {
     id: '@id',
     user_hash: AuthService.current_user().hash
@@ -20,6 +20,19 @@ app.factory('ActivityService', function ActivityService($resource, $q, resourceA
         console.error('Error saving activity.');
         defer.reject();
       });
+
+      return defer.promise;
+    },
+    event_attendance: function(event_id) {
+      var defer = $q.defer();
+
+      $http.post(apiPrefix + "/user/activity/event_attendance/" + event_id + "?user_hash=" + AuthService.current_user().hash)
+        .success(function(response) {
+          defer.resolve(response);
+        })
+        .error(function() {
+          defer.reject('Error saving event attendance');
+        });
 
       return defer.promise;
     },

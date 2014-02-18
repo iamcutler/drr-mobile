@@ -15,5 +15,17 @@
     <a href="javascript:void(0);" element="events" id="{{ event.event.id }}" like="1" model="event.event" like-this>Like</a> ({{ event.event.stats.likes }})
     <a href="javascript:void(0);" element="events" id="{{ event.event.id }}" like="0" model="event.event" like-this>Dislike</a> ({{ event.event.stats.dislikes }})
   </div>
+
+  <div class="event-guest-status" ng-if="is.member()">
+    <div class="row-fluid">
+      <div class="col-xs-12" style="padding: 0;">
+        <select class="form-control" target="{{ event.event.id }}" event-attendance>
+          <option value="0">I'm Not Attending</option>
+          <option value="1" ng-selected="is.attending()">I'm Attending</option>
+        </select>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
   <div class="clearfix"></div>
 </header>

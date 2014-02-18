@@ -29,6 +29,21 @@ app.directive("likeThis", function(LikeService) {
   };
 });
 
+app.directive("eventAttendance", function(ActivityService) {
+  return {
+    restrict: 'A',
+    scope: {
+      target: '@'
+    },
+    link: function(scope, elem, attrs) {
+      elem.bind('change', function() {
+        //Update user attendance to this event
+        ActivityService.event_attendance(scope.target);
+      });
+    }
+  };
+});
+
 app.directive("removeActivity", function(ActivityService) {
   return {
     restrict: 'A',
