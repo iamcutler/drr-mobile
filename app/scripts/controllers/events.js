@@ -34,12 +34,23 @@ app.controller('EventsController', function ($scope, $state, EventService, AuthS
       member: function() {
         var member = false;
         angular.forEach($scope.event.event.members, function(value, key) {
-          if(value.id == AuthService.current_user().id && value.status == 1) {
+          if(value.id == AuthService.current_user().id) {
             member = true;
           }
         });
 
         return member;
+      },
+      attending: function() {
+        var status = false;
+
+        angular.forEach($scope.event.event.members, function(value, key) {
+          if(value.id == AuthService.current_user().id && value.status == 1) {
+            status = true;
+          }
+        });
+
+        return status;
       },
       // Check if currect user is an admin
       admin: function() {
