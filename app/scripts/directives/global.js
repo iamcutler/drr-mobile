@@ -86,3 +86,12 @@ app.directive("toggleEventNav", function() {
     });
   };
 });
+
+app.directive("toggleGroupNav", function() {
+  return function(scope, elem, attrs) {
+    elem.bind('click', function() {
+      $('section[id^=group-]').hide();
+      $('section#group-' + attrs.target).show();
+    });
+  };
+});

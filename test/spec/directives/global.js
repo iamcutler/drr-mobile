@@ -1,12 +1,14 @@
 'use strict';
 
-xdescribe('Directive: Global', function () {
+describe('Directive: Global', function () {
 
   // load the directive's module
   beforeEach(module('DRRMobileApp'));
 
   var element,
-      scope;
+      scope,
+      member_section,
+      feed_section;
 
   beforeEach(inject(function ($rootScope) {
     scope = $rootScope.$new();
@@ -26,7 +28,7 @@ xdescribe('Directive: Global', function () {
     }));
   });
 
-  describe('Directive: toggleNavigation', function() {
+  xdescribe('Directive: toggleNavigation', function() {
     beforeEach(function() {
       spyOnEvent($('#app-container'), 'click');
     });
@@ -38,6 +40,68 @@ xdescribe('Directive: Global', function () {
 
     xit('should toggle navigation', function() {
       expect(element.position().toEqual(0));
+    });
+  });
+
+  describe('Directive: toggle event navigation', function() {
+    beforeEach(inject(function($compile) {
+      element = angular.element('<button type="button" class="btn btn-block" target="members" toggle-event-nav>Members</button>');
+      element = $compile(element)(scope);
+
+      member_section = angular.element('<section id="event-members"></section>');
+      member_section = $compile(member_section)(scope);
+      feed_section = angular.element('<section id="event-feed"></section>');
+      feed_section = $compile(feed_section)(scope);
+
+      document.body.appendChild(element[0]);
+      document.body.appendChild(member_section[0]);
+      document.body.appendChild(feed_section[0]);
+    }));
+
+    it('click event nav button', function() {
+      spyOnEvent(element, 'click');
+
+      element.click();
+      expect('click').toHaveBeenTriggeredOn(element);
+    });
+
+    it('hide all sections on click and show only targeted section', function() {
+      spyOnEvent(element, 'click');
+
+      element.click();
+      expect(feed_section).toBeHidden();
+      expect(member_section).not.toBeHidden();
+    });
+  });
+
+  describe('Directive: toggle group navigation', function() {
+    beforeEach(inject(function($compile) {
+      element = angular.element('<button type="button" class="btn btn-block" target="members" toggle-group-nav>Events</button>');
+      element = $compile(element)(scope);
+
+      member_section = angular.element('<section id="group-members"></section>');
+      member_section = $compile(member_section)(scope);
+      feed_section = angular.element('<section id="group-feed"></section>');
+      feed_section = $compile(feed_section)(scope);
+
+      document.body.appendChild(element[0]);
+      document.body.appendChild(member_section[0]);
+      document.body.appendChild(feed_section[0]);
+    }));
+
+    it('click group nav button', function() {
+      spyOnEvent(element, 'click');
+
+      element.click();
+      expect('click').toHaveBeenTriggeredOn(element);
+    });
+
+    it('hide all sections on click and show only targeted section', function() {
+      spyOnEvent(element, 'click');
+
+      element.click();
+      expect(feed_section).toBeHidden();
+      expect(member_section).not.toBeHidden();
     });
   });
 });
