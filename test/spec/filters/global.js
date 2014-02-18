@@ -40,4 +40,16 @@ describe('Filter: Global', function () {
       expect(MessageStructure(user, 200)).toBeNull();
     });
   });
+
+  describe('Filter: Strip_html_tags', function() {
+    var strip_html;
+
+    beforeEach(inject(function($filter) {
+      strip_html = $filter('strip_html_tags');
+    }));
+
+    it('should strip tags and return new string', function() {
+      expect(strip_html('<p>Testing is fun!</p>')).toBe('Testing is fun!');
+    });
+  });
 });

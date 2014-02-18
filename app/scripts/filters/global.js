@@ -19,3 +19,9 @@ app.filter('MessageStructure', function() {
     return null;
   }
 });
+
+app.filter('strip_html_tags', function() {
+  return function(text) {
+    return String(text).replace(/<[^>]+>/gm, '');
+  }
+});
