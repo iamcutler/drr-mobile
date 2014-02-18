@@ -4,7 +4,7 @@
       <div class="thumbnail">
         <img ng-src="{{ cdnDomain }}/{{ discuss.user.thumbnail || imgPlaceholder }}" alt="" />
       </div>
-      <span ng-bind-html="discuss.content"></span><span>&nbsp; ({{ discuss.comment_count }})</span>
+      <span>{{ discuss.content | strip_html_tags | substr:0:100 }}</span><span>&nbsp; ({{ discuss.comment_count }})</span>
       <div class="clearfix"></div>
     </div>
   </a>
