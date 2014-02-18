@@ -12,7 +12,6 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'app/bower_components/jquery/jquery.js',
-      //'app/bower_components/jquery/jquery-jasmine.js',
       'app/bower_components/angular/angular.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/bower_components/angular-resource/angular-resource.js',
@@ -21,6 +20,7 @@ module.exports = function(config) {
       'app/bower_components/angular-ui-router/release/angular-ui-router.js',
       'app/bower_components/moment/moment.js',
       'app/bower_components/angular-moment/angular-moment.min.js',
+      'app/bower_components/jasmine-jquery/lib/jasmine-jquery.js',
       'app/bower_components/sinonjs/sinon.js',
       'app/bower_components/jasmine-sinon/lib/jasmine-sinon.js',
       'app/scripts/*.js',
