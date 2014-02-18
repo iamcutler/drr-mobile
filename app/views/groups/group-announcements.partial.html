@@ -1,0 +1,19 @@
+<section id="group-announcements">
+  <article ng-repeat="announce in group.announcements">
+    <header>
+      <a ng-href="/#/profile/{{ announce.user.slug }}">
+        <div class="thumb">
+          <img src="{{ cdnDomain }}/{{ announce.user.thumbnail || imgPlaceholder }}" />
+        </div>
+        <h2>{{ announce.user.name }}</h2>
+        <span>4 minutes ago</span>
+      </a>
+      <div class="clearfix"></div>
+    </header>
+
+    <p>
+      <span style="color: #b7272d;">{{ announce.title }}:</span><br />
+      <span ng-bind-html="announce.message"></span>
+    </p>
+  </article>
+</section>

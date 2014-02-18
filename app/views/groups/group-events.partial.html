@@ -1,0 +1,13 @@
+<section id="group-events">
+  <a href="/#/event/new/group/{{ group.id }}" class="btn btn-block btn-lg btn-primary" style="margin-bottom: 10px;">Add Event</a>
+
+  <a ng-href="/#/events/{{ event.id }}" ng-repeat="event in group.events">
+    <div class="event">
+      <div class="thumbnail">
+        <img ng-src="{{ cdnDomain }}/{{ event.thumbnail || imgPlaceholder }}" alt="" />
+      </div>
+      <span>{{ event.title }}</span>
+      <div class="clearfix"></div>
+    </div>
+  </a>
+</section>

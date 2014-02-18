@@ -1,0 +1,11 @@
+<section id="group-discussions">
+  <a ng-href="/#/groups/discussions/{{ discuss.id }}" ng-repeat="discuss in group.discussions">
+    <div class="discussion">
+      <div class="thumbnail">
+        <img ng-src="{{ cdnDomain }}/{{ discuss.user.thumbnail || imgPlaceholder }}" alt="" />
+      </div>
+      <span ng-bind-html="discuss.content"></span><span>&nbsp; ({{ discuss.comment_count }})</span>
+      <div class="clearfix"></div>
+    </div>
+  </a>
+</section>

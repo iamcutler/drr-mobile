@@ -1127,6 +1127,156 @@ section#group {
       }
     }
   }
+
+  // Group navigation
+  .row, .row-fluid {
+    &.group-navi {
+      margin: 20px 0;
+
+      div {
+        &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+          margin-bottom: 12px;
+        }
+      }
+    }
+  }
+
+  // Group sections
+  section {
+    margin: 20px 0;
+    display: none;
+
+    &#group-feed {
+      display: block;
+
+      div.new-group-activity {
+        background: #000 url("/images/ui-bg-texture.jpg") repeat;
+        padding: 20px;
+        @include border-radius(6px);
+        margin-bottom: 10px;
+
+        input, textarea {
+          background: #000;
+          width: 100%;
+          color: #CCC;
+          padding: 10px;
+          @include border-radius(6px);
+          border: none;
+          resize: none;
+          outline: none;
+          margin-bottom: 6px;
+        }
+      }
+    }
+
+    &#group-details, &#group-members {
+      background: #000 url("/images/ui-bg-texture.jpg") repeat;
+      padding: 20px;
+      @include border-radius(6px);
+      display: none;
+
+      div.thumbnail {
+        width: 76px;
+        height: 76px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        @include border-radius(0);
+
+        img {
+          width: 100%;
+          min-height: 76px;
+        }
+      }
+    }
+
+    &#group-events {
+      padding: 20px;
+      @include border-radius(6px);
+    }
+
+    &#group-announcements {
+      padding: 0;
+
+      article {
+        background: #000 url("/images/ui-bg-texture.jpg") repeat;
+        margin-bottom: 10px;
+        @include border-radius(6px);
+
+        header {
+          padding: 20px;
+
+          div.thumb {
+            float: left;
+            background: #000;
+            width: 76px;
+            height: 76px;
+            overflow: hidden;
+            margin: 0 20px 0 0;
+
+            img {
+              width: 76px;
+              min-height: 76px;
+            }
+          }
+
+          h2 {
+            color: #b7b7b7;
+            font-size: 24px;
+            font-weight: normal;
+            padding: 0;
+            margin: 16px 0 0 0;
+          }
+
+          span {
+            color: #b7272d;
+          }
+
+          // Admin remove icon
+          span.glyphicon {
+            &.glyphicon-remove {
+              float: right;
+              width: inherit;
+              cursor: pointer;
+            }
+          }
+        }
+
+        p {
+          padding: 10px 20px 10px 20px;
+          border-top: 2px #6d6e71 solid;
+
+          span p {
+            padding: 0;
+            border: none;
+          }
+        }
+      }
+    }
+
+    &#group-discussions, &#group-events {
+      padding: 0;
+
+      div.discussion, div.event {
+        background: #000 url("/images/ui-bg-texture.jpg") repeat;
+        @include border-radius(8px);
+        padding: 10px;
+        margin-bottom: 10px;
+
+        div.thumbnail {
+          float: left;
+          width: 60px;
+          height: 60px;
+          margin: 0 16px 0 0;
+        }
+
+        span {
+          float: left;
+          margin-top: 18px;
+        }
+      }
+    }
+  }
 }
 
 // ------------------------------ Events ----------------------------

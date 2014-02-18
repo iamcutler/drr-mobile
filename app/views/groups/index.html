@@ -2,4 +2,33 @@
 
 <section id="group">
   <ng-include src="'views/groups/group-header.partial.html'"></ng-include>
+
+  <div class="row-fluid group-navi">
+    <div class="col-xs-4">
+      <button type="button" class="btn btn-block" target="feed" toggle-group-nav>Activity</button>
+    </div>
+    <div class="col-xs-4">
+      <button type="button" class="btn btn-block" target="details" toggle-group-nav>Description</button>
+    </div>
+    <div class="col-xs-4">
+      <button type="button" class="btn btn-block" target="announcements" toggle-group-nav>Announcements</button>
+    </div>
+    <div class="col-xs-4">
+      <button type="button" class="btn btn-block" target="discussions" toggle-group-nav>Discussions</button>
+    </div>
+    <div class="col-xs-4">
+      <button type="button" class="btn btn-block" target="members" toggle-group-nav>Members</button>
+    </div>
+    <div class="col-xs-4">
+      <button type="button" class="btn btn-block" target="events" toggle-group-nav>Events</button>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+
+  <ng-include src="'views/groups/group-feed.partial.html'"></ng-include>
+  <ng-include src="'views/groups/group-description.partial.html'"></ng-include>
+  <ng-include src="'views/groups/group-announcements.partial.html'"></ng-include>
+  <ng-include src="'views/groups/group-discussions.partial.html'"></ng-include>
+  <ng-include src="'views/groups/group-members.partial.html'"></ng-include>
+  <ng-include src="'views/groups/group-events.partial.html'"></ng-include>
 </section>
