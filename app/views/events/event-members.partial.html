@@ -1,6 +1,8 @@
 <section id="event-members">
-  <div class="row-fluid">
-    <div class="col-xs-3" ng-repeat="member in event.event.members">
+  <a href="/#/events/invite/{{ event.event.id }}" class="btn btn-block btn-lg btn-primary">Invite Friends</a>
+
+  <div class="row-fluid" style="margin-top: 20px;">
+    <div class="col-xs-3" ng-repeat="member in event.event.members" ng-if="member.status == 1">
       <a ng-href="/#/profile/{{ member.slug }}">
         <div class="thumbnail">
           <img ng-src="{{ cdnDomain }}/{{ member.thumbnail || imgPlaceholder }}" alt="" />
