@@ -1436,6 +1436,128 @@ section.find-events {
   }
 }
 
+// ---------------------- Activity Page ----------------------
+section.activity-container {
+  padding: 20px;
+
+  article.main {
+    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    @include border-radius(6px);
+    padding-bottom: 10px;
+
+    header {
+      padding: 20px;
+
+      div.thumb {
+        float: left;
+        background: #000;
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        margin: 0 20px 0 0;
+
+        img {
+          width: 60px;
+          min-height: 60px;
+        }
+      }
+
+      h2 {
+        color: #b7b7b7;
+        font-size: 24px;
+        font-weight: normal;
+        padding: 0;
+        margin: 6px 0 0 0;
+      }
+
+      span {
+        color: #b7272d;
+      }
+
+      // Admin remove icon
+      span.glyphicon {
+        &.glyphicon-remove {
+          float: right;
+          width: inherit;
+          cursor: pointer;
+        }
+      }
+    }
+
+    hr {
+      border-top: 1px solid #6d6e71;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    // status article
+    p {
+      padding: 0 20px 0 20px;
+    }
+
+    span.stats {
+      color: #f3ca8a;
+      font-size: 14px;
+      padding: 0 20px 10px 20px;
+
+      a:link, a:visited {
+        color: #f3ca8a;
+      }
+    }
+
+    div.article-comments {
+      div.comment {
+        border-top: 1px solid #6d6e71;
+        padding: 14px 20px;
+
+        div.thumb {
+          float: left;
+          width: 60px;
+          height: 60px;
+          overflow: hidden;
+
+          img {
+            width: 60px;
+            min-height: 60px;
+          }
+        }
+
+        // Admin remove icon
+        span.glyphicon {
+          &.glyphicon-remove {
+            float: right;
+            color: #b7272d;
+            width: inherit;
+            cursor: pointer;
+          }
+        }
+
+        div.comment-body {
+          padding-left: 70px;
+          font-size: 14px;
+
+          span {
+            &.name {
+              font-size: 16px;
+              color: #f3ca8a;
+            }
+
+            &.timestamp {
+              color: #b7272d;
+              font-size: 12px;
+            }
+          }
+
+          p {
+            padding: 0;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
 // ---------------------- Report Problems ----------------------
 section.report-bug {
   padding: 20px;

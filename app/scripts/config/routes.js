@@ -271,6 +271,21 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         require_user: true
       }
     })
+    // -------------------- Activity --------------------
+    .state("user-activity", {
+      parent: "default",
+      url: "/post/:id",
+      controller: "ActivityController",
+      templateUrl: "/views/activity/index.html",
+      access: {
+        require_user: true
+      },
+      resolve: {
+        activity: function($stateParams, ActivityService) {
+          return ActivityService.find($stateParams.id);
+        }
+      }
+    })
     // -------------------- Media --------------------
     .state("media", {
       parent: "default",

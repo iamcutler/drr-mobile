@@ -7,6 +7,17 @@ app.factory('ActivityService', function ActivityService($http, $resource, $q, ap
   }, {});
 
   return {
+    find: function(id) {
+      var defer = $q.defer();
+
+      resource.get({id: id}, function(response) {
+        defer.resolve(response);
+      }, function() {
+        defer.reject('Can not find activity');
+      });
+
+      return defer.promise;
+    },
     new: function(data) {
       var defer = $q.defer();
 
@@ -14,11 +25,10 @@ app.factory('ActivityService', function ActivityService($http, $resource, $q, ap
         if(response.result) {
           defer.resolve(response);
         } else {
-          defer.reject();
+          defer.reject(response);
         }
-      }, function() {
-        console.error('Error saving activity.');
-        defer.reject();
+      }, function(response) {
+        defer.reject('Error saving activity.');
       });
 
       return defer.promise;
