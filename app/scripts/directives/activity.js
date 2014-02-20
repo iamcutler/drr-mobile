@@ -68,3 +68,27 @@ app.directive("removeActivity", function(ActivityService) {
     }
   };
 });
+
+app.directive("removeWall", function(WallService) {
+  return {
+    restrict: 'A',
+    scope: {
+      model: '=',
+      target: '@',
+      index: '@'
+    },
+    link: function(scope, elem, attrs) {
+      elem.bind('click', function() {
+        var remove = WallService.delete(scope.target);
+
+        remove.then(function(response) {
+          if(response.result) {
+            scope.model.splice(scope.index, 1);
+          }
+        }, function(response) {
+          console.error(response);
+        });
+      });
+    }
+  };
+});
