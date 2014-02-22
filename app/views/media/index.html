@@ -1,8 +1,10 @@
 <ng-include src="'views/shared-partials/navbar.html'"></ng-include>
 
-<section class="app-media">
-  <ng-include src="'views/media/post.partial.html'"></ng-include>
-  <ng-include src="'views/media/post.partial.html'"></ng-include>
-  <ng-include src="'views/media/post.partial.html'"></ng-include>
-  <ng-include src="'views/media/post.partial.html'"></ng-include>
+<section class="app-media" infinite-scroll="feed.load()" infinite-scroll-immediate-check="false">
+  <article ng-repeat="media in media">
+    <ng-include src="'views/media/photo.partial.html'" ng-if="media.type == 'photos'"></ng-include>
+    <ng-include src="'views/media/video.partial.html'" ng-if="media.type == 'videos'"></ng-include>
+  </article>
+
+  <div class="feed-loader" ng-show="busy"></div>
 </section>

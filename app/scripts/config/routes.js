@@ -294,6 +294,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "/views/media/index.html",
       access: {
         require_user: true
+      },
+      resolve: {
+        media: function(ActivityService) {
+          return ActivityService.media(0);
+        }
       }
     })
     // -------------------- Dirty Girls --------------------

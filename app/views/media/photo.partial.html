@@ -1,0 +1,37 @@
+<header>
+  <a ng-href="/#/profile/{{ media.user.slug }}">
+    <div class="thumb">
+      <img ng-src="{{ cdnDomain }}/{{ media.user.thumbnail || imgPlaceholder }}" />
+    </div>
+    <span class="user-name">{{ media.user.name }}</span>
+  </a>
+  <span class="timestamp" am-time-ago="media.created"></span>
+</header>
+    
+<div class="clearfix"></div>
+  
+<div class="media-wrapper">
+  <img ng-src="{{ cdnDomain }}/{{ media.media.image || imgPlaceholder }}" />
+</div>
+    
+<footer>
+  <div class="row">
+    <div class="col-xs-9 media-caption">
+      {{ media.media.caption | substr:0:80 }}
+    </div>
+    <div class="col-xs-3 media-stats">
+      {{ media.stats.likes }} likes &bull; {{ media.comments.length }} comments
+    </div>
+  </div>
+    
+  <div class="row media-actions">
+    <div class="col-xs-6" style="padding-right: 6px;">
+      <button type="button" class="btn btn-block btn-lg btn-primary"><i>T</i> I Like This</button>
+    </div>
+    <div class="col-xs-6" style="padding-left: 6px;">
+      <button type="button" class="btn btn-block btn-lg btn-primary"><i>K</i> Comment</button>
+    </div>
+  </div>
+</footer>
+  
+<div class="clearfix"></div>

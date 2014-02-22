@@ -60,6 +60,19 @@ app.factory('ActivityService', function ActivityService($http, $resource, $q, ap
       });
 
       return defer.promise;
+    },
+    media: function(offset) {
+      var defer = $q.defer();
+
+      $http.get(apiPrefix + "/user/feed_activity/media/" + offset + "?user_hash=" + AuthService.current_user().hash)
+        .success(function(response) {
+          defer.resolve(response);
+        })
+        .error(function() {
+          defer.reject('Error fetching latest media');
+        });
+
+      return defer.promise;
     }
   };
 });
