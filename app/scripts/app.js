@@ -6,7 +6,8 @@ var app = angular.module('DRRMobileApp', [
   'ngSanitize',
   'ui.router',
   'angularMoment',
-  'infinite-scroll'
+  'infinite-scroll',
+  'ui.bootstrap'
 ], function($httpProvider) {
   // Use x-www-form-urlencoded Content-Type
   $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
