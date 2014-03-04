@@ -1,7 +1,7 @@
 'use strict';
 
-app.service('EventService', function EventService($http, $resource, $q, apiPrefix, resourceApiPrefix, AuthService) {
-  var resource = $resource(resourceApiPrefix + "/user/events/:id", {
+app.service('EventService', function EventService($http, $resource, $q, endPoint, AuthService) {
+  var resource = $resource(endPoint.resourceApi + "/user/events/:id", {
     id: '@id',
     user_hash: AuthService.current_user().hash
   });
@@ -22,7 +22,7 @@ app.service('EventService', function EventService($http, $resource, $q, apiPrefi
     activity: function(id, offset) {
       var defer = $q.defer();
 
-      $http.get(apiPrefix + "/user/feed_activity/event?id=" + id + "&offset=" + offset + "&user_hash=" + AuthService.current_user().hash).
+      $http.get(endPoint.api + "/user/feed_activity/event?id=" + id + "&offset=" + offset + "&user_hash=" + AuthService.current_user().hash).
         success(function(response) {
           defer.resolve(response);
         }).

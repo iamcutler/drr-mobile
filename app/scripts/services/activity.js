@@ -1,7 +1,7 @@
 'use strict';
 
-app.factory('ActivityService', function ActivityService($http, $resource, $q, apiPrefix, resourceApiPrefix, AuthService) {
-  var resource = $resource(resourceApiPrefix + "/user/activity/:id", {
+app.factory('ActivityService', function ActivityService($http, $resource, $q, endPoint, AuthService) {
+  var resource = $resource(endPoint.resourceApi + "/user/activity/:id", {
     id: '@id',
     user_hash: AuthService.current_user().hash
   }, {});
@@ -36,7 +36,7 @@ app.factory('ActivityService', function ActivityService($http, $resource, $q, ap
     event_attendance: function(event_id) {
       var defer = $q.defer();
 
-      $http.post(apiPrefix + "/user/activity/event_attendance/" + event_id + "?user_hash=" + AuthService.current_user().hash)
+      $http.post(endPoint.api + "/user/activity/event_attendance/" + event_id + "?user_hash=" + AuthService.current_user().hash)
         .success(function(response) {
           defer.resolve(response);
         })
@@ -64,7 +64,7 @@ app.factory('ActivityService', function ActivityService($http, $resource, $q, ap
     media: function(offset) {
       var defer = $q.defer();
 
-      $http.get(apiPrefix + "/user/feed_activity/media/" + offset + "?user_hash=" + AuthService.current_user().hash)
+      $http.get(endPoint.api + "/user/feed_activity/media/" + offset + "?user_hash=" + AuthService.current_user().hash)
         .success(function(response) {
           defer.resolve(response);
         })

@@ -1,7 +1,10 @@
 // Prefix url string for api calls
-app.constant("apiPrefix", "http://localhost:8000");
-app.constant("resourceApiPrefix", "http://localhost:8000\:8000");
-app.constant("cdnDomain", "http://development.dirtyrottenrides.netdna-cdn.com");
+app.constant("endPoint", {
+  api: 'http://localhost:8000',
+  resourceApi: 'http://localhost:8000\:8000',
+  cdn: 'http://staging.dirtyrottenrides.netdna-cdn.com'
+});
+
 app.constant("imgPlaceholder", "components/com_community/assets/user.png");
 
 // Location for session information within sessionStorage

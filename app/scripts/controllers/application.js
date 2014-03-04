@@ -1,8 +1,8 @@
 'use strict';
 
-app.controller("ApplicationController", function($scope, $state, $cookies, cdnDomain, imgPlaceholder, AuthService) {
+app.controller("ApplicationController", function($scope, $state, $cookies, endPoint, imgPlaceholder, AuthService) {
   // Set constants in app scope
-  $scope.cdnDomain = cdnDomain;
+  $scope.cdnDomain = endPoint.cdn;
   $scope.imgPlaceholder = imgPlaceholder;
 
   // Check user access throughout the application and redirect if wrong privileges

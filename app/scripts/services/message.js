@@ -1,7 +1,7 @@
 'use strict';
 
-app.service('MessageService', function Message($resource, $q, resourceApiPrefix, AuthService) {
-  var Message = $resource(resourceApiPrefix + '/user/messages/:id', {
+app.factory('MessageService', function MessageService($resource, $q, endPoint, AuthService) {
+  var Message = $resource(endPoint.resourceApi + '/user/messages/:id', {
     user_hash: AuthService.current_user().hash
   }, {
     id: '@id'

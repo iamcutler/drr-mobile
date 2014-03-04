@@ -1,7 +1,7 @@
 'use strict';
 
-app.factory('GroupService', function GroupService($resource, $q, resourceApiPrefix, AuthService) {
-  var resource = $resource(resourceApiPrefix + '/user/groups/:id', {
+app.factory('GroupService', function GroupService($resource, $q, endPoint, AuthService) {
+  var resource = $resource(endPoint.resourceApi + '/user/groups/:id', {
     id: '@id',
     user_hash: AuthService.current_user().hash
   });

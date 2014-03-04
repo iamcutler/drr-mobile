@@ -1,11 +1,11 @@
 'use strict';
 
-app.factory('LikeService', function LikeService($rootScope, $http, $q, apiPrefix, AuthService) {
+app.factory('LikeService', function LikeService($rootScope, $http, $q, endPoint, AuthService) {
   return {
     like: function(element, id) {
       var defer = $q.defer();
 
-      $http.post(apiPrefix + "/user/like/like/" + element + "/" + id + "/1/?user_hash=" + AuthService.current_user().hash).
+      $http.post(endPoint.api + "/user/like/like/" + element + "/" + id + "/1/?user_hash=" + AuthService.current_user().hash).
         success(function(response) {
           defer.resolve(response);
         }).
@@ -19,7 +19,7 @@ app.factory('LikeService', function LikeService($rootScope, $http, $q, apiPrefix
     dislike: function(element, id) {
       var defer = $q.defer();
 
-      $http.post(apiPrefix + "/user/like/like/" + element + "/" + id + "/0/?user_hash=" + AuthService.current_user().hash).
+      $http.post(endPoint.api + "/user/like/like/" + element + "/" + id + "/0/?user_hash=" + AuthService.current_user().hash).
         success(function(response) {
           defer.resolve(response);
         }).

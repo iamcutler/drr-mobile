@@ -1,9 +1,9 @@
 'use strict';
 
-app.factory('AuthService', function ($http, $rootScope, $cookieStore, $state, apiPrefix) {
+app.factory('AuthService', function ($http, $rootScope, $cookieStore, $state, endPoint) {
   return {
     login: function(data, callback) {
-      $http.post(apiPrefix + "/user/login", data).
+      $http.post(endPoint.api + "/user/login", data).
       success(function(data) {
         if(typeof callback === "function") {
           callback(data);
@@ -19,7 +19,7 @@ app.factory('AuthService', function ($http, $rootScope, $cookieStore, $state, ap
       $state.go('login');
     },
     check_username_uniqueness: function(username, callback) {
-      $http.post(apiPrefix + '/check/username/' + username, {}).
+      $http.post(endPoint.api + '/check/username/' + username, {}).
       success(function(data) {
         if(typeof callback === "function") {
           callback(data);
@@ -27,7 +27,7 @@ app.factory('AuthService', function ($http, $rootScope, $cookieStore, $state, ap
       }).error(function() {});
     },
     register: function(user, callback) {
-      $http.post(apiPrefix + '/user', user).
+      $http.post(endPoint.api + '/user', user).
       success(function(data) {
         if(typeof callback === "function") {
           callback(data);

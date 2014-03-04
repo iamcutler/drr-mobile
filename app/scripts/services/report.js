@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('ReportService', function Report($http, $rootScope, apiPrefix, AuthService) {
+app.factory('ReportService', function Report($http, $rootScope, endPoint, AuthService) {
   // AngularJS will instantiate a singleton by calling "new" on this function
   return {
     bug: function(data, callback) {
@@ -11,7 +11,7 @@ app.factory('ReportService', function Report($http, $rootScope, apiPrefix, AuthS
         bug_type: data.type
       });
 
-      $http.post('http://localhost:8000/report/bug', {
+      $http.post(endPoint.api + '/report/bug', {
         user_hash: AuthService.current_user().hash,
         category: data.category,
         message: data.message,
