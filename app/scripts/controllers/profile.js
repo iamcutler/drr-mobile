@@ -28,7 +28,7 @@ app.controller('ProfileController', function ($scope, $state, $stateParams, $loc
 
   // About
   if($state.current.name == "profile.about") {
-    $scope.title = "About" + $scope.profile.user.name;
+    $scope.title = "About" + " " + $scope.profile.user.name;
   }
 
   // Friends
