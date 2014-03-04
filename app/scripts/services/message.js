@@ -2,9 +2,8 @@
 
 app.factory('MessageService', function MessageService($resource, $q, endPoint, AuthService) {
   var Message = $resource(endPoint.resourceApi + '/user/messages/:id', {
+    id: '@id',
     user_hash: AuthService.current_user().hash
-  }, {
-    id: '@id'
   });
 
   return {
