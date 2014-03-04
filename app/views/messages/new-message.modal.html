@@ -1,0 +1,21 @@
+<form name="newMessageForm" ng-submit="newMessageThread(newMessageForm)" novalidate>
+  <div class="row" style="padding: 20px 10px 0 10px;">
+    <div class="col-xs-2">
+      <div class="thumbnail">
+        <img ng-src="{{ cdnDomain }}/{{ user.thumbnail || imgPlaceholder }}" alt="" />
+      </div>
+    </div>
+    <div class="col-xs-10" style="padding-bottom: 10px;">
+      <textarea name="new_message" class="form-control" ng-model="newMessage.message" placeholder="Write {{ user.name }} a new message..." required></textarea>
+    </div>
+  </div>
+
+  <div class="row" style="padding: 0 10px 20px 10px;">
+    <div class="col-xs-6">
+      <button type="submit" class="btn btn-block btn-lg btn-default" ng-click="close()">Cancel</button>
+    </div>
+    <div class="col-xs-6">
+      <button type="submit" class="btn btn-block btn-lg btn-primary">Send</button>
+    </div>
+  </div>
+</form>

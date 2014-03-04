@@ -4,6 +4,19 @@
       <img ng-src="{{ cdnDomain }}/{{ profile.user.avatar || imgPlaceholder }}" alt="" />
     </div>
   </a>
+
+  <div style="margin-left: 190px;">
+
+    <div class="row-fluid" ng-if="profile.relation.self != true">
+      <div class="col-xs-6" ng-switch="profile.relation.friends">
+        <button type="button" class="btn btn-block" ng-switch-when="false" target="{{ profile.user.id }}" send-friend-request>Add Friend</button>
+        <button type="button" class="btn btn-block" ng-switch-when="true" target="{{ profile.user.id }}" remove-friend>Remove Friend</button>
+      </div>
+      <div class="col-xs-6">
+        <button type="button" class="btn btn-block" ng-click="newMessage()">Message</button>
+      </div>
+    </div>
+  </div>
   <div class="clearfix"></div>
 </div>
 

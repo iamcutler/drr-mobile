@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('ProfileController', function ($scope, $state, $stateParams, $location, profile, content) {
+app.controller('ProfileController', function ($scope, $state, $stateParams, $location, $modal, profile, content) {
   // Call profile service
   $scope.profile = profile;
 
@@ -10,6 +10,20 @@ app.controller('ProfileController', function ($scope, $state, $stateParams, $loc
     $scope.$watch('profile', function() {
       $scope.title = $scope.profile.user.name;
     });
+
+    // New message modal
+    $scope.newMessage = function() {
+      $modal.open({
+        templateUrl: 'views/messages/new-message.modal.html',
+        controller: 'ModalController',
+        scope: $scope,
+        resolve: {
+          user: function() {
+            return $scope.profile.user;
+          }
+        }
+      });
+    };
   }
 
   // About
