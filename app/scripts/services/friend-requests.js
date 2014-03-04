@@ -20,6 +20,19 @@ app.service('RequestService', function FriendRequests($resource, $q, endPoint, A
 
       return deferred.promise;
     },
+    send: function(id) {
+      var defer = $q.defer();
+
+      Requests.save({
+        user: id
+      }, function(response) {
+        defer.resolve(response);
+      }, function() {
+        defer.reject('Error saving new friend request');
+      });
+
+      return defer.promise;
+    },
     accept: function(id, callback) {
       Requests.update({ id: id }, function(response) {
         if(typeof callback === "function") {
