@@ -1581,6 +1581,21 @@ section.activity-container {
   }
 }
 
+// ---------------------- Account Settings ----------------------
+section.account-settings {
+  padding: 20px;
+
+  .row, .row-fluid {
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 6px;
+
+    h1, h2, h3, h4, h5, h6 {
+      color: #F3CA8A;
+    }
+  }
+}
+
 // ---------------------- Report Problems ----------------------
 section.report-bug {
   padding: 20px;

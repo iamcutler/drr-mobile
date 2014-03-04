@@ -1,5 +1,62 @@
 <ng-include src="'views/shared-partials/navbar.html'"></ng-include>
 
 <section class="account-settings">
+  <form name="accountPreferences" ng-submit="saveSettings(accountPreferences)" novalidate>
+    <div class="row-fluid clearfix" ng-repeat="setting in settings" ng-switch="setting.type">
+      <div class="col-xs-12" ng-switch-when="group">
+        <h4>{{ setting.name }}:</h4>
+      </div>
 
+      <div class="col-xs-3" ng-if="setting.type != 'group'">
+        {{ setting.name }}
+      </div>
+      <div class="col-xs-7" ng-switch-when="text">
+        <input type="text" name="{{ setting.fieldcode }}" class="form-control" ng-model="setting.value.value" ng-value="setting.value.value" ng-required="setting.required == 1" />
+      </div>
+      <div class="col-xs-7" ng-switch-when="url">
+        <input type="url" name="{{ setting.fieldcode }}" class="form-control" ng-model="setting.value.value" ng-value="setting.value.value" ng-required="setting.required == 1" />
+      </div>
+      <div class="col-xs-7" ng-switch-when="birthdate">
+        <input type="date" name="{{ setting.fieldcode }}" class="form-control" ng-model="setting.value.value" ng-value="setting.value.value" ng-required="setting.required == 1" />
+      </div>
+      <div class="col-xs-7" ng-switch-when="select">
+        <select name="{{ setting.fieldcode }}" class="form-control" ng-model="setting.value.value" ng-required="setting.required == 1">
+          <option value="">Select:</option>
+          <option value="{{ option }}" ng-repeat="option in setting.options" ng-selected="option == setting.value.value">{{ option }}</option>
+        </select>
+      </div>
+      <div class="col-xs-7" ng-switch-when="country">
+        <select name="{{ setting.fieldcode }}" class="form-control" ng-model="setting.value.value" ng-required="setting.required == 1">
+          <option value="">Select:</option>
+          <option value="{{ option }}" ng-repeat="option in setting.options" ng-selected="option == setting.value.value">{{ option }}</option>
+        </select>
+      </div>
+      <div class="col-xs-7" ng-switch-when="textarea">
+        <textarea name="{{ setting.fieldcode }}" class="form-control" ng-model="setting.value.value" ng-required="setting.required == 1"></textarea>
+      </div>
+      <div class="col-xs-7" ng-switch-default>
+        <input type="text" name="{{ setting.fieldcode }}" class="form-control" ng-model="setting.value.value" ng-value="setting.value.value" ng-required="setting.required == 1" />
+      </div>
+
+      <div class="col-xs-2" ng-if="setting.type != 'group'">
+        <select name="{{ setting.fieldcode }}" class="form-control" ng-model="setting.value.access">
+          <option value="0" ng-selected="setting.value.access == 0">Public</option>
+          <option value="20" ng-selected="setting.value.access == 20">Members</option>
+          <option value="30" ng-selected="setting.value.access == 30">Friends</option>
+          <option value="40" ng-selected="setting.value.access == 40">Only Me</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row-fluid clearfix" style="padding-top: 20px;">
+      <div class="col-xs-12" ng-show="submitSuccess">
+        <div class="alert alert-success">
+          {{ statusMsg }}
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <button type="submit" class="btn btn-block btn-lg btn-primary">Save</button>
+      </div>
+    </div>
+  </form>
 </section>
