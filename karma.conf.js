@@ -17,6 +17,7 @@ module.exports = function(config) {
       'app/bower_components/angular-resource/angular-resource.js',
       'app/bower_components/angular-cookies/angular-cookies.js',
       'app/bower_components/angular-sanitize/angular-sanitize.js',
+      'app/bower_components/angular-bootstrap/ui-bootstrap.min.js',
       'app/bower_components/angular-ui-router/release/angular-ui-router.js',
       'app/bower_components/moment/moment.js',
       'app/bower_components/angular-moment/angular-moment.min.js',
