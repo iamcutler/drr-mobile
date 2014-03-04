@@ -51,6 +51,8 @@ nav.navbar {
     
     button.navbar-toggle {
       background: #63060d;
+      width: 44px;
+      height: 34px;
       display: block;
       box-shadow: inset 0 0 8px #111;
       margin-left: 10px;
@@ -58,6 +60,15 @@ nav.navbar {
       
       span.icon-bar {
         background: #FFF;
+      }
+
+      &.back-button {
+        padding: 0;
+
+        img {
+          width: 22px;
+          margin-top: -2px;
+        }
       }
     }
   }
