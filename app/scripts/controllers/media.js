@@ -25,4 +25,8 @@ app.controller('MediaController', function ($scope, $state, media, ActivityServi
 
     console.log(media);
   }
+
+  if($state.current.name == "media.post") {
+    $scope.title = "Media Post";
+  }
 });
