@@ -126,9 +126,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         require_user: true
       },
       resolve: {
-        profile: function() {}
-      },
-      content: function() {}
+        profile: function($stateParams, ProfileService) {
+          return ProfileService.getProfileData($stateParams);
+        },
+        content: function() {}
+      }
     })
     .state("profile.friends", {
       parent: "default",
