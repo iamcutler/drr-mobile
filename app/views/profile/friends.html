@@ -1,1 +1,21 @@
-<ng-include src="'views/shared-partials/navbar.html'"></ng-include>
+<ng-include src="'views/shared-partials/navbar-back.html'"></ng-include>
+
+<section id="user-friends">
+  <div class="contact-label" ng-repeat="label in nameLabel" ng-if="friends.length != '0' && profile.profile.settings.privacyProfileView == '0' || friends.length != '0' && profile.relation.self == true && profile.profile.settings.privacyProfileView == '40' || friends.length != '0' && profile.relation.friends == true">
+    <h3>{{label}}</h3>
+    <hr />
+
+    <a ng-href="/#/profile/{{ friend.alias }}" ng-repeat="friend in friends" ng-if="friend.name.substring(0,1) == label">
+      <div class="friend">
+        <div class="thumbnail">
+          <img ng-src="{{ cdnDomain }}/{{ friend.thumbnail || imgPlaceholder }}" alt="" />
+        </div>
+        <span>{{ friend.name }}</span>
+        <div class="clearfix"></div>
+      </div>
+    </a>
+  </div>
+
+  <page-icon ng-if="friends.length == 0 && profile.profile.settings.privacyFriendsView != '40'" icon="P" message="{{ profile.user.name }} doesn't have any current friends"></page-icon>
+  <page-icon ng-if="profile.profile.settings.privacyFriendsView == '30'" icon="P" message="You must be friends with {{ profile.user.name }} to seehis/her friends"></page-icon>
+</section>

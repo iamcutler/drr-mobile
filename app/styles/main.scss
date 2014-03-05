@@ -989,6 +989,36 @@ section.user-profile {
   // Profile feed
   div#profile-feed {
     padding: 10px;
+// Profile friends
+section#user-friends {
+  padding: 20px;
+
+  div.contact-label {
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: bold;
+      margin: 0;
+    }
+
+    hr {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  div.friend {
+    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    @include border-radius(8px);
+    padding: 6px;
+    margin-bottom: 10px;
+
+    div.thumbnail {
+      float: left;
+      width: 50px;
+      height: 50px;
+      border: none;
+      margin: 0 16px 0 0;
+      padding: 0;
+    }
 
     // Feed loader when calling additional posts
     div.loader {

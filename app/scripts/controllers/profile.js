@@ -34,6 +34,8 @@ app.controller('ProfileController', function ($scope, $state, $stateParams, $loc
   // Friends
   if($state.current.name == "profile.friends") {
     $scope.title = $scope.profile.user.name + "'s friends";
+    $scope.friends = content;
+    $scope.nameLabel = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
   }
   
   // Albums
