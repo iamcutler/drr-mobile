@@ -28,10 +28,10 @@
 
   <div class="row media-actions">
     <div class="col-xs-6" style="padding-right: 6px;">
-      <button type="button" class="btn btn-block btn-lg btn-primary"><i>T</i> I Like This</button>
+      <button type="button" class="btn btn-block btn-lg btn-primary" element="{{ media.like_type }}" id="{{ media.like_id }}" like="1" model="media" like-this><i>T</i> I Like This</button>
     </div>
     <div class="col-xs-6" style="padding-left: 6px;">
-      <button type="button" class="btn btn-block btn-lg btn-primary"><i>K</i> Comment</button>
+      <a ng-href="/#/activity/{{ media.id }}" class="btn btn-block btn-lg btn-primary"><i>K</i> Comment</a>
     </div>
   </div>
 </footer>
