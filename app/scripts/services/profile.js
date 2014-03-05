@@ -18,7 +18,7 @@ app.factory('ProfileService', function ($http, $q, endPoint, AuthService) {
     user_friends: function(params, limit) {
       var deferred = $q.defer();
 
-      $http.get(endPoint.api + "/user/profile/friends/" + params.slug + "/"+ limit +"?user_hash=" + AuthService.current_user().hash, {
+      $http.get(endPoint.api + "/user/profile/friends/" + params.slug +"?user_hash=" + AuthService.current_user().hash, {
         cache: true
       }).
         success(function(response) {
