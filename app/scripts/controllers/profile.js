@@ -63,6 +63,8 @@ app.controller('ProfileController', function ($scope, $state, $stateParams, $loc
 
   // Events
   if($state.current.name == "profile.events") {
+    $scope.title = $scope.profile.user.name + "'s events";
+    $scope.events = content;
   }
 
   // Groups
