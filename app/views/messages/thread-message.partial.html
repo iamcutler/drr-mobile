@@ -1,7 +1,7 @@
 <div class="message {{ message.from | MessageStructure:user_id }}">
   <div class="user-column">
-    <a href="/#/profile/{{ thread.user.slug }}" class="thumb">
-      <img ng-src="{{ cdnDomain }}/{{ message.thumbnail || imgPlaceholder }}" alt="" />
+    <a href="/#/profile/{{ message.user_from.slug }}" class="thumb">
+      <img ng-src="{{ cdnDomain }}/{{ message.user_from.thumbnail || imgPlaceholder }}" alt="" />
     </a>
   </div>
 
