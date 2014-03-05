@@ -378,6 +378,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "/views/account/settings.html",
       access: {
         require_user: true
+      },
+      resolve: {
+        account: function(UserService) {
+          return UserService.account_settings();
+        }
       }
     })
     // Errors
