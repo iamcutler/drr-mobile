@@ -14,7 +14,7 @@ app.controller('MediaController', function ($scope, $state, media, ActivityServi
     }
   };
 
-  if($state.current.name = "media") {
+  if($state.current.name == "media") {
     $scope.title = "Media";
     $scope.media = media;
     $scope.media_counter = 10;
