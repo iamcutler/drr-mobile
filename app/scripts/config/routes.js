@@ -129,7 +129,9 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         profile: function($stateParams, ProfileService) {
           return ProfileService.getProfileData($stateParams);
         },
-        content: function() {}
+        content: function($stateParams, ProfileService) {
+          return ProfileService.about_user($stateParams);
+        }
       }
     })
     .state("profile.friends", {

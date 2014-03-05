@@ -1,1 +1,25 @@
 <ng-include src="'views/shared-partials/navbar-back.html'"></ng-include>
+
+<section class="about-user">
+  <div class="user-information">
+    <div class="row-fluid clearfix" style="margin-bottom: 10px;" ng-if="profile.relation.self == true">
+      <div class="col-xs-12">
+        <a href="/#/preferences" class="btn btn-block btn-lg btn-default">Edit Profile</a>
+      </div>
+    </div>
+
+    <div class="row-fluid clearfix" ng-repeat="about in about_user" ng-switch="about.type">
+      <div class="col-xs-12" ng-switch-when="group">
+        <hr />
+        <h4>{{ about.name }}:</h4>
+        <hr />
+      </div>
+
+      <div ng-if="about.value.value != ''" ng-switch-default>
+        <div class="col-xs-12">
+          {{ about.name }}: <span class="title">{{ about.value.value }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

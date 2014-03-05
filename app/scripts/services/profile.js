@@ -15,6 +15,19 @@ app.factory('ProfileService', function ($http, $q, endPoint, AuthService) {
 
       return deferred.promise;
     },
+    about_user: function(params) {
+      var defer = $q.defer();
+
+      $http.get(endPoint.api + "/user/profile/about/" + params.slug + "?user_hash=" + AuthService.current_user().hash)
+        .success(function(response) {
+          defer.resolve(response);
+        })
+        .error(function() {
+          defer.reject('Error fetching profile about user data');
+        });
+
+      return defer.promise;
+    },
     user_friends: function(params) {
       var deferred = $q.defer();
 

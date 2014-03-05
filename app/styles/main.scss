@@ -999,6 +999,32 @@ section.user-profile {
   }
 }
 
+// Profile about user
+section.about-user {
+  padding: 20px;
+  @include text-shadow(0 0 6px #000);
+
+  div.user-information {
+    background: url('/images/ui-bg-texture.jpg') repeat;
+    padding: 20px;
+    @include border-radius(8px);
+
+    h1, h2, h3, h4, h5, h6 {
+      color: #F3CA8A;
+      font-weight: bold;
+    }
+
+    hr {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    span.title {
+      color: #999;
+    }
+  }
+}
+
 // Profile friends
 section#user-friends {
   padding: 20px;
