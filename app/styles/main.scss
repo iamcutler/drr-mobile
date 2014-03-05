@@ -118,6 +118,11 @@ h1, h2, h3, h4, h5 ,h6 {
       line-height: 1px;
     }
   }
+
+  &.btn-liked {
+    color: #6d6e71 !important;
+    @include text-shadow(0 0 4px #6d6e71);
+  }
 }
 
 a.menu-link:Link, a.menu-link:Visited {
@@ -247,6 +252,10 @@ article.feed-article {
       color: #f3ca8a;
       font-size: 14px;
       margin-bottom: 12px;
+
+      a:link, a:visited {
+        color: #f3ca8a;
+      }
     }
 
     .row, .row-fluid {
@@ -518,14 +527,6 @@ section#news-feed {
       }
     }
   }
-  
-  // Feed loader when calling additional posts
-  div.loader {
-    background: url("/images/feed-loader.gif") center center no-repeat;
-    height: 11px;
-    padding: 30px 0 30px 0;
-    margin: auto;
-  }
 }
 
 // ---------------------- Friend Requests ----------------------
@@ -710,9 +711,9 @@ section.user-messages {
         
         &.user-name {
           float: left;
+          width: 100%;
           color: #f4cb89;
-          font-size: 18px;
-          padding-top: 18px;
+          font-size: 22px;
           font-weight: 500;
         }
       }
@@ -791,7 +792,7 @@ section.message-thread {
   }
 }
 
-div.add-thread {
+div.add-thread, div.compose-comment {
   position: fixed;
   background: #000 url("/images/ui-bg-texture.jpg") repeat;
   bottom: 0;
@@ -971,6 +972,7 @@ section.user-profile {
     &.user-activities {
       display: flex;
       text-align: center;
+      white-space: nowrap;
       margin: 20px 0 0 0;
 
       a.menu-link:Link, a.menu-link:Visited {
@@ -989,6 +991,14 @@ section.user-profile {
   // Profile feed
   div#profile-feed {
     padding: 10px;
+  }
+
+  div.pending-request {
+    text-align: center;
+    margin: -20px 0 20px 0;
+  }
+}
+
 // Profile friends
 section#user-friends {
   padding: 20px;
@@ -1020,12 +1030,9 @@ section#user-friends {
       padding: 0;
     }
 
-    // Feed loader when calling additional posts
-    div.loader {
-      background: url("/images/feed-loader.gif") center center no-repeat;
-      height: 11px;
-      padding: 30px 0 30px 0;
-      margin: auto;
+    span {
+      float: left;
+      margin-top: 12px;
     }
   }
 }
@@ -1373,6 +1380,12 @@ section#event {
       &:hover {
         text-decoration: underline;
       }
+    }
+
+    div.event-guest-status {
+      background: #000;
+      padding: 10px;
+      margin-top: 10px;
     }
   }
 
