@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('MessagesController', function ($scope, $state, $location, $anchorScroll, messages, MessageService, AuthService) {
+app.controller('MessagesController', function ($scope, $state, $stateParams, $location, $anchorScroll, messages, MessageService, AuthService) {
   if($state.current.name == "messages") {
     $scope.title = "My Messages";
 
@@ -15,11 +15,16 @@ app.controller('MessagesController', function ($scope, $state, $location, $ancho
 
   if($state.current.name == "messages.thread") {
     // Set recepient name as the page title
-    $scope.title = messages.user.name;
+    //$scope.title = $scope.messages.messages.subject;
+
+    // Find recepient id
+    $scope.recepient = (messages.messages[0].from == AuthService.current_user().id) ? messages.messages[0].to : messages.messages[0].from;
+
     // New message scope object
     $scope.new_msg = {
       user: AuthService.current_user().id,
-      recepient: messages.user.id
+      recepient: $scope.recepient,
+      parent: $stateParams.id
     };
 
     // Assign message service promise to thread scope
@@ -27,11 +32,6 @@ app.controller('MessagesController', function ($scope, $state, $location, $ancho
 
     // Set message timestamps to js date local times
     angular.forEach($scope.thread.messages, function(val, key) {
-      if(val.from == AuthService.current_user().id) {
-        val.thumbnail = AuthService.current_user().thumbnail;
-      } else {
-        val.thumbnail = $scope.thread.user.thumbnail;
-      }
       val.posted_on = moment.utc(val.posted_on).local();
     });
 
