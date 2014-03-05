@@ -271,10 +271,10 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         require_user: true
       }
     })
-    // -------------------- Activity --------------------
-    .state("user-activity", {
+    // -------------------- Dedicated Activity --------------------
+    .state("activity", {
       parent: "default",
-      url: "/post/:id",
+      url: "/activity/:id",
       controller: "ActivityController",
       templateUrl: "/views/activity/index.html",
       access: {

@@ -43,7 +43,7 @@ app.controller('ActivityController', function ($scope, $state, activity, WallSer
   };
 
   // Profile activity
-  if($state.current.name = 'user-activity') {
+  if($state.current.name = 'activity') {
     $scope.title = "";
     $scope.activity = activity.activity;
     $scope.new_comment = {
