@@ -1,0 +1,23 @@
+<section class="status-container">
+  <div id="status-navigation" class="row-fluid clearfix">
+    <div class="col-xs-3">
+      <button type="submit" class="btn btn-block btn-lg btn-primary" status="text" toggle-status-type>Status</button>
+    </div>
+    <div class="col-xs-3">
+      <button type="submit" class="btn btn-block btn-lg btn-default" status="photo" toggle-status-type>Photos</button>
+    </div>
+    <div class="col-xs-3">
+      <button type="submit" class="btn btn-block btn-lg btn-default" status="video" toggle-status-type>Videos</button>
+    </div>
+    <div class="col-xs-3">
+      <button type="submit" class="btn btn-block btn-lg btn-default" status="event" toggle-status-type>Event</button>
+    </div>
+    <div class="col-xs-12">
+      <hr />
+    </div>
+  </div>
+
+  <ng-include src="'views/profile/status/text.partial.html'"></ng-include>
+  <ng-include src="'views/profile/status/photo.partial.html'"></ng-include>
+  <ng-include src="'views/profile/status/event.partial.html'"></ng-include>
+</section>

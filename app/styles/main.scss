@@ -1176,6 +1176,66 @@ section#user-events {
   }
 }
 
+// User Status
+section.status-container {
+  padding: 10px;
+
+  .row, .row-fluid {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .thumbnail {
+    float: left;
+    background: none;
+    width: 60px;
+    padding: 0;
+    margin-right: 10px;
+    border: none;
+    @include border-radius(0);
+  }
+
+  input{
+    background: #000;
+    border: none;
+  }
+  
+  select {
+    background: #000;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  textarea {
+    height: 60px;
+  }
+
+  // Hide status containers
+  [id$=-status] {
+    display: none;
+  }
+
+  // Event status
+  #event-status {
+    .row, .row-fluid {
+      & > div {
+        margin-bottom: 6px;
+      }
+    }
+
+    #repeat-end {
+      display: none;
+    }
+  }
+}
+
 // ------------------------------ Groups ----------------------------
 section#group {
   padding: 20px;

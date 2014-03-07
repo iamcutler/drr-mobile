@@ -1,0 +1,77 @@
+<div id="event-status">
+  <form name="newEventStatus" ng-submit="" novalidate>
+    <div class="row-fluid clearfix">
+      <div class="col-xs-2">
+        Title:
+      </div>
+      <div class="col-xs-10">
+        <input type="text" class="form-control" />
+      </div>
+      <div class="col-xs-2">
+        Category:
+      </div>
+      <div class="col-xs-10">
+        <select class="form-control">
+          <option value="{{ category.id }}" ng-repeat="category in event_categories">{{ category.name }}</option>
+        </select>
+      </div>
+      <div class="col-xs-2">
+        Location:
+      </div>
+      <div class="col-xs-10">
+        <input type="text" class="form-control" />
+      </div>
+      <div class="col-xs-2">
+        All day:
+      </div>
+      <div class="col-xs-10">
+        <select class="form-control" event-length>
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </div>
+      <div class="col-xs-2">
+        Start Date:
+      </div>
+      <div class="col-xs-5" id="eventStartDate">
+        <input type="date" class="form-control" placeholder="Date:" />
+      </div>
+      <div class="col-xs-5" id="eventStartTime">
+        <input type="time" class="form-control" placeholder="Time:" />
+      </div>
+      <div class="col-xs-2">
+        End Date:
+      </div>
+      <div class="col-xs-5" id="eventEndDate">
+        <input type="date" class="form-control" placeholder="Date:" />
+      </div>
+      <div class="col-xs-5" id="eventEndTime">
+        <input type="time" class="form-control" placeholder="Time:" />
+      </div>
+      <div class="col-xs-2">
+        Repeat:
+      </div>
+      <div class="col-xs-10">
+        <select class="form-control" event-repeat>
+          <option value="">None</option>
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+        </select>
+      </div>
+      <div class="col-xs-5" id="repeat-end">
+        <input type="date" class="form-control" placeholder="End Date:" />
+      </div>
+      <div class="col-xs-12">
+        <textarea class="form-control" placeholder="Write something about this event..."></textarea>
+      </div>
+
+      <div class="col-xs-6">
+        <a href="javascript: void(0);" class="btn btn-block btn-lg btn-default" ng-click="close()">Cancel</a>
+      </div>
+      <div class="col-xs-6">
+        <button type="submit" class="btn btn-block btn-lg btn-primary">Share Event</button>
+      </div>
+    </div>
+  </form>
+</div>

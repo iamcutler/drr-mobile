@@ -1,0 +1,23 @@
+<div id="text-status" style="display: block;">
+  <form name="newTextStatus" ng-submit="" novalidate>
+    <div class="row">
+      <div class="col-xs-2" style="padding-right: 0;">
+        <figure class="thumbnail">
+          <img ng-src="{{ cdnDomain }}/{{ user.thumbnail || imgPlaceholder }}" alt="" />
+        </figure>
+      </div>
+      <div class="col-xs-10" style="padding-left: 0;">
+        <textarea name="" placeholder="Write something good..." required></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <a href="javascript: void(0);" class="btn btn-block btn-lg btn-default" ng-click="close()">Cancel</a>
+      </div>
+      <div class="col-xs-6">
+        <button type="submit" class="btn btn-block btn-lg btn-primary">Share</button>
+      </div>
+    </div>
+  </form>
+</div>

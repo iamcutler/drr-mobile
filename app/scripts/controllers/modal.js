@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('ModalController', function($scope, $modalInstance, MessageService, user) {
+app.controller('ModalController', function($scope, $modalInstance, MessageService, EventService, user) {
   // Assign user to modal
   $scope.user = user;
 
@@ -10,6 +10,16 @@ app.controller('ModalController', function($scope, $modalInstance, MessageServic
     recepient: user.id,
     parent: 0
   };
+
+  //------------------------- Status --------------------------
+  // Get event categories and assign to scope on success
+  EventService.categories().
+    success(function(response) {
+      $scope.event_categories = response;
+    }).
+    error(function() {
+      console.log('Error fetching event categories');
+    });
 
   // Dismiss modal instance
   $scope.close = function() {

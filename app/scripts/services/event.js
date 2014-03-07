@@ -32,6 +32,9 @@ app.service('EventService', function EventService($http, $resource, $q, endPoint
         });
 
       return defer.promise;
+    },
+    categories: function() {
+      return $http.get(endPoint.api + "/user/feed_activity/event-categories?user_hash=" + AuthService.current_user().hash);
     }
   };
 });

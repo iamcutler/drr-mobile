@@ -85,3 +85,79 @@ app.directive('removeFriend', function(UserService) {
     }
   };
 });
+
+app.directive('newStatus', function($modal, EventService, AuthService) {
+  return {
+    restrict: 'A',
+    scope: '@',
+    link: function(scope, elem, attrs) {
+      elem.bind('click', function() {
+        $modal.open({
+          templateUrl: 'views/profile/status/new-status.modal.html',
+          controller: 'ModalController',
+          scope: scope,
+          resolve: {
+            user: function() {
+              return AuthService.current_user();
+            }
+          }
+        });
+      });
+    }
+  };
+});
+
+app.directive('toggleStatusType', function() {
+  return {
+    restrict: 'A',
+    scope: {
+      status: '@'
+    },
+    link: function(scope, elem, attrs) {
+      elem.bind('click', function() {
+        // Change button classes
+        $('#status-navigation button').removeClass('btn-primary').addClass('btn-default');
+        elem.removeClass('btn-default').addClass('btn-primary');
+
+        // Show/Hide status containers
+        $('[id$=-status]').hide();
+        $('#' + scope.status + '-status').show();
+      });
+    }
+  };
+});
+
+app.directive('eventLength', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, elem, attrs) {
+      elem.bind('change', function() {
+        // Hide event times if all day event
+        if(elem.val() == 1) {
+          $('#eventStartTime, #eventEndTime').hide();
+          $('#eventStartDate, #eventEndDate').removeClass().addClass('col-xs-10');
+        } else {
+          $('#eventStartTime, #eventEndTime').show();
+          $('#eventStartDate, #eventEndDate').removeClass().addClass('col-xs-5');
+        }
+      });
+    }
+  };
+});
+
+app.directive('eventRepeat', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, elem, attrs) {
+      elem.bind('change', function() {
+        if(elem.val() == '') {
+          $('#repeat-end').hide();
+          elem.parent().removeClass().addClass('col-xs-10');
+        } else {
+          $('#repeat-end').show();
+          elem.parent().removeClass().addClass('col-xs-5');
+        }
+      });
+    }
+  };
+});
