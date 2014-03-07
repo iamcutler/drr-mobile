@@ -28,7 +28,7 @@ app.factory('ActivityService', function ActivityService($http, $resource, $q, en
           defer.reject(response);
         }
       }, function(response) {
-        defer.reject('Error saving activity.');
+        defer.reject('Error occuried while saving. Try again later.');
       });
 
       return defer.promise;

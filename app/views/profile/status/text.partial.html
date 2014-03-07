@@ -1,13 +1,19 @@
 <div id="text-status" style="display: block;">
-  <form name="newTextStatus" ng-submit="" novalidate>
+  <form name="newTextStatusForm" ng-submit="newTextStatus(newTextStatusForm)" novalidate>
     <div class="row">
+      <div class="col-xs-12" ng-show="statusError">
+        <div class="alert alert-danger">
+          {{ statusErrorMsg }}
+        </div>
+      </div>
+
       <div class="col-xs-2" style="padding-right: 0;">
         <figure class="thumbnail">
           <img ng-src="{{ cdnDomain }}/{{ user.thumbnail || imgPlaceholder }}" alt="" />
         </figure>
       </div>
       <div class="col-xs-10" style="padding-left: 0;">
-        <textarea name="" placeholder="Write something good..." required></textarea>
+        <textarea name="" placeholder="Write something good..." ng-model="new_status.text.status" required></textarea>
       </div>
     </div>
 
