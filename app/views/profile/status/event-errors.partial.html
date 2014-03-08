@@ -1,0 +1,19 @@
+<div class="row" style="margin-left: 15px; margin-right: 15px; margin-bottom: 10px;">
+  <div class="alert alert-danger" style="padding: 5px 15px;">
+    <div class="col-12-md" ng-show="newEventStatusForm.title.$error.required">
+      Please provide the event title.
+    </div>
+    <div class="col-12-md" ng-show="newEventStatusForm.category.$error.required">
+      Please provide an event category.
+    </div>
+    <div class="col-12-md" ng-show="newEventStatusForm.location.$error.required">
+      Please provide a location.
+    </div>
+    <div class="col-12-md" ng-show="newEventStatusForm.startdate.$error.required">
+      Please provide an event start date.
+    </div>
+    <div class="col-12-md" ng-show="newEventStatusForm.enddate.$error.required">
+      Please provide an event end date.
+    </div>
+  </div>
+</div>

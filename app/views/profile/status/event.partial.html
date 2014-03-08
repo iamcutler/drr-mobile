@@ -1,31 +1,34 @@
 <div id="event-status">
-  <form name="newEventStatus" ng-submit="" novalidate>
+  <ng-include src="'views/profile/status/event-errors.partial.html'" ng-show="statusError"></ng-include>
+
+  <form name="newEventStatusForm" ng-submit="newEventStatus(newEventStatusForm)" novalidate>
     <div class="row-fluid clearfix">
       <div class="col-xs-2">
         Title:
       </div>
       <div class="col-xs-10">
-        <input type="text" class="form-control" />
+        <input type="text" name="title" class="form-control" ng-model="new_status.event.title" required />
       </div>
       <div class="col-xs-2">
         Category:
       </div>
       <div class="col-xs-10">
-        <select class="form-control">
-          <option value="{{ category.id }}" ng-repeat="category in event_categories">{{ category.name }}</option>
+        <select name="category" class="form-control" ng-model="new_status.event.catid" ng-options="category.id as category.name for category in event_categories" required>
+          <option value="" selected="selected">Select:</option>
         </select>
       </div>
       <div class="col-xs-2">
         Location:
       </div>
       <div class="col-xs-10">
-        <input type="text" class="form-control" />
+        <input type="text" name="location" class="form-control" ng-model="new_status.event.location" required />
+        <span style="color: #999; font-size: 12px;">E.g. San Jose, California</span>
       </div>
       <div class="col-xs-2">
         All day:
       </div>
       <div class="col-xs-10">
-        <select class="form-control" event-length>
+        <select name="allday" class="form-control" ng-model="new_status.event.allday" event-length>
           <option value="0">No</option>
           <option value="1">Yes</option>
         </select>
@@ -34,25 +37,25 @@
         Start Date:
       </div>
       <div class="col-xs-5" id="eventStartDate">
-        <input type="date" class="form-control" placeholder="Date:" />
+        <input type="date" name="startdate" class="form-control" ng-model="new_status.event.startdate" placeholder="Date:" required />
       </div>
       <div class="col-xs-5" id="eventStartTime">
-        <input type="time" class="form-control" placeholder="Time:" />
+        <input type="time" name="starttime" class="form-control" ng-model="new_status.event.starttime" placeholder="Time:" />
       </div>
       <div class="col-xs-2">
         End Date:
       </div>
       <div class="col-xs-5" id="eventEndDate">
-        <input type="date" class="form-control" placeholder="Date:" />
+        <input type="date" name="enddate" class="form-control" ng-model="new_status.event.enddate" placeholder="Date:" required />
       </div>
       <div class="col-xs-5" id="eventEndTime">
-        <input type="time" class="form-control" placeholder="Time:" />
+        <input type="time" name="endtime" class="form-control" ng-model="new_status.event.endtime" placeholder="Time:" />
       </div>
       <div class="col-xs-2">
         Repeat:
       </div>
       <div class="col-xs-10">
-        <select class="form-control" event-repeat>
+        <select name="repeat" class="form-control" ng-model="new_status.event.repeat" event-repeat>
           <option value="">None</option>
           <option value="daily">Daily</option>
           <option value="weekly">Weekly</option>
@@ -60,10 +63,10 @@
         </select>
       </div>
       <div class="col-xs-5" id="repeat-end">
-        <input type="date" class="form-control" placeholder="End Date:" />
+        <input type="date" name="repeatend" class="form-control" ng-model="new_status.event.repeatend" placeholder="End Date:" />
       </div>
       <div class="col-xs-12">
-        <textarea class="form-control" placeholder="Write something about this event..."></textarea>
+        <textarea name="description" class="form-control" ng-model="new_status.event.description" placeholder="Write something about this event..."></textarea>
       </div>
 
       <div class="col-xs-6">
