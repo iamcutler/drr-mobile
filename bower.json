@@ -12,7 +12,8 @@
     "sass-bootstrap": "~3.0.2",
     "angular-moment": "~0.6.0",
     "angular-ui-router": "0.2.7",
-    "angular-bootstrap": "*"
+    "angular-bootstrap": "*",
+    "ng-file-upload ": "*"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.7",
