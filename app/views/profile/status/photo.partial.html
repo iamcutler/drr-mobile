@@ -1,27 +1,24 @@
 <div id="photo-status">
-  <form name="newPhotoStatus" ng-submit="" novalidate>
+  <form name="newPhotoStatusForm" enctype="multipart/form-data" novalidate>
     <div class="row">
-      <div class="col-xs-12" style="margin-bottom: 10px;">
-        <button type="button" class="btn btn-block btn-lg btn-default" onclick="$('#statusPhotoFile').click();">Click here to select your photo</button>
-        <input id="statusPhotoFile" type="file" style="display: none;" required />
-      </div>
       <div class="col-xs-2" style="padding-right: 0;">
         <figure class="thumbnail">
           <img ng-src="{{ cdnDomain }}/{{ user.thumbnail || imgPlaceholder }}" alt="" />
         </figure>
       </div>
       <div class="col-xs-10" style="padding-left: 0;">
-        <textarea name="" placeholder="Write something about this photo if you'd like..." required></textarea>
+        <textarea name="caption" placeholder="Write something about this photo if you'd like..." ng-model="new_status.photo.caption"></textarea>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-6">
-        <a href="javascript: void(0);" class="btn btn-block btn-lg btn-default" ng-click="close()">Cancel</a>
-      </div>
-      <div class="col-xs-6">
-        <button type="submit" class="btn btn-block btn-lg btn-primary">Share Photo</button>
+      <div class="col-xs-12" style="margin-bottom: 10px;">
+        <button type="button" class="btn btn-block btn-lg btn-default" onclick="$('#statusPhotoFile').click();">Click here to select your photo</button>
+        <input id="statusPhotoFile" type="file" style="display: none;" ng-file-select="newPhotoStatus($files)" required />
       </div>
     </div>
   </form>
+
+  <div class="progress progress-striped active">
+    <div class="progress-bar"  role="progressbar" aria-valuenow="{{ uploadPercentage }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ uploadPercentage }}%">
+      <span class="sr-only">{{ uploadPercentage }}% Complete</span>
+    </div>
+  </div>
 </div>

@@ -1222,6 +1222,14 @@ section.status-container {
     display: none;
   }
 
+  // Photo status
+  #photo-status {
+    .progress {
+      margin: 15px;
+      display: none;
+    }
+  }
+
   // Event status
   #event-status {
     .row, .row-fluid {
