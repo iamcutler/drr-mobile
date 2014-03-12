@@ -111,6 +111,19 @@ app.factory('ActivityService', function ActivityService($http, $resource, $q, en
         });
 
       return defer.promise;
+    },
+    news_feed: function(offset) {
+      var defer = $q.defer();
+
+      $http.get(endPoint.api + "/user/feed_activity/" + offset + "?user_hash=" + AuthService.current_user().hash)
+        .success(function(response) {
+          defer.resolve(response);
+        })
+        .error(function() {
+          defer.reject('Error fetching latest media');
+        });
+
+      return defer.promise;
     }
   };
 });

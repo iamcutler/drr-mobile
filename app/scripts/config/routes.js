@@ -55,6 +55,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "/views/news-feed/index.html",
       access: {
         require_user: true
+      },
+      resolve: {
+        feed: function(ActivityService) {
+          return ActivityService.news_feed(0);
+        }
       }
     })
     // My Messages
