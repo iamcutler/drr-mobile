@@ -198,6 +198,7 @@ article.feed-article {
   background: #000 url("/images/ui-bg-texture.jpg") repeat;
   margin-bottom: 10px;
   @include border-radius(6px);
+  @include text-shadow(0 0 6px #000);
 
   header {
     padding: 20px;
@@ -235,6 +236,21 @@ article.feed-article {
         width: inherit;
         cursor: pointer;
       }
+    }
+  }
+
+  // Photos
+  figure.photo-container {
+    width: 100%;
+
+    img {
+      width: 100%;
+      max-height: 400px;
+    }
+
+    figcaption {
+      padding: 10px 20px;
+      border-bottom: 2px #6d6e71 solid;
     }
   }
 
