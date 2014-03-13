@@ -31,6 +31,11 @@ describe('Controller: GroupController', function () {
     $http.whenGET('/views/news-feed/index.html').respond(200, {});
   }));
 
+  afterEach(function () {
+    $http.verifyNoOutstandingRequest();
+    $http.verifyNoOutstandingExpectation();
+  });
+
   describe('group state', function() {
     xit('should be at the group state', function() {
       $state.go('group', { id: 1 });
@@ -40,19 +45,17 @@ describe('Controller: GroupController', function () {
 
     it('should resolve group data', function() {
       $state.go('group', {id: 1});
-      scope.$digest();
+      //scope.$digest();
       //expect($injector.invoke($state.current.resolve.group)).toBe('find_group');
     });
 
     it('should have a scope title', function() {
       $state.go('group');
-      scope.$apply();
       expect(scope.title).not.toBeNull();
     });
 
     it('should resolve group injection', function () {
       $state.go('group');
-      scope.$apply();
       expect(scope.group).not.toBeNull();
     });
   });
