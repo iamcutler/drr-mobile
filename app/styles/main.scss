@@ -243,9 +243,14 @@ article.feed-article {
   figure.photo-container {
     width: 100%;
 
-    img {
+    div.media-wrapper {
       width: 100%;
       max-height: 400px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+      }
     }
 
     figcaption {

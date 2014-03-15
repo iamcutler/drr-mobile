@@ -17,7 +17,9 @@
   </p>
 
   <figure class="photo-container" ng-switch-when="photos">
-    <img ng-src="{{ cdnDomain }}/{{ activity.media.image }}" />
+    <div class="media-wrapper">
+      <img ng-src="{{ cdnDomain }}/{{ activity.media.image }}" />
+    </div>
     <figcaption ng-if="activity.media.caption != ''">{{ activity.media.caption }}</figcaption>
   </figure>
 
