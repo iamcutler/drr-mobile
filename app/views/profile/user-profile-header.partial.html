@@ -18,8 +18,9 @@
         Member since: <span style="color: #f3ca8a;" am-time-ago="profile.profile.registered"></span>
       </div>
 
-      <div class="col-xs-12">
-        <!--{{ media.stats.likes }} likes-->
+      <div class="col-xs-12 user-stats">
+        <a href="javascript:void(0);" element="profile" id="{{ profile.user.id }}" like="1" model="profile.profile" like-this>Like</a> ({{ profile.profile.stats.likes }})
+        <a href="javascript:void(0);" element="profile" id="{{ profile.user.id }}" like="0" model="profile.profile" like-this>Dislike</a> ({{ profile.profile.stats.dislikes }})
       </div>
     </div>
   </div>
