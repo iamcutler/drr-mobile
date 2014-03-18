@@ -973,6 +973,7 @@ section.user-profile {
     background: #000 url("/images/ui-bg-texture.jpg") repeat;
     padding: 10px;
     @include border-radius(6px);
+    @include text-shadow(0 0 6px #000);
 
     div.thumbnail {
       float: left;
@@ -984,6 +985,16 @@ section.user-profile {
       img {
         width: 100%;
         min-height: 100%;
+      }
+    }
+
+    .profile-status {
+      font-size: 18px;
+      line-height: 24px;
+
+      span {
+        font-size: 16px;
+        color: #b7272d;
       }
     }
   }
