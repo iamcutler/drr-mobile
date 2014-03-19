@@ -1,6 +1,6 @@
 <ng-include src="'views/shared-partials/navbar.html'"></ng-include>
 
-<div class="row feed-actions">
+<div class="row feed-actions" ng-if="profile.relation.self == true">
   <div class="col-xs-12" style="padding-right: 6px;">
     <a ng-href="">
       <div class="btn btn-block btn-lg btn-default" new-status><i>R</i> Share New Status/Media</div>
@@ -10,11 +10,26 @@
 
 <section class="user-profile">
   <!-- Profile top section-->
-  <ng-include src="'/views/profile/user-profile-header.partial.html'"></ng-include>
+  <ng-include ng-if="profile.profile.settings.privacyProfileView != '40' && profile.relation.friends != false || profile.relation.self == true" src="'/views/profile/user-profile-header.partial.html'"></ng-include>
 
-  <div id="profile-feed">
+  <div id="profile-feed" ng-if="profile.profile.settings.privacyProfileView != '40' && profile.relation.friends == true || profile.relation.self == true">
     <ng-include src="'/views/profile/feed-article.partial.html'"></ng-include>
     <ng-include src="'/views/profile/feed-article.partial.html'"></ng-include>
     <ng-include src="'/views/profile/feed-article.partial.html'"></ng-include>
+  </div>
+
+  <page-icon ng-if="profile.profile.settings.privacyProfileView = '40' && profile.relation.friends == false && profile.relation.self != true" icon="P" message="Only friends of {{ profile.user.name }} can view this profile."></page-icon>
+
+  <div class="pending-request" ng-show="profile.relation.request_sent">
+    Pending friend request in progress.
+  </div>
+
+  <div class="row-fluid" ng-if="profile.relation.friends == false && profile.relation.self == false">
+    <div class="col-xs-12" ng-show="!profile.relation.request_sent">
+      <a ng-href="" class="btn btn-block btn-primary" style="margin-bottom: 12px;">Add Friend</a>
+    </div>
+    <div class="col-xs-12">
+      <a ng-href="/#/messages/{{ profile.user.slug }}" class="btn btn-block btn-primary">Message</a>
+    </div>
   </div>
 </section>
