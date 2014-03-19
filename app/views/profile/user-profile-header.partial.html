@@ -11,7 +11,7 @@
         {{ profile.profile.status.status }}<br />
         <span am-time-ago="profile.profile.status.created"></span>
       </div>
-      <div class="col-xs-12">
+      <div class="col-xs-12" ng-if="profile.profile.status != ''">
         <hr style="margin: 6px 0;" />
       </div>
       <div class="col-xs-12">
