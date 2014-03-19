@@ -112,6 +112,19 @@ app.factory('ProfileService', function ($http, $q, endPoint, AuthService) {
         });
 
       return defer.promise;
+    },
+    feed: function(slug, offset) {
+      var defer = $q.defer();
+
+      $http.get(endPoint.api + "/user/feed_activity/profile/" + slug + "/" + offset + "?user_hash=" + AuthService.current_user().hash)
+        .success(function(response) {
+          defer.resolve(response);
+        })
+        .error(function(error) {
+          defer.reject('Error fetching profile feed');
+        });
+
+      return defer.promise;
     }
   };
 });
