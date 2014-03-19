@@ -1,14 +1,19 @@
 'use strict';
 
-app.controller('ProfileController', function ($scope, $state, $stateParams, $location, $modal, profile, content) {
+app.controller('ProfileController', function ($scope, $state, $stateParams, $location, $modal, ProfileService, profile, content) {
   // Call profile service
   $scope.profile = profile;
 
   // Check for current profile state
   if($state.current.name == "profile") {
-    // Watch for the profile service and update title scope
-    $scope.$watch('profile', function() {
-      $scope.title = $scope.profile.user.name;
+    $scope.title = $scope.profile.user.name;
+    $scope.feedCounter = 10;
+    $scope.disabledScroll = false;
+    $scope.busy = false;
+
+    // Convert feed times to momentKS
+    angular.forEach($scope.profile.profile.feed, function(value, key) {
+      $scope.profile.profile.feed[key].created = moment.utc($scope.profile.profile.feed[key].created).local();
     });
 
     // New message modal
@@ -23,6 +28,36 @@ app.controller('ProfileController', function ($scope, $state, $stateParams, $loc
           }
         }
       });
+    };
+
+    // Feed object
+    $scope.feed = {
+      load: function() {
+        if(!$scope.disabledScroll && !$scope.busy) {
+          // Busy disables scrolling && shows/hides loader.
+          $scope.busy = true;
+
+          // Call feed function property in profile service
+          var feed = ProfileService.feed($stateParams.slug, $scope.feedCounter);
+
+          feed.then(function(response) {
+            if(response.length > 0) {
+              // Loop results and bind to feed collection
+              angular.forEach(response, function(value, key) {
+                $scope.profile.profile.feed.push(value);
+              });
+
+              $scope.feedCounter += 10;
+            } else {
+              $scope.disabledScroll = true;
+            }
+
+            $scope.busy = false;
+          }, function(error) {
+            console.error(error);
+          });
+        }
+      }
     };
   }
 

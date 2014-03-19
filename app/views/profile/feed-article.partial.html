@@ -1,26 +1,33 @@
-<article class="feed-article">
+<article class="feed-article" ng-switch="feed.type">
   <header>
     <div class="thumb">
-      <img src="http://image.shutterstock.com/display_pic_with_logo/102804/127420826/stock-photo-man-over-white-background-overreacting-with-hands-on-face-127420826.jpg" />
+      <img ng-src="{{ cdnDomain }}/{{ feed.user.thumbnail || imgPlaceholder }}" />
     </div>
-    <h2>John Westfield</h2>
-    <span>4 minutes ago</span>
+    <h2>{{ feed.user.name }}</h2>
+    <span am-time-ago="feed.created"></span>
     <div class="clearfix"></div>
   </header>
   
-  <p>
-    Good morning and Happy Fridayyy yaaayyy!!! I've been sick ughh but I'm finally feeling a bit better today!! Gonna have a relaxing night with our Pinup of the Month Kat Von Knox and watch the Victoria Secret Fashion show!! I'm so excited...I feel the need to hit the gym all day coming very soon after watching it hahaha xoxx
+  <p ng-switch-when="profile">
+    {{ feed.title }}
   </p>
+
+  <figure class="photo-container" ng-switch-when="photos">
+    <div class="media-wrapper">
+      <img ng-src="{{ cdnDomain }}/{{ feed.media.image || imgPlaceholder }}" />
+    </div>
+    <figcaption>{{ feed.media.caption }}</figcaption>
+  </figure>
   
   <footer>
-    <span class="stats">4 likes &bull; 10 comments</span>
+    <span class="stats">{{ feed.stats.likes }} likes &bull; {{ feed.comments.length }} comments</span>
     
     <div class="row">
       <div class="col-xs-6">
-        <button type="button" class="btn btn-block btn-lg btn-default"><i>T</i> I Like This</button>
+        <button type="button" class="btn btn-block btn-lg btn-default" element="{{ feed.like_type }}" id="{{ feed.like_id }}" like="1" model="feed" like-this><i>T</i> I Like This</button>
       </div>
       <div class="col-xs-6">
-        <button type="button" class="btn btn-block btn-lg btn-default"><i>K</i> Comment</button>
+        <a ng-href="/#/activity/{{ feed.id }}" class="btn btn-block btn-lg btn-default"><i>K</i> Comment</a>
       </div>
     </div>
   </footer>

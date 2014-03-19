@@ -12,10 +12,11 @@
   <!-- Profile top section-->
   <ng-include ng-if="profile.profile.settings.privacyProfileView != '40' && profile.relation.friends != false || profile.relation.self == true" src="'/views/profile/user-profile-header.partial.html'"></ng-include>
 
-  <div id="profile-feed" ng-if="profile.profile.settings.privacyProfileView != '40' && profile.relation.friends == true || profile.relation.self == true">
-    <ng-include src="'/views/profile/feed-article.partial.html'"></ng-include>
-    <ng-include src="'/views/profile/feed-article.partial.html'"></ng-include>
-    <ng-include src="'/views/profile/feed-article.partial.html'"></ng-include>
+  <!-- Profile feed -->
+  <div id="profile-feed" infinite-scroll="feed.load()" infinite-scroll-immediate-check="false" infinite-disabled="busy" infinite-distance="1" ng-if="profile.profile.settings.privacyProfileView != '40' && profile.relation.friends == true || profile.relation.self == true">
+    <ng-include src="'/views/profile/feed-article.partial.html'" ng-repeat="feed in profile.profile.feed"></ng-include>
+
+    <div class="feed-loader" ng-show="busy"></div>
   </div>
 
   <page-icon ng-if="profile.profile.settings.privacyProfileView = '40' && profile.relation.friends == false && profile.relation.self != true" icon="P" message="Only friends of {{ profile.user.name }} can view this profile."></page-icon>
