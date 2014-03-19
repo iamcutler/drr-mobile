@@ -964,6 +964,37 @@ section.dirty-girl-page {
   }
 }
 
+// ------------------- Dirty Girl Submission ------------------------
+section.dirty-submission {
+  padding: 20px;
+
+  .row, .row-fluid {
+    .col-xs-12 {
+      margin-bottom: 6px;
+    }
+
+    label {
+      color: #F4CB89;
+      font-weight:normal;
+
+      span {
+        &.required {
+          color: #F00;
+        }
+      }
+    }
+
+    h5 {
+      color: #F4CB89;
+      font-size: 20px;
+      text-align: center;
+      border-top: 1px #FFF solid;
+      border-bottom: 1px #FFF solid;
+      padding: 10px 0;
+    }
+  }
+}
+
 // --------------------------- User Profile -------------------------
 section.user-profile {
   padding: 20px;

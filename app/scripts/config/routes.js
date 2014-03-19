@@ -339,6 +339,18 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
+    .state("dirty-submission", {
+      parent: "default",
+      url: "/dirty-submission",
+      controller: "DirtyGirlsController",
+      templateUrl: "/views/dirty-girls/submission.html",
+      access: {
+        require_user: true
+      },
+      resolve: {
+        dirty_girls: function() {}
+      }
+    })
     // -------------------- Voting --------------------
     .state("vote", {
       parent: "default",

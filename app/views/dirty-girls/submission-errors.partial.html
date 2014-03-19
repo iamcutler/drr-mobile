@@ -1,0 +1,21 @@
+<div class="row" ng-if="submissionSubmitted || submissionError">
+  <div class="col-md-12">
+    <div class="alert alert-danger">
+      <div class="col-md-12 error" ng-show="dirtySubmissionForm.firstName.$error.required">&bull; Please provide your first name.</div>
+      <div class="col-md-12 error" ng-show="dirtySubmissionForm.lastName.$error.required">&bull; Please provide your last name.</div>
+      <div class="col-md-12 error" ng-show="dirtySubmissionForm.email.$error.required">&bull; Please provide your email address.</div>
+      <div class="col-md-12 error" ng-show="dirtySubmissionForm.email.$error.email">&bull; Please provide a valid email address.</div>
+      <div class="col-md-12 error" ng-show="dirtySubmissionForm.phone.$error.required">&bull; Please provide your phone number.</div>
+      <div class="col-md-12 error" ng-show="dirtySubmissionForm.whereFrom.$error.required">&bull; Please provide where are you from.</div>
+      <div class="col-md-12 error" ng-show="dirtySubmissionForm.donePinup.$error.required">&bull; Please provide if you've done pinups before.</div>
+
+      <div class="col-md-12 error" ng-show="dirtySubmissionForm.rulesPolicies.$error.required">&bull; Please agree to our rules & policies.</div>
+      <div class="col-md-12 error" ng-show="dirtySubmissionForm.photoResolution.$error.required">&bull; Please agree to the photo resolution statement.</div>
+      <div class="col-md-12 error" ng-show="dirtySubmissionForm.photoRelease.$error.required">&bull; Please agree to the photography release statement.</div>
+      <div class="col-md-12 error" ng-show="dirtySubmissionForm.liabilityRelease.$error.required">&bull; Please agree to our liability release statement.</div>
+      <div class="col-md-12 error" ng-show="dirtySubmissionForm.photoLimit.$error.required">&bull; Please agree to the minimum unique 5 photo statement.</div>
+
+      <div class="col-md-12 error" ng-if="submissionError && submissionErrorMsg != ''">&bull; {{ submissionErrorMsg }}</div>
+    </div>
+  </div>
+</div>
