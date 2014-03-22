@@ -110,10 +110,13 @@ app.controller('ProfileController', function ($scope, $state, $stateParams, $loc
     $scope.video = content;
 
     $scope.new_comment = {
-      cid: $scope.video.comment_id,
+      cid: $scope.video.id,
       app: $scope.video.comment_type,
       user: AuthService.current_user().id
     };
+
+    // Format momentJS
+    formatMediaDatetime($scope.video);
   }
 
   // Photo page
