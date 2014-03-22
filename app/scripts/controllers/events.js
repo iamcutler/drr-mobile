@@ -95,7 +95,14 @@ app.controller('EventsController', function ($scope, $state, EventService, AuthS
   }
 
   // Find Events
-  if($state.current.name = "search-events") {
+  /*if($state.current.name = "event.search") {
     $scope.title = "Find Upcoming Events";
-  }
+
+    // Map options
+    $scope.mapOptions = {
+      center: new google.maps.LatLng(37.640335,-96),
+      zoom: 4,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+  }*/
 });

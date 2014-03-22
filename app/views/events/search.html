@@ -1,8 +1,8 @@
 <ng-include src="'views/shared-partials/navbar.html'"></ng-include>
 
 <section class="find-events">
-  <div class="events-map">
-    
+  <div id="map" class="events-map">
+    <div ui-map="myMap" ui-options="mapOptions" class="map-canvas"></div>
   </div>
   
   <div class="search-bar">

@@ -1632,6 +1632,11 @@ div.events-map {
   background: #FFF;
   height: 440px;
   overflow: hidden;
+
+  // Map container
+  div.map-canvas {
+    height: 440px;
+  }
 }
 
 div.search-bar {
