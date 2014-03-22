@@ -85,6 +85,19 @@ app.factory('ProfileService', function ($http, $q, endPoint, AuthService) {
 
       return deferred.promise;
     },
+    user_video: function(params) {
+      var deferred = $q.defer();
+
+      $http.get(endPoint.api + "/user/profile/video/" + params.slug + "/" + params.id + "?user_hash=" + AuthService.current_user().hash).
+        success(function(response) {
+          deferred.resolve(response);
+        }).
+        error(function() {
+          console.error('Error fetching profile service: User video');
+        });
+
+      return deferred.promise;
+    },
     user_groups: function(params) {
       var deferred = $q.defer();
 
@@ -121,7 +134,20 @@ app.factory('ProfileService', function ($http, $q, endPoint, AuthService) {
           defer.resolve(response);
         })
         .error(function(error) {
-          defer.reject('Error fetching profile feed');
+          defer.reject('Error fetching profile service: feed');
+        });
+
+      return defer.promise;
+    },
+    photo: function(params) {
+      var defer = $q.defer();
+
+      $http.get(endPoint.api + "/user/profile/photo/" + params.slug + "/" + params.id + "?user_hash=" + AuthService.current_user().hash)
+        .success(function(response) {
+          defer.resolve(response);
+        })
+        .error(function(error) {
+          defer.reject(error);
         });
 
       return defer.promise;

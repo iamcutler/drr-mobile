@@ -190,6 +190,21 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
+    .state("profile.photo", {
+      parent: "default",
+      url: "/profile/:slug/photo/:id",
+      controller: "ProfileController",
+      templateUrl: "/views/profile/photo.html",
+      access: {
+        require_user: true
+      },
+      resolve: {
+        profile: function() {},
+        content: function($stateParams, ProfileService) {
+          return ProfileService.photo($stateParams);
+        }
+      }
+    })
     .state("profile.videos", {
       parent: "default",
       url: "/profile/:slug/videos",
@@ -204,6 +219,21 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         },
         content: function($stateParams, ProfileService) {
           return ProfileService.user_videos($stateParams);
+        }
+      }
+    })
+    .state("profile.video", {
+      parent: "default",
+      url: "/profile/:slug/video/:id",
+      controller: "ProfileController",
+      templateUrl: "/views/profile/video.html",
+      access: {
+        require_user: true
+      },
+      resolve: {
+        profile: function() {},
+        content: function($stateParams, ProfileService) {
+          return ProfileService.user_video($stateParams);
         }
       }
     })

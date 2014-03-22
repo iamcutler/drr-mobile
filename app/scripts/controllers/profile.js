@@ -1,8 +1,15 @@
 'use strict';
 
-app.controller('ProfileController', function ($scope, $state, $stateParams, $location, $modal, ProfileService, profile, content) {
+app.controller('ProfileController', function ($scope, $state, $stateParams, $location, $modal, AuthService, ProfileService, WallService, profile, content) {
   // Call profile service
   $scope.profile = profile;
+
+  var formatMediaDatetime = function(scope) {
+    scope.created = moment.utc(scope.created).local();
+    angular.forEach(scope.comments, function(value, key) {
+      scope.comments[key].date = moment.utc(scope.comments[key].date).local();
+    });
+  };
 
   // Check for current profile state
   if($state.current.name == "profile") {
@@ -97,6 +104,33 @@ app.controller('ProfileController', function ($scope, $state, $stateParams, $loc
     $scope.videos = content;
   }
 
+  // Video page
+  if($state.current.name == "profile.video") {
+    $scope.title = 'Video';
+    $scope.video = content;
+
+    $scope.new_comment = {
+      cid: $scope.video.comment_id,
+      app: $scope.video.comment_type,
+      user: AuthService.current_user().id
+    };
+  }
+
+  // Photo page
+  if($state.current.name == "profile.photo") {
+    $scope.title = "Photo";
+    $scope.photo = content;
+
+    $scope.new_comment = {
+      cid: $scope.photo.id,
+      app: $scope.photo.comment_type,
+      user: AuthService.current_user().id
+    };
+
+    // Format momentJS
+    formatMediaDatetime($scope.photo);
+  }
+
   // Events
   if($state.current.name == "profile.events") {
     $scope.title = $scope.profile.user.name + "'s events";
@@ -107,5 +141,40 @@ app.controller('ProfileController', function ($scope, $state, $stateParams, $loc
   if($state.current.name == "profile.groups") {
     $scope.title = $scope.profile.user.name + "'s groups";
     $scope.groups = content;
+  }
+
+  // Compose new comments/wall resource
+  $scope.composeComment = function(form, scope, comment) {
+    if(form.$valid) {
+      var new_activity = WallService.save(comment);
+
+      new_activity.then(function(response) {
+        if(response.result) {
+          // Add new comment to scope
+          scope.unshift({
+            id: response.wall.id,
+            type: response.wall.type,
+            comment: response.wall.comment,
+            date: moment.utc(response.wall.date).local(),
+            stats: {
+              likes: 0,
+              dislikes: 0
+            },
+            user: {
+              id: response.wall.user.id,
+              name: response.wall.user.name,
+              thumbnail: response.wall.user.thumbnail,
+              avatar: response.wall.user.avatar,
+              slug: response.wall.user.slug
+            }
+          });
+
+          comment.comment = '';
+        }
+        console.log(response);
+      }, function(response) {
+        console.error(response);
+      });
+    }
   }
 });

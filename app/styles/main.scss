@@ -1686,7 +1686,7 @@ section.find-events {
 
 // ---------------------- Activity Page ----------------------
 section.activity-container {
-  padding: 20px;
+  padding: 20px 20px 80px 20px;
 
   article.main {
     background: #000 url("/images/ui-bg-texture.jpg") repeat;
@@ -1736,6 +1736,26 @@ section.activity-container {
       border-top: 1px solid #6d6e71;
       margin-top: 10px;
       margin-bottom: 10px;
+    }
+
+    // Photo
+    figure.photo-container {
+      width: 100%;
+
+      div.media-wrapper {
+        width: 100%;
+        max-height: 400px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      figcaption {
+        padding: 10px 20px;
+        border-bottom: 2px #6d6e71 solid;
+      }
     }
 
     // status article

@@ -1,0 +1,61 @@
+<ng-include src="'views/shared-partials/navbar.html'"></ng-include>
+
+<section class="activity-container">
+  <article class="main">
+    <header>
+      <div class="thumb">
+        <img ng-src="{{ cdnDomain }}/{{ video.user.thumbnail || imgPlaceholder }}" />
+      </div>
+      <h2>{{ video.user.name }}</h2>
+      <span am-time-ago="video.created"></span>
+      <div class="clearfix"></div>
+    </header>
+
+    <div class="media-wrapper" ng-switch="video.type">
+
+    </div>
+
+    <span class="stats">{{ video.stats.likes }} likes &bull; {{ video.comments.length }} comments</span>
+    <hr />
+
+    <div class="row" style="padding: 0 20px 10px 20px;">
+      <div class="col-xs-6">
+        <button type="button" class="btn btn-block btn-lg btn-default" element="{{ video.like_type }}" id="{{ video.like_id }}" like="1" model="video" like-this><i>T</i> I Like This</button>
+      </div>
+      <div class="col-xs-6">
+        <button type="button" class="btn btn-block btn-lg btn-default"><i>K</i> Share</button>
+      </div>
+    </div>
+
+    <div class="article-comments clearfix">
+      <div class="comment clearfix" ng-repeat="comment in video.comments">
+        <span class="glyphicon glyphicon-remove" ng-if="comment.user.id === current_user.id || video.user.id === current_user.id" model="video.comments" target="{{ comment.id }}" index="{{ $index }}" remove-wall></span>
+
+        <a ng-href="/#/profile/{{ comment.user.slug }}">
+          <div class="thumb">
+            <img ng-src="{{ cdnDomain }}/{{ comment.user.thumbnail || imgPlaceholder }}" />
+          </div>
+        </a>
+
+        <div class="comment-body">
+          <span class="name">{{ comment.user.name }}</span><br />
+          <p>{{ comment.comment }}</p>
+          <span class="timestamp" am-time-ago="comment.date"></span>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<div class="compose-comment">
+  <form name="AddComment" ng-submit="composeComment(AddComment, video.comments, new_comment)" novalidate>
+    <div class="row-fluid">
+      <div class="col-xs-10">
+        <input type="text" ng-model="new_comment.comment" required />
+      </div>
+      <div class="col-xs-2">
+        <button type="submit">Post</button>
+      </div>
+    </div>
+  </form>
+</div>
