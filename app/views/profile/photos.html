@@ -4,9 +4,11 @@
   <div class="row-fluid" ng-if="photos.permissions == '0' || profile.relation.friends == 'true' && photos.permissions != '40' || profile.relation.self == 'true'">
     <div class="col-xs-4" ng-repeat="photo in photos.photos">
       <div class="thumbnail">
-        <a ng-href=""><img ng-src="{{ cdnDomain }}/{{ photo.thumbnail }}" alt="" /></a>
+        <a ng-href="/#/profile/{{ $stateParams.slug }}/photo/{{ $stateParams.id }}"><img ng-src="{{ cdnDomain }}/{{ photo.thumbnail }}" alt="" /></a>
       </div>
     </div>
+
+    <div class="clearfix"></div>
   </div>
 
   <page-icon ng-if="photos.photos.length == 0" icon="H" message="No current photos in this album."></page-icon>
