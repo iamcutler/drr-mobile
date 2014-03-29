@@ -1186,13 +1186,17 @@ section#user-albums {
 
 // User Photos
 section#user-photos {
-  padding: 20px;
+  background: #000 url("/images/ui-bg-texture.jpg") repeat;
+  padding: 40px 20px 20px 20px;
+  margin: 20px;
+  @include border-radius(8px);
 
   // Override bootstrap thumbnail styling
   div.thumbnail {
     padding: 0;
     @include border-radius(0);
     overflow: hidden;
+    border: none;
 
     img {
       min-width: 100%;
