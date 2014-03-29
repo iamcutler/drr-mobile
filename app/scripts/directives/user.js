@@ -93,7 +93,7 @@ app.directive('newStatus', function($modal, EventService, AuthService) {
     link: function(scope, elem, attrs) {
       elem.bind('click', function() {
         $modal.open({
-          templateUrl: 'views/profile/status/new-status.modal.html',
+          templateUrl: '/views/profile/status/new-status.modal.html',
           controller: 'ModalController',
           scope: scope,
           resolve: {
