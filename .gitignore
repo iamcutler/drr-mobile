@@ -9,3 +9,4 @@ npm-debug.log
 .idea
 workspace.xml
 tasks.xml
+app/scripts/config/constants.js
