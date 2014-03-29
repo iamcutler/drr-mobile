@@ -27,6 +27,7 @@ module.exports = function (grunt) {
       // Environment targets
       development: {
         constants: {
+          'environment': 'development',
           'endPoint': {
             'api': 'http://localhost:8000',
             'resourceApi': 'http://localhost:8000\:8000',
@@ -40,6 +41,7 @@ module.exports = function (grunt) {
       },
       production: {
         constants: {
+          'environment': 'production',
           'endPoint': {
             'api': 'http://api.dirtyrottenrides.com',
             'resourceApi': 'http://api.dirtyrottenrides.com',
