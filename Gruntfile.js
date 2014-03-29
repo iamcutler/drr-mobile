@@ -10,12 +10,47 @@
 module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
   require('time-grunt')(grunt);
+  grunt.loadNpmTasks('grunt-ng-constant');
 
   grunt.initConfig({
     yeoman: {
       // configurable paths
       app: require('./bower.json').appPath || 'app',
       dist: 'dist'
+    },
+    ngconstant: {
+      // Options for all targets
+      options: {
+        name: 'env-constants',
+        dest: '<%= yeoman.app %>/scripts/config/constants.js'
+      },
+      // Environment targets
+      development: {
+        constants: {
+          'endPoint': {
+            'api': 'http://localhost:8000',
+            'resourceApi': 'http://localhost:8000\:8000',
+            'cdn': 'https://d1rbyr9vwfcumm.cloudfront.net'
+          },
+          'imgPlaceholder': 'img_placeholder.png',
+          // Location for session information within sessionStorage
+          // Related to authentication & session
+          'sessionStore': "_starqle_session"
+        }
+      },
+      production: {
+        constants: {
+          'endPoint': {
+            'api': 'http://api.dirtyrottenrides.com',
+            'resourceApi': 'http://api.dirtyrottenrides.com',
+            'cdn': 'http://cdn.dirtyrottenrides.com'
+          },
+          'imgPlaceholder': 'img_placeholder.png',
+          // Location for session information within sessionStorage
+          // Related to authentication & session
+          'sessionStore': "_starqle_session"
+        }
+      }
     },
     watch: {
       coffee: {
@@ -330,6 +365,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:development',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -347,6 +383,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:production',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',

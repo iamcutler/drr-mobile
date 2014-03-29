@@ -8,7 +8,9 @@ var app = angular.module('DRRMobileApp', [
   'angularMoment',
   'infinite-scroll',
   'ui.bootstrap',
-  'angularFileUpload'
+  'angularFileUpload',
+  // Environment variables/constants
+  'env-constants'
   //'ui.map',
   //'ui.event'
 ], function($httpProvider) {
