@@ -1,4 +1,4 @@
-<ng-include src="'views/shared-partials/navbar-back.html'"></ng-include>
+<ng-include src="'/views/shared-partials/navbar-back.html'"></ng-include>
 
 <section id="user-events">
   <a ng-href="/#/events/{{ event.id }}" ng-repeat="event in events" ng-if="events.length != '0' && profile.profile.settings.privacyProfileView == '0' || events.length != '0' && profile.relation.self == true && profile.profile.settings.privacyProfileView == '40' || events.length != '0' && profile.relation.friends == true">

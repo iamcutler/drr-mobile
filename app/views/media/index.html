@@ -1,4 +1,4 @@
-<ng-include src="'views/shared-partials/navbar.html'"></ng-include>
+<ng-include src="'/views/shared-partials/navbar.html'"></ng-include>
 
 <section class="app-media" infinite-scroll="feed.load()" infinite-scroll-immediate-check="false" infinite-scroll-disabled="busy" infinite-scroll-distance="1">
   <article ng-repeat="media in media">
@@ -14,8 +14,8 @@
 
     <div class="clearfix"></div>
 
-    <ng-include src="'views/media/photo.partial.html'" ng-if="media.type == 'photos'"></ng-include>
-    <ng-include src="'views/media/video.partial.html'" ng-if="media.type == 'videos'"></ng-include>
+    <ng-include src="'/views/media/photo.partial.html'" ng-if="media.type == 'photos'"></ng-include>
+    <ng-include src="'/views/media/video.partial.html'" ng-if="media.type == 'videos'"></ng-include>
 
     <div class="clearfix"></div>
   </article>

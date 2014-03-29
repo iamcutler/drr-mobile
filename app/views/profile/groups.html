@@ -1,4 +1,4 @@
-<ng-include src="'views/shared-partials/navbar-back.html'"></ng-include>
+<ng-include src="'/views/shared-partials/navbar-back.html'"></ng-include>
 
 <section id="user-groups">
   <a ng-href="/#/groups/{{ group.id }}" ng-repeat="group in groups" ng-if="groups.length != '0' && profile.profile.settings.privacyProfileView == '0' || groups.length != '0' && profile.relation.self == true && profile.profile.settings.privacyProfileView == '40' || groups.length != '0' && profile.relation.friends == true">

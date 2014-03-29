@@ -1,7 +1,7 @@
-<ng-include src="'views/shared-partials/navbar.html'"></ng-include>
+<ng-include src="'/views/shared-partials/navbar.html'"></ng-include>
 
 <section class="friend-requests">
-  <ng-include ng-if="requests.length != 0" ng-repeat="request in requests" src="'views/friend-requests/request.partial.html'"></ng-include>
+  <ng-include ng-if="requests.length != 0" ng-repeat="request in requests" src="'/views/friend-requests/request.partial.html'"></ng-include>
 
   <page-icon ng-if="requests.length == 0" icon="P" message="No current friend requests. Go make some friends!"></page-icon>
 </section>
