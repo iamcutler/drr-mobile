@@ -14,3 +14,10 @@ app.controller("ApplicationController", function($scope, $state, $cookies, endPo
   // CSRF Token for restricting access to app
   $cookies["XSRF-TOKEN"] = "my_token";
 });
+
+// Init function to initializing application
+var appinit = function() {
+  if(document.cookie.indexOf('user_hash') < 0 && window.location.pathname != '/login') {
+    window.location.href = "/#/login";
+  }
+};
