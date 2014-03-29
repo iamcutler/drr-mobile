@@ -124,6 +124,11 @@ app.controller('ProfileController', function ($scope, $state, $stateParams, $loc
     $scope.title = "Photo";
     $scope.photo = content;
 
+    // If photo is emtpy, go back in history
+    if(content.length == 0) {
+      window.history.back();
+    }
+
     $scope.new_comment = {
       cid: $scope.photo.id,
       app: $scope.photo.comment_type,
