@@ -10,4 +10,7 @@ app.controller("ApplicationController", function($scope, $state, $cookies, endPo
 
   // Current user
   $scope.current_user = AuthService.current_user();
+
+  // CSRF Token for restricting access to app
+  $cookies["XSRF-TOKEN"] = "my_token";
 });
