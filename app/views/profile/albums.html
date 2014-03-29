@@ -5,7 +5,7 @@
     <a ng-href="/#/profile/{{ $stateParams.slug }}/album/{{ album.id }}">
       <div class="col-xs-12 user-album">
         <div class="thumbnail">
-          <img ng-src="{{ cdnDomain }}/{{ album.thumbnail || 'components/com_community/assets/user.png' }}" alt="" />
+          <img ng-src="{{ cdnDomain }}/{{ album.thumbnail || imgPlaceholder }}" alt="" />
         </div>
         <span class="album-name">{{ album.name }} ({{ album.photo_count }})</span>
       </div>
