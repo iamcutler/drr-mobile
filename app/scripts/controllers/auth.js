@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('AuthController', function ($scope, $state, $location, $cookieStore, AuthService) {
+app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore', 'AuthService', function($scope, $state, $location, $cookieStore, AuthService) {
   // Registration
   if($state.current.name == "registeration") {
     $scope.register = {};
@@ -83,4 +83,4 @@ app.controller('AuthController', function ($scope, $state, $location, $cookieSto
     AuthService.clear_user_session();
     AuthService.logout();
   }
-});
+}]);

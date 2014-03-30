@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller("ApplicationController", function($scope, $state, $cookies, endPoint, imgPlaceholder, AuthService) {
+app.controller("ApplicationController", ['$scope', '$state', '$cookies', 'endPoint', 'imgPlaceholder', 'AuthService', function($scope, $state, $cookies, endPoint, imgPlaceholder, AuthService) {
   // Set constants in app scope
   $scope.cdnDomain = endPoint.cdn;
   $scope.imgPlaceholder = imgPlaceholder;
@@ -13,7 +13,7 @@ app.controller("ApplicationController", function($scope, $state, $cookies, endPo
 
   // CSRF Token for restricting access to app
   $cookies["XSRF-TOKEN"] = "my_token";
-});
+}]);
 
 // Init function to initializing application
 var appinit = function() {

@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('UserController', function ($scope, $state, UserService, account) {
+app.controller('UserController', ['$scope', '$state', 'UserService', 'account', function($scope, $state, UserService, account) {
   // Account settings
   if($state.current.name = "account-settings") {
     $scope.title = "Account Settings";
@@ -39,4 +39,4 @@ app.controller('UserController', function ($scope, $state, UserService, account)
       }
     };
   }
-});
+}]);

@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('EventsController', function ($scope, $state, EventService, AuthService, ActivityService, event) {
+app.controller('EventsController', ['$scope', '$state', 'EventService', 'AuthService', 'ActivityService', 'event', function($scope, $state, EventService, AuthService, ActivityService, event) {
   if($state.current.name = "event") {
     $scope.title = event.event.title;
     $scope.event = event;
@@ -105,4 +105,4 @@ app.controller('EventsController', function ($scope, $state, EventService, AuthS
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
   }*/
-});
+}]);

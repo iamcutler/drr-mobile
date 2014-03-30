@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('ModalController', function($scope, $modalInstance, $upload, endPoint, ActivityService, MessageService, EventService, AuthService, user) {
+app.controller('ModalController', ['$scope', '$modalInstance', '$upload', 'endPoint', 'ActivityService', 'MessageService', 'EventService', 'AuthService', 'user', function($scope, $modalInstance, $upload, endPoint, ActivityService, MessageService, EventService, AuthService, user) {
   // Assign user to modal
   $scope.user = user;
   $scope.statusError = false;
@@ -131,4 +131,4 @@ app.controller('ModalController', function($scope, $modalInstance, $upload, endP
       });
     }
   };
-});
+}]);

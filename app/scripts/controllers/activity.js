@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('ActivityController', function ($scope, $state, activity, WallService, AuthService) {
+app.controller('ActivityController', ['$scope', '$state', 'activity', 'WallService', 'AuthService', function($scope, $state, activity, WallService, AuthService) {
 
   $scope.composeComment = function(form, scope, comment) {
     if(form.$valid) {
@@ -54,4 +54,4 @@ app.controller('ActivityController', function ($scope, $state, activity, WallSer
     // Format feed dates
     formatDatetime($scope.activity);
   }
-});
+}]);

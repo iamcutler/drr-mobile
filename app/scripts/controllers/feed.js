@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('FeedController', function ($scope, $state, ActivityService, feed) {
+app.controller('FeedController', ['$scope', '$state', 'ActivityService', 'feed', function($scope, $state, ActivityService, feed) {
   var formatTimeStamp = function(scope) {
     angular.forEach(scope, function(val, key) {
       val.created = moment.utc(val.created).local();
@@ -50,4 +50,4 @@ app.controller('FeedController', function ($scope, $state, ActivityService, feed
       }
     };
   }
-});
+}]);

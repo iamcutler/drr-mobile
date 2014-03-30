@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('GroupController', function ($scope, $state, $stateParams, $location, group) {
+app.controller('GroupController', ['$scope', '$state', '$stateParams', '$location', 'group', function($scope, $state, $stateParams, $location, group) {
 
   // Find group by id
   if($state.current.name == "group") {
@@ -9,4 +9,4 @@ app.controller('GroupController', function ($scope, $state, $stateParams, $locat
     // Format group timestamp created to utc local
     $scope.group.created = moment.utc($scope.group.created).local();
   }
-});
+}]);

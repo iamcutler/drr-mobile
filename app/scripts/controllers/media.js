@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('MediaController', function ($scope, $state, media, ActivityService) {
+app.controller('MediaController', ['$scope', '$state', 'media', 'ActivityService', function($scope, $state, media, ActivityService) {
 
   var formatTimeStamp = function(scope) {
     angular.forEach(scope, function(val, key) {
@@ -51,4 +51,4 @@ app.controller('MediaController', function ($scope, $state, media, ActivityServi
   if($state.current.name == "activity") {
     $scope.title = "Media Post";
   }
-});
+}]);

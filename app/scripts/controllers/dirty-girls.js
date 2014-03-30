@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('DirtyGirlsController', function ($scope, $state, $stateParams, dirty_girls) {
+app.controller('DirtyGirlsController', ['$scope', '$state', '$stateParams', 'dirty_girls', function($scope, $state, $stateParams, dirty_girls) {
   // Dirty Girls
   if($state.current.name == "dirty-girls") {
     $scope.title = "Dirty Girls";
@@ -39,4 +39,4 @@ app.controller('DirtyGirlsController', function ($scope, $state, $stateParams, d
       }
     };
   }
-});
+}]);

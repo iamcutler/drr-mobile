@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('MessagesController', function ($scope, $state, $stateParams, $location, $anchorScroll, messages, MessageService, AuthService) {
+app.controller('MessagesController', ['$scope', '$state', '$stateParams', '$location', '$anchorScroll', 'messages', 'MessageService', 'AuthService', function($scope, $state, $stateParams, $location, $anchorScroll, messages, MessageService, AuthService) {
   if($state.current.name == "messages") {
     $scope.title = "My Messages";
 
@@ -68,4 +68,4 @@ app.controller('MessagesController', function ($scope, $state, $stateParams, $lo
       }
     };
   }
-});
+}]);

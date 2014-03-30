@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller("ReportController", function ($scope, $state, $location, ReportService) {
+app.controller("ReportController", ['$scope', '$state', '$location', 'ReportService', function($scope, $state, $location, ReportService) {
   
   // Report Bug
   if($state.current.name == "report-bug") {
@@ -41,4 +41,4 @@ app.controller("ReportController", function ($scope, $state, $location, ReportSe
       }
     };
   }
-});
+}]);

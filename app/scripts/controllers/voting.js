@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('VotingController', function ($scope, $state, $location, votes) {
+app.controller('VotingController', ['$scope', '$state', '$location', 'votes', function($scope, $state, $location, votes) {
   // Voting
   if($state.current.name == "vote") {
     // Call dirty girls voting service
@@ -28,4 +28,4 @@ app.controller('VotingController', function ($scope, $state, $location, votes) {
 
     $scope.predicate = '-votes';
   }
-});
+}]);
