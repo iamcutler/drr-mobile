@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('AuthService', function ($http, $rootScope, $cookieStore, $state, endPoint) {
+app.factory('AuthService', ['$http', '$rootScope', '$cookieStore', '$state', 'endPoint', function AuthService($http, $rootScope, $cookieStore, $state, endPoint) {
   return {
     login: function(data, callback) {
       $http.post(endPoint.api + "/user/login", data).
@@ -75,4 +75,4 @@ app.factory('AuthService', function ($http, $rootScope, $cookieStore, $state, en
       $cookieStore.remove('isLoggedIn');
     }
   };
-});
+}]);

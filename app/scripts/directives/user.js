@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('friendRequest', function(RequestService) {
+app.directive('friendRequest', ['RequestService', function(RequestService) {
   return {
     restrict: 'A',
     link: function postLink(scope, element, attrs) {
@@ -27,9 +27,9 @@ app.directive('friendRequest', function(RequestService) {
       });
     }
   };
-});
+}]);
 
-app.directive('sendFriendRequest', function(RequestService) {
+app.directive('sendFriendRequest', ['RequestService', function(RequestService) {
   return {
     restrict: 'A',
     scope: {
@@ -56,9 +56,9 @@ app.directive('sendFriendRequest', function(RequestService) {
       });
     }
   };
-});
+}]);
 
-app.directive('removeFriend', function(UserService) {
+app.directive('removeFriend', ['UserService', function(UserService) {
   return {
     restrict: 'A',
     scope: {
@@ -84,9 +84,9 @@ app.directive('removeFriend', function(UserService) {
       });
     }
   };
-});
+}]);
 
-app.directive('newStatus', function($modal, EventService, AuthService) {
+app.directive('newStatus', ['$modal', 'EventService', 'AuthService', function($modal, EventService, AuthService) {
   return {
     restrict: 'A',
     scope: '@',
@@ -105,7 +105,7 @@ app.directive('newStatus', function($modal, EventService, AuthService) {
       });
     }
   };
-});
+}]);
 
 app.directive('toggleStatusType', function() {
   return {

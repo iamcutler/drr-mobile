@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('LikeService', function LikeService($rootScope, $http, $q, endPoint, AuthService) {
+app.factory('LikeService', ['$rootScope', '$http', '$q', 'endPoint', 'AuthService', function LikeService($rootScope, $http, $q, endPoint, AuthService) {
   return {
     like: function(element, id) {
       var defer = $q.defer();
@@ -31,4 +31,4 @@ app.factory('LikeService', function LikeService($rootScope, $http, $q, endPoint,
       return defer.promise;
     }
   };
-});
+}]);

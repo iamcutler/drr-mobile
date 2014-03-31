@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('ReportService', function Report($http, $rootScope, endPoint, AuthService) {
+app.factory('ReportService', ['$http', '$rootScope', 'endPoint', 'AuthService', function Report($http, $rootScope, endPoint, AuthService) {
   // AngularJS will instantiate a singleton by calling "new" on this function
   return {
     bug: function(data, callback) {
@@ -27,4 +27,4 @@ app.factory('ReportService', function Report($http, $rootScope, endPoint, AuthSe
       });
     }
   };
-});
+}]);

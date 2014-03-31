@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('MessageService', function MessageService($resource, $q, endPoint, AuthService) {
+app.factory('MessageService', ['$resource', '$q', 'endPoint', 'AuthService', function MessageService($resource, $q, endPoint, AuthService) {
   var Message = $resource(endPoint.resourceApi + '/user/messages/:id', {
     id: '@id',
     user_hash: AuthService.current_user().hash
@@ -41,4 +41,4 @@ app.factory('MessageService', function MessageService($resource, $q, endPoint, A
       return deferred.promise;
     }
   };
-});
+}]);

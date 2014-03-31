@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('castVote', function ($location, VotingService) {
+app.directive('castVote', ['$location', 'VotingService', function($location, VotingService) {
   return {
     restrict: 'E',
     scope: {
@@ -24,4 +24,4 @@ app.directive('castVote', function ($location, VotingService) {
       });
     }
   };
-});
+}]);

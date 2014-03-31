@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('DirtyGirlsService', function ($resource, $q, endPoint, AuthService) {
+app.factory('DirtyGirlsService', ['$resource', '$q', 'endPoint', 'AuthService', function DirtyGirlsService($resource, $q, endPoint, AuthService) {
   var DirtyGirl = $resource(endPoint.resourceApi + '/dirty-girls/:id', {
     user_hash: AuthService.current_user().hash
   }, {
@@ -35,4 +35,4 @@ app.factory('DirtyGirlsService', function ($resource, $q, endPoint, AuthService)
       return deferred.promise;
     }
   };
-});
+}]);

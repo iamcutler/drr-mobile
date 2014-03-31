@@ -3,7 +3,7 @@
  * These angular directives are based on user activity. ex: Feeds, likes, etc.
  */
 
-app.directive("likeThis", function(LikeService) {
+app.directive("likeThis", ['LikeService', function(LikeService) {
   return {
     restrict: 'A',
     scope: {
@@ -26,9 +26,9 @@ app.directive("likeThis", function(LikeService) {
       });
     }
   };
-});
+}]);
 
-app.directive("eventAttendance", function(ActivityService) {
+app.directive("eventAttendance", ['ActivityService', function(ActivityService) {
   return {
     restrict: 'A',
     scope: {
@@ -41,9 +41,9 @@ app.directive("eventAttendance", function(ActivityService) {
       });
     }
   };
-});
+}]);
 
-app.directive("removeActivity", function(ActivityService) {
+app.directive("removeActivity", ['ActivityService', function(ActivityService) {
   return {
     restrict: 'A',
     scope: {
@@ -66,9 +66,9 @@ app.directive("removeActivity", function(ActivityService) {
       });
     }
   };
-});
+}]);
 
-app.directive("removeWall", function(WallService) {
+app.directive("removeWall", ['WallService', function(WallService) {
   return {
     restrict: 'A',
     scope: {
@@ -90,4 +90,4 @@ app.directive("removeWall", function(WallService) {
       });
     }
   };
-});
+}]);

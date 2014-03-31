@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('ActivityService', function ActivityService($http, $resource, $q, endPoint, AuthService) {
+app.factory('ActivityService', ['$http', '$resource', '$q', 'endPoint', 'AuthService', function ActivityService($http, $resource, $q, endPoint, AuthService) {
   var resource = $resource(endPoint.resourceApi + "/user/activity/:id", {
     id: '@id',
     user_hash: AuthService.current_user().hash
@@ -126,4 +126,4 @@ app.factory('ActivityService', function ActivityService($http, $resource, $q, en
       return defer.promise;
     }
   };
-});
+}]);

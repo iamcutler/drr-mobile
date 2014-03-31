@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('ProfileService', function ($http, $q, endPoint, AuthService) {
+app.factory('ProfileService', ['$http', '$q', 'endPoint', 'AuthService', function ProfileService($http, $q, endPoint, AuthService) {
   return {
     getProfileData: function (params) {
       var deferred = $q.defer();
@@ -153,4 +153,4 @@ app.factory('ProfileService', function ($http, $q, endPoint, AuthService) {
       return defer.promise;
     }
   };
-});
+}]);

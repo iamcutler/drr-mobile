@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('UserService', function UserService($http, $q, endPoint, AuthService) {
+app.factory('UserService', ['$http', '$q', 'endPoint', 'AuthService', function UserService($http, $q, endPoint, AuthService) {
   return {
     account_settings: function() {
       var defer = $q.defer();
@@ -49,4 +49,4 @@ app.factory('UserService', function UserService($http, $q, endPoint, AuthService
       return defer.promise;
     }
   };
-});
+}]);

@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('WallService', function WallService($resource, $q, endPoint, AuthService) {
+app.factory('WallService', ['$resource', '$q', 'endPoint', 'AuthService', function WallService($resource, $q, endPoint, AuthService) {
   var resource = $resource(endPoint.resourceApi + "/user/wall/:id", {
     id: '@id',
     user_hash: AuthService.current_user().hash
@@ -30,4 +30,4 @@ app.factory('WallService', function WallService($resource, $q, endPoint, AuthSer
       return defer.promise;
     }
   };
-});
+}]);

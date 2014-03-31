@@ -1,6 +1,6 @@
 'use strict';
 
-app.service('RequestService', function FriendRequests($resource, $q, endPoint, AuthService) {
+app.service('RequestService', ['$resource', '$q', 'endPoint', 'AuthService', function FriendRequests($resource, $q, endPoint, AuthService) {
   var Requests = $resource(endPoint.resourceApi + '/user/connections/:id', {
     id: '@id',
     user_hash: AuthService.current_user().hash
@@ -50,4 +50,4 @@ app.service('RequestService', function FriendRequests($resource, $q, endPoint, A
       });
     }
   };
-});
+}]);

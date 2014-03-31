@@ -1,6 +1,6 @@
 'use strict';
 
-app.service('EventService', function EventService($http, $resource, $q, endPoint, AuthService) {
+app.factory('EventService', ['$http', '$resource', '$q', 'endPoint', 'AuthService', function EventService($http, $resource, $q, endPoint, AuthService) {
   var resource = $resource(endPoint.resourceApi + "/user/events/:id", {
     id: '@id',
     user_hash: AuthService.current_user().hash
@@ -37,4 +37,4 @@ app.service('EventService', function EventService($http, $resource, $q, endPoint
       return $http.get(endPoint.api + "/user/feed_activity/event-categories?user_hash=" + AuthService.current_user().hash);
     }
   };
-});
+}]);

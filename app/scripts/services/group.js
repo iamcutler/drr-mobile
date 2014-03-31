@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('GroupService', function GroupService($resource, $q, endPoint, AuthService) {
+app.factory('GroupService', ['$resource', '$q', 'endPoint', 'AuthService', function GroupService($resource, $q, endPoint, AuthService) {
   var resource = $resource(endPoint.resourceApi + '/user/groups/:id', {
     id: '@id',
     user_hash: AuthService.current_user().hash
@@ -22,4 +22,4 @@ app.factory('GroupService', function GroupService($resource, $q, endPoint, AuthS
       return defer.promise;
     }
   };
-});
+}]);

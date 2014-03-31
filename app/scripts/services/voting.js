@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('VotingService', function Voting($resource, $q, endPoint, AuthService) {
+app.factory('VotingService', ['$resource', '$q', 'endPoint', 'AuthService', function Voting($resource, $q, endPoint, AuthService) {
   var Vote = $resource(endPoint.resourceApi + '/dirty-girls/voting/current', { user_hash: AuthService.current_user().hash });
 
   return {
@@ -25,4 +25,4 @@ app.factory('VotingService', function Voting($resource, $q, endPoint, AuthServic
       });
     }
   };
-});
+}]);
