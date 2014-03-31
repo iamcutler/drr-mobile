@@ -5,7 +5,7 @@ app.directive("toggleNavigation", function () {
     $(elem).click(function() {
       var appContainer = $("#app-container"),
            docWidth = $(document).width(),
-           slideTiming = 400,
+           slideTiming = 200,
            position = 0;
            
       // Set position/toggle on navigation
