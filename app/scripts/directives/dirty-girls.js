@@ -7,6 +7,7 @@ app.directive('toggleDirtyGirls', function () {
       elem.bind("click", function() {
         // Show/hide dirty girl categories
         $("section.dirty-girls-of-the-month, section.dirty-girls-crew").hide();
+
         if(attrs.category == "monthly") {
           $("section.dirty-girls-of-the-month").show();
         } else {
@@ -15,4 +16,19 @@ app.directive('toggleDirtyGirls', function () {
       });
     }
   }
+});
+
+// Click button to open file dialog
+app.directive('submissionUploadBtn', function() {
+  return {
+    restrict: 'EA',
+    scope: {
+      submissionUploadBtn: '@'
+    },
+    link: function(scope, elem, attrs) {
+      elem.bind("click", function() {
+        $('input#' + scope.submissionUploadBtn).click();
+      });
+    }
+  };
 });

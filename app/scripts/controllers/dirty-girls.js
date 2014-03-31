@@ -1,6 +1,8 @@
 'use strict';
 
-app.controller('DirtyGirlsController', ['$scope', '$state', '$stateParams', 'dirty_girls', function($scope, $state, $stateParams, dirty_girls) {
+app.controller('DirtyGirlsController', ['$scope', '$state', '$stateParams', '$upload', 'DirtyGirlsService', 'AuthService', 'dirty_girls',
+  function($scope, $state, $stateParams, $upload, DirtyGirlsService, AuthService, dirty_girls) {
+
   // Dirty Girls
   if($state.current.name == "dirty-girls") {
     $scope.title = "Dirty Girls";
@@ -20,19 +22,57 @@ app.controller('DirtyGirlsController', ['$scope', '$state', '$stateParams', 'dir
     $scope.title = "Dirty Girl Submission";
     $scope.submissionSubmitted = false;
     $scope.submissionError = false;
-    $scope.submissionErrorMsg = '';
+    $scope.submissionErrorMsg = [];
 
     // Submission
     $scope.submission = {
       entry: {
-        agree: {}
+        age: '',
+        favorite_car: '',
+        favorite_pinup: '',
+        special_talents: '',
+        why_you: '',
+        turn_on: '',
+        turn_off: '',
+        favorite_quote: '',
+        user_hash: AuthService.current_user().hash,
       },
+      agree: {},
       // Process submission
-      submit: function(form) {
+      submit: function(form, $files) {
         $scope.submissionSubmitted = true;
 
+        // Submit
         if(form.$valid) {
-          console.log($scope.submission.entry);
+          // Check if user uploaded 5 files
+          if($files.length == 5) {
+            console.log($scope.submission.entry);
+
+            // Check sure error messages are hidden
+            $scope.submissionError = false;
+
+            // Call dirty girls submission service
+            DirtyGirlsService.submission($scope.submission.entry).then(function(response) {
+              console.log(response);
+              if(response.result) {
+                $scope.submissionError = false;
+
+
+              } else {
+                $scope.submissionError = true;
+                $scope.submissionErrorMsg.push('Something went wrong when saving. Try again.');
+              }
+            }, function(error) {
+              $scope.submissionError = true;
+              $scope.submissionErrorMsg.push(error);
+
+              console.error(error);
+            });
+          } else {
+            // Show error if less or more than 5 images
+            $scope.submissionError = true;
+            $scope.submissionErrorMsg.push('Please upload 5 images.');
+          }
         } else {
           $scope.submissionError = true;
         }

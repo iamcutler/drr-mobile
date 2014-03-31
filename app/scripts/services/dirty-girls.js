@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('DirtyGirlsService', ['$resource', '$q', 'endPoint', 'AuthService', function DirtyGirlsService($resource, $q, endPoint, AuthService) {
+app.factory('DirtyGirlsService', ['$resource', '$http', '$q', 'endPoint', 'AuthService', function DirtyGirlsService($resource, $http, $q, endPoint, AuthService) {
   var DirtyGirl = $resource(endPoint.resourceApi + '/dirty-girls/:id', {
     user_hash: AuthService.current_user().hash
   }, {
@@ -33,6 +33,20 @@ app.factory('DirtyGirlsService', ['$resource', '$q', 'endPoint', 'AuthService', 
       });
 
       return deferred.promise;
+    },
+    submission: function(params) {
+      var defer = $q.defer();
+
+      // Send submission to backend service
+      $http({ method: 'POST', url: endPoint.api + '/dirty-girls/submission', data: params })
+        .success(function(response) {
+          defer.resolve(response);
+        })
+        .error(function(error) {
+          defer.reject('Error saving dirty girl submission');
+        });
+
+      return defer.promise;
     }
   };
 }]);
