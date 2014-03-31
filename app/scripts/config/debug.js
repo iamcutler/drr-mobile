@@ -1,4 +1,4 @@
-app.run(function($rootScope, $state, $stateParams) {
+app.run(['$rootScope', '$state', '$stateParams', function($rootScope, $state, $stateParams) {
   // You can turn this off on production.
   $rootScope.$debugMode = "on"; // "off"
 
@@ -6,4 +6,4 @@ app.run(function($rootScope, $state, $stateParams) {
   // in browser for debug purpose.
   $rootScope.$state = $state;
   $rootScope.$stateParams = $stateParams;
-});
+}]);

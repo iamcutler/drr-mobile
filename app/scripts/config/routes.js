@@ -1,4 +1,4 @@
-app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
   // Enable HTML5 Push State
   $locationProvider.html5Mode(true);
   
@@ -446,7 +446,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         require_user: true
       }
     });
-});
+}]);
 
 // Show page loader when loading resources and views
 app.run(['$rootScope', function($root) {

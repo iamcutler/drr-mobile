@@ -13,7 +13,7 @@ var app = angular.module('DRRMobileApp', [
   'env-constants'
   //'ui.map',
   //'ui.event'
-], function($httpProvider) {
+], ['$httpProvider', function($httpProvider) {
   // Use x-www-form-urlencoded Content-Type
   $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
  
@@ -67,4 +67,4 @@ var app = angular.module('DRRMobileApp', [
     
     return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
   }];
-});
+}]);
