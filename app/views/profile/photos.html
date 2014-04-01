@@ -2,7 +2,7 @@
 
 <section id="user-photos">
   <div class="row-fluid" ng-if="photos.permissions == '0' || profile.relation.friends == 'true' && photos.permissions != '40' || profile.relation.self == 'true'">
-    <div class="col-xs-4" ng-repeat="photo in photos.photos">
+    <div class="col-xs-3" ng-repeat="photo in photos.photos">
       <div class="thumbnail">
         <a ng-href="/#/profile/{{ $stateParams.slug }}/photo/{{ photo.id }}"><img ng-src="{{ cdnDomain }}/{{ photo.thumbnail || imgPlaceholder }}" alt="" /></a>
       </div>
