@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('DirtyGirlsController', ['$scope', '$state', '$stateParams', '$upload', 'DirtyGirlsService', 'AuthService', 'dirty_girls',
-  function($scope, $state, $stateParams, $upload, DirtyGirlsService, AuthService, dirty_girls) {
+app.controller('DirtyGirlsController', ['$scope', '$state', '$stateParams', '$upload', 'DirtyGirlsService', 'AuthService', 'endPoint', 'dirty_girls',
+  function($scope, $state, $stateParams, $upload, DirtyGirlsService, AuthService, endPoint, dirty_girls) {
 
   // Dirty Girls
   if($state.current.name == "dirty-girls") {
@@ -23,6 +23,15 @@ app.controller('DirtyGirlsController', ['$scope', '$state', '$stateParams', '$up
     $scope.submissionSubmitted = false;
     $scope.submissionError = false;
     $scope.submissionErrorMsg = [];
+    $scope.uploading = false;
+    $scope.uploadPercentage = 0;
+    $scope.submitSuccess = false;
+
+    var d = new Date();
+    $scope.pollDate = {
+      date: new Date(),
+      nextMonth: new Date(d.getFullYear(), new Date().getMonth() + 2, d.getDay(), d.getHours(), d.getMinutes(), d.getSeconds(), d.getMilliseconds())
+    };
 
     // Submission
     $scope.submission = {
@@ -46,18 +55,22 @@ app.controller('DirtyGirlsController', ['$scope', '$state', '$stateParams', '$up
         if(form.$valid) {
           // Check if user uploaded 5 files
           if($files.length == 5) {
-            console.log($scope.submission.entry);
-
             // Check sure error messages are hidden
             $scope.submissionError = false;
 
             // Call dirty girls submission service
             DirtyGirlsService.submission($scope.submission.entry).then(function(response) {
-              console.log(response);
+              // If success, upload images
               if(response.result) {
                 $scope.submissionError = false;
 
+                // After successful submission save, call backend to save attached files
+                $scope.uploading = true;
 
+                // $files: an array of files selected, each file has name, size, and type.
+                for(var i = 0; i < $files.length; i++) {
+                  uploadSubmissionImage($scope, i, $files, response);
+                }
               } else {
                 $scope.submissionError = true;
                 $scope.submissionErrorMsg.push('Something went wrong when saving. Try again.');
@@ -77,6 +90,29 @@ app.controller('DirtyGirlsController', ['$scope', '$state', '$stateParams', '$up
           $scope.submissionError = true;
         }
       }
+    };
+
+    // Function to upload images
+    var uploadSubmissionImage = function($scope, i, $files, submission) {
+      var rowNum = Number(i + 1);
+
+      $scope.upload = $upload.upload({
+        method: 'POST',
+        url: endPoint.api + '/dirty-girls/submission/image?id=' + submission.submission.id + '&num=' + rowNum + '&user_hash=' + AuthService.current_user().hash,
+        file: $files[i]
+      }).progress(function(evt) {
+          // Change upload percent scope to change progress bar
+          $scope.uploadPercentage = parseInt(100.0 * evt.loaded / evt.total);
+        }).success(function(response, status, headers, config) {
+          // If final successful upload, disable loading
+          if(rowNum == 5) {
+            $scope.uploading = false;
+            // Show thank you
+            $scope.submitSuccess = true;
+          }
+        }).error(function(error) {
+          console.error(error);
+        });
     };
   }
 }]);

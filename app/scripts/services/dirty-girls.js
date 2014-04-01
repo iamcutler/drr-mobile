@@ -1,6 +1,8 @@
 'use strict';
 
-app.factory('DirtyGirlsService', ['$resource', '$http', '$q', 'endPoint', 'AuthService', function DirtyGirlsService($resource, $http, $q, endPoint, AuthService) {
+app.factory('DirtyGirlsService', ['$resource', '$http', '$q', '$upload', 'endPoint', 'AuthService',
+  function DirtyGirlsService($resource, $http, $q, $upload, endPoint, AuthService) {
+
   var DirtyGirl = $resource(endPoint.resourceApi + '/dirty-girls/:id', {
     user_hash: AuthService.current_user().hash
   }, {

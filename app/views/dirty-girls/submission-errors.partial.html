@@ -1,4 +1,4 @@
-<div class="row" ng-if="submissionSubmitted || submissionError">
+<div class="row-fluid" ng-if="submissionSubmitted || submissionError">
   <div class="col-md-12">
     <div class="alert alert-danger">
       <div class="col-md-12 error" ng-show="dirtySubmissionForm.firstName.$error.required">&bull; Please provide your first name.</div>
@@ -15,7 +15,9 @@
       <div class="col-md-12 error" ng-show="dirtySubmissionForm.liabilityRelease.$error.required">&bull; Please agree to our liability release statement.</div>
       <div class="col-md-12 error" ng-show="dirtySubmissionForm.photoLimit.$error.required">&bull; Please agree to the minimum unique 5 photo statement.</div>
 
-      <div class="col-md-12 error" ng-if="submissionError && submissionErrorMsg != ''">&bull; {{ submissionErrorMsg }}</div>
+      <div class="col-md-12 error" ng-if="submissionError && submissionErrorMsg != ''" ng-repeat="error in submissionErrorMsg">
+        &bull; {{ error }}
+      </div>
     </div>
   </div>
 </div>
