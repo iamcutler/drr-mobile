@@ -1,6 +1,8 @@
 'use strict';
 
-app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$location', '$modal', 'AuthService', 'ProfileService', 'WallService', 'profile', 'content', function($scope, $state, $stateParams, $location, $modal, AuthService, ProfileService, WallService, profile, content) {
+app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$location', '$modal', 'AuthService', 'ProfileService', 'WallService', 'profile', 'content',
+  function($scope, $state, $stateParams, $location, $modal, AuthService, ProfileService, WallService, profile, content) {
+
   // Call profile service
   $scope.profile = profile;
 
