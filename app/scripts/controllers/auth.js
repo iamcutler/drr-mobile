@@ -63,6 +63,11 @@ app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore
     $scope.processLogin = function(form) {
       // If form is valid, call auth login service
       if(form.$valid) {
+        var submitBtn = $("form[name='" + form.$name + "'] button[type='submit']");
+
+        // Disable submit button to avoid duplicate submissions
+        submitBtn.prop('disabled', true);
+
         AuthService.login($scope.login, function(data) {
           if(data.status) {
             // Set user session and redirect to user feed
@@ -70,10 +75,15 @@ app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore
             $location.path('/feed');
           } else {
             $scope.loginError = 'wrong username and/or password. please try again.';
+
+            // Enable submit button
+            submitBtn.prop('disabled', false);
           }
         });
       } else {
         $scope.loginSubmitted = true;
+        // Enable submit button
+        submitBtn.prop('disabled', false);
       }
     }
   }
