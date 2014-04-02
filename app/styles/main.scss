@@ -826,10 +826,18 @@ div.add-thread, div.compose-comment {
       height: 34px;
       @include border-radius(6px);
       border: none;
+      outline: none;
     }
 
     input {
       padding: 10px;
+    }
+
+    // Show loader
+    button.comment-loading, button.message-loading {
+      background: #C0C0C0 url('/images/loader-sm-light-gray.gif') center no-repeat;
+      text-indent: -9999px;
+      overflow: hidden;
     }
 
     .col-xs-10 {

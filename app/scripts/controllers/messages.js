@@ -46,7 +46,14 @@ app.controller('MessagesController', ['$scope', '$state', '$stateParams', '$loca
     // Process new message
     $scope.processNewMessage = function(form) {
       if(form.$valid) {
-        MessageService.new_message($scope.new_msg).then(function(response) {
+        var message = MessageService.new_message($scope.new_msg),
+            submitBtn = $("form[name='" + form.$name + "'] button[type='submit']");
+
+        // Disable button to prevend double clicks & show loader
+        submitBtn.prop('disabled', true);
+        submitBtn.addClass('message-loading');
+
+        message.then(function(response) {
           // Add new message to thread messages scope
           $scope.thread.messages.unshift({
             message: $scope.new_msg.message,
@@ -59,6 +66,10 @@ app.controller('MessagesController', ['$scope', '$state', '$stateParams', '$loca
           $scope.new_msg.message = '';
 
           $scope.scrollTo('topThread');
+
+          // Enable button & hide loader
+          submitBtn.prop('disabled', false);
+          submitBtn.removeClass('message-loading');
 
           // Recall message service to get updated messages
           $scope.thread = messages;

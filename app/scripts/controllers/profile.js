@@ -154,7 +154,12 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
   // Compose new comments/wall resource
   $scope.composeComment = function(form, scope, comment) {
     if(form.$valid) {
-      var new_activity = WallService.save(comment);
+      var new_activity = WallService.save(comment),
+          submitBtn = $("form[name='" + form.$name + "'] button[type='submit']");
+
+      // Disable button to prevend double clicks & show loader
+      submitBtn.prop('disabled', true);
+      submitBtn.addClass('comment-loading');
 
       new_activity.then(function(response) {
         if(response.result) {
@@ -176,6 +181,10 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
               slug: response.wall.user.slug
             }
           });
+
+          // Enable button & hide loader
+          submitBtn.prop('disabled', false);
+          submitBtn.removeClass('comment-loading');
 
           comment.comment = '';
         }
