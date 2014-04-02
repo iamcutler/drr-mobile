@@ -1,6 +1,8 @@
 'use strict';
 
-app.factory('VotingService', ['$resource', '$q', 'endPoint', 'AuthService', function Voting($resource, $q, endPoint, AuthService) {
+app.factory('VotingService', ['$resource', '$q', '$cookieStore', 'endPoint', 'AuthService',
+  function Voting($resource, $q, $cookieStore, endPoint, AuthService) {
+
   var Vote = $resource(endPoint.resourceApi + '/dirty-girls/voting/current', { user_hash: AuthService.current_user().hash });
 
   return {
@@ -23,6 +25,16 @@ app.factory('VotingService', ['$resource', '$q', 'endPoint', 'AuthService', func
           callback(response);
         });
       });
+    },
+    // Track user voting via local cookie
+    get_vote_timestamp: function() {
+      return $cookieStore.get('last_vote');
+    },
+    set_vote_timestamp: function() {
+      $cookieStore.put('last_vote', new Date());
+    },
+    clear_vote_timestamp: function() {
+      $cookieStore.remove('last_vote');
     }
   };
 }]);

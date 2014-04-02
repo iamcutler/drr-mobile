@@ -5,7 +5,8 @@ app.directive('castVote', ['$location', 'VotingService', function($location, Vot
     restrict: 'E',
     scope: {
       poll: '@',
-      answer: '@'
+      answer: '@',
+      period: '@'
     },
     template: '<button type="button" class="btn btn-lg btn-default" ng-poll-id="{{ poll }}" ng-answer="{{ answer }}">Vote</button>',
     link: function postLink(scope, element, attrs) {
@@ -17,8 +18,10 @@ app.directive('castVote', ['$location', 'VotingService', function($location, Vot
         element.children('button').addClass('loading');
 
         // Call voting service to save vote
-        console.log('Calling voting service');
         VotingService.cast_vote(attrs.poll, attrs.answer, function(response) {
+          // Set date object locally based on last vote to track voting periods
+          VotingService.set_vote_timestamp();
+          // Redirect to results
           $location.path('/vote/results');
         });
       });

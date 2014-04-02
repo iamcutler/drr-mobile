@@ -913,6 +913,23 @@ section.dirty-voting {
   }
 }
 
+// Already voted modal
+section.already-voted {
+  padding: 20px;
+  text-align: center;
+  @include text-shadow(0 0 6px #000);
+
+  div.page-icon {
+    margin: 20px auto;
+  }
+
+  span {
+    color: #9c000d;
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
 // ------------------------------ Dirty Girls ----------------------------
 section.dirty-girls-of-the-month, section.dirty-girls-crew {
   padding: 20px;

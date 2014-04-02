@@ -1,10 +1,36 @@
 'use strict';
 
-app.controller('VotingController', ['$scope', '$state', '$location', 'votes', function($scope, $state, $location, votes) {
+app.controller('VotingController', ['$scope', '$state', '$location', '$modal', 'VotingService', 'votes',
+  function($scope, $state, $location, $modal, VotingService, votes) {
+
   // Voting
   if($state.current.name == "vote") {
     // Call dirty girls voting service
+    var timer = VotingService.get_vote_timestamp();
+
     $scope.voting = votes;
+    $scope.previousCastedVote = false;
+
+    console.log(timer);
+    // Check if user already voted
+    if(timer !== undefined) {
+      $scope.elapedTime = Math.abs( new Date().getTime() - new Date(timer).getTime() ) / 3600000;
+      // Check if time is longer than allowed period
+      // If so, allow to vote, if not, slow modal
+      if($scope.voting.poll.voting_period > $scope.elapedTime) {
+        $scope.previousCastedVote = true;
+      }
+    }
+
+    // Show modal if already voted in time period
+    if($scope.previousCastedVote) {
+      var votedModalInstance = $modal.open({
+        controller: 'VotingModalController',
+        templateUrl: '/views/shared-partials/vote-timestamp.modal.html',
+        backdrop: 'static',
+        keyboard: false
+      });
+    }
 
     $scope.$watch('voting', function() {
       if($scope.voting.length != 0) {
