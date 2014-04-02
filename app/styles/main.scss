@@ -5,22 +5,22 @@
 
 @font-face {
     font-family: 'headliner';
-    src: url('/fonts/headliner.eot');
-    src: url('/fonts/headliner.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/headliner.woff') format('woff'),
-         url('/fonts/headliner.ttf') format('truetype'),
-         url('/fonts/headliner.svg#headliner') format('svg');
+    src: url('../fonts/headliner.eot');
+    src: url('../fonts/headliner.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/headliner.woff') format('woff'),
+         url('../fonts/headliner.ttf') format('truetype'),
+         url('../fonts/headliner.svg#headliner') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'halo';
-    src: url('/fonts/halohandletter.eot');
-    src: url('/fonts/halohandletter.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/halohandletter.woff') format('woff'),
-         url('/fonts/halohandletter.ttf') format('truetype'),
-         url('/fonts/halohandletter.svg#halohandletter') format('svg');
+    src: url('../fonts/halohandletter.eot');
+    src: url('../fonts/halohandletter.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/halohandletter.woff') format('woff'),
+         url('../fonts/halohandletter.ttf') format('truetype'),
+         url('../fonts/halohandletter.svg#halohandletter') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -29,11 +29,11 @@
 // Dirty Rotten Rides Glyph Icons
 @font-face {
     font-family: 'DRRGlyphs';
-    src: url('/fonts/drrglyphs.eot');
-    src: url('/fonts/drrglyphs.eot') format('embedded-opentype'),
-         url('/fonts/drrglyphs.woff') format('woff'),
-         url('/fonts/drrglyphs.ttf') format('truetype'),
-         url('/fonts/drrglyphs.svg#DRRGlyphs') format('svg');
+    src: url('../fonts/drrglyphs.eot');
+    src: url('../fonts/drrglyphs.eot') format('embedded-opentype'),
+         url('../fonts/drrglyphs.woff') format('woff'),
+         url('../fonts/drrglyphs.ttf') format('truetype'),
+         url('../fonts/drrglyphs.svg#DRRGlyphs') format('svg');
 }
 
 $iconSpritePath: "../images/glyphicons-halflings.png";
@@ -77,14 +77,14 @@ h1, h2, h3, h4, h5 ,h6 {
   
   //Authentication
   &.auth {
-    background: #000 url("/images/auth-bg.jpg") center top no-repeat;
+    background: #000 url("../images/auth-bg.jpg") center top no-repeat;
     background-size: cover;
   }
 
   // Page loader
   div.page-loader {
     position: fixed;
-    background: #000 url('/images/loader-lg.gif') center center no-repeat;
+    background: #000 url('../images/loader-lg.gif') center center no-repeat;
     top: 50%;
     left: 50%;
     width: 60px;
@@ -153,7 +153,7 @@ a.menu-link:Link, a.menu-link:Visited {
 
 // Bootstrap modal
 div.modal-content {
-  background: #000 url('/images/ui-bg-texture.jpg') repeat;
+  background: #000 url('../images/ui-bg-texture.jpg') repeat;
 
   .row, .row-fluid {
     margin-left: 0;
@@ -194,7 +194,7 @@ div.page-icon {
 
 // Feed article
 article.feed-article {
-  background: #000 url("/images/ui-bg-texture.jpg") repeat;
+  background: #000 url("../images/ui-bg-texture.jpg") repeat;
   margin-bottom: 10px;
   @include border-radius(6px);
   @include text-shadow(0 0 6px #000);
@@ -286,7 +286,7 @@ article.feed-article {
 
 // Feed loader when calling additional activity
 div.feed-loader {
-  background: url("/images/feed-loader.gif") center center no-repeat;
+  background: url("../images/feed-loader.gif") center center no-repeat;
   height: 11px;
   padding: 30px 0 30px 0;
   margin: auto;
@@ -492,7 +492,7 @@ section#news-feed {
   padding: 10px;
   
   article {
-    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    background: #000 url("../images/ui-bg-texture.jpg") repeat;
     margin-bottom: 10px;
     @include border-radius(6px);
     
@@ -554,7 +554,7 @@ section.friend-requests {
   padding: 10px;
   
   div.friend-request {
-    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    background: #000 url("../images/ui-bg-texture.jpg") repeat;
     min-height: 40px;
     padding: 10px;
     margin-bottom: 10px;
@@ -657,7 +657,7 @@ section.app-media {
       div.video-icon {
         position: absolute;
         right: 16px;
-        background: url("/images/video-media-icon.png") center bottom no-repeat;
+        background: url("../images/video-media-icon.png") center bottom no-repeat;
         width: 40px;
         height: 38px;
       }
@@ -701,7 +701,7 @@ section.user-messages {
   padding: 10px;
   
   div.message {
-    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    background: #000 url("../images/ui-bg-texture.jpg") repeat;
     margin-bottom: 10px;
     padding: 10px;
     @include border-radius(6px);
@@ -788,7 +788,7 @@ section.message-thread {
     }
 
     div.body {
-      background: #000 url("/images/ui-bg-texture.jpg") repeat;
+      background: #000 url("../images/ui-bg-texture.jpg") repeat;
       font-size: 14px;
       padding: 12px;
       margin-left: 66px;
@@ -814,7 +814,7 @@ section.message-thread {
 
 div.add-thread, div.compose-comment {
   position: fixed;
-  background: #000 url("/images/ui-bg-texture.jpg") repeat;
+  background: #000 url("../images/ui-bg-texture.jpg") repeat;
   bottom: 0;
   width: 100%;
   padding: 10px;
@@ -835,7 +835,7 @@ div.add-thread, div.compose-comment {
 
     // Show loader
     button.comment-loading, button.message-loading {
-      background: #C0C0C0 url('/images/loader-sm-light-gray.gif') center no-repeat;
+      background: #C0C0C0 url('../images/loader-sm-light-gray.gif') center no-repeat;
       text-indent: -9999px;
       overflow: hidden;
     }
@@ -909,7 +909,7 @@ section.dirty-voting {
 
           &.loading {
             text-indent: -9999px;
-            background: #000 url('/images/loader-sm.gif') center center no-repeat;
+            background: #000 url('../images/loader-sm.gif') center center no-repeat;
 
             &[disabled] {
               @include opacity(1.0);
@@ -1025,7 +1025,7 @@ section.user-profile {
 
   // Profile Header
   div.user-profile-header {
-    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    background: #000 url("../images/ui-bg-texture.jpg") repeat;
     padding: 10px;
     @include border-radius(6px);
     @include text-shadow(0 0 6px #000);
@@ -1117,7 +1117,7 @@ section.about-user {
   @include text-shadow(0 0 6px #000);
 
   div.user-information {
-    background: url('/images/ui-bg-texture.jpg') repeat;
+    background: url('../images/ui-bg-texture.jpg') repeat;
     padding: 20px;
     @include border-radius(8px);
 
@@ -1154,7 +1154,7 @@ section#user-friends {
   }
 
   div.friend {
-    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    background: #000 url("../images/ui-bg-texture.jpg") repeat;
     @include border-radius(8px);
     padding: 6px;
     margin-bottom: 10px;
@@ -1187,7 +1187,7 @@ section#user-albums {
     .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, 
     .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
       &.user-album {
-        background: #000 url("/images/ui-bg-texture.jpg") repeat;
+        background: #000 url("../images/ui-bg-texture.jpg") repeat;
         padding: 10px;
         @include border-radius(6px);
 
@@ -1210,7 +1210,7 @@ section#user-albums {
 
 // User Photos
 section#user-photos {
-  background: #000 url("/images/ui-bg-texture.jpg") repeat;
+  background: #000 url("../images/ui-bg-texture.jpg") repeat;
   padding: 40px 20px 20px 20px;
   margin: 20px;
   @include border-radius(8px);
@@ -1249,7 +1249,7 @@ section#user-groups {
   padding: 20px;
 
   div.group {
-    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    background: #000 url("../images/ui-bg-texture.jpg") repeat;
     @include border-radius(8px);
     padding: 10px;
     margin-bottom: 10px;
@@ -1273,7 +1273,7 @@ section#user-events {
   padding: 20px;
 
   div.event {
-    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    background: #000 url("../images/ui-bg-texture.jpg") repeat;
     @include border-radius(8px);
     padding: 10px;
     margin-bottom: 10px;
@@ -1366,7 +1366,7 @@ section#group {
 
   // Header
   header.group-header {
-    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    background: #000 url("../images/ui-bg-texture.jpg") repeat;
     color: #FFF;
     padding: 10px;
     @include border-radius(6px);
@@ -1420,7 +1420,7 @@ section#group {
       display: block;
 
       div.new-group-activity {
-        background: #000 url("/images/ui-bg-texture.jpg") repeat;
+        background: #000 url("../images/ui-bg-texture.jpg") repeat;
         padding: 20px;
         @include border-radius(6px);
         margin-bottom: 10px;
@@ -1440,7 +1440,7 @@ section#group {
     }
 
     &#group-details, &#group-members {
-      background: #000 url("/images/ui-bg-texture.jpg") repeat;
+      background: #000 url("../images/ui-bg-texture.jpg") repeat;
       padding: 20px;
       @include border-radius(6px);
       display: none;
@@ -1469,7 +1469,7 @@ section#group {
       padding: 0;
 
       article {
-        background: #000 url("/images/ui-bg-texture.jpg") repeat;
+        background: #000 url("../images/ui-bg-texture.jpg") repeat;
         margin-bottom: 10px;
         @include border-radius(6px);
 
@@ -1528,7 +1528,7 @@ section#group {
       padding: 0;
 
       div.discussion, div.event {
-        background: #000 url("/images/ui-bg-texture.jpg") repeat;
+        background: #000 url("../images/ui-bg-texture.jpg") repeat;
         @include border-radius(8px);
         padding: 10px;
         margin-bottom: 10px;
@@ -1555,7 +1555,7 @@ section#event {
 
   // Header
   header.event-header {
-    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    background: #000 url("../images/ui-bg-texture.jpg") repeat;
     color: #FFF;
     padding: 10px;
     @include border-radius(6px);
@@ -1614,7 +1614,7 @@ section#event {
       overflow: auto;
 
       div.new-event-activity {
-        background: #000 url("/images/ui-bg-texture.jpg") repeat;
+        background: #000 url("../images/ui-bg-texture.jpg") repeat;
         padding: 20px;
         @include border-radius(6px);
         margin-bottom: 10px;
@@ -1634,7 +1634,7 @@ section#event {
     }
 
     &#event-details, &#event-members {
-      background: #000 url("/images/ui-bg-texture.jpg") repeat;
+      background: #000 url("../images/ui-bg-texture.jpg") repeat;
       padding: 20px;
       @include border-radius(6px);
       display: none;
@@ -1685,7 +1685,7 @@ section.find-events {
     padding: 10px;
     
     div.result {
-      background: #000 url("/images/ui-bg-texture.jpg") repeat;
+      background: #000 url("../images/ui-bg-texture.jpg") repeat;
       margin-bottom: 10px;
       padding: 10px;
       @include border-radius(6px);
@@ -1722,7 +1722,7 @@ section.activity-container {
   padding: 20px 20px 80px 20px;
 
   article.main {
-    background: #000 url("/images/ui-bg-texture.jpg") repeat;
+    background: #000 url("../images/ui-bg-texture.jpg") repeat;
     @include border-radius(6px);
     padding-bottom: 10px;
 
