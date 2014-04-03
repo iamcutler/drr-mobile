@@ -837,18 +837,25 @@ div.add-thread, div.compose-comment {
     }
 
     // Show loader
-    button.comment-loading, button.message-loading {
-      background: #C0C0C0 url('../images/loader-sm-light-gray.gif') center no-repeat;
-      text-indent: -9999px;
-      overflow: hidden;
+    button {
+      background: #C0C0C0;
+      font-size: 14px;
+
+      &.comment-loading, &.message-loading {
+        background: #C0C0C0 url('../images/loader-sm-light-gray.gif') center no-repeat;
+        text-indent: -9999px;
+        overflow: hidden;
+      }
     }
 
     .col-xs-10 {
+      padding-left: 0;
       padding-right: 5px;
     }
 
     .col-xs-2 {
-      padding-left: 5px;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 }
@@ -1722,7 +1729,7 @@ section.find-events {
 
 // ---------------------- Activity Page ----------------------
 section.activity-container {
-  padding: 20px 20px 80px 20px;
+  padding: 10px 10px 80px 10px;
 
   article.main {
     background: #000 url("../images/ui-bg-texture.jpg") repeat;
@@ -1730,32 +1737,33 @@ section.activity-container {
     padding-bottom: 10px;
 
     header {
-      padding: 20px;
+      padding: 10px;
 
       div.thumb {
         float: left;
         background: #000;
-        width: 60px;
-        height: 60px;
+        width: 56px;
+        height: 56px;
         overflow: hidden;
-        margin: 0 20px 0 0;
+        margin: 0 10px 0 0;
 
         img {
-          width: 60px;
-          min-height: 60px;
+          width: 56px;
+          min-height: 56px;
         }
       }
 
       h2 {
         color: #b7b7b7;
-        font-size: 24px;
+        font-size: 18px;
         font-weight: normal;
         padding: 0;
-        margin: 6px 0 0 0;
+        margin: 8px 0 0 0;
       }
 
       span {
         color: #b7272d;
+        font-size: 14px;
       }
 
       // Admin remove icon
@@ -1812,17 +1820,17 @@ section.activity-container {
     div.article-comments {
       div.comment {
         border-top: 1px solid #6d6e71;
-        padding: 14px 20px;
+        padding: 14px 10px;
 
         div.thumb {
           float: left;
-          width: 60px;
-          height: 60px;
+          width: 44px;
+          height: 44px;
           overflow: hidden;
 
           img {
-            width: 60px;
-            min-height: 60px;
+            width: 44px;
+            min-height: 44px;
           }
         }
 
@@ -1837,7 +1845,7 @@ section.activity-container {
         }
 
         div.comment-body {
-          padding-left: 70px;
+          padding-left: 56px;
           font-size: 14px;
 
           span {
