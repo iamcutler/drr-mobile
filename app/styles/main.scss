@@ -709,38 +709,40 @@ section.user-messages {
     div.thumb {
       float: left;
       background: #000;
-      width: 110px;
-      height: 110px;
+      width: 64px;
+      height: 64px;
       overflow: hidden;
       
       img {
-        min-width: 110px;
-        height: 110px;
+        min-width: 64px;
+        height: 64px;
       }
     }
-    
+
     div.message-column {
-      padding-left: 130px;
+      padding-left: 80px;
+      line-height: 20px;
       
       span {
         &.timestamp {
-          float: right;
           color: #b7272d;
-          font-size: 14px;
+          font-size: 12px;
         }
-        
+
         &.user-name {
           float: left;
           width: 100%;
           color: #f4cb89;
-          font-size: 22px;
+          font-size: 18px;
           font-weight: 500;
         }
       }
       
       p {
         float: left;
+        width: 100%;
         font-size: 14px;
+        margin: 0;
       }
     }
   }

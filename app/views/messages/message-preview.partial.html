@@ -3,12 +3,16 @@
     <div class="thumb">
       <img ng-src="{{ cdnDomain }}/{{ message.user.avatar || imgPlaceholder }}" />
     </div>
+
     <div class="message-column">
-      <span class="timestamp" am-time-ago="message.message.posted_on"></span>
       <span class="user-name">{{ message.user.name }}</span><br />
+
       <p>
         {{ message.message.message | substr: 0:150 }}
       </p>
+
+      <span class="timestamp" am-time-ago="message.message.posted_on"></span><br />
+      <div class="clearfix"></div>
     </div>
     
     <div class="clearfix"></div>
