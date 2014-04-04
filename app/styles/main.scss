@@ -244,7 +244,7 @@ article.feed-article {
 
     div.media-wrapper {
       width: 100%;
-      max-height: 400px;
+      max-height: 300px;
       overflow: hidden;
 
       img {
@@ -634,6 +634,7 @@ section.app-media {
         &.timestamp {
           float: right;
           color: #b7272d;
+          font-size: 14px;
           padding-top: 12px;
         }
       }
@@ -1039,7 +1040,7 @@ section.dirty-submission {
 
 // --------------------------- User Profile -------------------------
 section.user-profile {
-  padding: 20px;
+  padding: 10px;
 
   // Profile Header
   div.user-profile-header {
@@ -1061,19 +1062,23 @@ section.user-profile {
       }
     }
 
-    .profile-status {
-      font-size: 18px;
-      line-height: 24px;
+    .profile-status-column {
+      margin-left: 190px;
 
-      span {
-        font-size: 16px;
-        color: #b7272d;
+      .profile-status {
+        font-size: 18px;
+        line-height: 24px;
+
+        span {
+          font-size: 16px;
+          color: #b7272d;
+        }
       }
-    }
 
-    .user-stats {
-      a:link, a:visited {
-        color: #f3ca8a;
+      .user-stats {
+        a:link, a:visited {
+          color: #f3ca8a;
+        }
       }
     }
   }
@@ -1131,17 +1136,25 @@ section.user-profile {
 
 // Profile about user
 section.about-user {
-  padding: 20px;
+  padding: 10px;
   @include text-shadow(0 0 6px #000);
 
   div.user-information {
     background: url('../images/ui-bg-texture.jpg') repeat;
-    padding: 20px;
+    padding: 10px;
     @include border-radius(8px);
 
     h1, h2, h3, h4, h5, h6 {
       color: #F3CA8A;
       font-weight: bold;
+    }
+
+    .row, .row-fluid {
+      .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6,
+      .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+        padding-left: 6px;
+        padding-right: 6px;
+      }
     }
 
     hr {
@@ -1157,7 +1170,7 @@ section.about-user {
 
 // Profile friends
 section#user-friends {
-  padding: 20px;
+  padding: 10px;
 
   div.contact-label {
     h1, h2, h3, h4, h5, h6 {

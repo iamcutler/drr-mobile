@@ -12,9 +12,29 @@ and (max-width : 1024px) {
 @media only screen
 and (min-width : 320px)
 and (max-width : 568px) {
-  //Navigation
+  // --------------------------- Navigation ----------------------------
   section.application-menu {
     width: 90%;
+
+    div.menu-app-user {
+      font-size: 20px;
+
+      div.thumb {
+        width: 56px;
+        height: 56px;
+        margin-right: 10px;
+
+        img {
+          max-width: 70px;
+          min-height: 60px;
+        }
+      }
+
+      span {
+        font-size: 16px;
+        padding-top: 16px;
+      }
+    }
 
     a.menu-link:Link, a.menu-link:Visited {
       font-size: 16px;
@@ -32,6 +52,29 @@ and (max-width : 568px) {
     }
   }
 
+  // --------------------------- User Profile -------------------------
+  section.user-profile {
+    div.user-profile-header {
+      div.thumbnail {
+        float: left;
+        width: 56px;
+        height: 56px;
+        margin: 0;
+        padding: 2px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          min-height: 100%;
+        }
+      }
+
+      div.profile-status-column {
+        margin-left: 60px;
+      }
+    }
+  }
+
   // ------------------------------ Voting ----------------------------
   section.dirty-voting {
     h1, h2, h3, h4, h5, h6 {
@@ -39,6 +82,40 @@ and (max-width : 568px) {
         color: #F4CB89;
         font: 26px 'halo', Helvetica, Arial;
         text-align: center;
+      }
+    }
+  }
+
+  // --------------------- Application Media ---------------------
+  section.app-media {
+    article {
+      header {
+        div.thumb {
+          margin-right: 16px;
+        }
+
+        span {
+          &.user-name {
+            font-size: 16px;
+          }
+
+          &.timestamp {
+            float: right;
+            color: #b7272d;
+            font-size: 14px;
+            padding-top: 12px;
+          }
+        }
+      }
+
+      div.media-wrapper {
+        height: 300px;
+
+        img {
+          min-width: 100%;
+          min-height: 100%;
+          max-height: 500px;
+        }
       }
     }
   }
