@@ -11,7 +11,6 @@ app.controller('VotingController', ['$scope', '$state', '$location', '$modal', '
     $scope.voting = votes;
     $scope.previousCastedVote = false;
 
-    console.log(timer);
     // Check if user already voted
     if(timer !== undefined) {
       $scope.elapedTime = Math.abs( new Date().getTime() - new Date(timer).getTime() ) / 3600000;
@@ -34,7 +33,7 @@ app.controller('VotingController', ['$scope', '$state', '$location', '$modal', '
 
     $scope.$watch('voting', function() {
       if($scope.voting.length != 0) {
-        $scope.title = $scope.voting.poll.question;
+        $scope.title = 'Vote Now';
       } else {
         $scope.title = 'Poll Coming Soon';
       }

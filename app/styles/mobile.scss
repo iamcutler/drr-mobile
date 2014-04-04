@@ -31,4 +31,15 @@ and (max-width : 568px) {
       }
     }
   }
+
+  // ------------------------------ Voting ----------------------------
+  section.dirty-voting {
+    h1, h2, h3, h4, h5, h6 {
+      &.voting-question {
+        color: #F4CB89;
+        font: 26px 'halo', Helvetica, Arial;
+        text-align: center;
+      }
+    }
+  }
 }

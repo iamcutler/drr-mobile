@@ -5,8 +5,10 @@
     </div>
     <span class="option-title">{{ answer.name }}</span>
   </a>
-  <div class="vote-action pull-right">
-    <cast-vote poll="{{ voting.poll.id }}" ng-if="!previousCastedVote" period="{{ voting.poll.voting_period }}" answer="{{ answer.id }} "></cast-vote>
+  <div class="row-fluid">
+    <div class="col-xs-12 vote-action">
+      <cast-vote poll="{{ voting.poll.id }}" ng-if="!previousCastedVote" period="{{ voting.poll.voting_period }}" answer="{{ answer.id }} "></cast-vote>
+    </div>
   </div>
   <div class="clearfix"></div>
 </li>

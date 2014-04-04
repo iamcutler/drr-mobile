@@ -1,6 +1,10 @@
 <ng-include src="'/views/shared-partials/navbar.html'"></ng-include>
 
 <section class="dirty-voting">
+  <h3 class="voting-question">
+    {{ voting.poll.question }}
+  </h3>
+
   <ul class="voting-options" ng-if="voting">
     <ng-include ng-repeat="answer in voting.answers" src="'/views/voting/vote_option.partial.html'"></ng-include>
   </ul>

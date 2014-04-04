@@ -862,7 +862,7 @@ div.add-thread, div.compose-comment {
 
 // ------------------------------ Voting ----------------------------
 section.dirty-voting {
-  padding: 20px;
+  padding: 10px;
 
   h1, h2, h3, h4, h5, h6 {
     &.voting-thank-you {
@@ -874,6 +874,12 @@ section.dirty-voting {
 
     &.voting-end {
       font-size: 18px;
+      text-align: center;
+    }
+
+    &.voting-question {
+      color: #F4CB89;
+      font: 40px 'halo', Helvetica, Arial;
       text-align: center;
     }
   }
@@ -893,29 +899,31 @@ section.dirty-voting {
       div.thumb {
         float: left;
         background: #FFF;
-        width: 68px;
-        height: 68px;
-        margin-right: 20px;
+        width: 56px;
+        height: 56px;
+        margin-right: 10px;
         overflow: hidden;
         
         img {
-          min-width: 68px;
-          height: 68px;
+          min-width: 56px;
+          height: 56px;
         }
       }
       
       span.option-title {
         float: left;
-        font-size: 20px;
+        font-size: 16px;
         padding-top: 16px;
       }
       
       div.vote-action {
         margin-top: 12px;
+        padding-left: 0;
+        padding-right: 0;
         
         button {
           color: #FFF;
-          width: 90px;
+          width: 100%;
 
           &.loading {
             text-indent: -9999px;
