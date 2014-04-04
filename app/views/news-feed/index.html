@@ -9,7 +9,9 @@
 </div>
 
 <section id="news-feed" infinite-scroll="news_feed.load()" infinite-scroll-immediate-check="false" infinite-scroll-disabled="busy" infinite-scroll-distance="1">
-  <ng-include src="'/views/news-feed/feed-article.partial.html'" ng-repeat="activity in feed"></ng-include>
+  <ng-include src="'/views/news-feed/feed-article.partial.html'" ng-repeat="activity in feed" ng-if="feed.length > 0"></ng-include>
 
-  <div class="feed-loader" ng-show="busy"></div>
+  <div class="feed-loader" ng-show="busy" ng-if="feed.length > 0"></div>
+
+  <page-icon ng-if="feed.length == '0'" icon="F" message="No current news."></page-icon>
 </section>
