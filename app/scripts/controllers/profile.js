@@ -24,6 +24,8 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
     angular.forEach($scope.profile.profile.feed, function(value, key) {
       $scope.profile.profile.feed[key].created = moment.utc($scope.profile.profile.feed[key].created).local();
     });
+    // Convert status timestamp
+    $scope.profile.profile.status.created = moment.utc($scope.profile.profile.status.created).local();
 
     // New message modal
     $scope.newMessage = function() {
