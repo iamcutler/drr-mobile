@@ -49,7 +49,7 @@
   <form name="AddComment" ng-submit="composeComment(AddComment, activity.comments, new_comment)" novalidate>
     <div class="row-fluid">
       <div class="col-xs-10">
-        <input type="text" ng-model="new_comment.comment" required />
+        <input type="text" ng-model="new_comment.comment" placeholder="comment on this..." required />
       </div>
       <div class="col-xs-2">
         <button type="submit">Post</button>
