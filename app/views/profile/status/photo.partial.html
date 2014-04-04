@@ -1,16 +1,16 @@
 <div id="photo-status">
   <form name="newPhotoStatusForm" enctype="multipart/form-data" novalidate>
     <div class="row">
-      <div class="col-xs-2" style="padding-right: 0;">
+      <div class="col-xs-2" style="padding-right: 4px;">
         <figure class="thumbnail">
           <img ng-src="{{ cdnDomain }}/{{ user.thumbnail || imgPlaceholder }}" alt="" />
         </figure>
       </div>
       <div class="col-xs-10" style="padding-left: 0;">
-        <textarea name="caption" placeholder="Write something about this photo if you'd like..." ng-model="new_status.photo.caption"></textarea>
+        <textarea name="caption" placeholder="About this photo..." ng-model="new_status.photo.caption"></textarea>
       </div>
       <div class="col-xs-12" style="margin-bottom: 10px;">
-        <button type="button" class="btn btn-block btn-lg btn-default" onclick="$('#statusPhotoFile').click();">Click here to select your photo</button>
+        <button type="button" class="btn btn-block btn-lg btn-default" onclick="$('#statusPhotoFile').click();">select your photo</button>
         <input id="statusPhotoFile" type="file" style="display: none;" ng-file-select="newPhotoStatus($files)" required />
       </div>
     </div>

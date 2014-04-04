@@ -3,58 +3,59 @@
 
   <form name="newEventStatusForm" ng-submit="newEventStatus(newEventStatusForm)" novalidate>
     <div class="row-fluid clearfix">
-      <div class="col-xs-2">
+      <div class="col-xs-12">
         Title:
       </div>
-      <div class="col-xs-10">
+      <div class="col-xs-12">
         <input type="text" name="title" class="form-control" ng-model="new_status.event.title" required />
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-12">
         Category:
       </div>
-      <div class="col-xs-10">
+      <div class="col-xs-12">
         <select name="category" class="form-control" ng-model="new_status.event.catid" ng-options="category.id as category.name for category in event_categories" required>
           <option value="" selected="selected">Select:</option>
         </select>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-12">
         Location:
       </div>
-      <div class="col-xs-10">
+      <div class="col-xs-12">
         <input type="text" name="location" class="form-control" ng-model="new_status.event.location" required />
         <span style="color: #999; font-size: 12px;">E.g. San Jose, California</span>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-12">
         All day:
       </div>
-      <div class="col-xs-10">
+      <div class="col-xs-12">
         <select name="allday" class="form-control" ng-model="new_status.event.allday" event-length>
+          <option value="">Select:</option>
           <option value="0">No</option>
           <option value="1">Yes</option>
         </select>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-12">
         Start Date:
       </div>
-      <div class="col-xs-5" id="eventStartDate">
+      <div class="col-xs-6" id="eventStartDate">
         <input type="date" name="startdate" class="form-control" ng-model="new_status.event.startdate" placeholder="Date:" required />
       </div>
-      <div class="col-xs-5" id="eventStartTime">
+      <div class="col-xs-6" id="eventStartTime">
         <input type="time" name="starttime" class="form-control" ng-model="new_status.event.starttime" placeholder="Time:" />
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-12">
         End Date:
       </div>
-      <div class="col-xs-5" id="eventEndDate">
+      <div class="col-xs-6" id="eventEndDate">
         <input type="date" name="enddate" class="form-control" ng-model="new_status.event.enddate" placeholder="Date:" required />
       </div>
-      <div class="col-xs-5" id="eventEndTime">
+      <div class="col-xs-6" id="eventEndTime">
         <input type="time" name="endtime" class="form-control" ng-model="new_status.event.endtime" placeholder="Time:" />
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-12">
         Repeat:
       </div>
-      <div class="col-xs-10">
+      <div class="col-xs-12">
         <select name="repeat" class="form-control" ng-model="new_status.event.repeat" event-repeat>
           <option value="">None</option>
           <option value="daily">Daily</option>
@@ -62,18 +63,18 @@
           <option value="monthly">Monthly</option>
         </select>
       </div>
-      <div class="col-xs-5" id="repeat-end">
+      <div class="col-xs-12" id="repeat-end">
         <input type="date" name="repeatend" class="form-control" ng-model="new_status.event.repeatend" placeholder="End Date:" />
       </div>
       <div class="col-xs-12">
         <textarea name="description" class="form-control" ng-model="new_status.event.description" placeholder="Write something about this event..."></textarea>
       </div>
 
-      <div class="col-xs-6">
+      <div class="col-xs-6" style="padding-right: 4px;">
         <a href="javascript: void(0);" class="btn btn-block btn-lg btn-default" ng-click="close()">Cancel</a>
       </div>
-      <div class="col-xs-6">
-        <button type="submit" class="btn btn-block btn-lg btn-primary">Share Event</button>
+      <div class="col-xs-6" style="padding-left: 4px;">
+        <button type="submit" class="btn btn-block btn-lg btn-primary">Share</button>
       </div>
     </div>
   </form>
