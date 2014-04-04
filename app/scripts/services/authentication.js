@@ -27,7 +27,7 @@ app.factory('AuthService', ['$http', '$rootScope', '$cookieStore', '$state', 'en
       }).error(function() {});
     },
     register: function(user, callback) {
-      $http.post(endPoint.api + '/user', user).
+      $http.post(endPoint.api + '/register', user).
       success(function(data) {
         if(typeof callback === "function") {
           callback(data);

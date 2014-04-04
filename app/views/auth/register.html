@@ -48,10 +48,12 @@
         By clicking sign Up, you agree to our Terms and Conditions and that you have read our Privacy Policy, including our Cookie Use. You may receive SMS notifications from Dirty Rotten Rides and can opt not at any time.
       </div>
       
-      <div class="alert alert-danger register-errors" ng-if="registerErrors"></div>
+      <div class="row-fluid clearfix alert alert-danger register-errors" ng-show="registerErrorState">
+        <div class="col-xs-12" ng-repeat="(key, value) in registerErrors">&bull; {{ value }}</div>
+      </div>
 
       <div class="col-md-12">
-        <button type="submit" class="btn btn-block btn-lg btn-primary" ng-click="alert('YAY')">Sign Up</button>
+        <button type="submit" class="btn btn-block btn-lg btn-primary">Sign Up</button>
       </div>
     </div>
   </form>

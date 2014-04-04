@@ -5,7 +5,8 @@ app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore
   if($state.current.name == "registeration") {
     $scope.register = {};
     $scope.registerSubmitted = false;
-    $scope.registerErrors = false;
+    $scope.registerErrorState = false;
+    $scope.registerErrors = {};
     $scope.usernameTaken = false;
 
     // Watch desired username and call username unique service
@@ -33,21 +34,26 @@ app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore
     // Process registartion
     $scope.processRegistration = function(form) {
       $scope.registerSubmitted = true;
-    
+
       // If form is valid, call auth register service
       if(form.$valid) {
         AuthService.register($scope.register, function(data) {
           if(data.status) {
+            $scope.registerErrorState = false;
+
             // Save user data in cookie
             AuthService.set_user_session(data);
 
-            console.log('Registered user successfully');
             // Successful redirect to user feed
             $location.path('/feed');
           } else {
-            $scope.registerErrors = true;
-            $("div.alert.register-errors").html(data.message);
-            console.log(data);
+            $scope.registerErrorState = true;
+
+            $scope.registerErrors = {};
+            // Loop through and add error messages to scope
+            angular.forEach(data.message, function(val, key) {
+              $scope.registerErrors[key] = val;
+            });
           }
         });
       }
