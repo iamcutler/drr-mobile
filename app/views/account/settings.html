@@ -7,38 +7,38 @@
         <h4>{{ setting.name }}:</h4>
       </div>
 
-      <div class="col-xs-3" ng-if="setting.type != 'group'">
-        {{ setting.name }}
+      <div class="col-xs-12" ng-if="setting.type != 'group'">
+        {{ setting.name }}:
       </div>
-      <div class="col-xs-7" ng-switch-when="text">
+      <div class="col-xs-12" ng-switch-when="text">
         <input type="text" name="{{ setting.fieldcode }}" class="form-control" ng-model="setting.value.value" ng-value="setting.value.value" ng-required="setting.required == 1" />
       </div>
-      <div class="col-xs-7" ng-switch-when="url">
+      <div class="col-xs-12" ng-switch-when="url">
         <input type="url" name="{{ setting.fieldcode }}" class="form-control" ng-model="setting.value.value" ng-value="setting.value.value" ng-required="setting.required == 1" />
       </div>
-      <div class="col-xs-7" ng-switch-when="birthdate">
+      <div class="col-xs-12" ng-switch-when="birthdate">
         <input type="date" name="{{ setting.fieldcode }}" class="form-control" ng-model="setting.value.value" ng-value="setting.value.value" ng-required="setting.required == 1" />
       </div>
-      <div class="col-xs-7" ng-switch-when="select">
+      <div class="col-xs-12" ng-switch-when="select">
         <select name="{{ setting.fieldcode }}" class="form-control" ng-model="setting.value.value" ng-required="setting.required == 1">
           <option value="">Select:</option>
           <option value="{{ option }}" ng-repeat="option in setting.options" ng-selected="option == setting.value.value">{{ option }}</option>
         </select>
       </div>
-      <div class="col-xs-7" ng-switch-when="country">
+      <div class="col-xs-12" ng-switch-when="country">
         <select name="{{ setting.fieldcode }}" class="form-control" ng-model="setting.value.value" ng-required="setting.required == 1">
           <option value="">Select:</option>
           <option value="{{ option }}" ng-repeat="option in setting.options" ng-selected="option == setting.value.value">{{ option }}</option>
         </select>
       </div>
-      <div class="col-xs-7" ng-switch-when="textarea">
+      <div class="col-xs-12" ng-switch-when="textarea">
         <textarea name="{{ setting.fieldcode }}" class="form-control" ng-model="setting.value.value" ng-required="setting.required == 1"></textarea>
       </div>
-      <div class="col-xs-7" ng-switch-default>
+      <div class="col-xs-12" ng-switch-default>
         <input type="text" name="{{ setting.fieldcode }}" class="form-control" ng-model="setting.value.value" ng-value="setting.value.value" ng-required="setting.required == 1" />
       </div>
 
-      <div class="col-xs-2" ng-if="setting.type != 'group'">
+      <div class="col-xs-12" ng-if="setting.type != 'group'" style="margin-top: 6px;">
         <select name="{{ setting.fieldcode }}" class="form-control" ng-model="setting.value.access">
           <option value="0" ng-selected="setting.value.access == 0">Public</option>
           <option value="20" ng-selected="setting.value.access == 20">Members</option>
