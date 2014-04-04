@@ -1,0 +1,34 @@
+// Include our project defined variables, mixins, etc
+@import "lib.scss";
+
+// ------------ Tablet Media Queries --------------
+@media only screen
+and (min-width : 568px)
+and (max-width : 1024px) {
+
+}
+
+// ------------ Smart phone Media Queries --------------
+@media only screen
+and (min-width : 320px)
+and (max-width : 568px) {
+  //Navigation
+  section.application-menu {
+    width: 90%;
+
+    a.menu-link:Link, a.menu-link:Visited {
+      font-size: 16px;
+
+      div.menu-icon {
+        width: 70px;
+        height: 70px;
+        border: 3px #6d6e71 solid;
+        margin: 0 auto;
+        font: 54px "DRRGlyphs";
+        @include border-radius(70px);
+        padding-top: 0px;
+        margin-bottom: 6px;
+      }
+    }
+  }
+}
