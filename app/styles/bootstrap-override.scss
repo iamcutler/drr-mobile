@@ -133,6 +133,13 @@ and (max-width : 1024px) {
 @media only screen 
 and (min-width : 320px) 
 and (max-width : 568px) {
+  // Global
+  .btn {
+    &.btn-primary, &.btn-default {
+      font-size: 16px;
+    }
+  }
+
   // Navbar
   .navbar-header {
     &:before, &:after {
