@@ -19,6 +19,7 @@ app.controller("ReportController", ['$scope', '$state', '$location', 'ReportServ
         notifications: 'Notifications',
         dirty_girls: 'Dirty Girls',
         dirty_voting: 'Dirty Girl Voting',
+        dirty_submissions: 'Dirty Girl Submission',
         account_settings: 'Account Settings'
       },
       bug: {
