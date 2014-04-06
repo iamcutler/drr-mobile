@@ -310,6 +310,15 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         require_user: true
       }
     })
+    .state("search-people", {
+      parent: "default",
+      url: "/find-people",
+      controller: "SearchController",
+      templateUrl: "/views/search/people.html",
+      access: {
+        require_user: true
+      }
+    })
     // -------------------- Dedicated Activity --------------------
     .state("activity", {
       parent: "default",

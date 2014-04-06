@@ -1,0 +1,28 @@
+<ng-include src="'/views/shared-partials/navbar.html'"></ng-include>
+
+<div class="row-fluid search-bar clearfix">
+  <form ng-submit="search_users(search.params)" novalidate>
+    <div class="col-xs-8" style="padding-right: 6px;">
+      <input type="search" ng-model="search.params.q" placeholder="search by name..." required />
+    </div>
+    <div class="col-xs-4">
+      <button type="submit" class="btn btn-block btn-default">Search</button>
+    </div>
+  </form>
+</div>
+
+<section class="search-people">
+  <ul ng-if="search.results.length > 0">
+    <li class="clearfix" ng-repeat="result in search.results">
+      <a ng-href="/#/profile/{{ result.slug }}">
+        <div class="thumbnail">
+          <img ng-src="{{ cdnDomain }}/{{ result.thumbnail || imgPlaceholder }}" />
+        </div>
+
+        <span>{{ result.name }}</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="loader" ng-if="loading"></div>
+</section>
