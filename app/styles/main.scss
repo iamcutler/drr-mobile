@@ -200,32 +200,33 @@ article.feed-article {
   @include text-shadow(0 0 6px #000);
 
   header {
-    padding: 20px;
+    padding: 10px;
 
     div.thumb {
       float: left;
       background: #000;
-      width: 76px;
-      height: 76px;
+      width: 56px;
+      height: 56px;
       overflow: hidden;
-      margin: 0 20px 0 0;
+      margin: 0 10px 0 0;
 
       img {
-        width: 76px;
-        min-height: 76px;
+        width: 56px;
+        min-height: 56px;
       }
     }
 
     h2 {
       color: #b7b7b7;
-      font-size: 24px;
+      font-size: 18px;
       font-weight: normal;
       padding: 0;
-      margin: 16px 0 0 0;
+      margin: 8px 0 0 0;
     }
 
     span {
       color: #b7272d;
+      font-size: 14px;
     }
 
     // Admin remove icon
@@ -266,7 +267,7 @@ article.feed-article {
   }
 
   footer {
-    padding: 0 20px 20px 20px;
+    padding: 0 10px 10px 10px;
 
     span {
       color: #f3ca8a;
@@ -319,7 +320,7 @@ section.application-menu {
   	
   	span {
   		float: left;
-  		padding-top: 16px;
+  		padding-top: 18px;
   	}
   }
   
@@ -1106,7 +1107,7 @@ section.user-profile {
 
   // Profile feed
   div#profile-feed {
-    padding: 10px;
+    padding: 10px 0;
 
     figure.photo-container {
       width: 100%;
