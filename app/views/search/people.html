@@ -11,7 +11,7 @@
   </form>
 </div>
 
-<section class="search-people">
+<section class="search-people" infinite-scroll="load_search_users()" infinite-scroll-distance="1" infinite-scroll-disabled="scroll_disabled" infinite-scroll-immediate-check="false">
   <ul ng-if="search.results.length > 0">
     <li class="clearfix" ng-repeat="result in search.results">
       <a ng-href="/#/profile/{{ result.slug }}">
