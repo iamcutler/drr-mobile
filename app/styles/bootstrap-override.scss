@@ -37,7 +37,7 @@ a {
 
 // Main navbar
 nav.navbar {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   @include background(linear-gradient(top,  rgba(183,39,45,1) 0%,rgba(88,0,0,1) 100%));

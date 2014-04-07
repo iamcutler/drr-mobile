@@ -64,7 +64,7 @@ h1, h2, h3, h4, h5 ,h6 {
 
 // Main application wrapper
 #app-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background: #000;
@@ -72,7 +72,9 @@ h1, h2, h3, h4, h5 ,h6 {
   height: 100%;
   padding-top: 50px;
   box-shadow: 0 0 8px #000;
-  overflow: auto;
+  //overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   z-index: 2;
   
   //Authentication
@@ -346,7 +348,8 @@ section.application-menu {
 	
 	nav {
 	  .row, .row-fluid {
-  	  width: 90%;
+  	  width: 80%;
+      margin-left: 10px;
 	  }
 	}
 }
