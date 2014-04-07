@@ -12,6 +12,20 @@ and (max-width : 1024px) {
 @media only screen
 and (min-width : 320px)
 and (max-width : 568px) {
+  // ---------------------- Authentication ----------------------
+  div.drr-brand {
+    img {
+      max-width: 220px;
+    }
+  }
+
+  // Login
+  section.user-login {
+    div.slogan {
+      font: 24px "headliner";
+    }
+  }
+
   // --------------------------- Navigation ----------------------------
   section.application-menu {
     width: 90%;
