@@ -153,7 +153,8 @@ a.menu-link:Link, a.menu-link:Visited {
     }
   }
 
-  // On click state
+  /* On click state
+  // Evaulate this at a later date - @iamcutler
   &:Active {
     color: #f3ca8a;
     
@@ -161,7 +162,7 @@ a.menu-link:Link, a.menu-link:Visited {
       border-color: #ed1c24;
       @include background(radial-gradient(center, ellipse cover, rgba(188,188,188,0) 0%, rgba(2,2,2,0.4) 100%));
     }
-  }
+  }*/
 }
 
 // Bootstrap modal
