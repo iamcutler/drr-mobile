@@ -38,23 +38,25 @@
   <div class="clearfix"></div>
 </div>
 
-<div class="row-fluid user-activities" ng-if="profile.profile.settings.privacyProfileView != '40' && profile.relation.friends == true || profile.relation.self == true">
-  <div class="col-xs-3">
-    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/about" icon="A" title="About"></navigation-item>
+<nav class="profile-navigation">
+  <div class="row-fluid user-activities" ng-if="profile.profile.settings.privacyProfileView != '40' && profile.relation.friends == true || profile.relation.self == true">
+    <div class="col-xs-4">
+      <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/about" icon="A" title="About"></navigation-item>
+    </div>
+    <div class="col-xs-4">
+      <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/friends" icon="P" title="Friends ({{ profile.profile.counts.friends | number }})"></navigation-item>
+    </div>
+    <div class="col-xs-4">
+      <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/photo_albums" icon="H" title="Photos ({{ profile.profile.counts.photos | number }})"></navigation-item>
+    </div>
+    <div class="col-xs-4">
+      <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/videos" icon="Q" title="Videos ({{ profile.profile.counts.videos | number }})"></navigation-item>
+    </div>
+    <div class="col-xs-4">
+      <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/events" icon="E" title="Events ({{ profile.profile.counts.events | number }})"></navigation-item>
+    </div>
+    <div class="col-xs-4">
+      <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/groups" icon="U" title="Groups ({{ profile.profile.counts.groups | number }})"></navigation-item>
+    </div>
   </div>
-  <div class="col-xs-3">
-    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/friends" icon="P" title="Friends ({{ profile.profile.counts.friends | number }})"></navigation-item>
-  </div>
-  <div class="col-xs-3">
-    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/photo_albums" icon="H" title="Photos ({{ profile.profile.counts.photos | number }})"></navigation-item>
-  </div>
-  <div class="col-xs-3">
-    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/videos" icon="Q" title="Videos ({{ profile.profile.counts.videos | number }})"></navigation-item>
-  </div>
-  <div class="col-xs-3">
-    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/events" icon="E" title="Events ({{ profile.profile.counts.events | number }})"></navigation-item>
-  </div>
-  <div class="col-xs-3">
-    <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/groups" icon="U" title="Groups ({{ profile.profile.counts.groups | number }})"></navigation-item>
-  </div>
-</div>
+</nav>

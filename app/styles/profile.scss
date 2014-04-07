@@ -46,6 +46,36 @@ section.user-profile {
   }
 
   // User menu for events, groups, photos, etc
+  nav {
+    &.profile-navigation {
+      width: 100%;
+      overflow-x: scroll;
+      overflow-y: hidden;
+
+      // Hide scrollbar on webkit
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .row, .row-fluid {
+        .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6,
+        .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+          min-width: 100px;
+          padding-left: 6px;
+          padding-right: 6px;
+        }
+      }
+
+      // Navigation icons
+      a:link, a:visited {
+        &.menu-link {
+          i {
+            top: 32px;
+          }
+        }
+      }
+    }
+  }
   .row, .row-fluid {
     &.user-activities {
       display: flex;
@@ -57,10 +87,9 @@ section.user-profile {
         font-size: 14px;
 
         div.menu-icon {
-          width: 80px;
-          height: 80px;
+          width: 70px;
+          height: 70px;
           font: 50px "DRRGlyphs";
-          padding-top: 14px;
         }
       }
     }
