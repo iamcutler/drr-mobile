@@ -1,0 +1,169 @@
+// Include our project defined variables, mixins, etc
+@import "lib.scss";
+
+section#event {
+  padding: 20px;
+
+  // Header
+  header.event-header {
+    background: #000 url("../images/ui-bg-texture.jpg") repeat;
+    color: #FFF;
+    padding: 10px;
+    @include border-radius(6px);
+    @include text-shadow(0 0 6px #000);
+
+    div.thumbnail {
+      float: left;
+      width: 180px;
+      height: 120px;
+      margin: 0 16px 0 0;
+      padding: 0;
+      border: none;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        min-height: 100%;
+      }
+    }
+
+    div.group-info {
+      margin-left: 200px;
+    }
+
+    span {
+      color: #f3ca8a;
+    }
+
+    a:link, a:visited {
+      color: #f3ca8a;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    div.event-guest-status {
+      background: #000;
+      padding: 10px;
+      margin-top: 10px;
+    }
+  }
+
+  // Event navigation
+  .row, .row-fluid {
+    &.event-navi {
+      margin: 20px 0;
+    }
+  }
+
+  // Event sections
+  section {
+    margin: 20px 0;
+
+    &#event-feed {
+      overflow: auto;
+
+      div.new-event-activity {
+        background: #000 url("../images/ui-bg-texture.jpg") repeat;
+        padding: 20px;
+        @include border-radius(6px);
+        margin-bottom: 10px;
+
+        input, textarea {
+          background: #000;
+          width: 100%;
+          color: #CCC;
+          padding: 10px;
+          @include border-radius(6px);
+          border: none;
+          resize: none;
+          outline: none;
+          margin-bottom: 6px;
+        }
+      }
+    }
+
+    &#event-details, &#event-members {
+      background: #000 url("../images/ui-bg-texture.jpg") repeat;
+      padding: 20px;
+      @include border-radius(6px);
+      display: none;
+
+      div.thumbnail {
+        width: 76px;
+        height: 76px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        @include border-radius(0);
+
+        img {
+          width: 100%;
+          min-height: 76px;
+        }
+      }
+    }
+  }
+}
+
+div.events-map {
+  background: #FFF;
+  height: 440px;
+  overflow: hidden;
+
+  // Map container
+  div.map-canvas {
+    height: 440px;
+  }
+}
+
+div.search-bar {
+  background: #231f20;
+  padding: 8px 12px;
+
+  input[type="search"] {
+    width: 100%;
+    @include border-radius(16px);
+    border: none;
+    padding: 4px 12px;
+    outline: none;
+  }
+}
+
+section.find-events {
+  div.search-results {
+    padding: 10px;
+
+    div.result {
+      background: #000 url("../images/ui-bg-texture.jpg") repeat;
+      margin-bottom: 10px;
+      padding: 10px;
+      @include border-radius(6px);
+
+      div.thumb {
+        float: left;
+        background: #000;
+        width: 74px;
+        height: 74px;
+        overflow: hidden;
+
+        img {
+          min-width: 74px;
+          height: 74px;
+        }
+      }
+
+      div.event-info {
+        padding-top: 12px;
+        padding-left: 94px;
+
+        span {
+          &.event-name {
+            color: #f4cb89;
+          }
+        }
+      }
+    }
+  }
+}
