@@ -136,8 +136,19 @@ a.menu-link:Link, a.menu-link:Visited {
     margin: auto;
     font: 64px "DRRGlyphs";
     @include border-radius(100px);
-    padding-top: 18px;
     margin-bottom: 6px;
+
+    // Menu icon glyph
+    i {
+      position: absolute;
+      width: 100%;
+      top: 52px;
+      left: 0;
+      font-style: normal;
+      margin: 0;
+      padding: 0;
+      line-height: 1px;
+    }
   }
 
   // On click state

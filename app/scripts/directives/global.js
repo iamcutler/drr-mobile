@@ -33,7 +33,7 @@ app.directive("navigationItem", function() {
       icon: '@',
       title: '@'
     },
-    template: '<a ng-href="{{ ngHref }}" class="menu-link"><div class="menu-icon">{{ icon }}</div>{{ title }}</a>',
+    template: '<a ng-href="{{ ngHref }}" class="menu-link"><div class="menu-icon"><i>{{ icon }}</i></div>{{ title }}</a>',
     link: function(scope, elem, attrs) {
       // On click, close navigation
       elem.bind("click", function() {
