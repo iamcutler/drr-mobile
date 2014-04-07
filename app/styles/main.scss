@@ -154,7 +154,7 @@ a.menu-link:Link, a.menu-link:Visited {
   }
 
   // On click state
-  &:Hover, &:Active {
+  &:Active {
     color: #f3ca8a;
     
     div.menu-icon {
