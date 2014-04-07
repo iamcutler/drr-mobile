@@ -1,0 +1,164 @@
+// Include our project defined variables, mixins, etc
+@import "lib.scss";
+
+section.user-messages {
+  padding: 10px;
+
+  div.message {
+    background: #000 url("../images/ui-bg-texture.jpg") repeat;
+    margin-bottom: 10px;
+    padding: 10px;
+    @include border-radius(6px);
+
+    div.thumb {
+      float: left;
+      background: #000;
+      width: 64px;
+      height: 64px;
+      overflow: hidden;
+
+      img {
+        min-width: 64px;
+        height: 64px;
+      }
+    }
+
+    div.message-column {
+      padding-left: 80px;
+      line-height: 20px;
+
+      span {
+        &.timestamp {
+          color: #b7272d;
+          font-size: 12px;
+        }
+
+        &.user-name {
+          float: left;
+          width: 100%;
+          color: #f4cb89;
+          font-size: 18px;
+          font-weight: 500;
+        }
+      }
+
+      p {
+        float: left;
+        width: 100%;
+        font-size: 14px;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Message thread
+
+div#topThread {
+  position: absolute;
+  top: 0;
+}
+
+section.message-thread {
+  padding: 20px 20px 80px 20px;
+
+  div.message {
+    margin-bottom: 10px;
+    clear: both;
+
+    div.user-column {
+      float: left;
+      width: 44px;
+      overflow: hidden;
+
+      a.thumb:Link, a.thumb:Visited {
+        background: #FFF;
+        width: 44px;
+        height: 44px;
+        clear: both;
+        overflow: hidden;
+
+        img {
+          min-width: 44px;
+          height: 44px;
+        }
+      }
+    }
+
+    div.timestamp {
+      color: red;
+      font-size: 11px;
+      margin-top: 4px;
+      line-height: 14px;
+      text-align: right;
+    }
+
+    div.body {
+      background: #000 url("../images/ui-bg-texture.jpg") repeat;
+      font-size: 14px;
+      padding: 12px;
+      margin-left: 66px;
+      @include border-radius(6px);
+    }
+
+    &.right {
+      div.user-column {
+        float: right;
+      }
+
+      div.body {
+        margin-left: 0;
+        margin-right: 66px;
+      }
+
+      div.timestamp {
+        text-align: left;
+      }
+    }
+  }
+}
+
+div.add-thread, div.compose-comment {
+  position: fixed;
+  background: #000 url("../images/ui-bg-texture.jpg") repeat;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  box-shadow: 0 0 6px #000;
+
+  .row, .row-fluid {
+    input, button {
+      width: 100%;
+      height: 34px;
+      @include border-radius(6px);
+      border: none;
+      outline: none;
+    }
+
+    input {
+      padding: 10px;
+    }
+
+    // Show loader
+    button {
+      background: #C0C0C0;
+      font-size: 14px;
+
+      &.comment-loading, &.message-loading {
+        background: #C0C0C0 url('../images/loader-sm-light-gray.gif') center no-repeat;
+        text-indent: -9999px;
+        overflow: hidden;
+      }
+    }
+
+    .col-xs-10 {
+      padding-left: 0;
+      padding-right: 5px;
+    }
+
+    .col-xs-2 {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
