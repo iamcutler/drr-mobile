@@ -81,6 +81,12 @@ h1, h2, h3, h4, h5 ,h6 {
   &.auth {
     background: #000 url("../images/auth-bg.jpg") center top no-repeat;
     background-size: cover;
+    padding-top: 4px;
+  }
+
+  // Registration
+  section.user-register {
+    padding-top: 50px;
   }
 
   // Page loader
