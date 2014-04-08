@@ -11,6 +11,14 @@ and (max-width : 1024px) {
     // Keep scrolling smooth on webkit
     -webkit-overflow-scrolling: touch;
   }
+
+  // --------------------------- Navigation ----------------------------
+  section.application-menu {
+    width: 90%;
+    overflow-y: scroll;
+    // Keep scrolling smooth on webkit
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 // ------------ Smart phone Media Queries --------------
@@ -41,6 +49,9 @@ and (max-width : 568px) {
   // --------------------------- Navigation ----------------------------
   section.application-menu {
     width: 90%;
+    overflow-y: scroll;
+    // Keep scrolling smooth on webkit
+    -webkit-overflow-scrolling: touch;
 
     div.menu-app-user {
       font-size: 20px;
