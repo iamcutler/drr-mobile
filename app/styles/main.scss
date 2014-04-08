@@ -117,6 +117,21 @@ h1, h2, h3, h4, h5 ,h6 {
     color: #808285;
 }
 
+// Thumbnail
+.thumbnail {
+  &.no-padding {
+    padding: 0;
+  }
+
+  &.no-border-radius {
+    @include border-radius(0);
+  }
+
+  &.no-border {
+    border: 0;
+  }
+}
+
 // Glyph icons in buttons
 .btn {
   &.btn-default, &.btn-primary {

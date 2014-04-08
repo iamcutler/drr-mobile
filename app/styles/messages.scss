@@ -1,6 +1,7 @@
 // Include our project defined variables, mixins, etc
 @import "lib.scss";
 
+// User messages
 section.user-messages {
   padding: 10px;
 
@@ -53,7 +54,6 @@ section.user-messages {
 }
 
 // Message thread
-
 div#topThread {
   position: absolute;
   top: 0;
@@ -159,6 +159,20 @@ div.add-thread, div.compose-comment {
     .col-xs-2 {
       padding-left: 0;
       padding-right: 0;
+    }
+  }
+}
+
+// New message modal
+form[name='newMessageForm'] {
+  .thumbnail {
+    min-width: 44px;
+    width: 44px;
+    height: 44px;
+
+    img {
+      width: 44px;
+      min-height: 44px;
     }
   }
 }

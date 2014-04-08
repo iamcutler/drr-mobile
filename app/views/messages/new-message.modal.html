@@ -1,7 +1,7 @@
 <form name="newMessageForm" ng-submit="newMessageThread(newMessageForm)" novalidate>
-  <div class="row" style="padding: 20px 10px 0 10px;">
-    <div class="col-xs-2">
-      <div class="thumbnail">
+  <div class="row-fluid clearfix" style="padding: 10px 0 0 0;">
+    <div class="col-xs-2" style="padding-right: 10px;">
+      <div class="thumbnail no-padding no-border no-border-radius">
         <img ng-src="{{ cdnDomain }}/{{ user.thumbnail || imgPlaceholder }}" alt="" />
       </div>
     </div>
@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="row" style="padding: 0 10px 20px 10px;">
+  <div class="row-fluid clearfix" style="padding: 0 0 10px 0;">
     <div class="col-xs-6">
       <button type="submit" class="btn btn-block btn-lg btn-default" ng-click="close()">Cancel</button>
     </div>
