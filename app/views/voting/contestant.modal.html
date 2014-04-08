@@ -1,0 +1,18 @@
+<section class="vote-contestant clearfix">
+  <header class="clearfix">
+    <a ng-href="">
+      <div class="thumbnail">
+        <img src="https://d1rbyr9vwfcumm.cloudfront.net/images/contestants/aleena-cacchillo.jpg" />
+      </div>
+      <span class="contestant-name">Aleena Cacchillo</span>
+    </a>
+  </header>
+
+  <figure>
+    <img ng-src="{{ }}" />
+  </figure>
+
+  <footer>
+    <cast-vote poll="{{ voting.poll.id }}" period="{{ voting.poll.voting_period }}" answer="{{ answer.id }} "></cast-vote>
+  </footer>
+</section>
