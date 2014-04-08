@@ -5,13 +5,25 @@
 @media only screen
 and (min-width : 568px)
 and (max-width : 1024px) {
-
+  // Main application wrapper
+  #app-container {
+    overflow-y: scroll;
+    // Keep scrolling smooth on webkit
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 // ------------ Smart phone Media Queries --------------
 @media only screen
 and (min-width : 320px)
 and (max-width : 568px) {
+  // Main application wrapper
+  #app-container {
+    overflow-y: scroll;
+    // Keep scrolling smooth on webkit
+    -webkit-overflow-scrolling: touch;
+  }
+
   // ---------------------- Authentication ----------------------
   div.drr-brand {
     img {
@@ -88,6 +100,7 @@ and (max-width : 568px) {
       }
     }
   }
+
 
   // ------------------------------ Voting ----------------------------
   section.dirty-voting {
