@@ -1,0 +1,147 @@
+// Include our project defined variables, mixins, etc
+@import "lib.scss";
+
+section.dirty-voting {
+  padding: 10px;
+
+  h1, h2, h3, h4, h5, h6 {
+    &.voting-thank-you {
+      color: #F4CB89;
+      font: 50px 'halo';
+      text-align: center;
+      margin: 0 0 20px 0;
+    }
+
+    &.voting-end {
+      font-size: 18px;
+      text-align: center;
+    }
+
+    &.voting-question {
+      color: #F4CB89;
+      font: 40px 'halo', Helvetica, Arial;
+      text-align: center;
+    }
+  }
+
+  ul.voting-options {
+    margin: 0;
+    padding: 0;
+
+    li {
+      background: #9c000d;
+      border: 1px #dbaa5c solid;
+      margin: 0 0 6px 0;
+      padding: 10px;
+      list-style: none;
+      @include border-radius(8px);
+
+      div.thumb {
+        float: left;
+        background: #FFF;
+        width: 56px;
+        height: 56px;
+        margin-right: 10px;
+        overflow: hidden;
+
+        img {
+          min-width: 56px;
+          height: 56px;
+        }
+      }
+
+      span.option-title {
+        float: left;
+        font-size: 16px;
+        padding-top: 16px;
+      }
+
+      div.vote-action {
+        margin-top: 12px;
+        padding-left: 0;
+        padding-right: 0;
+
+        button {
+          color: #FFF;
+          width: 100%;
+
+          &.loading {
+            text-indent: -9999px;
+            background: #000 url('../images/loader-sm.gif') center center no-repeat;
+
+            &[disabled] {
+              @include opacity(1.0);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Contestant modal
+section.vote-contestant {
+  padding: 10px;
+
+  header {
+    margin-bottom: 10px;
+
+    .thumbnail {
+      float: left;
+      width: 56px;
+      height: 56px;
+      padding: 0;
+      margin: 0 10px 0 0;
+      border: 0;
+      @include border-radius(0);
+
+      img {
+        width: 100%;
+        min-height: 56px;
+      }
+    }
+
+    span {
+      &.contestant-name {
+        float: left;
+        margin-top: 16px;
+      }
+    }
+  }
+
+  figure {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      min-height: 300px;
+    }
+  }
+
+  footer {
+    margin-top: 10px;
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+// Already voted modal
+section.already-voted {
+  padding: 20px;
+  text-align: center;
+  @include text-shadow(0 0 6px #000);
+
+  div.page-icon {
+    margin: 20px auto;
+  }
+
+  span {
+    color: #9c000d;
+    font-size: 24px;
+    font-weight: bold;
+  }
+}

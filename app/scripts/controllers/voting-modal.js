@@ -1,7 +1,6 @@
 'use strict';
 
-app.controller('VotingModalController', ['$scope', '$state', '$modalInstance', function($scope, $state, $modalInstance) {
-
+app.controller('VotingModalController', ['$scope', '$state', '$modalInstance', 'contestant', function($scope, $state, $modalInstance, contestant) {
   // Close modal and show results
   $scope.viewResults = function() {
     $modalInstance.dismiss('close');

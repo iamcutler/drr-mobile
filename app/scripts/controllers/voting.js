@@ -31,6 +31,19 @@ app.controller('VotingController', ['$scope', '$state', '$location', '$modal', '
       });
     }
 
+    // Enlarge voter details
+    $scope.enlargeContestant = function(contestant) {
+      $modal.open({
+        controller: 'VotingModalController',
+        templateUrl: '/views/voting/contestant.modal.html',
+        resolve: {
+          contestant: function() {
+            return contestant;
+          }
+        }
+      });
+    };
+
     $scope.$watch('voting', function() {
       if($scope.voting.length != 0) {
         $scope.title = 'Vote Now';
