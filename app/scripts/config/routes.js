@@ -304,7 +304,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
     .state("event.search", {
       parent: "default",
       url: "/search-events",
-      controller: "EventsController",
+      controller: "SearchController",
       templateUrl: "/views/events/search.html",
       access: {
         require_user: true
