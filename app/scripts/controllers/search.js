@@ -74,7 +74,7 @@ app.controller('SearchController', ['$scope', '$state', 'SearchService', functio
   }
 
   // Find Events
-  if($state.current.name = "event.search") {
+  if($state.current.name == "event.search") {
     $scope.title = "Find Upcoming Events";
     $scope.loading = false;
     $scope.load_counter = 0;
