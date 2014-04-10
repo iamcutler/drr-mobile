@@ -1,14 +1,15 @@
 <section id="group-members">
-  <a href="/#/events/invite/{{ event.event.id }}" class="btn btn-block btn-lg btn-primary">Invite Friends</a>
+  <!--<a href="/#/events/invite/{{ event.event.id }}" class="btn btn-block btn-lg btn-primary">Invite Friends</a>-->
 
-  <div class="row-fluid" style="margin-top: 20px;">
-    <div class="col-xs-3" ng-repeat="member in group.members" ng-if="member.approved == 1">
+  <ul>
+    <li class="clearfix" ng-repeat="member in group.members" ng-if="member.approved == 1">
       <a ng-href="/#/profile/{{ member.slug }}">
         <div class="thumbnail">
           <img ng-src="{{ cdnDomain }}/{{ member.thumbnail || imgPlaceholder }}" alt="" />
         </div>
+
+        <span>{{ member.name }}</span>
       </a>
-    </div>
-    <div class="clearfix"></div>
-  </div>
+    </li>
+  </ul>
 </section>
