@@ -1,18 +1,25 @@
 <section class="vote-contestant clearfix">
-  <header class="clearfix">
-    <a ng-href="">
+  <header class="clearfix" ng-if="user.length != 0">
+    <a ng-href="/#/profile/{{ user.slug }}">
       <div class="thumbnail">
-        <img src="https://d1rbyr9vwfcumm.cloudfront.net/images/contestants/aleena-cacchillo.jpg" />
+        <img ng-src="{{ cdnDomain }}/{{ user.thumbnail }}" />
       </div>
-      <span class="contestant-name">Aleena Cacchillo</span>
+      <span class="contestant-name">{{ user.name }}</span>
     </a>
   </header>
 
   <figure>
-    <img ng-src="{{ }}" />
+    <img ng-src="{{ cdnDomain }}{{ contestant.thumbnail }}" />
   </figure>
 
   <footer>
-    <cast-vote poll="{{ voting.poll.id }}" period="{{ voting.poll.voting_period }}" answer="{{ answer.id }} "></cast-vote>
+    <div class="row-fluid">
+      <div class="col-xs-6" style="padding-left: 0;">
+        <button type="button" class="btn btn-block btn-lg btn-default" ng-click="close();">Close</button>
+      </div>
+      <div class="col-xs-6" style="padding-right: 0;">
+        <cast-vote poll="{{ poll.id }}" period="{{ poll.voting_period }}" answer="{{ contestant.id }} "></cast-vote>
+      </div>
+    </div>
   </footer>
 </section>

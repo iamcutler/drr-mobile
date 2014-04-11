@@ -37,8 +37,13 @@ app.controller('VotingController', ['$scope', '$state', '$location', '$modal', '
         controller: 'VotingModalController',
         templateUrl: '/views/voting/contestant.modal.html',
         resolve: {
-          contestant: function() {
-            return contestant;
+          vote: function() {
+            return {
+              contestant: $scope.voting.answers[contestant],
+              poll: $scope.voting.poll,
+              user: $scope.voting.answers[contestant].user,
+              cdnDomain: $scope.cdnDomain
+            };
           }
         }
       });
