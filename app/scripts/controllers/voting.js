@@ -23,11 +23,16 @@ app.controller('VotingController', ['$scope', '$state', '$location', '$modal', '
 
     // Show modal if already voted in time period
     if($scope.previousCastedVote) {
-      var votedModalInstance = $modal.open({
+      $modal.open({
         controller: 'VotingModalController',
         templateUrl: '/views/shared-partials/vote-timestamp.modal.html',
         backdrop: 'static',
-        keyboard: false
+        keyboard: false,
+        resolve: {
+          vote: function() {
+            return {};
+          }
+        }
       });
     }
 
