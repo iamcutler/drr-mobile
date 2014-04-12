@@ -1,7 +1,6 @@
 <div class="media-wrapper">
   <div class="video-icon"></div>
-  <!--<img ng-src="{{ cdnDomain }}/{{ media.media.thumb }}" />-->
-  <img ng-src="http://img.youtube.com/vi/{{ media.media.video_id }}/0.jpg" />
+  <img ng-src="{{ cdnDomain }}/{{ media.media.thumb }}" show-media-video="{{ media.media.path }}" media-id="video-{{ media.id }}" media-type="{{ media.media.type }}" />
 </div>
 
 <footer>

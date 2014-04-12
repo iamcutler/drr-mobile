@@ -91,3 +91,62 @@ app.directive("removeWall", ['WallService', function(WallService) {
     }
   };
 }]);
+
+app.directive('showMediaVideo', function() {
+  return {
+    restrict: 'A',
+    scope: {
+      mediaType: '@',
+      showMediaVideo: '@',
+      mediaId: '@'
+    },
+    link: function(scope, elem, attrs) {
+      $(elem).bind('click', function() {
+        var videoElem = document.createElement('video');
+
+        // Set video properties
+        videoElem.id = scope.mediaId;
+        $(elem.parent()).prepend(videoElem);
+
+        switch(scope.mediaType) {
+          case 'youtube':
+
+            videojs(videoElem.id, {
+              "techOrder": ["youtube"],
+              "width": $(elem.parent()).width(),
+              "src": scope.showMediaVideo,
+              "loop": false,
+              "autoplay": true,
+              "preload": "auto",
+              "controls": true,
+              "ytcontrols": false,
+              "forceHTML5": true,
+              "poster": attrs.src
+            }).ready(function() {
+              // Cue a video using ended event
+              this.one('ended', function() {
+                this.src(scope.showMediaVideo);
+              });
+            });
+            break;
+          default:
+            videoElem.src = scope.showMediaVideo;
+
+            videojs(videoElem.id, {
+              "src": scope.showMediaVideo,
+              "width": $(elem.parent()).width(),
+              "controls": true,
+              "autoplay": true,
+              "preload": "auto",
+              "loop": false,
+              "poster": attrs.src
+            }, function(){
+              // Player (this) is initialized and ready.
+              this.play();
+              this.on('ended', function() {});
+            });
+        }
+      });
+    }
+  };
+});

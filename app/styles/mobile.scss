@@ -154,6 +154,10 @@ and (max-width : 568px) {
           min-height: 100%;
           max-height: 500px;
         }
+
+        video, iframe {
+          height: 300px;
+        }
       }
     }
   }

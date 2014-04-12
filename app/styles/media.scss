@@ -1,0 +1,29 @@
+/**
+ * Apr. 10, 2014
+ * @iamcutler
+ * Stylesheet for the latest media
+**/
+
+// Include our project defined variables, mixins, etc
+@import "lib.scss";
+
+.media-wrapper {
+  video, iframe {
+    position: absolute;
+    background: #000;
+    width: 100%;
+    height: 416px;
+  }
+
+  &> div {
+    position: absolute;
+    width: 100%;
+
+    video, iframe {
+      position: absolute;
+      background: #000;
+      width: 100%;
+      height: 416px;
+    }
+  }
+}
