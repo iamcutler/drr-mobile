@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('DirtyGirlsController', ['$scope', '$state', '$stateParams', '$upload', 'DirtyGirlsService', 'AuthService', 'endPoint', 'dirty_girls',
-  function($scope, $state, $stateParams, $upload, DirtyGirlsService, AuthService, endPoint, dirty_girls) {
+app.controller('DirtyGirlsController', ['$scope', '$state', '$stateParams', '$upload', '$modal', 'DirtyGirlsService', 'AuthService', 'endPoint', 'dirty_girls',
+  function($scope, $state, $stateParams, $upload, $modal, DirtyGirlsService, AuthService, endPoint, dirty_girls) {
 
   // Dirty Girls
   if($state.current.name == "dirty-girls") {
