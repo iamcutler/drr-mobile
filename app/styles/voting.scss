@@ -125,6 +125,19 @@ section.vote-contestant {
 
     button {
       width: 100%;
+
+      &.loading {
+        text-indent: -9999px;
+        background: #000 url('../images/loader-sm.gif') center center no-repeat;
+
+        &[disabled] {
+          @include opacity(1.0);
+        }
+      }
+
+      &[disabled] {
+        @include opacity(1.0);
+      }
     }
   }
 }
