@@ -81,9 +81,8 @@ app.controller('SearchController', ['$scope', '$state', 'SearchService', functio
     $scope.scroll_disabled = false;
     $scope.search = {
       type: [
-        { id: "name", name: "Name" },
-        { id: "location", name: "Location" },
-        { id: "startdate", name: "Today's Events" }
+        { value: "name", name: "Name" },
+        { value: "location", name: "Location" }
       ],
       params: {
         q: '',

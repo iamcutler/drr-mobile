@@ -6,8 +6,8 @@
       <input type="search" ng-model="search.params.q" placeholder="search events:" required />
     </div>
     <div class="col-xs-4" style="padding-right: 0;">
-      <select ng-modal="search.params.type" class="form-control" ng-options="type.id as type.name for type in search.type">
-        <option value=""></option>
+      <select ng-model="search.params.type" class="form-control">
+        <option value="{{ type.value }}" ng-repeat="type in search.type">{{ type.name }}</option>
       </select>
     </div>
     <div class="col-xs-12" style="padding-left: 0; padding-right: 0; margin-top: 10px;">
