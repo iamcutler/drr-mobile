@@ -102,35 +102,15 @@ app.directive('showMediaVideo', function() {
     },
     link: function(scope, elem, attrs) {
       $(elem).bind('click', function() {
-        var videoElem = document.createElement('video');
-
-        // Set video properties
-        videoElem.id = scope.mediaId;
-        $(elem.parent()).prepend(videoElem);
+        var videoElem;
 
         switch(scope.mediaType) {
-          case 'youtube':
-
-            videojs(videoElem.id, {
-              "techOrder": ["youtube"],
-              "width": $(elem.parent()).width(),
-              "src": scope.showMediaVideo,
-              "loop": false,
-              "autoplay": true,
-              "preload": "auto",
-              "controls": true,
-              "ytcontrols": false,
-              "forceHTML5": true,
-              "poster": attrs.src
-            }).ready(function() {
-              // Cue a video using ended event
-              this.one('ended', function() {
-                this.src(scope.showMediaVideo);
-              });
-            });
-            break;
           default:
+            videoElem = document.createElement('video');
+            // Set video properties
+            videoElem.id = scope.mediaId;
             videoElem.src = scope.showMediaVideo;
+            $(elem.parent()).prepend(videoElem);
 
             videojs(videoElem.id, {
               "src": scope.showMediaVideo,

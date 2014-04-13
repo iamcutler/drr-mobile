@@ -147,7 +147,7 @@ and (max-width : 568px) {
       }
 
       div.media-wrapper {
-        height: 300px;
+        max-height: 300px;
 
         img {
           min-width: 100%;
@@ -155,8 +155,9 @@ and (max-width : 568px) {
           max-height: 500px;
         }
 
-        video, iframe {
-          height: 300px;
+        video, iframe, object, embed {
+          min-height: 200px;
+          max-height: 300px;
         }
       }
     }

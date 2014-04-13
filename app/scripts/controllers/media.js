@@ -14,6 +14,7 @@ app.controller('MediaController', ['$scope', '$state', 'media', 'ActivityService
     $scope.media_counter = 10;
     $scope.busy = false;
     $scope.feedDisabled = false;
+    $scope.mediaWidth = Number($(window).width() - 20);
 
     // Format timestamps
     formatTimeStamp($scope.media);

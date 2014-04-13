@@ -25,3 +25,20 @@ app.filter('strip_html_tags', function() {
     return String(text).replace(/<[^>]+>/gm, '');
   }
 });
+
+app.filter('trustVideoURL', function($sce) {
+  return function(text, type) {
+    var mediaURL;
+
+    switch(type) {
+      case 'youtube':
+        mediaURL = "http://www.youtube.com/v/" + text + "?version=3&amp;hl=en_US&amp;rel=0";
+        break;
+      case 'vimeo':
+        mediaURL = "http://player.vimeo.com/video/" + text + "?title=0&amp;byline=0&amp;portrait=0&amp;badge=0";
+        break;
+    }
+
+    return $sce.trustAsResourceUrl(mediaURL);
+  };
+});
