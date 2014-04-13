@@ -16,12 +16,17 @@ app.directive("likeThis", ['LikeService', function(LikeService) {
     link: function(scope, elem, attrs) {
       // On click, fetch data to assign correct likes
       elem.bind('click', function() {
+        // Disable like button
+        elem.prop('disabled', true);
+
         var like = (scope.like == 1) ? LikeService.like(scope.element, scope.id) : LikeService.dislike(scope.element, scope.id);
 
         like.then(function(response) {
           // Update model scope binding
           scope.model.stats.likes = response.like.likes;
-          scope.model.stats.dislikes = response.like.dislikes;
+        }, function(error) {
+          console.error(error);
+          elem.prop('disabled', false);
         });
       });
     }

@@ -8,7 +8,7 @@ describe('Directive: activity', function () {
   var element,
       scope;
 
-  beforeEach(inject(function ($rootScope) {
+  beforeEach(inject(function($rootScope) {
     scope = $rootScope.$new();
   }));
 
@@ -32,8 +32,21 @@ describe('Directive: activity', function () {
       element = $compile(element)(scope);
     }));
 
-    it('', function() {
+    xit('', function() {
 
+    });
+  });
+
+  describe('LikeThis', function() {
+    beforeEach(inject(function($compile) {
+      element = angular.element('<button type="button" element="photo" id="1" like="1" model="model" like-this><i>T</i> I Like This</button>');
+      element = $compile(element)(scope);
+      // Register on click event on element
+      element.click();
+    }));
+
+    it('should disable button on click', function() {
+      expect($(element)).toBeDisabled();
     });
   });
 });
