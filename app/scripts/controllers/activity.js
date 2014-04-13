@@ -55,6 +55,7 @@ app.controller('ActivityController', ['$scope', '$state', 'activity', 'WallServi
   if($state.current.name = 'activity') {
     $scope.title = "";
     $scope.activity = activity.activity;
+    $scope.mediaWidth = Number($(window).width() - 20);
     $scope.new_comment = {
       cid: $scope.activity.comment_id,
       app: $scope.activity.comment_type,

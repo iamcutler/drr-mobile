@@ -7,8 +7,9 @@
 // Include our project defined variables, mixins, etc
 @import "lib.scss";
 
-section.app-media {
+section.app-media, article.feed-article {
   .media-wrapper {
+    min-height: 100px;
     max-height: 400px;
 
     video, iframe {
@@ -36,6 +37,29 @@ section.app-media {
         position: absolute;
         height: 400px;
       }
+    }
+  }
+}
+
+// News Feed
+article.feed-article {
+  .media-wrapper {
+    max-height: 300px;
+
+    video, iframe, object, embed {
+      position: static;
+    }
+  }
+}
+
+// Activity page
+section.activity-container {
+  .media-wrapper {
+    max-height: 400px;
+    overflow: hidden;
+
+    .vjs-control-bar {
+      overflow: hidden;
     }
   }
 }

@@ -14,6 +14,7 @@ app.controller('FeedController', ['$scope', '$state', 'ActivityService', 'feed',
     $scope.pageCounter = 10;
     // Assign scope feed to resolved promise
     $scope.feed = feed;
+    $scope.mediaWidth = Number($(window).width() - 20);
     $scope.disabledScroll = false;
     $scope.busy = false;
 

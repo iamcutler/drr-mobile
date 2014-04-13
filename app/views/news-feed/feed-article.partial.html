@@ -1,4 +1,4 @@
-<article class="feed-article" ng-switch="activity.app">
+<article class="feed-article">
   <header>
     <a ng-href="/#/profile/{{ activity.actor.slug }}">
       <div class="thumb">
@@ -10,20 +10,8 @@
     <div class="clearfix"></div>
   </header>
 
-  <p ng-switch-when="profile">
-    {{ activity.title }}
-  </p>
-
-  <p ng-switch-when="profile.avatar.upload">
-    {{ activity.actor.name }} uploaded a new profile thumbnail!
-  </p>
-
-  <figure class="photo-container" ng-switch-when="photos">
-    <div class="media-wrapper">
-      <img ng-src="{{ cdnDomain }}/{{ activity.media.image }}" />
-    </div>
-    <figcaption ng-if="activity.media.caption != ''">{{ activity.media.caption }}</figcaption>
-  </figure>
+  <!-- Content -->
+  <ng-include src="'/views/news-feed/feed-content.partial.html'" ng-switch="activity.app"></ng-include>
 
   <footer>
     <span class="stats">{{ activity.stats.likes }} likes &bull; {{ activity.comments.length }} comments</span>
