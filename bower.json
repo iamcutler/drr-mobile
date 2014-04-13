@@ -14,8 +14,7 @@
     "angular-ui-router": "0.2.7",
     "angular-bootstrap": "*",
     "ng-file-upload ": "*",
-    "video.js": "~4.3.0",
-    "videojs-youtube": "~1.0.0"
+    "video.js": "~4.3.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.7",
