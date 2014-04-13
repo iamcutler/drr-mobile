@@ -47,6 +47,16 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         require_user: true
       }
     })
+    // Welcome
+    .state("welcome", {
+      parent: "default",
+      url: "/welcome",
+      controller: "ApplicationController",
+      templateUrl: "/views/account/welcome.html",
+      access: {
+        require_user: true
+      }
+    })
     // New Feed
     .state("feed", {
       parent: "default",

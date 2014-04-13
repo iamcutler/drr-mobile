@@ -45,7 +45,7 @@ app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore
             AuthService.set_user_session(data);
 
             // Successful redirect to user feed
-            $location.path('/feed');
+            $location.path('/welcome');
           } else {
             $scope.registerErrorState = true;
 
@@ -78,7 +78,7 @@ app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore
           if(data.status) {
             // Set user session and redirect to user feed
             AuthService.set_user_session(data.user);
-            $location.path('/feed');
+            $location.path('/welcome');
           } else {
             $scope.loginError = 'wrong username and/or password. please try again.';
 
