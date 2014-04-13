@@ -83,15 +83,17 @@ app.directive("removeWall", ['WallService', function(WallService) {
     },
     link: function(scope, elem, attrs) {
       elem.bind('click', function() {
-        var remove = WallService.delete(scope.target);
+        if(confirm('Are you sure you want to remove this comment?')) {
+          var remove = WallService.delete(scope.target);
 
-        remove.then(function(response) {
-          if(response.result) {
-            scope.model.splice(scope.index, 1);
-          }
-        }, function(response) {
-          console.error(response);
-        });
+          remove.then(function(response) {
+            if(response.result) {
+              scope.model.splice(scope.index, 1);
+            }
+          }, function(response) {
+            console.error(response);
+          });
+        }
       });
     }
   };
