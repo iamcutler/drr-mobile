@@ -8,6 +8,7 @@ app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore
     $scope.registerErrorState = false;
     $scope.registerErrors = {};
     $scope.usernameTaken = false;
+    $scope.loadingAuth = true;
 
     // Watch desired username and call username unique service
     $scope.check_username_uniqueness = function() {
@@ -34,9 +35,16 @@ app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore
     // Process registartion
     $scope.processRegistration = function(form) {
       $scope.registerSubmitted = true;
+      $scope.loadingAuth = true;
 
       // If form is valid, call auth register service
       if(form.$valid) {
+        var submitBtn = $("form[name='" + form.$name + "'] button[type='submit']");
+
+        // Disable submit button and show loader
+        $scope.loadingAuth = true;
+        submitBtn.prop('disabled', true);
+
         AuthService.register($scope.register, function(data) {
           if(data.status) {
             $scope.registerErrorState = false;
@@ -65,6 +73,7 @@ app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore
     $scope.login = {};
     $scope.loginSubmitted = false;
     $scope.loginError = '';
+    $scope.loadingAuth = false;
 
     $scope.processLogin = function(form) {
       // If form is valid, call auth login service
@@ -73,6 +82,7 @@ app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore
 
         // Disable submit button to avoid duplicate submissions
         submitBtn.prop('disabled', true);
+        $scope.loadingAuth = true;
 
         AuthService.login($scope.login, function(data) {
           if(data.status) {
@@ -84,6 +94,7 @@ app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore
 
             // Enable submit button
             submitBtn.prop('disabled', false);
+            $scope.loadingAuth = false;
           }
         });
       } else {
