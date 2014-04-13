@@ -59,7 +59,9 @@ app.controller('MessagesController', ['$scope', '$state', '$stateParams', '$loca
             message: $scope.new_msg.message,
             from: $scope.new_msg.user,
             to: $scope.new_msg.recepient,
-            thumbnail: AuthService.current_user().thumbnail,
+            user_from: {
+              thumbnail: AuthService.current_user().thumbnail
+            },
             posted_on: moment.utc(new Date()).local()
           });
           // Reset message to blank after successful save
