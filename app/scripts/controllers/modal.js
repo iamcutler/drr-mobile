@@ -55,13 +55,12 @@ app.controller('ModalController', ['$scope', '$modalInstance', '$upload', 'endPo
   };
 
   // Photo Status
-  $scope.newPhotoStatus = function($files) {
+  $scope.newMediaStatus = function($files) {
     var elem = $("div#photo-status form[name='newPhotoStatusForm']"),
         progressBar = $('div#photo-status .progress');
 
     // Hide form div and show loader
-    elem.hide();
-    progressBar.show();
+    $scope.photoProcessing = true;
 
     //$files: an array of files selected, each file has name, size, and type.
     for (var i = 0; i < $files.length; i++) {
