@@ -43,11 +43,21 @@ section.app-media, article.feed-article {
 
 // News Feed
 article.feed-article {
-  .media-wrapper {
+  div.media-wrapper {
     max-height: 300px;
+
+    img {
+      min-width: 100%;
+      min-height: 100%;
+      max-height: 500px;
+    }
 
     video, iframe, object, embed {
       position: static;
+      min-height: 200px;
+      max-height: 300px;
+      min-width: 100%;
+      max-width: 100%;
     }
   }
 }
