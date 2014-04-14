@@ -112,6 +112,12 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
   if($state.current.name == "profile.video") {
     $scope.title = 'Video';
     $scope.video = content;
+    $scope.mediaWidth = Number($(window).width() - 20);
+
+    // If promise doesn't resolve, redirect to profile
+    if(content.length == 0) {
+      $state.go('feed');
+    }
 
     $scope.new_comment = {
       cid: $scope.video.id,
