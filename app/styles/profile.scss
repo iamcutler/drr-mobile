@@ -261,12 +261,15 @@ section#user-videos {
 
   // Override bootstrap thumbnail styling
   div.thumbnail {
+    width: 56px;
+    height: 56px;
     padding: 0;
     @include border-radius(0);
     overflow: hidden;
 
     img {
       min-width: 100%;
+      height: 56px;
     }
   }
 }
@@ -321,7 +324,6 @@ section#user-events {
 
 // User Status
 section.status-container {
-  padding: 10px;
 
   #status-navigation {
     button {
@@ -332,8 +334,21 @@ section.status-container {
   }
 
   .row, .row-fluid {
-    margin-left: 0;
-    margin-right: 0;
+    .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6,
+    .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+      &:nth-child(odd) {
+        padding-left: 0;
+      }
+
+      &:nth-child(even) {
+        padding-right: 0;
+      }
+    }
+
+    .col-xs-12 {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   hr {
