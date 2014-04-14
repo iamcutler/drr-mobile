@@ -158,6 +158,8 @@ and (max-width : 568px) {
         video, iframe, object, embed {
           min-height: 200px;
           max-height: 300px;
+          min-width: 100%;
+          max-width: 100%;
         }
       }
     }
