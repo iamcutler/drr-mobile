@@ -11,19 +11,21 @@
       <div class="clearfix"></div>
     </header>
 
-    <div class="media-wrapper" ng-switch="video.type">
-
+    <div class="media-wrapper video-view" ng-switch="video.type">
+      <img ng-src="{{ cdnDomain }}/{{ video.media.thumbnail }}" ng-switch-when="file" show-media-video="{{ video.media.path }}" media-id="video-{{ video.id }}" media-type="{{ video.media.type }}" />
+      <embed ng-switch-when="youtube" ng-src="{{ video.media.video_id | trustVideoURL:'youtube' }}" width="{{ mediaWidth }}" height="300" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true">
+      <iframe ng-switch-when="vimeo" ng-src="{{ video.media.video_id | trustVideoURL:'vimeo' }}" width="{{ mediaWidth }}" height="300" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      <a ng-href="{{ video.media.path }}" target="_blank" ng-switch-default>
+        <img ng-src="{{ cdnDomain }}/{{ video.media.thumbnail }}" />
+      </a>
     </div>
 
     <span class="stats">{{ video.stats.likes }} likes &bull; {{ video.comments.length }} comments</span>
     <hr />
 
-    <div class="row" style="padding: 0 20px 10px 20px;">
-      <div class="col-xs-6">
+    <div class="row" style="padding: 0 10px;">
+      <div class="col-xs-12">
         <button type="button" class="btn btn-block btn-lg btn-default" element="{{ video.like_type }}" id="{{ video.like_id }}" like="1" model="video" like-this><i>T</i> I Like This</button>
-      </div>
-      <div class="col-xs-6">
-        <button type="button" class="btn btn-block btn-lg btn-default"><i>K</i> Share</button>
       </div>
     </div>
 
