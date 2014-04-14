@@ -40,6 +40,20 @@ module.exports = function (grunt) {
           'sessionStore': "_starqle_session"
         }
       },
+      staging: {
+        constants: {
+          'environment': 'staging',
+          'endPoint': {
+            'api': 'http://api.qa-dirtyrides.com',
+            'resourceApi': 'http://api.qa-dirtyrides.com',
+            'cdn': 'https://d1rbyr9vwfcumm.cloudfront.net'
+          },
+          'imgPlaceholder': 'img_placeholder.png',
+          // Location for session information within sessionStorage
+          // Related to authentication & session
+          'sessionStore': "_starqle_session"
+        }
+      },
       production: {
         constants: {
           'environment': 'production',
@@ -389,6 +403,22 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'ngconstant:production',
+    'useminPrepare',
+    'concurrent:dist',
+    'autoprefixer',
+    'concat',
+    'copy:dist',
+    'cdnify',
+    'ngmin',
+    'cssmin',
+    'uglify',
+    //'rev',
+    'usemin'
+  ]);
+
+  grunt.registerTask('build-staging', [
+    'clean:dist',
+    'ngconstant:staging',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
