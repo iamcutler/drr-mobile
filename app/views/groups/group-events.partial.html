@@ -1,7 +1,5 @@
 <section id="group-events">
-  <a href="/#/event/new/group/{{ group.id }}" class="btn btn-block btn-lg btn-primary" style="margin-bottom: 10px;">Add Event</a>
-
-  <a ng-href="/#/events/{{ event.id }}" ng-repeat="event in group.events">
+  <a ng-href="/#/events/{{ event.id }}" ng-repeat="event in group.events" ng-if="group.events.length != 0">
     <div class="event">
       <div class="thumbnail">
         <img ng-src="{{ cdnDomain }}/{{ event.thumbnail || imgPlaceholder }}" alt="" />
@@ -10,4 +8,6 @@
       <div class="clearfix"></div>
     </div>
   </a>
+
+  <page-icon ng-if="group.events.length == 0" icon="E" message="No current group events."></page-icon>
 </section>

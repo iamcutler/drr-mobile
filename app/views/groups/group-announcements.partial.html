@@ -1,12 +1,12 @@
 <section id="group-announcements">
-  <article ng-repeat="announce in group.announcements">
+  <article ng-repeat="announce in group.announcements" ng-if="group.announcements.length != 0">
     <header>
       <a ng-href="/#/profile/{{ announce.user.slug }}">
         <div class="thumb">
           <img src="{{ cdnDomain }}/{{ announce.user.thumbnail || imgPlaceholder }}" />
         </div>
         <h2>{{ announce.user.name }}</h2>
-        <span>4 minutes ago</span>
+        <span am-time-ago="announce.date"></span>
       </a>
       <div class="clearfix"></div>
     </header>
@@ -16,4 +16,6 @@
       <span ng-bind-html="announce.message"></span>
     </p>
   </article>
+
+  <page-icon ng-if="group.announcements.length == 0" icon="F" message="No current group announcements."></page-icon>
 </section>

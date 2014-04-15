@@ -4,13 +4,10 @@
   <ng-include src="'/views/groups/group-header.partial.html'"></ng-include>
 
   <div class="row-fluid group-navi">
-    <div class="col-xs-4">
-      <button type="button" class="btn btn-block" target="feed" toggle-group-nav>Activity</button>
-    </div>
-    <div class="col-xs-4">
+    <div class="col-xs-6">
       <button type="button" class="btn btn-block" target="details" toggle-group-nav>Description</button>
     </div>
-    <div class="col-xs-4">
+    <div class="col-xs-6">
       <button type="button" class="btn btn-block" target="announcements" toggle-group-nav>Announcements</button>
     </div>
     <div class="col-xs-4">
@@ -25,7 +22,6 @@
   </div>
   <div class="clearfix"></div>
 
-  <ng-include src="'views/groups/group-feed.partial.html'"></ng-include>
   <ng-include src="'views/groups/group-description.partial.html'"></ng-include>
   <ng-include src="'views/groups/group-announcements.partial.html'"></ng-include>
   <ng-include src="'views/groups/group-discussions.partial.html'"></ng-include>

@@ -8,6 +8,7 @@ section#group {
   header.group-header {
     background: #000 url("../images/ui-bg-texture.jpg") repeat;
     color: #FFF;
+    font-size: 14px;
     padding: 10px;
     @include border-radius(6px);
     @include text-shadow(0 0 6px #000);
@@ -30,6 +31,18 @@ section#group {
       color: #f3ca8a;
     }
 
+    div.group-info {
+      padding-left: 70px;
+    }
+
+    .row, .row-fluid {
+      .col-xs-12 {
+        margin-top: 6px;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
     a:link, a:visited {
       color: #f3ca8a;
 
@@ -39,27 +52,37 @@ section#group {
     }
   }
 
+  // Page icons
+  div.page-icon {
+    div {
+      width: 100px;
+      height: 100px;
+      font-size: 80px;
+      line-height: 80px;
+    }
+  }
+
   // Group navigation
   .row, .row-fluid {
     &.group-navi {
       margin: 20px 0;
 
       div {
-        &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+        &:nth-child(1), &:nth-child(2) {
           margin-bottom: 12px;
         }
 
-        &:nth-child(1), &:nth-child(4) {
+        &:nth-child(1), &:nth-child(3) {
           padding-left: 0;
           padding-right: 2px;
         }
 
-        &:nth-child(2), &:nth-child(5) {
+        &:nth-child(4) {
           padding-left: 2px;
           padding-right: 2px;
         }
 
-        &:nth-child(3), &:nth-child(6) {
+        &:nth-child(2), &:nth-child(5) {
           padding-left: 2px;
           padding-right: 0;
         }
@@ -150,6 +173,7 @@ section#group {
 
     &#group-announcements {
       padding: 0;
+      display: block;
 
       article {
         background: #000 url("../images/ui-bg-texture.jpg") repeat;

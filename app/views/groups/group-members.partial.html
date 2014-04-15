@@ -1,7 +1,7 @@
 <section id="group-members">
   <!--<a href="/#/events/invite/{{ event.event.id }}" class="btn btn-block btn-lg btn-primary">Invite Friends</a>-->
 
-  <ul>
+  <ul ng-if="group.members.length != 0">
     <li class="clearfix" ng-repeat="member in group.members" ng-if="member.approved == 1">
       <a ng-href="/#/profile/{{ member.slug }}">
         <div class="thumbnail">
@@ -12,4 +12,6 @@
       </a>
     </li>
   </ul>
+
+  <page-icon ng-if="group.members.length == 0" icon="P" message="No current group members."></page-icon>
 </section>

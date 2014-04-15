@@ -10,9 +10,16 @@
     Group Admin(s):
     <a ng-href="/#/profile/{{ member.slug }}" ng-repeat="member in group.members" ng-if="member.permissions == 1">
       {{ member.name }}
-    </a><br />
-    <a href="javascript:void(0);" element="groups" id="{{ group.id }}" type="1" model="group" like-this>Like</a> ({{ group.stats.likes }})
-    <!--<a href="javascript:void(0);" element="groups" id="{{ group.id }}" type="0" model="group" like-this>Dislike</a> ({{ group.stats.dislikes }})-->
+    </a>
   </div>
+
+  <div class="row-fluid">
+    <div class="col-xs-12">
+      <button type="button" class="btn btn-block btn-primary" element="groups" id="{{ group.id }}" like="1" model="group" like-this>
+        Like This Group ({{ group.stats.likes }})
+      </button>
+    </div>
+  </div>
+
   <div class="clearfix"></div>
 </header>

@@ -4,11 +4,18 @@
       <img ng-src="{{ cdnDomain }}/{{ event.event.avatar || imgPlaceholder }}" alt="" />
     </div>
   </a>
-  <div class="group-info">
+  <div class="event-info">
     Category: <span>{{ event.event.category }}</span><br />
     Time: <span>{{ event.event.start_date | date:'mediumDate' }} @ {{ event.event.start_date | date:'shortTime' }} - {{ event.event.end_date | date:'mediumDate' }} @ {{ event.event.end_date | date:'shortTime' }}</span><br />
-    Location: <span>{{ event.event.location }}</span><br />
-    <a href="javascript:void(0);" element="events" id="{{ event.event.id }}" like="1" model="event.event" like-this>Like</a> ({{ event.event.stats.likes }})
+    Location: <span>{{ event.event.location }}</span>
+  </div>
+
+  <div class="row-fluid">
+    <div class="col-xs-12">
+      <button type="button" class="btn btn-block btn-primary" element="events" id="{{ event.event.id }}" like="1" model="event.event" like-this>
+        Like This Event ({{ event.event.stats.likes }})
+      </button>
+    </div>
   </div>
 
   <div class="event-guest-status" ng-if="is.member()">
