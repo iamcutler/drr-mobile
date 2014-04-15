@@ -16,6 +16,7 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
   // Check for current profile state
   if($state.current.name == "profile") {
     $scope.title = $scope.profile.user.name;
+    $scope.mediaWidth = Number($(window).width() - 20);
     $scope.feedCounter = 10;
     $scope.disabledScroll = false;
     $scope.busy = false;
