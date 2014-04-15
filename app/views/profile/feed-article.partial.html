@@ -7,16 +7,35 @@
     <span am-time-ago="feed.created"></span>
     <div class="clearfix"></div>
   </header>
-  
+
+  <!-- Content -->
   <p ng-switch-when="profile">
     {{ feed.title }}
   </p>
 
+  <p ng-switch-when="friends.connect">
+    {{ feed.user.name }} and {{ feed.target.name }} have become friends.
+  </p>
+
+  <div class="media-wrapper" ng-switch-when="videos" ng-switch="feed.media.type">
+    <div class="video-icon"></div>
+    <img ng-src="{{ cdnDomain }}/{{ feed.media.thumb }}" ng-switch-when="file" show-media-video="{{ feed.media.path }}" media-id="video-{{ feed.media.id }}" media-type="{{ feed.media.type }}" />
+    <embed ng-switch-when="youtube" ng-src="{{ feed.media.video_id | trustVideoURL:'youtube' }}" width="{{ mediaWidth }}" height="300" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true">
+    <iframe ng-switch-when="vimeo" ng-src="{{ feed.media.video_id | trustVideoURL:'vimeo' }}" width="{{ mediaWidth }}" height="300" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <a ng-href="{{ feed.media.path }}" target="_blank" ng-switch-default>
+      <img ng-src="{{ cdnDomain }}/{{ feed.media.thumb }}" />
+    </a>
+  </div>
+
+  <p ng-switch-when="profile.avatar.upload">
+    {{ feed.actor.name }} uploaded a new profile thumbnail!
+  </p>
+
   <figure class="photo-container" ng-switch-when="photos">
     <div class="media-wrapper">
-      <img ng-src="{{ cdnDomain }}/{{ feed.media.image || imgPlaceholder }}" />
+      <img ng-src="{{ cdnDomain }}/{{ feed.media.image }}" />
     </div>
-    <figcaption>{{ feed.media.caption }}</figcaption>
+    <figcaption ng-if="feed.media.caption != ''">{{ feed.media.caption }}</figcaption>
   </figure>
   
   <footer>
