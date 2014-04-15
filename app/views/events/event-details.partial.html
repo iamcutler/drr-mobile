@@ -1,3 +1,4 @@
 <section id="event-details">
-  <span ng-bind-html="event.event.description"></span>
+  <span ng-if="event.event.description != ''" ng-bind-html="event.event.description"></span>
+  <span ng-if="event.event.description == ''">No current event description</span>
 </section>

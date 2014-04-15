@@ -1,14 +1,15 @@
 <section id="event-members">
-  <a href="/#/events/invite/{{ event.event.id }}" class="btn btn-block btn-lg btn-primary">Invite Friends</a>
-
-  <div class="row-fluid">
-    <div class="col-xs-3" ng-repeat="member in event.event.members" ng-if="member.status == 1">
+  <ul ng-if="event.event.members.length != 0">
+    <li class="clearfix" ng-repeat="member in event.event.members" ng-if="member.status == 1">
       <a ng-href="/#/profile/{{ member.slug }}">
         <div class="thumbnail">
           <img ng-src="{{ cdnDomain }}/{{ member.thumbnail || imgPlaceholder }}" alt="" />
         </div>
+
+        <span>{{ member.name }}</span>
       </a>
-    </div>
-    <div class="clearfix"></div>
-  </div>
+    </li>
+  </ul>
+
+  <page-icon ng-if="event.event.members.length == 0" icon="P" message="No current confirmed guests."></page-icon>
 </section>
