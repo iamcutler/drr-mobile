@@ -1,6 +1,6 @@
 <ng-include src="'/views/shared-partials/navbar-back.html'"></ng-include>
 
-<section class="activity-container">
+<section class="activity-container" ng-switch="activity.app">
   <article class="main">
     <header>
       <div class="thumb">
@@ -11,7 +11,32 @@
       <div class="clearfix"></div>
     </header>
 
-    <ng-include src="'/views/news-feed/feed-content.partial.html'" ng-switch="activity.app"></ng-include>
+    <!-- Content -->
+    <p ng-switch-when="profile">
+      {{ activity.title }}
+    </p>
+
+    <div class="media-wrapper" ng-switch-when="videos" ng-switch="activity.media.type">
+      <div class="video-icon"></div>
+      <img ng-src="{{ cdnDomain }}/{{ activity.media.thumb }}" ng-switch-when="file" show-media-video="{{ activity.media.path }}" media-id="video-{{ activity.media.id }}" media-type="{{ activity.media.type }}" />
+      <embed ng-switch-when="youtube" ng-src="{{ activity.media.video_id | trustVideoURL:'youtube' }}" width="{{ mediaWidth }}" height="300" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true">
+      <iframe ng-switch-when="vimeo" ng-src="{{ activity.media.video_id | trustVideoURL:'vimeo' }}" width="{{ mediaWidth }}" height="300" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      <a ng-href="{{ activity.media.path }}" target="_blank" ng-switch-default>
+        <img ng-src="{{ cdnDomain }}/{{ activity.media.thumb }}" />
+      </a>
+    </div>
+
+    <p ng-switch-when="profile.avatar.upload">
+      {{ activity.actor.name }} uploaded a new profile thumbnail!
+    </p>
+
+    <figure class="photo-container" ng-switch-when="photos">
+      <div class="media-wrapper">
+        <img ng-src="{{ cdnDomain }}/{{ activity.media.image }}" />
+      </div>
+      <figcaption ng-if="activity.media.caption != ''">{{ activity.media.caption }}</figcaption>
+    </figure>
+    <!-- End content -->
 
     <span class="stats">{{ activity.stats.likes }} likes &bull; {{ activity.comments.length }} comments</span>
     <hr />
