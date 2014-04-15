@@ -24,6 +24,8 @@ app.directive("likeThis", ['LikeService', function(LikeService) {
         like.then(function(response) {
           // Update model scope binding
           scope.model.stats.likes = response.like.likes;
+
+          elem.prop('disabled', false);
         }, function(error) {
           console.error(error);
           elem.prop('disabled', false);
