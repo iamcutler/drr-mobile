@@ -1,6 +1,7 @@
 'use strict';
 
-app.controller("ReportController", ['$scope', '$state', '$location', 'ReportService', function($scope, $state, $location, ReportService) {
+app.controller("ReportController", ['$scope', '$state', '$location', 'ReportService',
+  function($scope, $state, $location, ReportService) {
   
   // Report Bug
   if($state.current.name == "report-bug") {
@@ -26,6 +27,14 @@ app.controller("ReportController", ['$scope', '$state', '$location', 'ReportServ
       bug: {
         type: 'mobile-app'
       }
+    };
+
+    // Reload view
+    $scope.reload = function() {
+      $scope.reportSubmitted = false;
+      $scope.reportSuccess = false;
+      $scope.report.bug.category = '';
+      $scope.report.bug.message = '';
     };
 
     // Process bug submission
