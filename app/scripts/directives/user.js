@@ -18,12 +18,14 @@ app.directive('friendRequest', ['RequestService', function(RequestService) {
           if(action == 'accept') {
             // Call request accept method in requests service
             RequestService.accept(request, function() {
-              element.parent().parent().parent().parent().fadeOut();
+              // Remove request from scope
+              scope.requests.splice(index, attrs.index);
             });
           } else if(action == 'decline') {
             // Call request decline method in requests service
             RequestService.decline(request, function() {
-              element.parent().parent().parent().parent().fadeOut();
+              // Remove request from scope
+              scope.requests.splice(attrs.index, 1);
             });
           }
         }
