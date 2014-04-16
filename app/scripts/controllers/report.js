@@ -20,7 +20,8 @@ app.controller("ReportController", ['$scope', '$state', '$location', 'ReportServ
         dirty_girls: 'Dirty Girls',
         dirty_voting: 'Dirty Girl Voting',
         dirty_submissions: 'Dirty Girl Submission',
-        account_settings: 'Account Settings'
+        account_settings: 'Account Settings',
+        other: 'Other'
       },
       bug: {
         type: 'mobile-app'
@@ -30,9 +31,19 @@ app.controller("ReportController", ['$scope', '$state', '$location', 'ReportServ
     // Process bug submission
     $scope.submitBug = function(form) {
       if(form.$valid) {
+        var button = $("form[name='" + form.$name + "'] button[type='submit']");
+
+        // Disable and show loader
+        button.addClass('btn-loader').addClass('primary-sm');
+        button.prop('disabled', true);
+
         // Call report service to submit report
         ReportService.bug($scope.report.bug, function(response) {
           if(response.status) {
+            // Enable and hide loader
+            button.removeClass('btn-loader').removeClass('primary-sm');
+            button.prop('disabled', false);
+
             // Assign successful report
             $scope.reportSuccess = true;
           }
