@@ -148,6 +148,18 @@ h1, h2, h3, h4, h5 ,h6 {
       text-indent: -9999px;
       overflow: hidden;
     }
+
+    &.primary-sm {
+      background: url('../images/loader-red-sm.gif') center center no-repeat, -webkit-gradient(linear, left top, left bottom, from(#bf091c), to(#500000)); /* Saf4+, Chrome */
+      background: url('../images/loader-red-sm.gif') center center no-repeat, -webkit-gradient(linear, left top, left bottom, from(#bf091c), to(#500000)); /* Saf4+, Chrome */
+      background: url('../images/loader-red-sm.gif') center center no-repeat, -webkit-linear-gradient(top, #bf091c, #500000); /* Chrome 10+, Saf5.1+ */
+      background: url('../images/loader-red-sm.gif') center center no-repeat,    -moz-linear-gradient(top, #bf091c, #500000); /* FF3.6+ */
+      background: url('../images/loader-red-sm.gif') center center no-repeat,     -ms-linear-gradient(top, #bf091c, #500000); /* IE10 */
+      background: url('../images/loader-red-sm.gif') center center no-repeat,      -o-linear-gradient(top, #bf091c, #500000); /* Opera 11.10+ */
+      background: url('../images/loader-red-sm.gif') center center no-repeat,         linear-gradient(to bottom, #bf091c, #500000); /* W3C */
+      text-indent: -9999px;
+      overflow: hidden;
+    }
   }
 
   &.btn-liked {
