@@ -3,5 +3,5 @@
 <section class="user-messages">
   <ng-include ng-if="messages.length > 0" ng-repeat="message in messages" src="'/views/messages/message-preview.partial.html'"></ng-include>
 
-  <page-icon ng-if="messages.length == '0'" icon="M" message="No passed messages."></page-icon>
+  <page-icon ng-if="messages.length == '0'" icon="M" message="No messages."></page-icon>
 </section>
