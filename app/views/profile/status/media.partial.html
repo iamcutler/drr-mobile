@@ -1,5 +1,9 @@
 <div id="media-status">
-  <form name="newPhotoStatusForm" enctype="multipart/form-data" ng-show="!photoProcessing" novalidate>
+  <div class="alert alert-danger" style="padding: 10px;" ng-show="statusError.media.error">
+    {{ statusError.media.message }}
+  </div>
+
+  <form name="newPhotoStatusForm" enctype="multipart/form-data" ng-show="!fileProcessing" novalidate>
     <div class="row">
       <div class="col-xs-2" style="padding-right: 4px;">
         <figure class="thumbnail">
@@ -7,20 +11,20 @@
         </figure>
       </div>
       <div class="col-xs-10" style="padding-left: 0;">
-        <textarea name="caption" placeholder="About this photo/video..." ng-model="new_status.photo.caption"></textarea>
+        <textarea name="caption" placeholder="About this photo/video..." ng-model="new_status.media.caption"></textarea>
       </div>
       <div class="col-xs-6" style="padding-right: 4px;">
         <a href="javascript: void(0);" class="btn btn-block btn-lg btn-default" ng-click="close()">Cancel</a>
       </div>
       <div class="col-xs-6" style="padding-left: 4px; margin-bottom: 10px;">
         <button type="button" class="btn btn-block btn-lg btn-primary" onclick="$('#statusMediaFile').click();">select media</button>
-        <input id="statusMediaFile" type="file" style="display: none;" accept="image/*;capture=camera" ng-file-select="newMediaStatus($files)" required />
+        <input id="statusMediaFile" type="file" style="display: none;" ng-file-select="newMediaStatus($files)" required />
       </div>
     </div>
   </form>
 
-  <div class="progress progress-striped active" ng-show="photoProcessing">
-    <div class="progress-bar"  role="progressbar" aria-valuenow="{{ uploadPercentage }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ uploadPercentage }}%">
+  <div class="progress progress-striped active" ng-show="fileProcessing">
+    <div class="progress-bar" role="progressbar" aria-valuenow="{{ uploadPercentage }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ uploadPercentage }}%">
       <span>{{ uploadPercentage }}% Complete</span>
     </div>
   </div>

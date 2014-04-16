@@ -5,10 +5,18 @@ app.controller('ModalController', ['$scope', '$modalInstance', '$upload', 'endPo
 
   // Assign user to modal
   $scope.user = user;
-  $scope.statusError = false;
-  $scope.statusErrorMsg = '';
+  $scope.statusError = {
+    media: {
+      error: false,
+      message: ''
+    },
+    text: {
+      error: false,
+      message: ''
+    }
+  };
   $scope.statusSubmitted = false;
-  $scope.photoProcessing = false;
+  $scope.fileProcessing = false;
   $scope.uploadPercentage = 0;
 
   // Sending a new message to user from model
@@ -23,11 +31,8 @@ app.controller('ModalController', ['$scope', '$modalInstance', '$upload', 'endPo
     text: {
       app: 'status'
     },
-    photo: {
-      app: 'photo-status'
-    },
-    video: {
-      app: 'video-status'
+    media: {
+      app: 'media-status'
     },
     event: {
       app: 'event-status'
@@ -43,24 +48,22 @@ app.controller('ModalController', ['$scope', '$modalInstance', '$upload', 'endPo
       var status = ActivityService.new($scope.new_status.text);
 
       status.then(function(response) {
-        $scope.statusError = false;
+        $scope.statusError.text.error = false;
         $modalInstance.dismiss();
       }, function(response) {
         // On error make share button available and show promise error message
         $("form[name='" + form.$name + "'] button[type='submit']").prop('disabled', false);
-        $scope.statusError = true;
-        $scope.statusErrorMsg = response;
+        $scope.statusError.text.error = true;
+        $scope.statusError.text.message = response;
       });
     }
   };
 
   // Photo Status
   $scope.newMediaStatus = function($files) {
-    var elem = $("div#photo-status form[name='newPhotoStatusForm']"),
-        progressBar = $('div#photo-status .progress');
-
     // Hide form div and show loader
-    $scope.photoProcessing = true;
+    $scope.fileProcessing = true;
+    console.log($scope.new_status);
 
     //$files: an array of files selected, each file has name, size, and type.
     for (var i = 0; i < $files.length; i++) {
@@ -70,7 +73,7 @@ app.controller('ModalController', ['$scope', '$modalInstance', '$upload', 'endPo
         method: 'POST',
         // headers: {'headerKey': 'headerValue'},
         // withCredentials: true,
-        data: $scope.new_status.photo,
+        data: $scope.new_status.media,
         file: file,
         // file: $files, //upload multiple files, this feature only works in HTML5 FromData browsers
         /* set file formData name for 'Content-Desposition' header. Default: 'file' */
@@ -80,13 +83,36 @@ app.controller('ModalController', ['$scope', '$modalInstance', '$upload', 'endPo
         }).progress(function(evt) {
           // Change upload percent scope to change progress bar
           $scope.uploadPercentage = parseInt(100.0 * evt.loaded / evt.total);
-        }).success(function(data, status, headers, config) {
+        }).success(function(response, status, headers, config) {
           // file is uploaded successfully
-          console.log(data);
-          $modalInstance.dismiss();
+          if(response.result) {
+            $scope.statusError.media.error = false;
+            $modalInstance.dismiss();
+          } else {
+            // Show error messages
+            switch(response.code) {
+              case 101:
+                // Incorrect file format/extension
+                $scope.fileProcessing = false;
+                $scope.statusError.media.error = true;
+                $scope.statusError.media.message = 'Incorrect file format. Only jpg, gif, png, mov, mp4 permitted.';
+                break;
+              case 103:
+                // File is to big
+                $scope.fileProcessing = false;
+                $scope.statusError.media.error = true;
+                $scope.statusError.media.message = 'File exceeded limit size. Please upload under 10 MB.';
+                break;
+              default:
+                $scope.fileProcessing = false;
+                $scope.statusError.media.error = true;
+                $scope.statusError.media.message = 'Something went wrong while uploading. Please try again.';
+            }
+          }
         }).error(function() {
-          elem.show();
-          progressBar.hide();
+          $scope.fileProcessing = false;
+          $scope.statusError.media.error = true;
+          $scope.statusError.media.message = 'Something went wrong while uploading. Please try again.';
         });
     }
   };

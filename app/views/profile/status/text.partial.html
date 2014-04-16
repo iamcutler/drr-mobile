@@ -1,9 +1,9 @@
 <div id="text-status" style="display: block;">
   <form name="newTextStatusForm" ng-submit="newTextStatus(newTextStatusForm)" novalidate>
     <div class="row">
-      <div class="col-xs-12" ng-show="statusError">
+      <div class="col-xs-12" ng-show="statusError.text.error">
         <div class="alert alert-danger">
-          {{ statusErrorMsg }}
+          {{ statusError.text.message }}
         </div>
       </div>
 
