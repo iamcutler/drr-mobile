@@ -27,10 +27,14 @@
 
   <div class="row-fluid" ng-if="profile.relation.friends == false && profile.relation.self == false">
     <div class="col-xs-12" ng-show="!profile.relation.request_sent">
-      <a ng-href="" class="btn btn-block btn-primary" style="margin-bottom: 12px;">Add Friend</a>
+      <button type="button" class="btn btn-block btn-primary" style="margin-bottom: 12px;" target="{{ profile.user.id }}" send-friend-request>
+        Add Friend
+      </button>
     </div>
     <div class="col-xs-12">
-      <button type="button" class="btn btn-block btn-primary" ng-click="newMessage()">Message</button>
+      <button type="button" class="btn btn-block btn-primary" ng-click="newMessage()">
+        Message
+      </button>
     </div>
   </div>
 </section>
