@@ -6,11 +6,14 @@ app.directive('friendRequest', ['RequestService', function(RequestService) {
     link: function postLink(scope, element, attrs) {
       element.click(function() {
         var request = attrs.request,
-            action = attrs.action;
+            action = attrs.action,
+            buttons = element.parent().parent().find('button');
 
         if(request != undefined && action != undefined) {
           // Disable button
-          element.attr('disabled','disabled');
+          buttons.prop('disabled', true);
+          // Display default small loader
+          element.addClass('btn-loader').addClass('default-sm');
 
           if(action == 'accept') {
             // Call request accept method in requests service
