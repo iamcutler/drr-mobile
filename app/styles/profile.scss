@@ -120,6 +120,15 @@ section.user-profile {
         border-bottom: 2px #6d6e71 solid;
       }
     }
+
+    .page-icon {
+      &> div {
+        width: 100px;
+        height: 100px;
+        font-size: 80px;
+        line-height: 80px;
+      }
+    }
   }
 
   div.pending-request {
