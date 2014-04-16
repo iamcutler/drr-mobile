@@ -14,10 +14,21 @@ app.directive("likeThis", ['LikeService', function(LikeService) {
     },
     replace: true,
     link: function(scope, elem, attrs) {
+      var loaderClass;
+
       // On click, fetch data to assign correct likes
       elem.bind('click', function() {
-        // Disable like button
-        elem.prop('disabled', true);
+        // Show loader based on button styling
+        if(elem.hasClass('btn-default')) {
+          loaderClass = 'default-sm';
+        } else if(elem.hasClass('btn-primary')) {
+          loaderClass = 'primary-sm';
+        } else {
+          loaderClass = 'default-sm';
+        }
+
+        // Disable like button and show loader
+        elem.addClass('btn-loader').addClass(loaderClass).prop('disabled', true);
 
         var like = (scope.like == 1) ? LikeService.like(scope.element, scope.id) : LikeService.dislike(scope.element, scope.id);
 
@@ -25,10 +36,10 @@ app.directive("likeThis", ['LikeService', function(LikeService) {
           // Update model scope binding
           scope.model.stats.likes = response.like.likes;
 
-          elem.prop('disabled', false);
+          elem.removeClass('btn-loader').removeClass(loaderClass).prop('disabled', false);
         }, function(error) {
           console.error(error);
-          elem.prop('disabled', false);
+          elem.removeClass('btn-loader').removeClass(loaderClass).prop('disabled', false);
         });
       });
     }
