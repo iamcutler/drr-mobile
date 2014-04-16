@@ -141,6 +141,15 @@ h1, h2, h3, h4, h5 ,h6 {
     }
   }
 
+  // Button loader class to display loader
+  &.btn-loader {
+    &.default-sm {
+      background: #000 url('../images/loader-sm.gif') center center no-repeat;
+      text-indent: -9999px;
+      overflow: hidden;
+    }
+  }
+
   &.btn-liked {
     color: #6d6e71 !important;
     @include text-shadow(0 0 4px #6d6e71);
