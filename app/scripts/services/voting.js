@@ -3,7 +3,9 @@
 app.factory('VotingService', ['$resource', '$q', '$cookieStore', 'endPoint', 'AuthService',
   function Voting($resource, $q, $cookieStore, endPoint, AuthService) {
 
-  var Vote = $resource(endPoint.resourceApi + '/dirty-girls/voting/current', { user_hash: AuthService.current_user().hash });
+  var Vote = $resource(endPoint.resourceApi + '/dirty-girls/voting/current', {
+    user_hash: AuthService.current_user().hash
+  });
 
   return {
     get_current_polling: function() {
@@ -21,6 +23,7 @@ app.factory('VotingService', ['$resource', '$q', '$cookieStore', 'endPoint', 'Au
       // Cast vote
       var cast = Vote.get({}, function() {
         cast.id_answer = answer;
+        cast.date = moment.utc(new Date()).local().format('YYYY-MM-DD HH:mm:ss');
         cast.$save(function(response) {
           callback(response);
         });
