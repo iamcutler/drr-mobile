@@ -30,7 +30,7 @@ app.controller('DirtyGirlsController', ['$scope', '$state', '$stateParams', '$up
     var d = new Date();
     $scope.pollDate = {
       date: new Date(),
-      nextMonth: new Date(d.getFullYear(), new Date().getMonth() + 2, d.getDay(), d.getHours(), d.getMinutes(), d.getSeconds(), d.getMilliseconds())
+      nextMonth: new Date(d.getFullYear(), new Date().getMonth() + 1, d.getDay(), d.getHours(), d.getMinutes(), d.getSeconds(), d.getMilliseconds())
     };
 
     // Submission
