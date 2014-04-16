@@ -607,23 +607,23 @@ section.friend-requests {
     div.thumb {
       float: left;
       background: #000;
-      width: 110px;
-      height: 110px;
+      width: 56px;
+      height: 56px;
       overflow: hidden;
       
       img {
-        min-width: 110px;
-        height: 110px;
+        min-width: 56px;
+        height: 56px;
       }
     }
     
     div.request-actions {
-      padding-left: 130px;
-      padding-top: 12px;
+      padding-left: 66px;
+      padding-top: 16px;
       
       span.user-name {
         color: #f4cb89;
-        font-size: 24px;
+        font-size: 16px;
         clear: both;
       }
     }   
@@ -632,14 +632,14 @@ section.friend-requests {
     div.row, div.row-fluid {
       margin-left: 0;
       margin-right: 0;
-      padding-top: 4px;
+      padding-top: 8px;
+      clear: both;
             
       .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6,
       .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
         padding-left: 0;
         padding-right: 0;
         margin-right: 0;
-        margin-bottom: 6px;
       }
     }
   }
