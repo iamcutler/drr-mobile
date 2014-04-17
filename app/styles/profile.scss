@@ -257,7 +257,7 @@ section#user-photos {
     @include border-radius(0);
     overflow: hidden;
     border: none;
-    margin: 10px 0;
+    margin: 10px auto 20px auto;
 
     img {
       min-width: 100%;
@@ -270,17 +270,23 @@ section#user-photos {
 section#user-videos {
   padding: 20px;
 
-  // Override bootstrap thumbnail styling
-  div.thumbnail {
-    width: 56px;
-    height: 56px;
-    padding: 0;
-    @include border-radius(0);
-    overflow: hidden;
+  .row, .row-fluid {
+    .col-xs-4 {
+      // Override bootstrap thumbnail styling
+      div.thumbnail {
+        width: 56px;
+        height: 56px;
+        margin: auto;
+        margin-bottom: 20px;
+        padding: 0;
+        @include border-radius(0);
+        overflow: hidden;
 
-    img {
-      min-width: 100%;
-      height: 56px;
+        img {
+          min-width: 100%;
+          height: 56px;
+        }
+      }
     }
   }
 }

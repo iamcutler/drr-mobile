@@ -20,6 +20,25 @@ and (max-width : 1024px) {
     -webkit-overflow-scrolling: touch;
   }
 
+  // Profile
+  // User Videos & Photos
+  section#user-videos, section#user-photos {
+    .row, .row-fluid {
+      .col-xs-4 {
+        div.thumbnail {
+          width: 110px;
+          height: 110px;
+
+          img {
+            min-width: 100%;
+            max-width: 120%;
+            min-height: 110px;
+          }
+        }
+      }
+    }
+  }
+
   // Dirty Girls
   section.dirty-girls-of-the-month, section.dirty-girls-crew {
     ul {
