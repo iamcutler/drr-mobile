@@ -18,6 +18,16 @@ and (max-width : 1024px) {
     overflow-y: scroll;
     // Keep scrolling smooth on webkit
     -webkit-overflow-scrolling: touch;
+
+    // Menu icons
+    a.menu-link:Link, a.menu-link:Visited {
+      div.menu-icon {
+        // Menu icon glyph
+        i {
+          top: 64px;
+        }
+      }
+    }
   }
 
   // Profile
