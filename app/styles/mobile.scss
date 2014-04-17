@@ -19,6 +19,24 @@ and (max-width : 1024px) {
     // Keep scrolling smooth on webkit
     -webkit-overflow-scrolling: touch;
   }
+
+  // Dirty Girls
+  section.dirty-girls-of-the-month, section.dirty-girls-crew {
+    ul {
+      li {
+        height: 500px;
+
+        div.name-stripe {
+          top: 190px;
+        }
+
+        img {
+          width: 100%;
+          min-height: 500px;
+        }
+      }
+    }
+  }
 }
 
 // ------------ Smart phone Media Queries --------------
