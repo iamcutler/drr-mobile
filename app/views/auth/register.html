@@ -17,7 +17,7 @@
       <div class="col-md-12 error" ng-show="accountRegistration.name.$error.required && registerSubmitted">&bull; name is required</div>
 
       <div class="col-md-12">
-        <input type="text" name="username" class="form-control" ng-model="register.username" placeholder="desired username:" ng-minlength="6" ng-change="check_username_uniqueness()" required />
+        <input type="text" name="username" class="form-control" ng-model="register.username" placeholder="desired username:" ng-minlength="6" ng-change="check_username_uniqueness()" autocapitalize="off" autocorrect="off" required />
       </div>
 
       <div class="col-md-12 error" ng-if="usernameTaken">&bull; username is already taken</div>
