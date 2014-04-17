@@ -12,7 +12,7 @@ and (max-width : 1024px) {
     -webkit-overflow-scrolling: touch;
   }
 
-  // --------------------------- Navigation ----------------------------
+  // Navigation
   section.application-menu {
     width: 100%;
     overflow-y: scroll;
@@ -32,7 +32,7 @@ and (max-width : 568px) {
     -webkit-overflow-scrolling: touch;
   }
 
-  // ---------------------- Authentication ----------------------
+  // Authentication
   div.drr-brand {
     img {
       max-width: 220px;
@@ -46,7 +46,7 @@ and (max-width : 568px) {
     }
   }
 
-  // --------------------------- Navigation ----------------------------
+  // Navigation
   section.application-menu {
     width: 90%;
     overflow-y: scroll;
@@ -89,7 +89,7 @@ and (max-width : 568px) {
     }
   }
 
-  // --------------------------- User Profile -------------------------
+  // User Profile
   section.user-profile {
     div.user-profile-header {
       div.thumbnail {
@@ -113,7 +113,7 @@ and (max-width : 568px) {
   }
 
 
-  // ------------------------------ Voting ----------------------------
+  // Voting
   section.dirty-voting {
     h1, h2, h3, h4, h5, h6 {
       &.voting-question {
@@ -124,7 +124,7 @@ and (max-width : 568px) {
     }
   }
 
-  // --------------------- Application Media ---------------------
+  // Application Media
   section.app-media {
     article {
       header {
