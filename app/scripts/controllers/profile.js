@@ -127,7 +127,7 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
 
     $scope.new_comment = {
       cid: $scope.video.id,
-      app: $scope.video.comment_type,
+      app: 'videos',
       user: AuthService.current_user().id
     };
 
@@ -147,7 +147,7 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
 
     $scope.new_comment = {
       cid: $scope.photo.id,
-      app: $scope.photo.comment_type,
+      app: 'photos',
       user: AuthService.current_user().id
     };
 
