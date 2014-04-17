@@ -30,8 +30,7 @@ and (max-width : 1024px) {
     }
   }
 
-  // Profile
-  // User Videos & Photos
+  // Profile User Videos & Photos
   section#user-videos, section#user-photos {
     .row, .row-fluid {
       .col-xs-4 {
@@ -43,6 +42,32 @@ and (max-width : 1024px) {
             min-width: 100%;
             max-width: 120%;
             min-height: 110px;
+          }
+        }
+      }
+    }
+  }
+
+  // Profile feed
+  section.user-profile {
+    div#profile-feed {
+      figure.photo-container {
+        div.media-wrapper {
+          max-height: 600px;
+
+          img {
+            min-width: 100%;
+            height: 600px;
+          }
+        }
+      }
+
+      article.feed-article {
+        div.media-wrapper {
+          max-height: 600px;
+
+          img {
+            min-height: 600px;
           }
         }
       }
