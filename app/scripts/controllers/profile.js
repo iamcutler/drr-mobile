@@ -202,7 +202,6 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
 
           comment.comment = '';
         }
-        console.log(response);
       }, function(response) {
         console.error(response);
       });
