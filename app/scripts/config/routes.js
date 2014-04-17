@@ -1,6 +1,6 @@
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
   // Enable HTML5 Push State
-  $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode(false);
   
   // For any unmatched url, redirect to home
   $urlRouterProvider.otherwise("/feed");
