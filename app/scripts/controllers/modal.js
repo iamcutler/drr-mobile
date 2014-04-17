@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('ModalController', ['$scope', '$modalInstance', '$upload', 'endPoint', 'ActivityService', 'MessageService', 'EventService', 'AuthService', 'user',
-  function($scope, $modalInstance, $upload, endPoint, ActivityService, MessageService, EventService, AuthService, user) {
+app.controller('ModalController', ['$scope', '$modalInstance', '$upload', '$state', 'endPoint', 'ActivityService', 'MessageService', 'EventService', 'AuthService', 'user',
+  function($scope, $modalInstance, $upload, $state, endPoint, ActivityService, MessageService, EventService, AuthService, user) {
 
   // Assign user to modal
   $scope.user = user;
@@ -40,7 +40,7 @@ app.controller('ModalController', ['$scope', '$modalInstance', '$upload', 'endPo
   };
 
   // Text status
-  $scope.newTextStatus = function(form) {
+  $scope.newTextStatus = function(form, model) {
     if(form.$valid) {
       // Disable submit button to avoid multi calls
       $("form[name='" + form.$name + "'] button[type='submit']").prop('disabled', true);
@@ -49,6 +49,14 @@ app.controller('ModalController', ['$scope', '$modalInstance', '$upload', 'endPo
 
       status.then(function(response) {
         $scope.statusError.text.error = false;
+
+        // Add to scope
+        switch($state.current.name) {
+          case 'profile':
+            model.unshift(response.activity);
+            break;
+        }
+
         $modalInstance.dismiss();
       }, function(response) {
         // On error make share button available and show promise error message
@@ -63,7 +71,6 @@ app.controller('ModalController', ['$scope', '$modalInstance', '$upload', 'endPo
   $scope.newMediaStatus = function($files) {
     // Hide form div and show loader
     $scope.fileProcessing = true;
-    console.log($scope.new_status);
 
     //$files: an array of files selected, each file has name, size, and type.
     for (var i = 0; i < $files.length; i++) {
