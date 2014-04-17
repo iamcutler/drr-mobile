@@ -3,10 +3,15 @@
 app.directive('friendRequest', ['RequestService', function(RequestService) {
   return {
     restrict: 'A',
-    link: function postLink(scope, element, attrs) {
+    scope: {
+      index: '@',
+      action: '@',
+      request: '='
+    },
+    link: function(scope, element, attrs) {
       element.click(function() {
-        var request = attrs.request,
-            action = attrs.action,
+        var request = scope.request[scope.index].id,
+            action = scope.action,
             buttons = element.parent().parent().find('button');
 
         if(request != undefined && action != undefined) {
@@ -19,13 +24,13 @@ app.directive('friendRequest', ['RequestService', function(RequestService) {
             // Call request accept method in requests service
             RequestService.accept(request, function() {
               // Remove request from scope
-              scope.requests.splice(index, attrs.index);
+              scope.request.splice(scope.index, 1);
             });
           } else if(action == 'decline') {
             // Call request decline method in requests service
             RequestService.decline(request, function() {
               // Remove request from scope
-              scope.requests.splice(attrs.index, 1);
+              scope.request.splice(scope.index, 1);
             });
           }
         }
