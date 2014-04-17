@@ -6,6 +6,7 @@ npm-debug.log
 
 #Project files
 .idea
+dist
 workspace.xml
 tasks.xml
 app/scripts/config/constants.js
