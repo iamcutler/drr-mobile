@@ -1,5 +1,5 @@
 <div class="user-profile-header">
-  <a ng-href="/#/profile/{{ $stateParams.slug }}/photo_albums">
+  <a ng-href="/#/profile/{{ $stateParams.slug }}/photos">
     <div class="thumbnail no-border no-border-radius">
       <img ng-src="{{ cdnDomain }}/{{ profile.user.avatar || imgPlaceholder }}" alt="" />
     </div>
@@ -7,11 +7,11 @@
 
   <div class="profile-status-column">
     <div class="row-fluid">
-      <div class="col-xs-12 profile-status clearfix" ng-if="profile.profile.status != ''">
+      <div class="col-xs-12 profile-status clearfix" ng-if="profile.profile.status.status != ''">
         {{ profile.profile.status.status }}<br />
         <span am-time-ago="profile.profile.status.created"></span>
       </div>
-      <div class="col-xs-12" ng-if="profile.profile.status != ''">
+      <div class="col-xs-12" ng-if="profile.profile.status.status != ''">
         <hr style="margin: 6px 0;" />
       </div>
       <div class="col-xs-12">
@@ -21,17 +21,25 @@
   </div>
   <div class="clearfix"></div>
 
-  <div class="row-fluid" style="margin-top: 10px;">
-    <div class="col-xs-12" style="padding-left: 0; padding-right: 0;">
-      <button class="btn btn-block btn-default" element="profile" id="{{ profile.user.id }}" like="1" model="profile.profile" like-this>
-        <i>T</i> Like this user ({{ profile.profile.stats.likes }})
+  <div class="row-fluid" style="margin-top: 6px;" ng-show="permissions.view.profile_access()">
+    <div class="col-xs-12" style="padding-left: 0; padding-right: 0;" ng-switch="permissions.relation.self">
+      <button class="btn btn-block btn-default" ng-switch-when="false" element="profile" id="{{ profile.user.id }}" like="1" model="profile.profile" like-this>
+        <i></i> Like this user ({{ profile.profile.stats.likes }})
+      </button>
+      <button class="btn btn-block btn-default" ng-switch-when="true">
+        <i></i> You have {{ profile.profile.stats.likes }} likes
       </button>
     </div>
   </div>
 
-  <div class="row-fluid" style="margin-top: 15px;" ng-if="profile.relation.self != true">
-    <div class="col-xs-6" style="padding-left: 0;" ng-switch="profile.relation.friends">
-      <button type="button" class="btn btn-block" ng-switch-when="false" target="{{ profile.user.id }}" send-friend-request>Add Friend</button>
+  <div class="clearfix"></div>
+
+  <div class="row-fluid" style="margin-top: 8px;" ng-if="!permissions.relation.self">
+    <div class="col-xs-6" style="padding-left: 0;" ng-switch="permissions.relation.friends">
+      <div ng-switch-when="false">
+        <button type="button" class="btn btn-block" ng-if="!permissions.relation.request_sent" target="{{ profile.user.id }}" send-friend-request>Add Friend</button>
+        <button type="button" class="btn btn-block" ng-if="permissions.relation.request_sent" disabled>Request sent</button>
+      </div>
       <button type="button" class="btn btn-block" ng-switch-when="true" target="{{ profile.user.id }}" remove-friend>Remove Friend</button>
     </div>
     <div class="col-xs-6" style="padding-right: 0;">
@@ -42,7 +50,7 @@
 </div>
 
 <nav class="profile-navigation">
-  <div class="row-fluid user-activities" ng-if="profile.profile.settings.privacyProfileView != '40' && profile.relation.friends == true || profile.relation.self == true">
+  <div class="row-fluid user-activities" ng-if="permissions.view.profile_access()">
     <div class="col-xs-4">
       <navigation-item ng-href="/#/profile/{{ $stateParams.slug }}/about" icon="A" title="About"></navigation-item>
     </div>

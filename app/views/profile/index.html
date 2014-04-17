@@ -1,6 +1,6 @@
 <ng-include src="'/views/shared-partials/navbar.html'"></ng-include>
 
-<div class="row feed-actions" ng-if="profile.relation.self == true">
+<div class="row feed-actions" ng-if="permissions.relation.self">
   <div class="col-xs-12" style="padding-right: 6px;">
     <a ng-href="">
       <div class="btn btn-block btn-lg btn-default" new-status><i>R</i> Share New Status/Media</div>
@@ -10,24 +10,24 @@
 
 <section class="user-profile clearfix">
   <!-- Profile top section-->
-  <ng-include ng-if="profile.profile.settings.privacyProfileView != '40' && profile.relation.friends != false || profile.relation.self == true" src="'/views/profile/user-profile-header.partial.html'"></ng-include>
+  <ng-include ng-show="permissions.view.profile_access()" src="'/views/profile/user-profile-header.partial.html'"></ng-include>
 
   <!-- Profile feed -->
-  <div id="profile-feed" infinite-scroll="feed.load()" infinite-scroll-immediate-check="false" infinite-disabled="busy" infinite-distance="1" ng-if="profile.profile.settings.privacyProfileView != '40' && profile.relation.friends == true || profile.relation.self == true">
+  <div id="profile-feed" infinite-scroll="feed.load()" infinite-scroll-immediate-check="false" infinite-disabled="busy" infinite-distance="1" ng-if="permissions.view.profile_access()">
     <ng-include src="'/views/profile/feed-article.partial.html'" ng-repeat="feed in profile.profile.feed" ng-if="profile.profile.feed.length != 0"></ng-include>
     <page-icon ng-if="profile.profile.feed.length == 0" icon="F" message="No current feed activity."></page-icon>
 
     <div class="feed-loader" ng-show="busy"></div>
   </div>
 
-  <page-icon ng-if="profile.profile.settings.privacyProfileView = '40' && profile.relation.friends == false && profile.relation.self != true" icon="P" message="Only friends of {{ profile.user.name }} can view this profile."></page-icon>
+  <page-icon ng-show="!permissions.view.profile_access()" icon="P" message="Only friends of {{ profile.user.name }} can view this profile."></page-icon>
 
-  <div class="pending-request" ng-show="profile.relation.request_sent">
+  <div class="pending-request" ng-show="!permissions.view.profile_access() && permissions.relation.request_sent">
     Pending friend request in progress.
   </div>
 
-  <div class="row-fluid" ng-if="profile.relation.friends == false && profile.relation.self == false">
-    <div class="col-xs-12" ng-show="!profile.relation.request_sent">
+  <div class="row-fluid" ng-if="!permissions.view.profile_access() && !permissions.relation.friends && !permissions.relation.self">
+    <div class="col-xs-12" ng-show="!permissions.relation.request_sent">
       <button type="button" class="btn btn-block btn-primary" style="margin-bottom: 12px;" target="{{ profile.user.id }}" send-friend-request>
         Add Friend
       </button>

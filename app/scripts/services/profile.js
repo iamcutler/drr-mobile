@@ -151,6 +151,54 @@ app.factory('ProfileService', ['$http', '$q', 'endPoint', 'AuthService', functio
         });
 
       return defer.promise;
+    },
+    view_permissions: function(profile) {
+      var permissions = {
+        relation: {},
+        settings: {},
+        view: {}
+      };
+
+      // Detect relation
+      permissions.relation.self = profile.relation.self;
+      permissions.relation.friends = profile.relation.friends;
+      permissions.relation.request_sent = profile.relation.request_sent;
+
+      // Set profile view settings
+      permissions.settings.profileView = (profile.profile.settings.privacyProfileView !== undefined) ? parseInt(profile.profile.settings.privacyProfileView) : 0;
+      permissions.settings.photoView = (profile.profile.settings.privacyPhotoView !== undefined) ? parseInt(profile.profile.settings.privacyPhotoView) : 0;
+      permissions.settings.friendsView = (profile.profile.settings.privacyFriendsView !== undefined) ? parseInt(profile.profile.settings.privacyProfileView) : 0;
+      permissions.settings.groupsView = (profile.profile.settings.privacyGroupsView !== undefined) ? parseInt(profile.profile.settings.privacyProfileView) : 0;
+      permissions.settings.videoView = (profile.profile.settings.privacyVideoView !== undefined) ? parseInt(profile.profile.settings.privacyProfileView) : 0;
+
+      // Viewing conditions
+      permissions.view.profile_access = function() {
+        switch(permissions.settings.profileView) {
+          case 0:
+            // Public
+            return true;
+            break;
+          case 20:
+            // Site members
+            return true;
+            break;
+          case 30:
+            // Friends only access
+            if(permissions.relation.friends) {
+              return true;
+            }
+            break;
+        }
+
+        // Check if requester is profile owner
+        if(profile.profile.self) {
+          return true;
+        }
+
+        return false;
+      };
+
+      return permissions;
     }
   };
 }]);

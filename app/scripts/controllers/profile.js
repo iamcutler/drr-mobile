@@ -28,6 +28,9 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
     // Convert status timestamp
     $scope.profile.profile.status.created = moment.utc($scope.profile.profile.status.created).local();
 
+    // Get friends settings/relationship
+    $scope.permissions = ProfileService.view_permissions($scope.profile);
+
     // New message modal
     $scope.newMessage = function() {
       $modal.open({
