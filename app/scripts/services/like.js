@@ -5,7 +5,16 @@ app.factory('LikeService', ['$rootScope', '$http', '$q', 'endPoint', 'AuthServic
     like: function(element, id) {
       var defer = $q.defer();
 
-      $http.post(endPoint.api + "/user/like/like/" + element + "/" + id + "/1/?user_hash=" + AuthService.current_user().hash).
+      $http({
+        method: 'POST',
+        url: endPoint.api + "/user/like",
+        params: {
+          element: element,
+          id: id,
+          type: 1,
+          user_hash: AuthService.current_user().hash
+        }
+      }).
         success(function(response) {
           defer.resolve(response);
         }).
