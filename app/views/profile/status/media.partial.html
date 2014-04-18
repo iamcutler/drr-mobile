@@ -11,7 +11,7 @@
         </figure>
       </div>
       <div class="col-xs-10" style="padding-left: 0;">
-        <textarea name="caption" placeholder="About this photo/video..." ng-model="new_status.media.caption"></textarea>
+        <textarea name="caption" placeholder="About this photo..." ng-model="new_status.media.caption"></textarea>
       </div>
     </div>
     <div class="row" style="padding-bottom: 0;">
@@ -19,7 +19,7 @@
         <a href="javascript: void(0);" class="btn btn-block btn-lg btn-default" ng-click="close()">Cancel</a>
       </div>
       <div class="col-xs-6" style="padding-left: 4px; margin-bottom: 10px;">
-        <button type="button" class="btn btn-block btn-lg btn-primary" onclick="$('#statusMediaFile').click();">select media</button>
+        <button type="button" class="btn btn-block btn-lg btn-primary" onclick="$('#statusMediaFile').click();">select photo</button>
         <input id="statusMediaFile" type="file" style="display: none;" ng-file-select="newMediaStatus($files)" required />
       </div>
     </div>

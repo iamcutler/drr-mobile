@@ -102,7 +102,7 @@ app.controller('ModalController', ['$scope', '$modalInstance', '$upload', '$stat
                 // Incorrect file format/extension
                 $scope.fileProcessing = false;
                 $scope.statusError.media.error = true;
-                $scope.statusError.media.message = 'Incorrect file format. Only jpg, gif, png, mov, mp4 permitted.';
+                $scope.statusError.media.message = 'Incorrect file format. Only jpg, gif, png permitted.';
                 break;
               case 103:
                 // File is to big
