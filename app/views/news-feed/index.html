@@ -1,12 +1,6 @@
 <ng-include src="'/views/shared-partials/navbar.html'"></ng-include>
 
-<div class="row-fluid feed-actions clearfix">
-  <div class="col-xs-12" style="padding-right: 6px;">
-    <a ng-href="">
-      <div class="btn btn-block btn-lg btn-default" new-status><i>R</i> Share New Status/Media</div>
-    </a>
-  </div>
-</div>
+<ng-include src="'/views/shared-partials/new-media-bar.partial.html'"></ng-include>
 
 <section id="news-feed" infinite-scroll="news_feed.load()" infinite-scroll-immediate-check="false" infinite-scroll-disabled="busy" infinite-scroll-distance="1">
   <ng-include src="'/views/news-feed/feed-article.partial.html'" ng-repeat="activity in feed" ng-if="feed.length > 0"></ng-include>

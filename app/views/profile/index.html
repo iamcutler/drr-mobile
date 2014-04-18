@@ -1,12 +1,6 @@
 <ng-include src="'/views/shared-partials/navbar.html'"></ng-include>
 
-<div class="row feed-actions" ng-if="permissions.relation.self">
-  <div class="col-xs-12" style="padding-right: 6px;">
-    <a ng-href="">
-      <div class="btn btn-block btn-lg btn-default" new-status><i>R</i> Share New Status/Media</div>
-    </a>
-  </div>
-</div>
+<ng-include src="'/views/shared-partials/new-media-bar.partial.html'"></ng-include>
 
 <section class="user-profile clearfix">
   <!-- Profile top section-->
