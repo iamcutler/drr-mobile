@@ -121,6 +121,13 @@ section.user-profile {
       }
     }
 
+    article.feed-article {
+      div.media-wrapper {
+        position: relative;
+        overflow: hidden;
+      }
+    }
+
     .page-icon {
       &> div {
         width: 100px;
