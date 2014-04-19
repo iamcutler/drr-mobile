@@ -16,7 +16,7 @@ app.controller('VotingController', ['$scope', '$state', '$location', '$modal', '
       $scope.elapedTime = Math.abs( new Date().getTime() - new Date(timer).getTime() ) / 3600000;
       // Check if time is longer than allowed period
       // If so, allow to vote, if not, slow modal
-      if($scope.voting.poll.voting_period < $scope.elapedTime) {
+      if($scope.voting.poll.voting_period > $scope.elapedTime) {
         $scope.previousCastedVote = true;
       }
     }
