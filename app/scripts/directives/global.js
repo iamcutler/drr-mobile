@@ -95,3 +95,18 @@ app.directive("toggleGroupNav", function() {
     });
   };
 });
+
+app.directive('fallbackSrc', function () {
+  return {
+    link: function postLink(scope, element, attrs) {
+      element.bind('error', function() {
+        var fallback = angular.element(this).attr("src", attrs.fallbackSrc);
+
+        // Check if fallback is also broken
+        fallback.error(function() {
+          angular.element(this).attr("src", '/images/img_placeholder.png');
+        });
+      });
+    }
+  }
+});
