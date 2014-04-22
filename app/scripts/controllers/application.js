@@ -3,6 +3,7 @@
 app.controller("ApplicationController", ['$scope', '$state', '$cookies', 'endPoint', 'imgPlaceholder', 'environment', 'AuthService', function($scope, $state, $cookies, endPoint, imgPlaceholder, environment, AuthService) {
   // Set constants in app scope
   $scope.cdnDomain = endPoint.cdn;
+  $scope.drrDomain = endPoint.drr;
   $scope.imgPlaceholder = imgPlaceholder;
   $scope.environment = environment;
 

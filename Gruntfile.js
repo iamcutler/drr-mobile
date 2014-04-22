@@ -32,7 +32,8 @@ module.exports = function (grunt) {
           'endPoint': {
             'api': 'http://localhost:8000',
             'resourceApi': 'http://localhost:8000\:8000',
-            'cdn': 'https://d1rbyr9vwfcumm.cloudfront.net'
+            'cdn': 'https://d1rbyr9vwfcumm.cloudfront.net',
+            'drr': 'http://localhost:8000'
           },
           'imgPlaceholder': 'img_placeholder.png',
           // Location for session information within sessionStorage
@@ -46,7 +47,8 @@ module.exports = function (grunt) {
           'endPoint': {
             'api': 'http://api.qa-dirtyrides.com',
             'resourceApi': 'http://api.qa-dirtyrides.com',
-            'cdn': 'https://d1rbyr9vwfcumm.cloudfront.net'
+            'cdn': 'https://d1rbyr9vwfcumm.cloudfront.net',
+            'drr': 'http://www.qa-dirtyrides.com'
           },
           'imgPlaceholder': 'img_placeholder.png',
           // Location for session information within sessionStorage
@@ -60,7 +62,8 @@ module.exports = function (grunt) {
           'endPoint': {
             'api': 'http://api.dirtyrottenrides.com',
             'resourceApi': 'http://api.dirtyrottenrides.com',
-            'cdn': 'http://cdn.dirtyrottenrides.com'
+            'cdn': 'http://cdn.dirtyrottenrides.com',
+            'drr': 'http://www.dirtyrottenrides.com'
           },
           'imgPlaceholder': 'img_placeholder.png',
           // Location for session information within sessionStorage
