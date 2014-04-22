@@ -1,10 +1,10 @@
 <div class="media-wrapper" ng-switch="media.media.type">
   <div class="video-icon"></div>
-  <img ng-src="{{ cdnDomain }}/{{ media.media.thumb || imgPlaceholder }}" ng-switch-when="file" show-media-video="{{ media.media.path }}" media-id="video-{{ media.id }}" media-type="{{ media.media.type }}" />
+  <img ng-src="{{ cdnDomain + media.media.thumb }}" fallback-src="{{ drrDomain + media.media.thumb }}" ng-switch-when="file" show-media-video="{{ media.media.path }}" media-id="video-{{ media.id }}" media-type="{{ media.media.type }}" />
   <embed ng-switch-when="youtube" ng-src="{{ media.media.video_id | trustVideoURL:'youtube' }}" width="{{ mediaWidth }}" height="300" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true">
   <iframe ng-switch-when="vimeo" ng-src="{{ media.media.video_id | trustVideoURL:'vimeo' }}" width="{{ mediaWidth }}" height="300" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
   <a ng-href="{{ media.media.path }}" target="_blank" ng-switch-default>
-    <img ng-src="{{ cdnDomain }}/{{ media.media.thumb || imgPlaceholder }}" />
+    <img ng-src="{{ cdnDomain + media.media.thumb }}" fallback-src="{{ drrDomain + media.media.thumb }}" />
   </a>
 </div>
 

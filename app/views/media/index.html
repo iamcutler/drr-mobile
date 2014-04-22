@@ -5,7 +5,7 @@
     <header>
       <a ng-href="/#/profile/{{ media.user.slug }}">
         <div class="thumb">
-          <img ng-src="{{ cdnDomain }}/{{ media.user.thumbnail || imgPlaceholder }}" />
+          <img ng-src="{{ cdnDomain + media.user.thumbnail }}" fallback-src="{{ drrDomain + media.user.thumbnail || cdnDomain + imgPlaceholder }}" />
         </div>
         <span class="user-name">{{ media.user.name }}</span>
       </a>
