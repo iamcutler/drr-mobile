@@ -1,5 +1,7 @@
 <ng-include src="'/views/shared-partials/navbar.html'"></ng-include>
 
+<ng-include src="'/views/shared-partials/new-media-bar.partial.html'"></ng-include>
+
 <section class="app-media" infinite-scroll="feed.load()" infinite-scroll-immediate-check="false" infinite-scroll-disabled="busy" infinite-scroll-distance="1">
   <article ng-repeat="media in media">
     <header>
