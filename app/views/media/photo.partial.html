@@ -1,5 +1,7 @@
 <div class="media-wrapper">
-  <img ng-src="{{ cdnDomain + media.media.image }}" fallback-src="{{ drrDomain + media.media.image }}" />
+  <a ng-href="/#/activity/{{ media.id }}">
+    <img ng-src="{{ cdnDomain + media.media.image }}" fallback-src="{{ drrDomain + media.media.image }}" />
+  </a>
 </div>
 
 <footer>
