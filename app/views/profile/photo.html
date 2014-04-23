@@ -4,7 +4,7 @@
   <article class="main">
     <header>
       <div class="thumb">
-        <img ng-src="{{ cdnDomain }}/{{ photo.user.thumbnail || imgPlaceholder }}" />
+        <img ng-src="{{ cdnDomain + photo.user.thumbnail }}" fallback-src="{{ drrDomain + photo.user.thumbnail }}" />
       </div>
       <h2>{{ photo.user.name }}</h2>
       <span am-time-ago="photo.created"></span>
@@ -13,7 +13,7 @@
 
     <figure class="photo-container">
       <div class="media-wrapper">
-        <img ng-src="{{ cdnDomain }}/{{ photo.media.image }}" />
+        <img ng-src="{{ cdnDomain + photo.media.image }}" fallback-src="{{ drrDomain + photo.media.image }}" />
       </div>
       <figcaption ng-if="photo.media.caption != ''">{{ photo.media.caption }}</figcaption>
     </figure>
@@ -33,7 +33,7 @@
 
         <a ng-href="/#/profile/{{ comment.user.slug }}">
           <div class="thumb">
-            <img ng-src="{{ cdnDomain }}/{{ comment.user.thumbnail || imgPlaceholder }}" />
+            <img ng-src="{{ cdnDomain + comment.user.thumbnail }}" fallback-src="{{ drrDomain + comment.user.thumbnail }}" />
           </div>
         </a>
 

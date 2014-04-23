@@ -4,7 +4,7 @@
   <article class="main">
     <header>
       <div class="thumb">
-        <img ng-src="{{ cdnDomain }}/{{ activity.user.thumbnail || imgPlaceholder }}" />
+        <img ng-src="{{ cdnDomain + activity.user.thumbnail }}" fallback-src="{{ drrDomain + activity.user.thumbnail }}" />
       </div>
       <h2>{{ activity.user.name }}</h2>
       <span am-time-ago="activity.created"></span>
@@ -18,11 +18,11 @@
 
     <div class="media-wrapper" ng-switch-when="videos" ng-switch="activity.media.type">
       <div class="video-icon"></div>
-      <img ng-src="{{ cdnDomain }}/{{ activity.media.thumb }}" ng-switch-when="file" show-media-video="{{ activity.media.path }}" media-id="video-{{ activity.media.id }}" media-type="{{ activity.media.type }}" />
+      <img ng-src="{{ cdnDomain + activity.media.thumb }}" fallback-src="{{ drrDomain + activity.media.thumb }}" ng-switch-when="file" show-media-video="{{ activity.media.path }}" media-id="video-{{ activity.media.id }}" media-type="{{ activity.media.type }}" />
       <embed ng-switch-when="youtube" ng-src="{{ activity.media.video_id | trustVideoURL:'youtube' }}" width="{{ mediaWidth }}" height="300" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true">
       <iframe ng-switch-when="vimeo" ng-src="{{ activity.media.video_id | trustVideoURL:'vimeo' }}" width="{{ mediaWidth }}" height="300" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       <a ng-href="{{ activity.media.path }}" target="_blank" ng-switch-default>
-        <img ng-src="{{ cdnDomain }}/{{ activity.media.thumb }}" />
+        <img ng-src="{{ cdnDomain + activity.media.thumb }}" fallback-src="{{ drrDomain + activity.media.thumb }}" />
       </a>
     </div>
 
@@ -32,7 +32,7 @@
 
     <figure class="photo-container" ng-switch-when="photos">
       <div class="media-wrapper">
-        <img ng-src="{{ cdnDomain }}/{{ activity.media.image }}" />
+        <img ng-src="{{ cdnDomain + activity.media.image }}" fallback-src="{{ drrDomain + activity.media.image }}" />
       </div>
       <figcaption ng-if="activity.media.caption != ''">{{ activity.media.caption }}</figcaption>
     </figure>
@@ -53,7 +53,7 @@
 
         <a ng-href="/#/profile/{{ comment.user.slug }}">
           <div class="thumb">
-            <img ng-src="{{ cdnDomain }}/{{ comment.user.thumbnail || imgPlaceholder }}" />
+            <img ng-src="{{ cdnDomain + comment.user.thumbnail }}" fallback-src="{{ drrDomain + comment.user.thumbnail }}" />
           </div>
         </a>
 
