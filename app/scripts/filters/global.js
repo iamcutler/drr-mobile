@@ -42,3 +42,9 @@ app.filter('trustVideoURL', function($sce) {
     return $sce.trustAsResourceUrl(mediaURL);
   };
 });
+
+app.filter("momentTime", function() {
+  return function(input) {
+    return moment.utc(input).local();
+  }
+});
