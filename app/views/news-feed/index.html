@@ -1,6 +1,6 @@
 <ng-include src="'/views/shared-partials/navbar.html'"></ng-include>
 
-<ng-include src="'/views/shared-partials/new-media-bar.partial.html'"></ng-include>
+<ng-include src="'/views/shared-partials/new-status-bar.partial.html'"></ng-include>
 
 <section id="news-feed" infinite-scroll="news_feed.load()" infinite-scroll-immediate-check="false" infinite-scroll-disabled="busy" infinite-scroll-distance="1">
   <ng-include src="'/views/news-feed/feed-article.partial.html'" ng-repeat="activity in feed" ng-if="feed.length > 0"></ng-include>

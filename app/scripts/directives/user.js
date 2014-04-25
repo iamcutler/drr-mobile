@@ -117,6 +117,27 @@ app.directive('newStatus', ['$modal', 'EventService', 'AuthService', function($m
   };
 }]);
 
+app.directive('newMedia', ['$modal', 'AuthService', function($modal, AuthService) {
+  return {
+    restrict: 'A',
+    scope: '@',
+    link: function(scope, elem, attrs) {
+      elem.bind('click', function() {
+        $modal.open({
+          templateUrl: '/views/profile/status/media-status.modal.html',
+          controller: 'ModalController',
+          scope: scope,
+          resolve: {
+            user: function() {
+              return AuthService.current_user();
+            }
+          }
+        });
+      });
+    }
+  };
+}]);
+
 app.directive('toggleStatusType', function() {
   return {
     restrict: 'A',
