@@ -5,19 +5,19 @@
 <section class="app-media" infinite-scroll="feed.load()" infinite-scroll-immediate-check="false" infinite-scroll-disabled="busy" infinite-scroll-distance="1">
   <article ng-repeat="media in media">
     <header>
-      <a ng-href="/#/profile/{{ media.user.slug }}">
+      <a ng-href="/#/profile/{{ media.actor.slug }}">
         <div class="thumb">
-          <img ng-src="{{ cdnDomain + media.user.thumbnail }}" fallback-src="{{ drrDomain + media.user.thumbnail || cdnDomain + imgPlaceholder }}" />
+          <img ng-src="{{ cdnDomain + media.actor.thumbnail }}" fallback-src="{{ drrDomain + media.actor.thumbnail }}" />
         </div>
-        <span class="user-name">{{ media.user.name }}</span>
+        <span class="user-name">{{ media.actor.name }}</span>
       </a>
       <span class="timestamp" am-time-ago="media.created"></span>
     </header>
 
     <div class="clearfix"></div>
 
-    <ng-include src="'/views/media/photo.partial.html'" ng-if="media.type == 'photos'"></ng-include>
-    <ng-include src="'/views/media/video.partial.html'" ng-if="media.type == 'videos'"></ng-include>
+    <ng-include src="'/views/media/photo.partial.html'" ng-if="media.app == 'photos'"></ng-include>
+    <ng-include src="'/views/media/video.partial.html'" ng-if="media.app == 'videos'"></ng-include>
 
     <div class="clearfix"></div>
   </article>
