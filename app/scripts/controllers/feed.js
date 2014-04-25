@@ -1,6 +1,12 @@
 'use strict';
 
 app.controller('FeedController', ['$scope', '$state', 'ActivityService', 'feed', function($scope, $state, ActivityService, feed) {
+  var formatTimeStamp = function(scope) {
+    angular.forEach(scope, function(val, key) {
+      val.created = moment.utc(val.created).local();
+    });
+  };
+
   // News feed state
   if($state.current.name == 'feed') {
     $scope.title = "News Feed";
@@ -12,6 +18,10 @@ app.controller('FeedController', ['$scope', '$state', 'ActivityService', 'feed',
     $scope.disabledScroll = false;
     $scope.busy = false;
 
+    // Loop and format datetime to moment local object
+    $scope.$watchCollection('feed', function(newVal) {
+      formatTimeStamp(newVal);
+    });
 
     // Function to call on infinite scroll
     $scope.news_feed = {

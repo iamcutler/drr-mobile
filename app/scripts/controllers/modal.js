@@ -40,7 +40,7 @@ app.controller('ModalController', ['$scope', '$modalInstance', '$upload', '$stat
   };
 
   // Text status
-  $scope.newTextStatus = function(form, model) {
+  $scope.newTextStatus = function(form) {
     if(form.$valid) {
       // Disable submit button to avoid multi calls
       $("form[name='" + form.$name + "'] button[type='submit']").prop('disabled', true);
@@ -53,7 +53,10 @@ app.controller('ModalController', ['$scope', '$modalInstance', '$upload', '$stat
         // Add to scope
         switch($state.current.name) {
           case 'profile':
-            model.unshift(response.activity);
+            $scope.profile.profile.feed.unshift(response.activity);
+            break;
+          case 'feed':
+            $scope.feed.unshift(response.activity);
             break;
         }
 
@@ -94,6 +97,20 @@ app.controller('ModalController', ['$scope', '$modalInstance', '$upload', '$stat
           // file is uploaded successfully
           if(response.result) {
             $scope.statusError.media.error = false;
+
+            // Add to scope
+            switch($state.current.name) {
+              case 'profile':
+                $scope.profile.profile.feed.unshift(response.activity);
+                break;
+              case 'feed':
+                $scope.feed.unshift(response.activity);
+                break;
+              case 'media':
+                $scope.media.unshift(response.activity);
+                break;
+            }
+
             $modalInstance.dismiss();
           } else {
             // Show error messages
