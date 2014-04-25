@@ -1,9 +1,9 @@
-<article class="feed-article" ng-switch="feed.type">
+<article class="feed-article" ng-switch="feed.app">
   <header>
     <div class="thumb">
-      <img ng-src="{{ cdnDomain + feed.user.thumbnail }}" fallback-src="{{ drrDomain + feed.user.thumbnail }}" />
+      <img ng-src="{{ cdnDomain + feed.actor.thumbnail }}" fallback-src="{{ drrDomain + feed.actor.thumbnail }}" />
     </div>
-    <h2>{{ feed.user.name }}</h2>
+    <h2>{{ feed.actor.name }}</h2>
     <span am-time-ago="feed.created"></span>
     <div class="clearfix"></div>
   </header>

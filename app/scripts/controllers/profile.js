@@ -22,12 +22,12 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
     $scope.busy = false;
 
     // Convert feed times to momentJS
-    $scope.$watch('profile.profile', function(newVal, oldVal) {
-      angular.forEach(newVal.feed, function(value, key) {
+    $scope.$watchCollection('profile.profile.feed', function(newVal, oldVal) {
+      angular.forEach(newVal, function(value, key) {
         $scope.profile.profile.feed[key].created = moment.utc(value.created).local();
       });
       // Convert status timestamp
-      $scope.profile.profile.status.created = moment.utc(newVal.status.created).local();
+      $scope.profile.profile.status.created = moment.utc($scope.profile.profile.status.created).local();
     });
 
     // Get friends settings/relationship
