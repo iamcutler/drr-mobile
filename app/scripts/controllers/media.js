@@ -17,7 +17,9 @@ app.controller('MediaController', ['$scope', '$state', 'media', 'ActivityService
     $scope.mediaWidth = Number($(window).width() - 20);
 
     // Format timestamps
-    formatTimeStamp($scope.media);
+    $scope.$watchCollection('media', function(newVal, oldVal) {
+      formatTimeStamp(newVal);
+    });
 
     // media Feed object
     $scope.feed = {
