@@ -32,3 +32,25 @@ app.directive('submissionUploadBtn', function() {
     }
   };
 });
+
+// Enlarge dirty girl images on dedicated page
+app.directive('enlargeDirtyImage', ['$modal', function($modal) {
+  return {
+    restrict: 'A',
+    link: function(scope, elem, attrs) {
+      elem.bind('click', function() {
+        $modal.open({
+          controller: 'DirtyGirlsController',
+          templateUrl: 'views/dirty-girls/dirty-girl-image.modal.html',
+          resolve: {
+            dirty_girls: function() {
+              return {
+                image: attrs.src
+              };
+            }
+          }
+        });
+      });
+    }
+  };
+}]);
