@@ -1,6 +1,6 @@
 <li>
   <a ng-href="/#/dirty-girl/{{ dirty_girl.id }}">
-    <img ng-src="{{ cdnDomain }}/{{ dirty_girl.media.thumbnail || imgPlaceHolder }}" />
+    <img ng-src="{{ cdnDomain + dirty_girl.media.thumbnail }}" fallback-src="{{ drrDomain + dirty_girl.media.thumbnail }}" />
     <div class="name-stripe">{{ dirty_girl.name }}</div>
   </a>
 </li>
