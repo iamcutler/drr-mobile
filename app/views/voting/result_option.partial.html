@@ -1,9 +1,16 @@
 <li>
-  <a ng-href="">
+  <a ng-href="/#/profile/{{ answer.user.slug }}" ng-if="answer.user.slug">
     <div class="thumb">
-      <img ng-src="{{ cdnDomain }}{{ answer.thumbnail }}" />
+      <img ng-src="{{ cdnDomain + answer.thumbnail }}" fallback-src="{{ drrDomain + answer.thumbnail }}" />
     </div>
     <span class="option-title">{{ answer.name }}</span>
   </a>
+
+  <!-- If no slug for user is found -->
+  <div class="thumb" ng-if="!answer.user.slug">
+    <img ng-src="{{ cdnDomain + answer.thumbnail }}" fallback-src="{{ drrDomain + answer.thumbnail }}" />
+  </div>
+  <span class="option-title">{{ answer.name }}</span>
+
   <div class="clearfix"></div>
 </li>
