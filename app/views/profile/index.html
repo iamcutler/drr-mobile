@@ -7,9 +7,9 @@
   <ng-include ng-show="permissions.view.profile_access()" src="'/views/profile/user-profile-header.partial.html'"></ng-include>
 
   <!-- Profile feed -->
-  <div id="profile-feed" infinite-scroll="feed.load()" infinite-scroll-immediate-check="false" infinite-disabled="busy" infinite-distance="1" ng-if="permissions.view.profile_access()">
-    <ng-include src="'/views/profile/feed-article.partial.html'" ng-repeat="feed in profile.profile.feed" ng-if="profile.profile.feed.length != 0"></ng-include>
-    <page-icon ng-if="profile.profile.feed.length == 0" icon="F" message="No current feed activity."></page-icon>
+  <div id="profile-feed" infinite-scroll="feed.load()" infinite-disabled="busy" infinite-distance="1" ng-if="permissions.view.profile_access()">
+    <ng-include src="'/views/profile/feed-article.partial.html'" ng-repeat="feed in feed.feed" ng-if="feed.feed.length != 0"></ng-include>
+    <page-icon ng-show="emptyFeed" icon="F" message="No current feed activity."></page-icon>
 
     <div class="feed-loader" ng-show="busy"></div>
   </div>

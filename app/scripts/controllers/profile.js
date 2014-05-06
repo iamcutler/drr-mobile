@@ -17,14 +17,54 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
   if($state.current.name == "profile") {
     $scope.title = $scope.profile.user.name;
     $scope.mediaWidth = Number($(window).width() - 20);
-    $scope.feedCounter = 10;
+    $scope.feedCounter = 0;
+    $scope.emptyFeed = false;
     $scope.disabledScroll = false;
     $scope.busy = false;
+    // Feed object
+    $scope.feed = {
+      // Start with empty feed collection
+      feed: [],
+      load: function() {
+        console.log('Feed loading');
+
+        if(!$scope.disabledScroll && !$scope.busy) {
+          // Busy disables scrolling && shows/hides loader.
+          $scope.busy = true;
+
+          // Call feed function property in profile service
+          var feed = ProfileService.feed($stateParams.slug, $scope.feedCounter);
+
+          feed.then(function(response) {
+            if(response.length > 0) {
+              // Loop results and bind to feed collection
+              angular.forEach(response, function(value, key) {
+                $scope.feed.feed.push(value);
+              });
+
+              $scope.feedCounter += 10;
+            } else {
+              $scope.disabledScroll = true;
+
+              // Show empty feed if returned length is 0 and existing
+              // scope feed length is 0
+              if($scope.feed.feed.length == 0 && response.length == 0) {
+                $scope.emptyFeed = true;
+              }
+            }
+
+            $scope.busy = false;
+          }, function(error) {
+            console.error(error);
+          });
+        }
+      }
+    };
 
     // Convert feed times to momentJS
-    $scope.$watchCollection('profile.profile.feed', function(newVal, oldVal) {
+    $scope.$watchCollection('feed.feed', function(newVal, oldVal) {
       angular.forEach(newVal, function(value, key) {
-        $scope.profile.profile.feed[key].created = moment.utc(value.created).local();
+        $scope.feed.feed[key].created = moment.utc(value.created).local();
       });
       // Convert status timestamp
       $scope.profile.profile.status.created = moment.utc($scope.profile.profile.status.created).local();
@@ -45,36 +85,6 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
           }
         }
       });
-    };
-
-    // Feed object
-    $scope.feed = {
-      load: function() {
-        if(!$scope.disabledScroll && !$scope.busy) {
-          // Busy disables scrolling && shows/hides loader.
-          $scope.busy = true;
-
-          // Call feed function property in profile service
-          var feed = ProfileService.feed($stateParams.slug, $scope.feedCounter);
-
-          feed.then(function(response) {
-            if(response.length > 0) {
-              // Loop results and bind to feed collection
-              angular.forEach(response, function(value, key) {
-                $scope.profile.profile.feed.push(value);
-              });
-
-              $scope.feedCounter += 10;
-            } else {
-              $scope.disabledScroll = true;
-            }
-
-            $scope.busy = false;
-          }, function(error) {
-            console.error(error);
-          });
-        }
-      }
     };
   }
 
