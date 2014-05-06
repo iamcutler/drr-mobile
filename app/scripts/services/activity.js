@@ -28,7 +28,7 @@ app.factory('ActivityService', ['$http', '$resource', '$q', 'endPoint', 'AuthSer
           defer.reject(response);
         }
       }, function(response) {
-        defer.reject('Error occuried while saving. Try again later.');
+        defer.reject('Error occurred while saving. Try again later.');
       });
 
       return defer.promise;
