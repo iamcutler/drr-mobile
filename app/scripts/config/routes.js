@@ -329,21 +329,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         require_user: true
       }
     })
-    // -------------------- Dedicated Activity --------------------
-    .state("activity", {
-      parent: "default",
-      url: "/activity/:id",
-      controller: "ActivityController",
-      templateUrl: "/views/activity/index.html",
-      access: {
-        require_user: true
-      },
-      resolve: {
-        activity: function($stateParams, ActivityService) {
-          return ActivityService.find($stateParams.id);
-        }
-      }
-    })
     // -------------------- Media --------------------
     .state("media", {
       parent: "default",
