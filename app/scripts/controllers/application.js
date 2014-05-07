@@ -6,6 +6,7 @@ app.controller("ApplicationController", ['$scope', '$state', '$cookies', 'endPoi
   $scope.drrDomain = endPoint.drr;
   $scope.imgPlaceholder = imgPlaceholder;
   $scope.environment = environment;
+  $scope.endPoint = endPoint;
 
   // Check user access throughout the application and redirect if wrong privileges
   AuthService.check_user_access();
