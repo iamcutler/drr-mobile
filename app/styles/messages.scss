@@ -126,6 +126,11 @@ div.add-thread, div.compose-comment {
   padding: 10px;
   box-shadow: 0 0 6px #000;
 
+  &.activity {
+    position: static;
+    height: 54px;
+  }
+
   .row, .row-fluid {
     input, button {
       width: 100%;

@@ -150,3 +150,24 @@ app.directive('showMediaVideo', function() {
     }
   };
 });
+
+app.directive('showActivity', ['$modal', function($modal) {
+  return {
+    restrict: 'A',
+    scope: {
+      activity: '=showActivity',
+      endPoint: '=media'
+    },
+    link: function(scope, elem, attrs) {
+      elem.bind('click', function() {
+        $modal.open({
+          controller: 'ActivityModalController',
+          scope: scope,
+          templateUrl: '/views/activity/index.html',
+          windowClass: 'activity',
+          backdrop: 'static'
+        });
+      });
+    }
+  };
+}]);

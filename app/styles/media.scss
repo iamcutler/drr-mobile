@@ -73,3 +73,20 @@ section.activity-container {
     }
   }
 }
+
+// Modal styling
+.modal {
+  &.activity {
+    .modal-dialog {
+      height: 100%;
+      padding: 0;
+
+      .modal-content {
+        background: #000;
+        height: 100%;
+        padding: 0;
+        overflow: auto;
+      }
+    }
+  }
+}

@@ -32,7 +32,7 @@
   </p>
 
   <figure class="photo-container" ng-switch-when="photos">
-    <div class="media-wrapper">
+    <div class="media-wrapper" show-activity="feed" media="endPoint">
       <img ng-src="{{ cdnDomain + feed.media.image }}" fallback-src="{{ drrDomain + feed.media.image }}" />
     </div>
     <figcaption ng-if="feed.media.caption != ''">{{ feed.media.caption }}</figcaption>
@@ -46,7 +46,7 @@
         <button type="button" class="btn btn-block btn-lg btn-default" element="{{ feed.like_type }}" id="{{ feed.like_id }}" like="1" model="feed" like-this><i>T</i> I Like This</button>
       </div>
       <div class="col-xs-6" style="padding-left: 4px;">
-        <a ng-href="/#/activity/{{ feed.id }}" class="btn btn-block btn-lg btn-default"><i>K</i> Comment</a>
+        <a href="javascript:void(0)" class="btn btn-block btn-lg btn-default" show-activity="feed" media="endPoint"><i>K</i> Comment</a>
       </div>
     </div>
   </footer>
