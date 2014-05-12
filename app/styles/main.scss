@@ -322,6 +322,15 @@ article.feed-article {
     border-bottom: 2px #6d6e71 solid;
   }
 
+  // Show user activity to target
+  span.article-usermap {
+    font-size: 14px;
+
+    a:link, a:visited {
+      color: #b7272d;
+    }
+  }
+
   footer {
     padding: 0 10px 10px 10px;
 

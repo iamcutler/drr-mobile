@@ -12,6 +12,11 @@
 
   <!-- Content -->
   <p ng-switch-when="profile">
+    <span class="article-usermap" ng-if="activity.target.id != 0 && activity.actor.id != activity.target.id">
+      <a href="/#/profile/{{ activity.actor.slug }}">{{ activity.actor.name }}</a> to <a href="/#/profile/{{ activity.target.slug }}">{{ activity.target.name }}</a>
+      <br />
+    </span>
+
     {{ activity.title }}
   </p>
 
