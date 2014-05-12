@@ -75,6 +75,11 @@ app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore
     $scope.loginError = '';
     $scope.loadingAuth = false;
 
+    // Check if user is logged in
+    // If so, redirect to news feed
+    AuthService.check_user_access();
+
+    // Process user login
     $scope.processLogin = function(form) {
       // If form is valid, call auth login service
       if(form.$valid) {

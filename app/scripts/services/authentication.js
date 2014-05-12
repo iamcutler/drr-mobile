@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('AuthService', ['$http', '$rootScope', '$cookieStore', '$state', 'endPoint', function AuthService($http, $rootScope, $cookieStore, $state, endPoint) {
+app.factory('AuthService', ['$http', '$rootScope', '$state', 'endPoint', function AuthService($http, $rootScope, $state, endPoint) {
   return {
     login: function(data, callback) {
       $http.post(endPoint.api + "/user/login", data).
@@ -13,8 +13,8 @@ app.factory('AuthService', ['$http', '$rootScope', '$cookieStore', '$state', 'en
     },
     logout: function() {
       // Remove current user session
-      $cookieStore.remove('user_hash');
-      $cookieStore.put('isLoggedIn', false);
+      $.removeCookie('user_hash', { path: '/' });
+      $.cookie('isLoggedIn', false);
       // Redirect to login screen
       $state.go('login');
     },
@@ -37,42 +37,43 @@ app.factory('AuthService', ['$http', '$rootScope', '$cookieStore', '$state', 'en
     },
     check_user_access: function() {
       // Check if required user and logged in
-      if($state.current.access.require_user && $cookieStore.get('user_hash') === undefined) {
+      if($state.current.access.require_user && $.cookie('user_hash') === undefined) {
         $state.go('login');
       }
+      console.log('Checking user access');
 
       // Check if current user can access current controller
-      if(!$state.current.access.require_user && !$state.current.access.allowLoggedIn && $cookieStore.get('user_hash') !== undefined) {
+      if(!$state.current.access.require_user && !$state.current.access.allowLoggedIn && $.cookie('user_hash') !== undefined) {
         $state.go('feed');
       }
     },
     current_user: function() {
       return {
-        id: $cookieStore.get('user_id'),
-        name: $cookieStore.get('user_name'),
-        username: $cookieStore.get('username'),
-        thumbnail: $cookieStore.get('user_thumbnail'),
-        slug: $cookieStore.get('user_slug'),
-        hash: $cookieStore.get('user_hash')
+        id: $.cookie('user_id'),
+        name: $.cookie('user_name'),
+        username: $.cookie('username'),
+        thumbnail: $.cookie('user_thumbnail'),
+        slug: $.cookie('user_slug'),
+        hash: $.cookie('user_hash')
       };
     },
     set_user_session: function(user) {
       console.log(user);
-      $cookieStore.put('user_id', user.id);
-      $cookieStore.put('user_name', user.name);
-      $cookieStore.put('username', user.username);
-      $cookieStore.put('user_thumbnail', user.thumbnail);
-      $cookieStore.put('user_slug', user.slug);
-      $cookieStore.put('user_hash', user.hash);
-      $cookieStore.put('isLoggedIn', true);
+      $.cookie('user_id', user.id, { expires: 365, path: '/' });
+      $.cookie('user_name', user.name, { expires: 365, path: '/' });
+      $.cookie('username', user.username, { expires: 365, path: '/' });
+      $.cookie('user_thumbnail', user.thumbnail, { expires: 365, path: '/' });
+      $.cookie('user_slug', user.slug, { expires: 365, path: '/' });
+      $.cookie('user_hash', user.hash, { expires: 365, path: '/' });
+      $.cookie('isLoggedIn', true, { expires: 365, path: '/' });
     },
     clear_user_session: function() {
-      $cookieStore.remove('user_name');
-      $cookieStore.remove('username');
-      $cookieStore.remove('user_thumbnail');
-      $cookieStore.remove('user_slug');
-      $cookieStore.remove('user_hash');
-      $cookieStore.remove('isLoggedIn');
+      $.removeCookie('user_name', { path: '/' });
+      $.removeCookie('username', { path: '/' });
+      $.removeCookie('user_thumbnail', { path: '/' });
+      $.removeCookie('user_slug', { path: '/' });
+      $.removeCookie('user_hash', { path: '/' });
+      $.removeCookie('isLoggedIn', { path: '/' });
     }
   };
 }]);
