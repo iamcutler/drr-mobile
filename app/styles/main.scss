@@ -133,12 +133,22 @@ h1, h2, h3, h4, h5 ,h6 {
 
 // Glyph icons in buttons
 .btn {
-  &.btn-default, &.btn-primary {
+  &.btn-default, &.btn-primary, &.btn-liked {
     i {
       font: 24px "DRRGlyphs";
       font-style: normal;
       line-height: 1px;
     }
+  }
+
+  &.btn-liked {
+    background: #bf091c !important;
+    color: #FFF !important;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 0;
+    border: none;
+    outline: none;
   }
 
   // Button loader class to display loader
@@ -150,21 +160,10 @@ h1, h2, h3, h4, h5 ,h6 {
     }
 
     &.primary-sm {
-      background: url('../images/loader-red-sm.gif') center center no-repeat, -webkit-gradient(linear, left top, left bottom, from(#bf091c), to(#500000)); /* Saf4+, Chrome */
-      background: url('../images/loader-red-sm.gif') center center no-repeat, -webkit-gradient(linear, left top, left bottom, from(#bf091c), to(#500000)); /* Saf4+, Chrome */
-      background: url('../images/loader-red-sm.gif') center center no-repeat, -webkit-linear-gradient(top, #bf091c, #500000); /* Chrome 10+, Saf5.1+ */
-      background: url('../images/loader-red-sm.gif') center center no-repeat,    -moz-linear-gradient(top, #bf091c, #500000); /* FF3.6+ */
-      background: url('../images/loader-red-sm.gif') center center no-repeat,     -ms-linear-gradient(top, #bf091c, #500000); /* IE10 */
-      background: url('../images/loader-red-sm.gif') center center no-repeat,      -o-linear-gradient(top, #bf091c, #500000); /* Opera 11.10+ */
-      background: url('../images/loader-red-sm.gif') center center no-repeat,         linear-gradient(to bottom, #bf091c, #500000); /* W3C */
+      background: #bf091c url('../images/loader-red-sm.gif') center center no-repeat !important;
       text-indent: -9999px;
       overflow: hidden;
     }
-  }
-
-  &.btn-liked {
-    color: #6d6e71 !important;
-    @include text-shadow(0 0 4px #6d6e71);
   }
 }
 
@@ -719,8 +718,8 @@ section.app-media {
       overflow: hidden;
       
       img {
-        width: 100%;
-        min-height: 416px;
+        min-width: 100%;
+        height: 100px;
       }
         
       &.video {

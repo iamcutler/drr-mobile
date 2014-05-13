@@ -23,6 +23,8 @@ app.directive("likeThis", ['LikeService', function(LikeService) {
           loaderClass = 'default-sm';
         } else if(elem.hasClass('btn-primary')) {
           loaderClass = 'primary-sm';
+        } else if(elem.hasClass('btn-liked')) {
+          loaderClass = 'primary-sm';
         } else {
           loaderClass = 'default-sm';
         }
@@ -35,6 +37,8 @@ app.directive("likeThis", ['LikeService', function(LikeService) {
         like.then(function(response) {
           // Update model scope binding
           scope.model.stats.likes = response.like.likes;
+          // Update user liked status
+          scope.model.stats.user.like = response.user.like;
 
           elem.removeClass('btn-loader').removeClass(loaderClass).prop('disabled', false);
         }, function(error) {
