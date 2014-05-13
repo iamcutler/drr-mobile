@@ -28,7 +28,16 @@ app.factory('LikeService', ['$rootScope', '$http', '$q', 'endPoint', 'AuthServic
     dislike: function(element, id) {
       var defer = $q.defer();
 
-      $http.post(endPoint.api + "/user/like/like/" + element + "/" + id + "/0/?user_hash=" + AuthService.current_user().hash).
+      $http({
+        method: 'POST',
+        url: endPoint.api + "/user/like/",
+        params: {
+          element: element,
+          id: id,
+          type: 0,
+          user_hash: AuthService.current_user().hash
+        }
+      }).
         success(function(response) {
           defer.resolve(response);
         }).
