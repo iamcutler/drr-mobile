@@ -48,6 +48,7 @@ app.controller('ActivityModalController', ['$scope', '$modalInstance', 'AuthServ
             user: {
               id: response.wall.user.id,
               name: response.wall.user.name,
+              username: response.wall.user.username,
               thumbnail: response.wall.user.thumbnail,
               avatar: response.wall.user.avatar,
               slug: response.wall.user.slug

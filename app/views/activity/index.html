@@ -13,7 +13,7 @@
         <div class="thumb">
           <img ng-src="{{ endPoint.cdn + activity.actor.thumbnail }}" fallback-src="{{ endPoint.drr + activity.actor.thumbnail }}" />
         </div>
-        <h2>{{ activity.actor.name }}</h2>
+        <h2>{{ activity.actor.username }}</h2>
         <span am-time-ago="activity.created"></span>
         <div class="clearfix"></div>
       </header>
@@ -65,7 +65,7 @@
           </a>
 
           <div class="comment-body">
-            <span class="name">{{ comment.user.name }}</span><br />
+            <span class="name">{{ comment.user.username }}</span><br />
             <p>{{ comment.comment }}</p>
             <span class="timestamp" am-time-ago="comment.date"></span>
           </div>

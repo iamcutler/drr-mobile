@@ -15,7 +15,7 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
 
   // Check for current profile state
   if($state.current.name == "profile") {
-    $scope.title = $scope.profile.user.name;
+    $scope.title = $scope.profile.user.username;
     $scope.mediaWidth = Number($(window).width() - 20);
     $scope.feedCounter = 0;
     $scope.emptyFeed = false;
@@ -90,20 +90,20 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
 
   // About
   if($state.current.name == "profile.about") {
-    $scope.title = "About" + " " + $scope.profile.user.name;
+    $scope.title = "About" + " " + $scope.profile.user.username;
     $scope.about_user = content;
   }
 
   // Friends
   if($state.current.name == "profile.friends") {
-    $scope.title = $scope.profile.user.name + "'s friends";
+    $scope.title = $scope.profile.user.username + "'s friends";
     $scope.friends = content;
     $scope.nameLabel = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
   }
   
   // Albums
   if($state.current.name == "profile.albums") {
-    $scope.title = $scope.profile.user.name + "'s albums";
+    $scope.title = $scope.profile.user.username + "'s albums";
     $scope.albums = content;
   }
 
@@ -120,7 +120,7 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
 
   // Videos
   if($state.current.name == "profile.videos") {
-    $scope.title = $scope.profile.user.name + "'s videos";
+    $scope.title = $scope.profile.user.username + "'s videos";
     $scope.videos = content;
   }
 
@@ -167,13 +167,13 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
 
   // Events
   if($state.current.name == "profile.events") {
-    $scope.title = $scope.profile.user.name + "'s events";
+    $scope.title = $scope.profile.user.username + "'s events";
     $scope.events = content;
   }
 
   // Groups
   if($state.current.name == "profile.groups") {
-    $scope.title = $scope.profile.user.name + "'s groups";
+    $scope.title = $scope.profile.user.username + "'s groups";
     $scope.groups = content;
   }
 
