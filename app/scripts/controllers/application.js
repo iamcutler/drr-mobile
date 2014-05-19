@@ -1,6 +1,7 @@
 'use strict';
 
-app.controller("ApplicationController", ['$scope', '$state', '$cookies', 'endPoint', 'imgPlaceholder', 'environment', 'AuthService', function($scope, $state, $cookies, endPoint, imgPlaceholder, environment, AuthService) {
+app.controller("ApplicationController", ['$scope', '$state', '$cookies', '$timeout', 'endPoint', 'imgPlaceholder', 'environment', 'AuthService',
+  function($scope, $state, $cookies, $timeout, endPoint, imgPlaceholder, environment, AuthService) {
   // Set constants in app scope
   $scope.cdnDomain = endPoint.cdn;
   $scope.drrDomain = endPoint.drr;
@@ -21,6 +22,15 @@ app.controller("ApplicationController", ['$scope', '$state', '$cookies', 'endPoi
   if($state.current.name == "welcome") {
     $scope.title = "Welcome";
   }
+
+  // Error Notifications
+  // Send in a message object
+  $scope.appErrors = [];
+  $scope.$watchCollection('appErrors', function(newVal, oldVal) {
+    $timeout(function() {
+      $scope.appErrors = [];
+    }, 3000);
+  });
 
   /* Detect mobile and redirect in production
   (function(a,b) {

@@ -3,5 +3,12 @@
   <div class="page-loader" ng-show="loadingView"></div>
 </div>
 
+<div class="app-errors alert alert-danger alert-dismissable" ng-if="appErrors.length != 0">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <ul>
+    <li ng-repeat="error in appErrors">{{ error.message }}</li>
+  </ul>
+</div>
+
 <!-- Application Menu -->
 <ng-include src="'/views/shared-partials/menu.html'"></ng-include>

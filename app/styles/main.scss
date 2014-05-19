@@ -971,3 +971,22 @@ section.report-bug {
 section.error-page {
   text-align: center;
 }
+
+div.app-errors {
+  position:fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  @include border-radius(0);
+  margin: 0;
+  z-index: 100;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+    }
+  }
+}
