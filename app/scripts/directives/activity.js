@@ -175,3 +175,24 @@ app.directive('showActivity', ['$modal', function($modal) {
     }
   };
 }]);
+
+app.directive('zoomFeedPhoto', ['$modal', function($modal) {
+  return {
+    restrict: 'A',
+    scope: {
+      activity: '=zoomFeedPhoto',
+      endPoint: '=media'
+    },
+    link: function(scope, elem, attrs) {
+      elem.bind('click', function() {
+        $modal.open({
+          controller: 'ActivityModalController',
+          scope: scope,
+          templateUrl: '/views/activity/zoom.html',
+          windowClass: 'zoom-media',
+          backdrop: 'static'
+        });
+      });
+    }
+  };
+}]);

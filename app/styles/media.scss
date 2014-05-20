@@ -89,4 +89,37 @@ section.activity-container {
       }
     }
   }
+
+  &.zoom-media {
+    .modal-dialog {
+      height: 100%;
+      padding: 0;
+
+      .modal-content {
+        background: #000;
+        height: 100%;
+        padding: 20px;
+        overflow: auto;
+
+        span {
+          &.glyphicon {
+            margin-bottom: 10px;
+          }
+        }
+
+        figure {
+          img {
+            width: 100%;
+          }
+        }
+
+        footer {
+          span {
+            font-size: 14px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
 }

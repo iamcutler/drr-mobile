@@ -32,7 +32,7 @@
   </p>
 
   <figure class="photo-container" ng-switch-when="photos">
-    <div class="media-wrapper" show-activity="feed" media="endPoint">
+    <div class="media-wrapper" zoom-feed-photo="feed" media="endPoint">
       <img ng-src="{{ cdnDomain + feed.media.image }}" fallback-src="{{ drrDomain + feed.media.image }}" />
     </div>
     <figcaption ng-if="feed.media.caption != ''">{{ feed.media.caption }}</figcaption>

@@ -34,7 +34,7 @@
     {{ activity.actor.name }} uploaded a new profile thumbnail!
   </p>
 
-  <figure class="photo-container" ng-switch-when="photos">
+  <figure class="photo-container" ng-switch-when="photos" zoom-feed-photo="activity" media="endPoint">
     <div class="media-wrapper">
       <img ng-src="{{ cdnDomain + activity.media.image }}" fallback-src="{{ drrDomain + activity.media.image }}" />
     </div>

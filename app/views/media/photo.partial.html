@@ -1,7 +1,5 @@
 <div class="media-wrapper">
-  <a ng-href="/#/activity/{{ media.id }}">
-    <img ng-src="{{ cdnDomain + media.media.image }}" fallback-src="{{ drrDomain + media.media.image }}" />
-  </a>
+  <img ng-src="{{ cdnDomain + media.media.image }}" fallback-src="{{ drrDomain + media.media.image }}" zoom-feed-photo="media" media="endPoint" />
 </div>
 
 <footer>

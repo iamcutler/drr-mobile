@@ -1,0 +1,14 @@
+<span class="glyphicon glyphicon-remove icon-white pull-right" ng-click="close()"></span>
+
+<figure>
+  <img ng-src="{{ endPoint.cdn + activity.media.image }}" fallback-src="{{ endPoint.drr + activity.media.image }}" />
+  <figcaption ng-if="activity.media.caption != ''">{{ activity.media.caption }}</figcaption>
+</figure>
+
+<footer>
+  <span class="stats">
+    {{ activity.stats.likes }} likes
+    &bull;
+    <a href="javascript:void(0)" show-activity="activity" media="endPoint">{{ activity.comments.length }} comments</a>
+  </span>
+</footer>
