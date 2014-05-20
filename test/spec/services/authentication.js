@@ -48,7 +48,7 @@ describe('Service: AuthService', function () {
       $http.flush();
     });
 
-    it('set user auth cookies', function() {
+    it('should set user auth cookies', function() {
       AuthService.set_user_session({
         id: 1,
         name: 'Test User',
@@ -63,6 +63,12 @@ describe('Service: AuthService', function () {
       expect(AuthService.current_user().thumbnail).toEqual('http://placehold.it/300x300');
       expect(AuthService.current_user().slug).toEqual('test-user');
       expect(AuthService.current_user().hash).toEqual('123456789');
+    });
+
+    it('should clear current user', function() {
+      AuthService.clear_user_session();
+
+      expect(AuthService.current_user().id).toBeUndefined();
     });
   });
 });

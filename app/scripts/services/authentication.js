@@ -67,6 +67,7 @@ app.factory('AuthService', ['$http', '$rootScope', '$state', 'endPoint', functio
       $.cookie('isLoggedIn', true, { expires: 365, path: '/' });
     },
     clear_user_session: function() {
+      $.removeCookie('user_id', { path: '/' });
       $.removeCookie('user_name', { path: '/' });
       $.removeCookie('username', { path: '/' });
       $.removeCookie('user_thumbnail', { path: '/' });
