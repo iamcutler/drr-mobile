@@ -10,10 +10,12 @@ describe('Controller: GroupController', function () {
       group,
       $state,
       $http,
-      $injector;
+      $injector,
+      endPoint,
+      AuthService;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, _$injector_, _$httpBackend_, _$state_) {
+  beforeEach(inject(function ($controller, $rootScope, _$injector_, _$httpBackend_, _$state_, _AuthService_, _endPoint_) {
     scope = $rootScope.$new();
     GroupCtrl = $controller('GroupController', {
       $scope: scope,
@@ -25,10 +27,14 @@ describe('Controller: GroupController', function () {
     $state = _$state_;
     $http = _$httpBackend_;
     $injector = _$injector_;
+    endPoint = _endPoint_;
+    AuthService = _AuthService_;
 
     // Expected requests
-    $http.whenGET('/views/layouts/default.html').respond(200, {});
-    $http.whenGET('/views/news-feed/index.html').respond(200, {});
+    $http.when('GET', '/views/layouts/default.html').respond(200, {});
+    $http.when('GET', '/views/news-feed/index.html').respond(200, {});
+    $http.when('GET', '/views/groups/index.html').respond(200, {});
+    $http.when('GET', endPoint.api + '/user/feed_activity/0?user_hash=' + AuthService.current_user().hash).respond(200, {});
   }));
 
   afterEach(function () {
@@ -36,7 +42,11 @@ describe('Controller: GroupController', function () {
     $http.verifyNoOutstandingExpectation();
   });
 
-  describe('group state', function() {
+  xdescribe('group state', function() {
+    beforeEach(function() {
+      $http.when('GET', endPoint.api + '/user/groups/1?user_hash=' + AuthService.current_user().hash).respond(200, {});
+    });
+
     xit('should be at the group state', function() {
       $state.go('group', { id: 1 });
       scope.$apply();
