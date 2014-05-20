@@ -40,7 +40,6 @@ app.factory('AuthService', ['$http', '$rootScope', '$state', 'endPoint', functio
       if($state.current.access.require_user && $.cookie('user_hash') === undefined) {
         $state.go('login');
       }
-      console.log('Checking user access');
 
       // Check if current user can access current controller
       if(!$state.current.access.require_user && !$state.current.access.allowLoggedIn && $.cookie('user_hash') !== undefined) {
