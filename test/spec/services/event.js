@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Service: Event', function () {
+xdescribe('Service: Event', function () {
 
   // load the service's module
   beforeEach(module('DRRMobileApp'));

@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Service: Activity', function () {
+xdescribe('Service: Activity', function () {
 
   // load the service's module
   beforeEach(module('DRRMobileApp'));
