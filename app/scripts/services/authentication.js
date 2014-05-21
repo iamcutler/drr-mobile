@@ -57,7 +57,6 @@ app.factory('AuthService', ['$http', '$rootScope', '$state', 'endPoint', functio
       };
     },
     set_user_session: function(user) {
-      console.log(user);
       $.cookie('user_id', user.id, { expires: 365, path: '/' });
       $.cookie('user_name', user.name, { expires: 365, path: '/' });
       $.cookie('username', user.username, { expires: 365, path: '/' });
