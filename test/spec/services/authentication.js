@@ -70,5 +70,14 @@ describe('Service: AuthService', function () {
 
       expect(AuthService.current_user().id).toBeUndefined();
     });
+
+    it('should log out user', function() {
+      $http.expect("GET", "/views/layouts/auth.html").respond(200);
+      $http.expect("GET", "/views/auth/login.html").respond(200);
+      AuthService.logout();
+      $http.flush();
+
+      expect(AuthService.current_user().hash).toBeUndefined();
+    });
   });
 });
