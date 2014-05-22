@@ -16,7 +16,7 @@
   </form>
 </div>
 
-<section class="search-events clearfix" infinite-scroll="load_search_events()" infinite-scroll-distance="1" infinite-scroll-disabled="scroll_disabled" infinite-scroll-immediate-check="false">
+<section class="search-events clearfix" infinite-scroll="load_search_events()" infinite-scroll-distance="1" infinite-scroll-disabled="scroll_disabled">
   <div class="event clearfix" ng-repeat="result in search.results">
     <a ng-href="/#/events/{{ result.id }}">
       <div class="thumbnail no-border no-border-radius">
