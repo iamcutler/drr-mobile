@@ -2,21 +2,21 @@
 
 <div class="row feed-actions">
   <div class="col-xs-6" style="padding-right: 6px;">
-    <toggle-dirty-girls class="btn btn-block btn-lg btn-default" category="monthly">Monthly</toggle-dirty-girls>
+    <toggle-dirty-girls class="btn btn-block btn-lg btn-default" category="crew">Crew</toggle-dirty-girls>
   </div>
   <div class="col-xs-6" style="padding-left: 6px;">
-    <toggle-dirty-girls class="btn btn-block btn-lg btn-default" category="crew">Crew</toggle-dirty-girls>
+    <toggle-dirty-girls class="btn btn-block btn-lg btn-default" category="monthly">Monthly</toggle-dirty-girls>
   </div>
 </div>
 
-<section class="dirty-girls-of-the-month">
+<section class="dirty-girls-crew">
   <ul>
-    <ng-include ng-repeat="dirty_girl in dirty_girls" ng-if="dirty_girl.type == 0" src="'/views/dirty-girls/dirty-girl-thumb.partial.html'"></ng-include>
+    <ng-include ng-repeat="dirty_girl in dirty_girls" ng-if="dirty_girl.type == 1" src="'/views/dirty-girls/dirty-girl-thumb.partial.html'"></ng-include>
   </ul>
 </section>
 
-<section class="dirty-girls-crew" style="display: none;">
+<section class="dirty-girls-of-the-month" style="display: none;">
   <ul>
-    <ng-include ng-repeat="dirty_girl in dirty_girls" ng-if="dirty_girl.type == 1" src="'/views/dirty-girls/dirty-girl-thumb.partial.html'"></ng-include>
+    <ng-include ng-repeat="dirty_girl in dirty_girls" ng-if="dirty_girl.type == 0" src="'/views/dirty-girls/dirty-girl-thumb.partial.html'"></ng-include>
   </ul>
 </section>
