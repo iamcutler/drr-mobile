@@ -313,18 +313,28 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
     })
     .state("event.search", {
       parent: "default",
-      url: "/search-events",
+      url: "/search/events",
       controller: "SearchController",
       templateUrl: "/views/events/search.html",
       access: {
         require_user: true
       }
     })
+    // -------------------- Search --------------------
     .state("search-people", {
       parent: "default",
-      url: "/find-people",
+      url: "/search/people",
       controller: "SearchController",
       templateUrl: "/views/search/people.html",
+      access: {
+        require_user: true
+      }
+    })
+    .state("search-groups", {
+      parent: "default",
+      url: "/search/groups",
+      controller: "SearchController",
+      templateUrl: "/views/search/groups.html",
       access: {
         require_user: true
       }

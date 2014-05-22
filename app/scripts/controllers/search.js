@@ -149,4 +149,78 @@ app.controller('SearchController', ['$scope', '$state', 'SearchService', functio
       $scope.search_events(search_params);
     };
   }
+
+  // Search Groups
+  if($state.current.name == "search-groups") {
+    $scope.title = "Find Groups";
+
+    $scope.loading = false;
+    $scope.load_counter = 0;
+    $scope.scroll_disabled = false;
+    $scope.search = {
+      type: [
+        { value: "name", name: "Name" },
+        { value: "location", name: "Location" }
+      ],
+      params: {
+        q: '',
+        offset: 0,
+        type: 'name'
+      },
+      // Search results collection array
+      results: []
+    };
+
+    $scope.search_groups = function(data) {
+      $scope.loading = true;
+      $scope.scroll_disabled = true;
+
+      // Conditional on scroll action
+      if(data.action === undefined) {
+        $scope.load_counter = 0;
+        $scope.search.results = [];
+      }
+
+      // Call search service
+      var search = SearchService.find_groups(data),
+          offset = 20;
+
+      search.then(function(response) {
+        $scope.loading = false;
+
+        // add increments of 20 after successfull call
+        // Function used for init call and infinite scrolling
+        if(response.length > 0 || response.length < offset) {
+          // Disable scrolling if response data has results
+          $scope.scroll_disabled = false;
+          $scope.load_counter += offset;
+        }
+
+        // Empty any previous results
+        if($scope.search.results.length > 0 && $scope.load_counter == 0) {
+          $scope.search.results = [];
+        }
+
+        // Add response to results object scope
+        angular.forEach(response, function(value, key) {
+          $scope.search.results.push(value);
+        });
+      }, function(error) {
+        // Send error to app errors array to display in UI
+        $scope.appErrors.push({message: error});
+      });
+    };
+
+    // Function fired on infinite scrolling
+    $scope.load_search_groups = function() {
+      var search_params = {
+        q: $scope.search.params.q,
+        offset: $scope.load_counter,
+        action: 'scroll'
+      };
+
+      // Call function to populate results
+      $scope.search_groups(search_params);
+    };
+  }
 }]);

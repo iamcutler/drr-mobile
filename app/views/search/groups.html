@@ -1,0 +1,28 @@
+<ng-include src="'/views/shared-partials/navbar.html'"></ng-include>
+
+<div class="row-fluid search-bar clearfix">
+  <form ng-submit="search_groups(search.params)" novalidate>
+    <div class="col-xs-8" style="padding-right: 6px;">
+      <input type="search" ng-model="search.params.q" placeholder="search groups..." required />
+    </div>
+    <div class="col-xs-4">
+      <button type="submit" class="btn btn-block btn-default">Search</button>
+    </div>
+  </form>
+</div>
+
+<section class="search-people" infinite-scroll="load_search_groups()" infinite-scroll-distance="1" infinite-scroll-disabled="scroll_disabled">
+  <ul ng-if="search.results.length > 0">
+    <li class="clearfix" ng-repeat="group in search.results">
+      <a ng-href="/#/groups/{{ group.id }}">
+        <div class="thumbnail">
+          <img ng-src="{{ cdnDomain + group.thumbnail }}" fallback-src="{{ drrDomain + group.thumbnail }}" />
+        </div>
+
+        <span>{{ group.name }}</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="search-loader" ng-if="loading"></div>
+</section>
