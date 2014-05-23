@@ -64,7 +64,7 @@ and (max-width : 1024px) {
 
       article.feed-article {
         div.media-wrapper {
-          max-height: 600px;
+          height: 600px;
 
           img {
             min-height: 600px;
@@ -219,12 +219,11 @@ and (max-width : 568px) {
       }
 
       div.media-wrapper {
-        max-height: 300px;
+        height: 300px;
 
         img {
-          min-width: 100%;
-          min-height: 100%;
-          max-height: 500px;
+          width: 100%;
+          min-height: 300px;
         }
 
         video, iframe, object, embed {
