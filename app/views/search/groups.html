@@ -19,7 +19,7 @@
           <img ng-src="{{ cdnDomain + group.thumbnail }}" fallback-src="{{ drrDomain + group.thumbnail }}" />
         </div>
 
-        <span>{{ group.name }}</span>
+        <span>{{ group.name | responsiveSubstr }}</span>
       </a>
     </li>
   </ul>

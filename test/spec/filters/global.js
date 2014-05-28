@@ -52,4 +52,23 @@ describe('Filter: Global', function () {
       expect(strip_html('<p>Testing is fun!</p>')).toBe('Testing is fun!');
     });
   });
+
+  describe('Filter: Responsive sub string', function() {
+    var string,
+        substr,
+        $window;
+
+    beforeEach(module('DRRMobileApp'));
+
+    beforeEach(inject(function($filter, _$window_) {
+      string = "Testing the string based on a responsive window object";
+      substr = $filter('responsiveSubstr');
+      $window = _$window_;
+    }));
+
+    it('should format string based on phone width', function() {
+      $window.innerWidth = 320;
+      expect(substr(string)).toEqual("Testing the string based on a ...");
+    });
+  });
 });

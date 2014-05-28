@@ -48,3 +48,38 @@ app.filter("momentTime", function() {
     return moment.utc(input).local();
   }
 });
+
+
+app.filter('responsiveSubstr', ['$window', function($window) {
+  return function(input, phone, tablet) {
+    function responsive_string(input, phone, tablet) {
+      var output;
+
+      // Defaults
+      phone = phone || 30;
+      tablet = tablet || 70;
+
+      // Smart phones (ex: iPhone, Android)
+      if($window.matchMedia("(min-width : 320px) and (max-width : 568px)").matches) {
+        output = input.substr(0, phone);
+
+        if(input.length > phone) {
+          output = output + "...";
+        }
+        // Tablets (ex: iPad, Surface)
+      } else if($window.matchMedia("(min-width : 568px) and (max-width : 1024px)").matches) {
+        output = input.substr(0, tablet);
+
+        if(input.length > tablet) {
+          output = output + "...";
+        }
+      } else {
+        output = input;
+      }
+
+      return output;
+    }
+
+    return responsive_string(input, phone, tablet);
+  }
+}]);
