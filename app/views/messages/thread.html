@@ -1,11 +1,6 @@
 <ng-include src="'/views/shared-partials/navbar-back.html'"></ng-include>
 
-<div id="topThread"></div>
-<section class="message-thread">
-  <ng-include ng-repeat="message in thread.messages" src="'/views/messages/thread-message.partial.html'"></ng-include>
-</section>
-
-<div class="add-thread">
+<div class="add-thread clearfix">
   <form name="AddThreadMessage" ng-submit="processNewMessage(AddThreadMessage)" novalidate>
     <div class="row-fluid">
       <div class="col-xs-10">
@@ -17,3 +12,8 @@
     </div>
   </form>
 </div>
+
+<div id="topThread"></div>
+<section class="message-thread">
+  <ng-include ng-repeat="message in thread.messages" src="'/views/messages/thread-message.partial.html'"></ng-include>
+</section>
