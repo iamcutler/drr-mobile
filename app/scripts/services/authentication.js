@@ -3,7 +3,7 @@
 app.factory('AuthService', ['$http', '$rootScope', '$state', 'endPoint', function AuthService($http, $rootScope, $state, endPoint) {
   return {
     login: function(data, callback) {
-      $http.post(endPoint.api + "/user/login", data).
+      $http.post(endPoint.api + "/login/user", data).
       success(function(data) {
         if(typeof callback === "function") {
           callback(data);
