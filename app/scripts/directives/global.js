@@ -1,5 +1,36 @@
 'use strict';
 
+app.directive("facebookLogin", ['$location', 'ezfb', 'AuthService', function($location, ezfb, AuthService) {
+  return {
+    restrict: 'E',
+    template: '<a href="javascript:void(0)" class="btn btn-block btn-lg btn-facebook">Login via facebook</a>',
+    link: function(scope, elem, attrs) {
+      elem.bind('click', function() {
+        ezfb.api('/me', function(res) {
+          // If verified
+          if(res.verified) {
+            scope.loadingAuth = true;
+
+            AuthService.facebook_login(res, function(response) {
+              console.log(response);
+              if(response.status) {
+                // Set user session and redirect to user feed
+                AuthService.set_user_session(response.user);
+                $location.path('/welcome');
+              } else {
+                scope.loginError = 'Error logging in with facebook. Try again';
+
+                // Enable submit button
+                scope.loadingAuth = false;
+              }
+            });
+          }
+        });
+      });
+    }
+  };
+}]);
+
 app.directive("toggleNavigation", function () {
   return function(scope, elem, attrs) {
     $(elem).click(function() {

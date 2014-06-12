@@ -11,6 +11,19 @@ app.factory('AuthService', ['$http', '$rootScope', '$state', 'endPoint', functio
       }).
       error(function() {});
     },
+    facebook_login: function(data, callback) {
+      $http({
+          method: 'POST',
+          url: endPoint.api + "/login/fb",
+          data: data
+        })
+        .success(function(res) {
+          if(typeof callback === "function") {
+            callback(res);
+          }
+        })
+        .error(function() {});
+    },
     logout: function() {
       // Remove current user session
       $.removeCookie('user_hash', { path: '/' });
