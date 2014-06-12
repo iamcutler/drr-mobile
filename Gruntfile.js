@@ -35,6 +35,9 @@ module.exports = function (grunt) {
             'cdn': 'https://d1rbyr9vwfcumm.cloudfront.net',
             'drr': 'http://localhost:8000'
           },
+          facebook: {
+            'appId': '582280241891915'
+          },
           'imgPlaceholder': 'img_placeholder.png',
           // Location for session information within sessionStorage
           // Related to authentication & session
@@ -50,6 +53,9 @@ module.exports = function (grunt) {
             'cdn': 'https://d1rbyr9vwfcumm.cloudfront.net',
             'drr': 'http://www.qa-dirtyrides.com'
           },
+          facebook: {
+            'appId': '582280241891915'
+          },
           'imgPlaceholder': 'img_placeholder.png',
           // Location for session information within sessionStorage
           // Related to authentication & session
@@ -64,6 +70,9 @@ module.exports = function (grunt) {
             'resourceApi': 'http://api.dirtyrottenrides.com',
             'cdn': 'http://cdn.dirtyrottenrides.com',
             'drr': 'http://www.dirtyrottenrides.com'
+          },
+          facebook: {
+            'appId': '390867174366557'
           },
           'imgPlaceholder': 'img_placeholder.png',
           // Location for session information within sessionStorage
