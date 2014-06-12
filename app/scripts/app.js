@@ -10,7 +10,8 @@ var app = angular.module('DRRMobileApp', [
   'ui.bootstrap',
   'angularFileUpload',
   // Environment variables/constants
-  'env-constants'
+  'env-constants',
+  'ezfb'
   //'ui.map',
   //'ui.event'
 ], ['$httpProvider', function($httpProvider) {
@@ -68,3 +69,10 @@ var app = angular.module('DRRMobileApp', [
     return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
   }];
 }]);
+
+app.config(function (ezfbProvider, facebook) {
+  ezfbProvider.setInitParams({
+    // This is my FB app id for plunker demo app
+    appId: facebook.appId
+  });
+});
