@@ -6,22 +6,24 @@ app.directive("facebookLogin", ['$location', 'ezfb', 'AuthService', function($lo
     template: '<a href="javascript:void(0)" class="btn btn-block btn-lg btn-facebook">Login via facebook</a>',
     link: function(scope, elem, attrs) {
       elem.bind('click', function() {
-        ezfb.api('/me', function(res) {
-          // If verified
-          if(res.verified) {
-            scope.loadingAuth = true;
-
-            AuthService.facebook_login(res, function(response) {
-              console.log(response);
-              if(response.status) {
-                // Set user session and redirect to user feed
-                AuthService.set_user_session(response.user);
-                $location.path('/welcome');
+        // Check login status via facebook
+        AuthService.facebook.status(function(res) {
+          if(res.status == "connected") {
+            AuthService.facebook.callback(function(data) {
+              // Set user session and redirect to user feed
+              AuthService.set_user_session(data.user);
+              $location.path('/welcome');
+            });
+          } else {
+            AuthService.facebook.login(function(response) {
+              if(response.authResponse) {
+                AuthService.facebook.callback(function(data) {
+                  // Set user session and redirect to user feed
+                  AuthService.set_user_session(data.user);
+                  $location.path('/welcome');
+                });
               } else {
-                scope.loginError = 'Error logging in with facebook. Try again';
-
-                // Enable submit button
-                scope.loadingAuth = false;
+                scope.loginError = "Error logging in to facebook. Try again.";
               }
             });
           }

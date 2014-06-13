@@ -1,6 +1,9 @@
 'use strict';
 
-app.factory('AuthService', ['$http', '$rootScope', '$state', 'endPoint', function AuthService($http, $rootScope, $state, endPoint) {
+app.factory('AuthService', ['$http', '$rootScope', '$location', '$state', 'endPoint', 'ezfb',
+  function AuthService($http, $rootScope, $location, $state, endPoint, ezfb) {
+  var self = this;
+
   return {
     login: function(data, callback) {
       $http.post(endPoint.api + "/login/user", data).
@@ -11,18 +14,37 @@ app.factory('AuthService', ['$http', '$rootScope', '$state', 'endPoint', functio
       }).
       error(function() {});
     },
-    facebook_login: function(data, callback) {
-      $http({
-          method: 'POST',
-          url: endPoint.api + "/login/fb",
-          data: data
-        })
-        .success(function(res) {
+    facebook: {
+      status: function(callback) {
+        ezfb.getLoginStatus(function (res) {
           if(typeof callback === "function") {
             callback(res);
           }
-        })
-        .error(function() {});
+        });
+      },
+      login: function(callback) {
+        ezfb.login(function(res) {
+          if(typeof callback === "function") callback(res);
+        });
+      },
+      callback: function(callback) {
+        ezfb.api('/me', function(res) {
+          // If verified
+          if(res.verified) {
+            // call api to check user state
+            $http({
+              method: 'POST',
+              url: endPoint.api + "/login/fb",
+              data: res
+            })
+            .success(function(data) {
+              if(data.status) {
+                if(typeof callback === "function") callback(data);
+              }
+            });
+          }
+        });
+      }
     },
     logout: function() {
       // Remove current user session
