@@ -1,7 +1,7 @@
 'use strict';
 
 app.factory('WallService', ['$resource', '$q', 'endPoint', 'AuthService', function WallService($resource, $q, endPoint, AuthService) {
-  var resource = $resource(endPoint.resourceApi + "/user/wall/:id", {
+  var resource = $resource(endPoint.resourceApi + '/user/wall/:id', {
     id: '@id',
     user_hash: AuthService.current_user().hash
   });
@@ -13,7 +13,7 @@ app.factory('WallService', ['$resource', '$q', 'endPoint', 'AuthService', functi
       resource.save(comment, function(response) {
         defer.resolve(response);
       }, function() {
-        defer.reject("Can't save new comment");
+        defer.reject('Can not save new comment');
       });
 
       return defer.promise;

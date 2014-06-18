@@ -35,7 +35,7 @@ app.service('RequestService', ['$resource', '$q', 'endPoint', 'AuthService', fun
     },
     accept: function(id, callback) {
       Requests.update({ id: id }, function(response) {
-        if(typeof callback === "function") {
+        if(typeof callback === 'function') {
           callback(response);
         }
       }, function() {
@@ -44,7 +44,7 @@ app.service('RequestService', ['$resource', '$q', 'endPoint', 'AuthService', fun
     },
     decline: function(id, callback) {
       Requests.delete({ id: id }, function(response) {
-        if(typeof callback === "function") {
+        if(typeof callback === 'function') {
           callback(response);
         }
       });

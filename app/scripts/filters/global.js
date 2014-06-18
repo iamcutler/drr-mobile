@@ -17,13 +17,13 @@ app.filter('MessageStructure', function() {
     }
 
     return null;
-  }
+  };
 });
 
 app.filter('strip_html_tags', function() {
   return function(text) {
     return String(text).replace(/<[^>]+>/gm, '');
-  }
+  };
 });
 
 app.filter('trustVideoURL', function($sce) {
@@ -32,10 +32,10 @@ app.filter('trustVideoURL', function($sce) {
 
     switch(type) {
       case 'youtube':
-        mediaURL = "http://www.youtube.com/v/" + text + "?version=3&amp;hl=en_US&amp;rel=0";
+        mediaURL = 'http://www.youtube.com/v/' + text + '?version=3&amp;hl=en_US&amp;rel=0';
         break;
       case 'vimeo':
-        mediaURL = "http://player.vimeo.com/video/" + text + "?title=0&amp;byline=0&amp;portrait=0&amp;badge=0";
+        mediaURL = 'http://player.vimeo.com/video/' + text + '?title=0&amp;byline=0&amp;portrait=0&amp;badge=0';
         break;
     }
 
@@ -43,10 +43,10 @@ app.filter('trustVideoURL', function($sce) {
   };
 });
 
-app.filter("momentTime", function() {
+app.filter('momentTime', function() {
   return function(input) {
     return moment.utc(input).local();
-  }
+  };
 });
 
 
@@ -60,18 +60,18 @@ app.filter('responsiveSubstr', ['$window', function($window) {
       tablet = tablet || 70;
 
       // Smart phones (ex: iPhone, Android)
-      if($window.matchMedia("(min-width : 320px) and (max-width : 568px)").matches) {
+      if($window.matchMedia('(min-width : 320px) and (max-width : 568px)').matches) {
         output = input.substr(0, phone);
 
         if(input.length > phone) {
-          output = output + "...";
+          output = output + '...';
         }
         // Tablets (ex: iPad, Surface)
-      } else if($window.matchMedia("(min-width : 568px) and (max-width : 1024px)").matches) {
+      } else if($window.matchMedia('(min-width : 568px) and (max-width : 1024px)').matches) {
         output = input.substr(0, tablet);
 
         if(input.length > tablet) {
-          output = output + "...";
+          output = output + '...';
         }
       } else {
         output = input;
@@ -81,5 +81,5 @@ app.filter('responsiveSubstr', ['$window', function($window) {
     }
 
     return responsive_string(input, phone, tablet);
-  }
+  };
 }]);

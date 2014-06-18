@@ -15,7 +15,7 @@ app.directive('toggleDirtyGirls', function () {
         }
       });
     }
-  }
+  };
 });
 
 // Click button to open file dialog

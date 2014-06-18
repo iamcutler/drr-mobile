@@ -1,3 +1,4 @@
+'use strict';
 /* ng-infinite-scroll - v1.0.0 - 2013-05-13 */
 /* Modified to work with our application */
 var mod;

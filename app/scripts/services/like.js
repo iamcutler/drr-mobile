@@ -7,7 +7,7 @@ app.factory('LikeService', ['$rootScope', '$http', '$q', 'endPoint', 'AuthServic
 
       $http({
         method: 'POST',
-        url: endPoint.api + "/user/like",
+        url: endPoint.api + '/user/like',
         params: {
           element: element,
           id: id,
@@ -30,7 +30,7 @@ app.factory('LikeService', ['$rootScope', '$http', '$q', 'endPoint', 'AuthServic
 
       $http({
         method: 'POST',
-        url: endPoint.api + "/user/like/",
+        url: endPoint.api + '/user/like/',
         params: {
           element: element,
           id: id,

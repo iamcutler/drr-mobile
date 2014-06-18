@@ -166,7 +166,7 @@ app.controller('ModalController', ['$scope', '$modalInstance', '$upload', '$stat
   // Dismiss modal instance
   $scope.close = function() {
     $modalInstance.dismiss();
-  }
+  };
 
   $scope.newMessageThread = function(form) {
     if(form.$valid) {

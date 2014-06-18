@@ -11,7 +11,7 @@ app.factory('SearchService', ['$http', '$q', 'endPoint', 'AuthService', function
 
       $http({
         method: 'GET',
-        url: endPoint.api + "/user/search/people",
+        url: endPoint.api + '/user/search/people',
         params: q
       })
         .success(function(response) {
@@ -31,7 +31,7 @@ app.factory('SearchService', ['$http', '$q', 'endPoint', 'AuthService', function
 
       $http({
         method: 'GET',
-        url: endPoint.api + "/user/search/events",
+        url: endPoint.api + '/user/search/events',
         params: q
       })
         .success(function(response) {
@@ -51,7 +51,7 @@ app.factory('SearchService', ['$http', '$q', 'endPoint', 'AuthService', function
 
       $http({
         method: 'GET',
-        url: endPoint.api + "/user/search/groups",
+        url: endPoint.api + '/user/search/groups',
         params: q
       })
         .success(function(response) {

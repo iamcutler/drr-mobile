@@ -1,7 +1,7 @@
 'use strict';
 
 app.factory('ActivityService', ['$http', '$resource', '$q', 'endPoint', 'AuthService', function ActivityService($http, $resource, $q, endPoint, AuthService) {
-  var resource = $resource(endPoint.resourceApi + "/user/activity/:id", {
+  var resource = $resource(endPoint.resourceApi + '/user/activity/:id', {
     id: '@id',
     user_hash: AuthService.current_user().hash
   }, {});
@@ -36,7 +36,7 @@ app.factory('ActivityService', ['$http', '$resource', '$q', 'endPoint', 'AuthSer
     media_upload: function(model) {
       $http({
         method: 'POST',
-        url: endPoint.api + "user/activity?user_hash=" + AuthService.current_user().hash,
+        url: endPoint.api + 'user/activity?user_hash=' + AuthService.current_user().hash,
         //IMPORTANT!!! You might think this should be set to 'multipart/form-data'
         // but this is not true because when we are sending up files the request
         // needs to include a 'boundary' parameter which identifies the boundary
@@ -52,11 +52,11 @@ app.factory('ActivityService', ['$http', '$resource', '$q', 'endPoint', 'AuthSer
           //need to convert our json object to a string version of json otherwise
           // the browser will do a 'toString()' on the object which will result
           // in the value '[Object object]' on the server.
-          formData.append("model", angular.toJson(data.model));
+          formData.append('model', angular.toJson(data.model));
           //now add all of the assigned files
           for (var i = 0; i < data.files; i++) {
             //add each file to the form data and iteratively name them
-            formData.append("file" + i, data.files[i]);
+            formData.append('file' + i, data.files[i]);
           }
           return formData;
         },
@@ -74,7 +74,7 @@ app.factory('ActivityService', ['$http', '$resource', '$q', 'endPoint', 'AuthSer
     event_attendance: function(event_id) {
       var defer = $q.defer();
 
-      $http.post(endPoint.api + "/user/activity/event_attendance/" + event_id + "?user_hash=" + AuthService.current_user().hash)
+      $http.post(endPoint.api + '/user/activity/event_attendance/' + event_id + '?user_hash=' + AuthService.current_user().hash)
         .success(function(response) {
           defer.resolve(response);
         })
@@ -102,7 +102,7 @@ app.factory('ActivityService', ['$http', '$resource', '$q', 'endPoint', 'AuthSer
     media: function(offset) {
       var defer = $q.defer();
 
-      $http.get(endPoint.api + "/user/feed_activity/media/" + offset + "?user_hash=" + AuthService.current_user().hash)
+      $http.get(endPoint.api + '/user/feed_activity/media/' + offset + '?user_hash=' + AuthService.current_user().hash)
         .success(function(response) {
           defer.resolve(response);
         })
@@ -115,7 +115,7 @@ app.factory('ActivityService', ['$http', '$resource', '$q', 'endPoint', 'AuthSer
     news_feed: function(offset) {
       var defer = $q.defer();
 
-      $http.get(endPoint.api + "/user/feed_activity/" + offset + "?user_hash=" + AuthService.current_user().hash)
+      $http.get(endPoint.api + '/user/feed_activity/' + offset + '?user_hash=' + AuthService.current_user().hash)
         .success(function(response) {
           defer.resolve(response);
         })

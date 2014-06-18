@@ -6,9 +6,9 @@ app.factory('AuthService', ['$http', '$rootScope', '$location', '$state', 'endPo
 
   return {
     login: function(data, callback) {
-      $http.post(endPoint.api + "/login/user", data).
+      $http.post(endPoint.api + '/login/user', data).
       success(function(data) {
-        if(typeof callback === "function") {
+        if(typeof callback === 'function') {
           callback(data);
         }
       }).
@@ -17,14 +17,14 @@ app.factory('AuthService', ['$http', '$rootScope', '$location', '$state', 'endPo
     facebook: {
       status: function(callback) {
         ezfb.getLoginStatus(function (res) {
-          if(typeof callback === "function") {
+          if(typeof callback === 'function') {
             callback(res);
           }
         });
       },
       login: function(callback) {
         ezfb.login(function(res) {
-          if(typeof callback === "function") callback(res);
+          if(typeof callback === 'function') callback(res);
         });
       },
       callback: function(callback) {
@@ -34,12 +34,12 @@ app.factory('AuthService', ['$http', '$rootScope', '$location', '$state', 'endPo
             // call api to check user state
             $http({
               method: 'POST',
-              url: endPoint.api + "/login/fb",
+              url: endPoint.api + '/login/fb',
               data: res
             })
             .success(function(data) {
               if(data.status) {
-                if(typeof callback === "function") callback(data);
+                if(typeof callback === 'function') callback(data);
               }
             });
           }
@@ -56,7 +56,7 @@ app.factory('AuthService', ['$http', '$rootScope', '$location', '$state', 'endPo
     check_username_uniqueness: function(username, callback) {
       $http.post(endPoint.api + '/check/username/' + username, {}).
       success(function(data) {
-        if(typeof callback === "function") {
+        if(typeof callback === 'function') {
           callback(data);
         }
       }).error(function() {});
@@ -64,7 +64,7 @@ app.factory('AuthService', ['$http', '$rootScope', '$location', '$state', 'endPo
     register: function(user, callback) {
       $http.post(endPoint.api + '/register', user).
       success(function(data) {
-        if(typeof callback === "function") {
+        if(typeof callback === 'function') {
           callback(data);
         }
       }).

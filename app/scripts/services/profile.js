@@ -5,7 +5,7 @@ app.factory('ProfileService', ['$http', '$q', 'endPoint', 'AuthService', functio
     getProfileData: function (params) {
       var deferred = $q.defer();
 
-      $http.get(endPoint.api + "/user/profile/" + params.slug + "?user_hash=" + AuthService.current_user().hash).
+      $http.get(endPoint.api + '/user/profile/' + params.slug + '?user_hash=' + AuthService.current_user().hash).
         success(function(response) {
           deferred.resolve(response);
         }).
@@ -18,7 +18,7 @@ app.factory('ProfileService', ['$http', '$q', 'endPoint', 'AuthService', functio
     about_user: function(params) {
       var defer = $q.defer();
 
-      $http.get(endPoint.api + "/user/profile/about/" + params.slug + "?user_hash=" + AuthService.current_user().hash)
+      $http.get(endPoint.api + '/user/profile/about/' + params.slug + '?user_hash=' + AuthService.current_user().hash)
         .success(function(response) {
           defer.resolve(response);
         })
@@ -31,7 +31,7 @@ app.factory('ProfileService', ['$http', '$q', 'endPoint', 'AuthService', functio
     user_friends: function(params) {
       var deferred = $q.defer();
 
-      $http.get(endPoint.api + "/user/profile/friends/" + params.slug + "?user_hash=" + AuthService.current_user().hash, {
+      $http.get(endPoint.api + '/user/profile/friends/' + params.slug + '?user_hash=' + AuthService.current_user().hash, {
         cache: true
       }).
         success(function(response) {
@@ -47,7 +47,7 @@ app.factory('ProfileService', ['$http', '$q', 'endPoint', 'AuthService', functio
     user_albums: function(params) {
       var deferred = $q.defer();
 
-      $http.get(endPoint.api + "/user/profile/albums/" + params.slug + "?user_hash=" + AuthService.current_user().hash).
+      $http.get(endPoint.api + '/user/profile/albums/' + params.slug + '?user_hash=' + AuthService.current_user().hash).
         success(function(response) {
           deferred.resolve(response);
         }).
@@ -61,7 +61,7 @@ app.factory('ProfileService', ['$http', '$q', 'endPoint', 'AuthService', functio
     album_photos: function(params) {
       var deferred = $q.defer();
 
-      $http.get(endPoint.api + "/user/profile/album/" + params.slug + "/" + params.id + "?user_hash=" + AuthService.current_user().hash).
+      $http.get(endPoint.api + '/user/profile/album/' + params.slug + '/' + params.id + '?user_hash=' + AuthService.current_user().hash).
         success(function(response) {
           deferred.resolve(response);
         }).
@@ -75,7 +75,7 @@ app.factory('ProfileService', ['$http', '$q', 'endPoint', 'AuthService', functio
     user_videos: function(params) {
       var deferred = $q.defer();
 
-      $http.get(endPoint.api + "/user/profile/videos/" + params.slug + "?user_hash=" + AuthService.current_user().hash).
+      $http.get(endPoint.api + '/user/profile/videos/' + params.slug + '?user_hash=' + AuthService.current_user().hash).
         success(function(response) {
           deferred.resolve(response);
         }).
@@ -88,7 +88,7 @@ app.factory('ProfileService', ['$http', '$q', 'endPoint', 'AuthService', functio
     user_video: function(params) {
       var deferred = $q.defer();
 
-      $http.get(endPoint.api + "/user/profile/video/" + params.slug + "/" + params.id + "?user_hash=" + AuthService.current_user().hash).
+      $http.get(endPoint.api + '/user/profile/video/' + params.slug + '/' + params.id + '?user_hash=' + AuthService.current_user().hash).
         success(function(response) {
           deferred.resolve(response);
         }).
@@ -101,7 +101,7 @@ app.factory('ProfileService', ['$http', '$q', 'endPoint', 'AuthService', functio
     user_groups: function(params) {
       var deferred = $q.defer();
 
-      $http.get(endPoint.api + "/user/profile/groups/" + params.slug + "?user_hash=" + AuthService.current_user().hash).
+      $http.get(endPoint.api + '/user/profile/groups/' + params.slug + '?user_hash=' + AuthService.current_user().hash).
         success(function(response) {
           deferred.resolve(response);
         }).
@@ -115,7 +115,7 @@ app.factory('ProfileService', ['$http', '$q', 'endPoint', 'AuthService', functio
     user_events: function(params) {
       var defer = $q.defer();
 
-      $http.get(endPoint.api + "/user/profile/events/" + params.slug + "?user_hash=" + AuthService.current_user().hash)
+      $http.get(endPoint.api + '/user/profile/events/' + params.slug + '?user_hash=' + AuthService.current_user().hash)
         .success(function(response) {
           defer.resolve(response);
         })
@@ -129,7 +129,7 @@ app.factory('ProfileService', ['$http', '$q', 'endPoint', 'AuthService', functio
     feed: function(slug, offset) {
       var defer = $q.defer();
 
-      $http.get(endPoint.api + "/user/feed_activity/profile/" + slug + "/" + offset + "?user_hash=" + AuthService.current_user().hash)
+      $http.get(endPoint.api + '/user/feed_activity/profile/' + slug + '/' + offset + '?user_hash=' + AuthService.current_user().hash)
         .success(function(response) {
           defer.resolve(response);
         })
@@ -142,7 +142,7 @@ app.factory('ProfileService', ['$http', '$q', 'endPoint', 'AuthService', functio
     photo: function(params) {
       var defer = $q.defer();
 
-      $http.get(endPoint.api + "/user/profile/photo/" + params.slug + "/" + params.id + "?user_hash=" + AuthService.current_user().hash)
+      $http.get(endPoint.api + '/user/profile/photo/' + params.slug + '/' + params.id + '?user_hash=' + AuthService.current_user().hash)
         .success(function(response) {
           defer.resolve(response);
         })

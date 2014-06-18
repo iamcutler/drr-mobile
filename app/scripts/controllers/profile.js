@@ -151,7 +151,7 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
     $scope.photo = content;
 
     // If photo is emtpy, go back in history
-    if(content.length == 0) {
+    if(content.length === 0) {
       window.history.back();
     }
 
@@ -218,5 +218,5 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
         console.error(response);
       });
     }
-  }
+  };
 }]);

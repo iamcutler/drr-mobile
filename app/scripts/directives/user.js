@@ -8,7 +8,7 @@ app.directive('friendRequest', ['RequestService', function(RequestService) {
       action: '@',
       request: '='
     },
-    link: function(scope, element, attrs) {
+    link: function(scope, element) {
       element.click(function() {
         var request = scope.request[scope.index].id,
             action = scope.action,
@@ -45,7 +45,7 @@ app.directive('sendFriendRequest', ['RequestService', function(RequestService) {
     scope: {
       target: '@'
     },
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem) {
       elem.bind('click', function() {
         // Disable button on click to avoid duplicate requests
         elem.prop('disabled', true);
@@ -74,7 +74,7 @@ app.directive('removeFriend', ['UserService', function(UserService) {
     scope: {
       target: '@'
     },
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem) {
       elem.bind('click', function() {
         if(confirm('Are you sure you want to remove this user as a friend?')) {
           // Make sure target is a number
@@ -100,7 +100,7 @@ app.directive('newStatus', ['$modal', 'EventService', 'AuthService', function($m
   return {
     restrict: 'A',
     scope: '@',
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem) {
       elem.bind('click', function() {
         $modal.open({
           templateUrl: '/views/profile/status/new-status.modal.html',
@@ -121,7 +121,7 @@ app.directive('newMedia', ['$modal', 'AuthService', function($modal, AuthService
   return {
     restrict: 'A',
     scope: '@',
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem) {
       elem.bind('click', function() {
         $modal.open({
           templateUrl: '/views/profile/status/media-status.modal.html',
@@ -144,7 +144,7 @@ app.directive('toggleStatusType', function() {
     scope: {
       status: '@'
     },
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem) {
       elem.bind('click', function() {
         // Change button classes
         $('#status-navigation button').removeClass('btn-primary').addClass('btn-default');
@@ -161,7 +161,7 @@ app.directive('toggleStatusType', function() {
 app.directive('eventLength', function() {
   return {
     restrict: 'A',
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem) {
       elem.bind('change', function() {
         // Hide event times if all day event
         if(elem.val() == 1) {
@@ -179,7 +179,7 @@ app.directive('eventLength', function() {
 app.directive('eventRepeat', function() {
   return {
     restrict: 'A',
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem) {
       elem.bind('change', function() {
         if(elem.val() == '') {
           $('#repeat-end').hide();

@@ -76,7 +76,7 @@ app.directive('navigationItem', function() {
         $('button.navbar-toggle').removeClass('showNavi');
       });
     }
-  }
+  };
 });
 
 app.directive('navigationUser', function() {
@@ -97,7 +97,7 @@ app.directive('navigationUser', function() {
         $('button.navbar-toggle').removeClass('showNavi');
       });
     }
-  }
+  };
 });
 
 app.directive('pageIcon', function() {
@@ -141,5 +141,5 @@ app.directive('fallbackSrc', function () {
         });
       });
     }
-  }
+  };
 });

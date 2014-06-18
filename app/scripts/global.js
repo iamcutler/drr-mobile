@@ -1,3 +1,5 @@
+'use strict';
+
 // Format Date object
 Date.prototype.yyyymmdd = function() {
 

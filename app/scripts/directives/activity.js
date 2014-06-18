@@ -77,13 +77,13 @@ app.directive('removeActivity', ['ActivityService', function(ActivityService) {
     link: function(scope, elem) {
       elem.bind('click', function() {
         //if(confirm('Are you sure?')) {
-          var remove = ActivityService.delete(scope.target, scope.app);
+        var remove = ActivityService.delete(scope.target, scope.app);
 
-          remove.then(function() {
-            scope.model.splice(scope.index, 1);
-          }, function(response) {
-            console.error(response);
-          });
+        remove.then(function() {
+          scope.model.splice(scope.index, 1);
+        }, function(response) {
+          console.error(response);
+        });
         //}
       });
     }

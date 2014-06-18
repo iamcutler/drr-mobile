@@ -18,7 +18,7 @@ app.factory('ReportService', ['$http', '$rootScope', 'endPoint', 'AuthService', 
         bug_type: data.type
       }).
       success(function(response) {
-        if(typeof callback === "function") {
+        if(typeof callback === 'function') {
           callback(response);
         }
       }).

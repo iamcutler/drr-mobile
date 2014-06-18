@@ -22,7 +22,7 @@ app.factory('EventService', ['$http', '$resource', '$q', 'endPoint', 'AuthServic
     activity: function(id, offset) {
       var defer = $q.defer();
 
-      $http.get(endPoint.api + "/user/feed_activity/event?id=" + id + "&offset=" + offset + "&user_hash=" + AuthService.current_user().hash).
+      $http.get(endPoint.api + '/user/feed_activity/event?id=' + id + '&offset=' + offset + '&user_hash=' + AuthService.current_user().hash).
         success(function(response) {
           defer.resolve(response);
         }).
@@ -34,7 +34,7 @@ app.factory('EventService', ['$http', '$resource', '$q', 'endPoint', 'AuthServic
       return defer.promise;
     },
     categories: function() {
-      return $http.get(endPoint.api + "/user/feed_activity/event-categories?user_hash=" + AuthService.current_user().hash);
+      return $http.get(endPoint.api + '/user/feed_activity/event-categories?user_hash=' + AuthService.current_user().hash);
     }
   };
 }]);
