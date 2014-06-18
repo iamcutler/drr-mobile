@@ -4,22 +4,22 @@ app.controller('DirtyGirlsController', ['$scope', '$state', '$stateParams', '$up
   function($scope, $state, $stateParams, $upload, $modal, DirtyGirlsService, AuthService, endPoint, dirty_girls) {
 
   // Dirty Girls
-  if($state.current.name == "dirty-girls") {
-    $scope.title = "Dirty Girls";
+  if($state.current.name === 'dirty-girls') {
+    $scope.title = 'Dirty Girls';
     // Call to service to fetch data
     $scope.dirty_girls = dirty_girls;
   }
 
   // Dirty girl page
-  if($state.current.name == "dirty-girl-page") {
+  if($state.current.name === 'dirty-girl-page') {
     // Call dirty girl service to fetch dirty girl data
     $scope.title = dirty_girls.name;
     $scope.dirty_girl = dirty_girls;
   }
 
   // Dirty girl submissions
-  if($state.current.name == "dirty-submission") {
-    $scope.title = "Dirty Girl Submission";
+  if($state.current.name === 'dirty-submission') {
+    $scope.title = 'Dirty Girl Submission';
     $scope.submissionSubmitted = false;
     $scope.submissionError = false;
     $scope.submissionErrorMsg = [];

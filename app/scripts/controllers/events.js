@@ -1,7 +1,8 @@
 'use strict';
 
 app.controller('EventsController', ['$scope', '$state', 'EventService', 'AuthService', 'ActivityService', 'event', function($scope, $state, EventService, AuthService, ActivityService, event) {
-  if($state.current.name = "event") {
+
+  if($state.current.name === 'event') {
     $scope.title = event.event.title;
     $scope.event = event;
     $scope.busy = false;
@@ -18,7 +19,7 @@ app.controller('EventsController', ['$scope', '$state', 'EventService', 'AuthSer
 
     var formatDateTimeUTC = function(scope) {
 
-      angular.forEach(scope, function(value, key) {
+      angular.forEach(scope, function(value) {
         value.created = moment.utc(value.created).local();
         angular.forEach(value.comments, function(v, k) {
           v.created = moment.utc(v.created).local();
@@ -33,7 +34,7 @@ app.controller('EventsController', ['$scope', '$state', 'EventService', 'AuthSer
       // Check if current user is a attaining member of the event
       member: function() {
         var member = false;
-        angular.forEach($scope.event.event.members, function(value, key) {
+        angular.forEach($scope.event.event.members, function(value) {
           if(value.id == AuthService.current_user().id) {
             member = true;
           }
@@ -44,7 +45,7 @@ app.controller('EventsController', ['$scope', '$state', 'EventService', 'AuthSer
       attending: function() {
         var status = false;
 
-        angular.forEach($scope.event.event.members, function(value, key) {
+        angular.forEach($scope.event.event.members, function(value) {
           if(value.id == AuthService.current_user().id && value.status == 1) {
             status = true;
           }

@@ -2,7 +2,7 @@
 
 app.controller('VotingModalController', ['$scope', '$state', '$modalInstance', 'vote', function($scope, $state, $modalInstance, vote) {
   // Voting contestant scope
-  if($state.current.name == "vote") {
+  if($state.current.name === 'vote') {
     $scope.contestant = vote.contestant;
     $scope.poll = vote.poll;
     $scope.user = vote.user;

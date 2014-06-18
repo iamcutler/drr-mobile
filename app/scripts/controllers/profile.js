@@ -14,7 +14,7 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
   };
 
   // Check for current profile state
-  if($state.current.name == "profile") {
+  if($state.current.name === 'profile') {
     $scope.title = $scope.profile.user.username;
     $scope.mediaWidth = Number($(window).width() - 20);
     $scope.feedCounter = 0;
@@ -62,7 +62,7 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
     };
 
     // Convert feed times to momentJS
-    $scope.$watchCollection('feed.feed', function(newVal, oldVal) {
+    $scope.$watchCollection('feed.feed', function(newVal) {
       angular.forEach(newVal, function(value, key) {
         $scope.feed.feed[key].created = moment.utc(value.created).local();
       });
@@ -89,26 +89,26 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
   }
 
   // About
-  if($state.current.name == "profile.about") {
-    $scope.title = "About" + " " + $scope.profile.user.username;
+  if($state.current.name === 'profile.about') {
+    $scope.title = 'About' + ' ' + $scope.profile.user.username;
     $scope.about_user = content;
   }
 
   // Friends
-  if($state.current.name == "profile.friends") {
+  if($state.current.name === 'profile.friends') {
     $scope.title = $scope.profile.user.username + "'s friends";
     $scope.friends = content;
     $scope.nameLabel = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
   }
   
   // Albums
-  if($state.current.name == "profile.albums") {
+  if($state.current.name === 'profile.albums') {
     $scope.title = $scope.profile.user.username + "'s albums";
     $scope.albums = content;
   }
 
   // Photos
-  if($state.current.name == "profile.albums.photos") {
+  if($state.current.name === 'profile.albums.photos') {
     $scope.title = content.name;
     $scope.photos = content;
 
@@ -119,13 +119,13 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
   }
 
   // Videos
-  if($state.current.name == "profile.videos") {
+  if($state.current.name === 'profile.videos') {
     $scope.title = $scope.profile.user.username + "'s videos";
     $scope.videos = content;
   }
 
   // Video page
-  if($state.current.name == "profile.video") {
+  if($state.current.name === 'profile.video') {
     $scope.title = 'Video';
     $scope.video = content;
     $scope.mediaWidth = Number($(window).width() - 20);
@@ -146,8 +146,8 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
   }
 
   // Photo page
-  if($state.current.name == "profile.photo") {
-    $scope.title = "Photo";
+  if($state.current.name === 'profile.photo') {
+    $scope.title = 'Photo';
     $scope.photo = content;
 
     // If photo is emtpy, go back in history
@@ -166,13 +166,13 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
   }
 
   // Events
-  if($state.current.name == "profile.events") {
+  if($state.current.name === 'profile.events') {
     $scope.title = $scope.profile.user.username + "'s events";
     $scope.events = content;
   }
 
   // Groups
-  if($state.current.name == "profile.groups") {
+  if($state.current.name === 'profile.groups') {
     $scope.title = $scope.profile.user.username + "'s groups";
     $scope.groups = content;
   }

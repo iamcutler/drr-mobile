@@ -2,8 +2,8 @@
 
 app.controller('UserController', ['$scope', '$state', 'UserService', 'account', function($scope, $state, UserService, account) {
   // Account settings
-  if($state.current.name = "account-settings") {
-    $scope.title = "Account Settings";
+  if($state.current.name === 'account-settings') {
+    $scope.title = 'Account Settings';
     $scope.settings = account;
     $scope.perferences = {};
     $scope.submitSuccess = false;

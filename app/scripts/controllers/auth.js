@@ -2,7 +2,7 @@
 
 app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore', 'AuthService', function($scope, $state, $location, $cookieStore, AuthService) {
   // Registration
-  if($state.current.name == "registeration") {
+  if($state.current.name === 'registeration') {
     $scope.register = {};
     $scope.registerSubmitted = false;
     $scope.registerErrorState = false;
@@ -30,7 +30,7 @@ app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore
           });
         }
       });
-    }
+    };
 
     // Process registartion
     $scope.processRegistration = function(form) {
@@ -65,11 +65,11 @@ app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore
           }
         });
       }
-    }
+    };
   }
 
   // Login
-  if($state.current.name == "login") {
+  if($state.current.name === 'login') {
     $scope.login = {};
     $scope.loginSubmitted = false;
     $scope.loginError = '';
@@ -107,11 +107,11 @@ app.controller('AuthController', ['$scope', '$state', '$location', '$cookieStore
         // Enable submit button
         submitBtn.prop('disabled', false);
       }
-    }
+    };
   }
 
   // Logout
-  if($state.current.name == "logout") {
+  if($state.current.name === 'logout') {
     AuthService.clear_user_session();
     AuthService.logout();
   }

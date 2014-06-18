@@ -43,7 +43,7 @@ app.controller('ActivityController', ['$scope', '$state', 'activity', 'WallServi
         console.error(response);
       });
     }
-  }
+  };
 
   var formatDatetime = function(scope) {
     scope.created = moment.utc(scope.created).local();
@@ -53,8 +53,8 @@ app.controller('ActivityController', ['$scope', '$state', 'activity', 'WallServi
   };
 
   // Profile activity
-  if($state.current.name = 'activity') {
-    $scope.title = "";
+  if($state.current.name === 'activity') {
+    $scope.title = '';
     $scope.activity = activity.activity;
     $scope.mediaWidth = Number($(window).width() - 20);
     $scope.new_comment = {

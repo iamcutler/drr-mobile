@@ -25,7 +25,7 @@ app.directive('submissionUploadBtn', function() {
     scope: {
       submissionUploadBtn: '@'
     },
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem) {
       elem.bind("click", function() {
         $('input#' + scope.submissionUploadBtn).click();
       });

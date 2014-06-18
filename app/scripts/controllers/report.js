@@ -1,11 +1,11 @@
 'use strict';
 
-app.controller("ReportController", ['$scope', '$state', '$location', 'ReportService',
+app.controller('ReportController', ['$scope', '$state', '$location', 'ReportService',
   function($scope, $state, $location, ReportService) {
   
   // Report Bug
-  if($state.current.name == "report-bug") {
-    $scope.title = "Report a Problem";
+  if($state.current.name === 'report-bug') {
+    $scope.title = 'Report a Problem';
     $scope.reportSubmitted = false;
     $scope.reportError = '';
     $scope.reportSuccess = false;

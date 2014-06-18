@@ -4,7 +4,7 @@ app.controller('VotingController', ['$scope', '$state', '$location', '$modal', '
   function($scope, $state, $location, $modal, VotingService, votes) {
 
   // Voting
-  if($state.current.name == "vote") {
+  if($state.current.name === 'vote') {
     // Call dirty girls voting service
     var timer = VotingService.get_vote_timestamp();
 
@@ -63,8 +63,8 @@ app.controller('VotingController', ['$scope', '$state', '$location', '$modal', '
     });
   }
 
-  if($state.current.name == "vote-results") {
-    $scope.title = "Current Poll Results";
+  if($state.current.name === 'vote-results') {
+    $scope.title = 'Current Poll Results';
     // Call dirty girls voting service
     $scope.voting = votes;
 

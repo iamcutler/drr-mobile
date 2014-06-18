@@ -3,7 +3,7 @@
 app.directive('sendReport', function () {
   return {
     restrict: 'A',
-    link: function postLink(scope, element, attrs) {
+    link: function postLink(scope, element) {
       element.click(function() {
         scope.$watch('reportBug.$valid', function(validity) {
           if(validity) {

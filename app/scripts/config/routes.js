@@ -1,68 +1,70 @@
+'use strict';
+
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
   // Enable HTML5 Push State
   $locationProvider.html5Mode(false);
   
   // For any unmatched url, redirect to home
-  $urlRouterProvider.otherwise("/feed");
+  $urlRouterProvider.otherwise('/feed');
   
   $stateProvider
     // Layouts
-    .state("default", {
+    .state('default', {
       abstract: true,
-      controller: "ApplicationController",
-      templateUrl: "/views/layouts/default.html"
+      controller: 'ApplicationController',
+      templateUrl: '/views/layouts/default.html'
     })
-    .state("auth", {
+    .state('auth', {
       abstract: true,
-      controller: "ApplicationController",
-      templateUrl: "/views/layouts/auth.html"
+      controller: 'ApplicationController',
+      templateUrl: '/views/layouts/auth.html'
     })
     // Authenicatation
-    .state("login", {
-      parent: "auth",
-      url: "/login",
-      controller: "AuthController",
-      templateUrl: "/views/auth/login.html",
+    .state('login', {
+      parent: 'auth',
+      url: '/login',
+      controller: 'AuthController',
+      templateUrl: '/views/auth/login.html',
       access: {
         require_user: false,
         allowLoggedIn: false
       }
     })
-    .state("registeration", {
-      parent: "auth",
-      url: "/register",
-      controller: "AuthController",
-      templateUrl: "/views/auth/register.html",
+    .state('registeration', {
+      parent: 'auth',
+      url: '/register',
+      controller: 'AuthController',
+      templateUrl: '/views/auth/register.html',
       access: {
         require_user: false,
         allowLoggedIn: false
       }
     })
-    .state("logout", {
-      parent: "default",
-      url: "/logout",
-      controller: "AuthController",
-      templateUrl: "/views/auth/logout.html",
+    .state('logout', {
+      parent: 'default',
+      url: '/logout',
+      controller: 'AuthController',
+      templateUrl: '/views/auth/logout.html',
       access: {
         require_user: true
       }
     })
     // Welcome
-    .state("welcome", {
-      parent: "default",
-      url: "/welcome",
-      controller: "ApplicationController",
-      templateUrl: "/views/account/welcome.html",
+    .state('welcome', {
+      parent: 'default',
+      url: '/welcome',
+      controller: 'ApplicationController',
+      templateUrl: '/views/account/welcome.html',
       access: {
         require_user: true
       }
     })
     // New Feed
-    .state("feed", {
-      parent: "default",
-      url: "/feed",
-      controller: "FeedController",
-      templateUrl: "/views/news-feed/index.html",
+    .state('feed', {
+      parent: 'default',
+      url: '/feed',
+      controller: 'FeedController',
+      templateUrl: '/views/news-feed/index.html',
       access: {
         require_user: true
       },
@@ -73,11 +75,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       }
     })
     // My Messages
-    .state("messages", {
-      parent: "default",
-      url: "/messages",
-      controller: "MessagesController",
-      templateUrl: "/views/messages/index.html",
+    .state('messages', {
+      parent: 'default',
+      url: '/messages',
+      controller: 'MessagesController',
+      templateUrl: '/views/messages/index.html',
       access: {
         require_user: true
       },
@@ -87,11 +89,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         }
       }
     })
-    .state("messages.thread", {
-      parent: "default",
-      url: "/messages/:id",
-      controller: "MessagesController",
-      templateUrl: "/views/messages/thread.html",
+    .state('messages.thread', {
+      parent: 'default',
+      url: '/messages/:id',
+      controller: 'MessagesController',
+      templateUrl: '/views/messages/thread.html',
       access: {
         require_user: true
       },
@@ -102,11 +104,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       }
     })
     // Friend Requests
-    .state("friend-requests", {
-      parent: "default",
-      url: "/requests",
-      controller: "RequestsController",
-      templateUrl: "/views/friend-requests/index.html",
+    .state('friend-requests', {
+      parent: 'default',
+      url: '/requests',
+      controller: 'RequestsController',
+      templateUrl: '/views/friend-requests/index.html',
       access: {
         require_user: true
       },
@@ -117,11 +119,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       }
     })
     // ---------------- Profile ------------------
-    .state("profile", {
-      parent: "default",
-      url: "/profile/:slug",
-      controller: "ProfileController",
-      templateUrl: "/views/profile/index.html",
+    .state('profile', {
+      parent: 'default',
+      url: '/profile/:slug',
+      controller: 'ProfileController',
+      templateUrl: '/views/profile/index.html',
       access: {
         require_user: true
       },
@@ -132,11 +134,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         content: function() {}
       }
     })
-    .state("profile.about", {
-      parent: "default",
-      url: "/profile/:slug/about",
-      controller: "ProfileController",
-      templateUrl: "/views/profile/about.html",
+    .state('profile.about', {
+      parent: 'default',
+      url: '/profile/:slug/about',
+      controller: 'ProfileController',
+      templateUrl: '/views/profile/about.html',
       access: {
         require_user: true
       },
@@ -149,11 +151,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         }
       }
     })
-    .state("profile.friends", {
-      parent: "default",
-      url: "/profile/:slug/friends",
-      controller: "ProfileController",
-      templateUrl: "/views/profile/friends.html",
+    .state('profile.friends', {
+      parent: 'default',
+      url: '/profile/:slug/friends',
+      controller: 'ProfileController',
+      templateUrl: '/views/profile/friends.html',
       access: {
         require_user: true
       },
@@ -166,11 +168,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         }
       }
     })
-    .state("profile.albums", {
-      parent: "default",
-      url: "/profile/:slug/photo_albums",
-      controller: "ProfileController",
-      templateUrl: "/views/profile/albums.html",
+    .state('profile.albums', {
+      parent: 'default',
+      url: '/profile/:slug/photo_albums',
+      controller: 'ProfileController',
+      templateUrl: '/views/profile/albums.html',
       access: {
         require_user: true
       },
@@ -183,11 +185,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         }
       }
     })
-    .state("profile.albums.photos", {
-      parent: "default",
-      url: "/profile/:slug/album/:id",
-      controller: "ProfileController",
-      templateUrl: "/views/profile/photos.html",
+    .state('profile.albums.photos', {
+      parent: 'default',
+      url: '/profile/:slug/album/:id',
+      controller: 'ProfileController',
+      templateUrl: '/views/profile/photos.html',
       access: {
         require_user: true
       },
@@ -200,11 +202,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         }
       }
     })
-    .state("profile.photo", {
-      parent: "default",
-      url: "/profile/:slug/photo/:id",
-      controller: "ProfileController",
-      templateUrl: "/views/profile/photo.html",
+    .state('profile.photo', {
+      parent: 'default',
+      url: '/profile/:slug/photo/:id',
+      controller: 'ProfileController',
+      templateUrl: '/views/profile/photo.html',
       access: {
         require_user: true
       },
@@ -215,11 +217,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         }
       }
     })
-    .state("profile.videos", {
-      parent: "default",
-      url: "/profile/:slug/videos",
-      controller: "ProfileController",
-      templateUrl: "/views/profile/videos.html",
+    .state('profile.videos', {
+      parent: 'default',
+      url: '/profile/:slug/videos',
+      controller: 'ProfileController',
+      templateUrl: '/views/profile/videos.html',
       access: {
         require_user: true
       },
@@ -232,11 +234,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         }
       }
     })
-    .state("profile.video", {
-      parent: "default",
-      url: "/profile/:slug/video/:id",
-      controller: "ProfileController",
-      templateUrl: "/views/profile/video.html",
+    .state('profile.video', {
+      parent: 'default',
+      url: '/profile/:slug/video/:id',
+      controller: 'ProfileController',
+      templateUrl: '/views/profile/video.html',
       access: {
         require_user: true
       },
@@ -247,11 +249,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         }
       }
     })
-    .state("profile.events", {
-      parent: "default",
-      url: "/profile/:slug/events",
-      controller: "ProfileController",
-      templateUrl: "/views/profile/events.html",
+    .state('profile.events', {
+      parent: 'default',
+      url: '/profile/:slug/events',
+      controller: 'ProfileController',
+      templateUrl: '/views/profile/events.html',
       access: {
         require_user: true
       },
@@ -264,11 +266,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         }
       }
     })
-    .state("profile.groups", {
-      parent: "default",
-      url: "/profile/:slug/groups",
-      controller: "ProfileController",
-      templateUrl: "/views/profile/groups.html",
+    .state('profile.groups', {
+      parent: 'default',
+      url: '/profile/:slug/groups',
+      controller: 'ProfileController',
+      templateUrl: '/views/profile/groups.html',
       access: {
         require_user: true
       },
@@ -282,11 +284,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       }
     })
     // -------------------- Groups --------------------
-    .state("group", {
-      parent: "default",
-      url: "/groups/:id",
-      controller: "GroupController",
-      templateUrl: "/views/groups/index.html",
+    .state('group', {
+      parent: 'default',
+      url: '/groups/:id',
+      controller: 'GroupController',
+      templateUrl: '/views/groups/index.html',
       access: {
         require_user: true
       },
@@ -297,11 +299,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       }
     })
     // -------------------- Events --------------------
-    .state("event", {
-      parent: "default",
-      url: "/events/:id",
-      controller: "EventsController",
-      templateUrl: "/views/events/index.html",
+    .state('event', {
+      parent: 'default',
+      url: '/events/:id',
+      controller: 'EventsController',
+      templateUrl: '/views/events/index.html',
       access: {
         require_user: true
       },
@@ -311,40 +313,40 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         }
       }
     })
-    .state("event.search", {
-      parent: "default",
-      url: "/search/events",
-      controller: "SearchController",
-      templateUrl: "/views/events/search.html",
+    .state('event.search', {
+      parent: 'default',
+      url: '/search/events',
+      controller: 'SearchController',
+      templateUrl: '/views/events/search.html',
       access: {
         require_user: true
       }
     })
     // -------------------- Search --------------------
-    .state("search-people", {
-      parent: "default",
-      url: "/search/people",
-      controller: "SearchController",
-      templateUrl: "/views/search/people.html",
+    .state('search-people', {
+      parent: 'default',
+      url: '/search/people',
+      controller: 'SearchController',
+      templateUrl: '/views/search/people.html',
       access: {
         require_user: true
       }
     })
-    .state("search-groups", {
-      parent: "default",
-      url: "/search/groups",
-      controller: "SearchController",
-      templateUrl: "/views/search/groups.html",
+    .state('search-groups', {
+      parent: 'default',
+      url: '/search/groups',
+      controller: 'SearchController',
+      templateUrl: '/views/search/groups.html',
       access: {
         require_user: true
       }
     })
     // -------------------- Media --------------------
-    .state("media", {
-      parent: "default",
-      url: "/media",
-      controller: "MediaController",
-      templateUrl: "/views/media/index.html",
+    .state('media', {
+      parent: 'default',
+      url: '/media',
+      controller: 'MediaController',
+      templateUrl: '/views/media/index.html',
       access: {
         require_user: true
       },
@@ -355,11 +357,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       }
     })
     // -------------------- Dirty Girls --------------------
-    .state("dirty-girls", {
-      parent: "default",
-      url: "/dirty-girls",
-      controller: "DirtyGirlsController",
-      templateUrl: "/views/dirty-girls/index.html",
+    .state('dirty-girls', {
+      parent: 'default',
+      url: '/dirty-girls',
+      controller: 'DirtyGirlsController',
+      templateUrl: '/views/dirty-girls/index.html',
       access: {
         require_user: true
       },
@@ -369,11 +371,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         }
       }
     })
-    .state("dirty-girl-page", {
-      parent: "default",
-      url: "/dirty-girl/:id",
-      controller: "DirtyGirlsController",
-      templateUrl: "/views/dirty-girls/page.html",
+    .state('dirty-girl-page', {
+      parent: 'default',
+      url: '/dirty-girl/:id',
+      controller: 'DirtyGirlsController',
+      templateUrl: '/views/dirty-girls/page.html',
       access: {
         require_user: true
       },
@@ -383,11 +385,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         }
       }
     })
-    .state("dirty-submission", {
-      parent: "default",
-      url: "/dirty-submission",
-      controller: "DirtyGirlsController",
-      templateUrl: "/views/dirty-girls/submission.html",
+    .state('dirty-submission', {
+      parent: 'default',
+      url: '/dirty-submission',
+      controller: 'DirtyGirlsController',
+      templateUrl: '/views/dirty-girls/submission.html',
       access: {
         require_user: true
       },
@@ -396,11 +398,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       }
     })
     // -------------------- Voting --------------------
-    .state("vote", {
-      parent: "default",
-      url: "/vote",
-      controller: "VotingController",
-      templateUrl: "/views/voting/vote.html",
+    .state('vote', {
+      parent: 'default',
+      url: '/vote',
+      controller: 'VotingController',
+      templateUrl: '/views/voting/vote.html',
       access: {
         require_user: true
       },
@@ -411,11 +413,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       }
     })
     // Voting Results
-    .state("vote-results", {
-      parent: "default",
-      url: "/vote/results",
-      controller: "VotingController",
-      templateUrl: "/views/voting/results.html",
+    .state('vote-results', {
+      parent: 'default',
+      url: '/vote/results',
+      controller: 'VotingController',
+      templateUrl: '/views/voting/results.html',
       access: {
         require_user: true
       },
@@ -426,21 +428,21 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       }
     })
     // -------------------- Report bugs/problems --------------------
-    .state("report-bug", {
-      parent: "default",
-      url: "/report",
-      controller: "ReportController",
-      templateUrl: "/views/report/bug.html",
+    .state('report-bug', {
+      parent: 'default',
+      url: '/report',
+      controller: 'ReportController',
+      templateUrl: '/views/report/bug.html',
       access: {
         require_user: true
       }
     })
     // Account settings
-    .state("account-settings", {
-      parent: "default",
-      url: "/preferences",
-      controller: "UserController",
-      templateUrl: "/views/account/settings.html",
+    .state('account-settings', {
+      parent: 'default',
+      url: '/preferences',
+      controller: 'UserController',
+      templateUrl: '/views/account/settings.html',
       access: {
         require_user: true
       },
@@ -451,11 +453,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       }
     })
     // Errors
-    .state("profile404", {
-      parent: "default",
-      url: "/error/profile/404",
-      controller: "ProfileController",
-      templateUrl: "/views/profile/404.html",
+    .state('profile404', {
+      parent: 'default',
+      url: '/error/profile/404',
+      controller: 'ProfileController',
+      templateUrl: '/views/profile/404.html',
       access: {
         require_user: true
       }

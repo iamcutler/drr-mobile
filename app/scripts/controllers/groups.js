@@ -3,7 +3,7 @@
 app.controller('GroupController', ['$scope', '$state', '$stateParams', '$location', 'group', function($scope, $state, $stateParams, $location, group) {
 
   // Find group by id
-  if($state.current.name == "group") {
+  if($state.current.name === 'group') {
     $scope.title = group.name.substr(0, 50);
     $scope.group = group;
     // Format group timestamp created to utc local

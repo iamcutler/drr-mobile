@@ -3,13 +3,13 @@
 app.controller('MediaController', ['$scope', '$state', 'media', 'ActivityService', function($scope, $state, media, ActivityService) {
 
   var formatTimeStamp = function(scope) {
-    angular.forEach(scope, function(val, key) {
+    angular.forEach(scope, function(val) {
       val.created = moment.utc(val.created).local();
     });
   };
 
-  if($state.current.name == "media") {
-    $scope.title = "Media";
+  if($state.current.name === 'media') {
+    $scope.title = 'Media';
     $scope.media = media;
     $scope.media_counter = 10;
     $scope.busy = false;
@@ -17,7 +17,7 @@ app.controller('MediaController', ['$scope', '$state', 'media', 'ActivityService
     $scope.mediaWidth = Number($(window).width() - 20);
 
     // Format timestamps
-    $scope.$watchCollection('media', function(newVal, oldVal) {
+    $scope.$watchCollection('media', function(newVal) {
       formatTimeStamp(newVal);
     });
 
@@ -51,7 +51,7 @@ app.controller('MediaController', ['$scope', '$state', 'media', 'ActivityService
     };
   }
 
-  if($state.current.name == "activity") {
-    $scope.title = "Media Post";
+  if($state.current.name === 'activity') {
+    $scope.title = 'Media Post';
   }
 }]);

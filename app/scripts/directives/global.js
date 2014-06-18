@@ -1,10 +1,10 @@
 'use strict';
 
-app.directive("facebookLogin", ['$location', 'ezfb', 'AuthService', function($location, ezfb, AuthService) {
+app.directive('facebookLogin', ['$location', 'ezfb', 'AuthService', function($location, ezfb, AuthService) {
   return {
     restrict: 'E',
     template: '<a href="javascript:void(0)" class="btn btn-block btn-lg btn-facebook">Login via facebook</a>',
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem) {
       elem.bind('click', function() {
         // Check login status via facebook
         AuthService.facebook.status(function(res) {
@@ -23,7 +23,7 @@ app.directive("facebookLogin", ['$location', 'ezfb', 'AuthService', function($lo
                   $location.path('/welcome');
                 });
               } else {
-                scope.loginError = "Error logging in to facebook. Try again.";
+                scope.loginError = 'Error logging in to facebook. Try again.';
               }
             });
           }
@@ -33,8 +33,8 @@ app.directive("facebookLogin", ['$location', 'ezfb', 'AuthService', function($lo
   };
 }]);
 
-app.directive("toggleNavigation", function () {
-  return function(scope, elem, attrs) {
+app.directive('toggleNavigation', function () {
+  return function(scope, elem) {
     $(elem).click(function() {
       var appContainer = $("#app-container"),
            docWidth = $(document).width(),
@@ -42,12 +42,12 @@ app.directive("toggleNavigation", function () {
            position = 0;
            
       // Set position/toggle on navigation
-      if(elem.hasClass("showNavi")) {
+      if(elem.hasClass('showNavi')) {
         position = 0;
-        elem.removeClass("showNavi");
+        elem.removeClass('showNavi');
       } else {
         position = docWidth - 64;
-        elem.addClass("showNavi");
+        elem.addClass('showNavi');
       }
       
       // Animate navigation sliding
@@ -58,7 +58,7 @@ app.directive("toggleNavigation", function () {
   };
 });
 
-app.directive("navigationItem", function() {
+app.directive('navigationItem', function() {
   return {
     restrict: 'E',
     scope: {
@@ -67,19 +67,19 @@ app.directive("navigationItem", function() {
       title: '@'
     },
     template: '<a ng-href="{{ ngHref }}" class="menu-link"><div class="menu-icon"><i>{{ icon }}</i></div>{{ title }}</a>',
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem) {
       // On click, close navigation
-      elem.bind("click", function() {
-        $("#app-container").animate({
+      elem.bind('click', function() {
+        $('#app-container').animate({
           left: "0px"
         }, 400);
-        $("button.navbar-toggle").removeClass("showNavi");
+        $('button.navbar-toggle').removeClass('showNavi');
       });
     }
   }
 });
 
-app.directive("navigationUser", function() {
+app.directive('navigationUser', function() {
   return {
     restrict: 'E',
     scope: {
@@ -88,19 +88,19 @@ app.directive("navigationUser", function() {
       thumbnail: '@'
     },
     template: '<a ng-href="{{ ngHref }}"><div class="thumb"><img ng-src="{{ thumbnail }}" /></div><span>{{ name }}</span></a>',
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem) {
       // On click, close navigation
-      elem.bind("click", function() {
-        $("#app-container").animate({
+      elem.bind('click', function() {
+        $('#app-container').animate({
           left: "0px"
         }, 400);
-        $("button.navbar-toggle").removeClass("showNavi");
+        $('button.navbar-toggle').removeClass('showNavi');
       });
     }
   }
 });
 
-app.directive("pageIcon", function() {
+app.directive('pageIcon', function() {
   return {
     restrict: 'E',
     scope: {
@@ -111,7 +111,7 @@ app.directive("pageIcon", function() {
   };
 });
 
-app.directive("toggleEventNav", function() {
+app.directive('toggleEventNav', function() {
   return function(scope, elem, attrs) {
     elem.bind('click', function() {
       $('section[id^=event-]').hide();
@@ -120,7 +120,7 @@ app.directive("toggleEventNav", function() {
   };
 });
 
-app.directive("toggleGroupNav", function() {
+app.directive('toggleGroupNav', function() {
   return function(scope, elem, attrs) {
     elem.bind('click', function() {
       $('section[id^=group-]').hide();
@@ -137,7 +137,7 @@ app.directive('fallbackSrc', function () {
 
         // Check if fallback is also broken
         fallback.error(function() {
-          angular.element(this).attr("src", '/images/img_placeholder.png');
+          angular.element(this).attr('src', '/images/img_placeholder.png');
         });
       });
     }

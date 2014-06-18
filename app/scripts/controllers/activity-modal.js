@@ -17,8 +17,8 @@ app.controller('ActivityModalController', ['$scope', '$modalInstance', 'AuthServ
   // Format momentJS timestamps
   $scope.activity.created = moment.utc($scope.activity.created).local();
 
-  $scope.$watchCollection('activity.comments', function(newValues, oldValues) {
-    angular.forEach(newValues, function(value, key) {
+  $scope.$watchCollection('activity.comments', function(newValues) {
+    angular.forEach(newValues, function(value) {
       value.date = moment.utc(value.date).local();
     });
   });

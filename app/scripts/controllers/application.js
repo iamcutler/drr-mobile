@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller("ApplicationController", ['$scope', '$state', '$cookies', '$timeout', 'endPoint', 'imgPlaceholder', 'environment', 'AuthService',
+app.controller('ApplicationController', ['$scope', '$state', '$cookies', '$timeout', 'endPoint', 'imgPlaceholder', 'environment', 'AuthService',
   function($scope, $state, $cookies, $timeout, endPoint, imgPlaceholder, environment, AuthService) {
   // Set constants in app scope
   $scope.cdnDomain = endPoint.cdn;
@@ -16,17 +16,17 @@ app.controller("ApplicationController", ['$scope', '$state', '$cookies', '$timeo
   $scope.current_user = AuthService.current_user();
 
   // CSRF Token for restricting access to app
-  $cookies["XSRF-TOKEN"] = "my_token";
+  $cookies['XSRF-TOKEN'] = 'my_token';
 
   // Welcome page for app launch
-  if($state.current.name == "welcome") {
-    $scope.title = "Welcome";
+  if($state.current.name === 'welcome') {
+    $scope.title = 'Welcome';
   }
 
   // Error Notifications
   // Send in a message object
   $scope.appErrors = [];
-  $scope.$watchCollection('appErrors', function(newVal, oldVal) {
+  $scope.$watchCollection('appErrors', function() {
     $timeout(function() {
       $scope.appErrors = [];
     }, 3000);
@@ -34,7 +34,7 @@ app.controller("ApplicationController", ['$scope', '$state', '$cookies', '$timeo
 
   // Detect mobile and redirect in production
   (function(a, b) {
-    if($scope.environment == "production" && !a.match(/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
+    if($scope.environment === 'production' && !a.match(/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
       window.location = b;
     }
   })(navigator.userAgent, 'http://www.dirtyrottenrides.com');
@@ -42,7 +42,7 @@ app.controller("ApplicationController", ['$scope', '$state', '$cookies', '$timeo
 
 // Init function to initializing application
 var appinit = function() {
-  if(document.cookie.indexOf('user_hash') < 0 && window.location.pathname != '/login') {
-    window.location.href = "/#/login";
+  if(document.cookie.indexOf('user_hash') < 0 && window.location.pathname !== '/login') {
+    window.location.href = '/#/login';
   }
 };

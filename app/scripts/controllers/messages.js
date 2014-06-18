@@ -1,19 +1,19 @@
 'use strict';
 
 app.controller('MessagesController', ['$scope', '$state', '$stateParams', '$location', '$anchorScroll', 'messages', 'MessageService', 'AuthService', function($scope, $state, $stateParams, $location, $anchorScroll, messages, MessageService, AuthService) {
-  if($state.current.name == "messages") {
-    $scope.title = "My Messages";
+  if($state.current.name === 'messages') {
+    $scope.title = 'My Messages';
 
     $scope.messages = messages;
 
     // Set message timestamps to js date local times
     // Detect user messages and replace with user thumbnail
-    angular.forEach($scope.messages, function(val, key) {
+    angular.forEach($scope.messages, function(val) {
       val.message.posted_on = moment.utc(val.message.posted_on).local();
     });
   }
 
-  if($state.current.name == "messages.thread") {
+  if($state.current.name === 'messages.thread') {
     // Set recepient name as the page title
     //$scope.title = $scope.messages.messages.subject;
 
@@ -31,7 +31,7 @@ app.controller('MessagesController', ['$scope', '$state', '$stateParams', '$loca
     $scope.thread = messages;
 
     // Set message timestamps to js date local times
-    angular.forEach($scope.thread.messages, function(val, key) {
+    angular.forEach($scope.thread.messages, function(val) {
       val.posted_on = moment.utc(val.posted_on).local();
     });
 
@@ -53,7 +53,7 @@ app.controller('MessagesController', ['$scope', '$state', '$stateParams', '$loca
         submitBtn.prop('disabled', true);
         submitBtn.addClass('message-loading');
 
-        message.then(function(response) {
+        message.then(function() {
           // Add new message to thread messages scope
           $scope.thread.messages.unshift({
             message: $scope.new_msg.message,
@@ -75,7 +75,7 @@ app.controller('MessagesController', ['$scope', '$state', '$stateParams', '$loca
 
           // Recall message service to get updated messages
           $scope.thread = messages;
-        }, function(response) {
+        }, function() {
           console.error('Error saving new message');
         });
       }

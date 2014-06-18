@@ -3,7 +3,7 @@
  * These angular directives are based on user activity. ex: Feeds, likes, etc.
  */
 
-app.directive("likeThis", ['LikeService', function(LikeService) {
+app.directive('likeThis', ['LikeService', function(LikeService) {
   return {
     restrict: 'A',
     scope: {
@@ -50,13 +50,13 @@ app.directive("likeThis", ['LikeService', function(LikeService) {
   };
 }]);
 
-app.directive("eventAttendance", ['ActivityService', function(ActivityService) {
+app.directive('eventAttendance', ['ActivityService', function(ActivityService) {
   return {
     restrict: 'A',
     scope: {
       target: '@'
     },
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem) {
       elem.bind('change', function() {
         //Update user attendance to this event
         ActivityService.event_attendance(scope.target);
@@ -65,7 +65,7 @@ app.directive("eventAttendance", ['ActivityService', function(ActivityService) {
   };
 }]);
 
-app.directive("removeActivity", ['ActivityService', function(ActivityService) {
+app.directive('removeActivity', ['ActivityService', function(ActivityService) {
   return {
     restrict: 'A',
     scope: {
@@ -74,7 +74,7 @@ app.directive("removeActivity", ['ActivityService', function(ActivityService) {
       app: '@',
       target: '@'
     },
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem) {
       elem.bind('click', function() {
         //if(confirm('Are you sure?')) {
           var remove = ActivityService.delete(scope.target, scope.app);
@@ -90,7 +90,7 @@ app.directive("removeActivity", ['ActivityService', function(ActivityService) {
   };
 }]);
 
-app.directive("removeWall", ['WallService', function(WallService) {
+app.directive('removeWall', ['WallService', function(WallService) {
   return {
     restrict: 'A',
     scope: {
@@ -98,7 +98,7 @@ app.directive("removeWall", ['WallService', function(WallService) {
       target: '@',
       index: '@'
     },
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem) {
       elem.bind('click', function() {
         if(confirm('Are you sure you want to remove this comment?')) {
           var remove = WallService.delete(scope.target);
@@ -162,7 +162,7 @@ app.directive('showActivity', ['$modal', function($modal) {
       activity: '=showActivity',
       endPoint: '=media'
     },
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem) {
       elem.bind('click', function() {
         $modal.open({
           controller: 'ActivityModalController',
@@ -183,7 +183,7 @@ app.directive('zoomFeedPhoto', ['$modal', function($modal) {
       activity: '=zoomFeedPhoto',
       endPoint: '=media'
     },
-    link: function(scope, elem, attrs) {
+    link: function(scope, elem) {
       elem.bind('click', function() {
         $modal.open({
           controller: 'ActivityModalController',

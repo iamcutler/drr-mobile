@@ -2,9 +2,9 @@
 
 app.controller('SearchController', ['$scope', '$state', 'SearchService', function($scope, $state, SearchService) {
 
-  if($state.current.name == "search-people")
+  if($state.current.name == 'search-people')
   {
-    $scope.title = "Find People";
+    $scope.title = 'Find People';
     $scope.loading = false;
     $scope.load_counter = 0;
     $scope.scroll_disabled = false;
@@ -74,15 +74,15 @@ app.controller('SearchController', ['$scope', '$state', 'SearchService', functio
   }
 
   // Find Events
-  if($state.current.name == "event.search") {
-    $scope.title = "Find Upcoming Events";
+  if($state.current.name === 'event.search') {
+    $scope.title = 'Find Upcoming Events';
     $scope.loading = false;
     $scope.load_counter = 0;
     $scope.scroll_disabled = false;
     $scope.search = {
       type: [
-        { value: "name", name: "Name" },
-        { value: "location", name: "Location" }
+        { value: 'name', name: 'Name' },
+        { value: 'location', name: 'Location' }
       ],
       params: {
         q: '',
@@ -151,16 +151,16 @@ app.controller('SearchController', ['$scope', '$state', 'SearchService', functio
   }
 
   // Search Groups
-  if($state.current.name == "search-groups") {
-    $scope.title = "Find Groups";
+  if($state.current.name === 'search-groups') {
+    $scope.title = 'Find Groups';
 
     $scope.loading = false;
     $scope.load_counter = 0;
     $scope.scroll_disabled = false;
     $scope.search = {
       type: [
-        { value: "name", name: "Name" },
-        { value: "location", name: "Location" }
+        { value: 'name', name: 'Name' },
+        { value: 'location', name: 'Location' }
       ],
       params: {
         q: '',
@@ -202,7 +202,7 @@ app.controller('SearchController', ['$scope', '$state', 'SearchService', functio
         }
 
         // Add response to results object scope
-        angular.forEach(response, function(value, key) {
+        angular.forEach(response, function(value) {
           $scope.search.results.push(value);
         });
       }, function(error) {

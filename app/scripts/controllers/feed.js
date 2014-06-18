@@ -2,14 +2,14 @@
 
 app.controller('FeedController', ['$scope', '$state', 'ActivityService', 'feed', function($scope, $state, ActivityService, feed) {
   var formatTimeStamp = function(scope) {
-    angular.forEach(scope, function(val, key) {
+    angular.forEach(scope, function(val) {
       val.created = moment.utc(val.created).local();
     });
   };
 
   // News feed state
-  if($state.current.name == 'feed') {
-    $scope.title = "News Feed";
+  if($state.current.name === 'feed') {
+    $scope.title = 'News Feed';
     // Set counter for infinite scrolling
     $scope.pageCounter = 10;
     // Assign scope feed to resolved promise
