@@ -1,5 +1,7 @@
 <article class="feed-article" ng-switch="activity.app">
   <header>
+    <span class="glyphicon glyphicon-remove" ng-if="activity.actor.id == current_user.id" model="feed" target="{{ activity.id }}" app="{{ activity.app }}" index="{{ $index }}" remove-activity></span>
+
     <a ng-href="/#/profile/{{ activity.actor.slug }}">
       <div class="thumb">
         <img ng-src="{{ cdnDomain + activity.actor.thumbnail }}" fallback-src="{{ drrDomain + activity.actor.thumbnail }}" />
