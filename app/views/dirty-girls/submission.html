@@ -148,7 +148,7 @@
         <h5>You're required to submit 5 images of yourself</h5>
       </div>
       <div class="col-xs-12">
-        <input type="file" id="uploadSubmissionImages" name="image1" accept="image/*" ng-file-select="submission.submit(dirtySubmissionForm, $files)" style="display: none;" multiple required />
+        <input type="file" id="uploadSubmissionImages" name="image1" accept="image/*;capture=camera" ng-file-select="submission.submit(dirtySubmissionForm, $files)" style="display: none;" multiple required />
         <button type="button" class="btn btn-block btn-lg btn-primary" submission-upload-btn="uploadSubmissionImages">Upload 5 Images & Submit</button>
       </div>
     </div>
