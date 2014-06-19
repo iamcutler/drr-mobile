@@ -1,53 +1,55 @@
-<article class="feed-article" ng-switch="feed.app">
+<article class="feed-article" ng-switch="activity.app">
   <header>
+    <span class="glyphicon glyphicon-remove" ng-if="activity.actor.id == current_user.id" model="feed.feed" target="{{ activity.id }}" app="{{ activity.app }}" index="{{ $index }}" remove-activity></span>
+
     <div class="thumb">
-      <img ng-src="{{ cdnDomain + feed.actor.thumbnail }}" fallback-src="{{ drrDomain + feed.actor.thumbnail }}" />
+      <img ng-src="{{ cdnDomain + activity.actor.thumbnail }}" fallback-src="{{ drrDomain + activity.actor.thumbnail }}" />
     </div>
-    <h2>{{ feed.actor.username }}</h2>
-    <span am-time-ago="feed.created"></span>
+    <h2>{{ activity.actor.username }}</h2>
+    <span am-time-ago="activity.created"></span>
     <div class="clearfix"></div>
   </header>
 
   <!-- Content -->
   <p ng-switch-when="profile">
-    {{ feed.title }}
+    {{ activity.title }}
   </p>
 
   <p ng-switch-when="friends.connect">
-    {{ feed.user.name }} and {{ feed.target.name }} have become friends.
+    {{ activity.user.name }} and {{ activity.target.name }} have become friends.
   </p>
 
-  <div class="media-wrapper" ng-switch-when="videos" ng-switch="feed.media.type">
+  <div class="media-wrapper" ng-switch-when="videos" ng-switch="activity.media.type">
     <div class="video-icon"></div>
-    <img ng-src="{{ cdnDomain + feed.media.thumb }}" fallback-src="{{ drrDomain + feed.media.thumb }}" ng-switch-when="file" show-media-video="{{ feed.media.path }}" media-id="video-{{ feed.media.id }}" media-type="{{ feed.media.type }}" />
-    <embed ng-switch-when="youtube" ng-src="{{ feed.media.video_id | trustVideoURL:'youtube' }}" width="{{ mediaWidth }}" height="300" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true">
-    <iframe ng-switch-when="vimeo" ng-src="{{ feed.media.video_id | trustVideoURL:'vimeo' }}" width="{{ mediaWidth }}" height="300" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <a ng-href="{{ feed.media.path }}" target="_blank" ng-switch-default>
-      <img ng-src="{{ cdnDomain + feed.media.thumb }}" fallback-src="{{ drrDomain + feed.media.thumb }}" />
+    <img ng-src="{{ cdnDomain + activity.media.thumb }}" fallback-src="{{ drrDomain + activity.media.thumb }}" ng-switch-when="file" show-media-video="{{ activity.media.path }}" media-id="video-{{ activity.media.id }}" media-type="{{ activity.media.type }}" />
+    <embed ng-switch-when="youtube" ng-src="{{ activity.media.video_id | trustVideoURL:'youtube' }}" width="{{ mediaWidth }}" height="300" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true">
+    <iframe ng-switch-when="vimeo" ng-src="{{ activity.media.video_id | trustVideoURL:'vimeo' }}" width="{{ mediaWidth }}" height="300" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <a ng-href="{{ activity.media.path }}" target="_blank" ng-switch-default>
+      <img ng-src="{{ cdnDomain + activity.media.thumb }}" fallback-src="{{ drrDomain + activity.media.thumb }}" />
     </a>
   </div>
 
   <p ng-switch-when="profile.avatar.upload">
-    {{ feed.actor.name }} uploaded a new profile thumbnail!
+    {{ activity.actor.name }} uploaded a new profile thumbnail!
   </p>
 
   <figure class="photo-container" ng-switch-when="photos">
-    <div class="media-wrapper" zoom-feed-photo="feed" media="endPoint">
-      <img ng-src="{{ cdnDomain + feed.media.image }}" fallback-src="{{ drrDomain + feed.media.image }}" />
+    <div class="media-wrapper" zoom-feed-photo="activity" media="endPoint">
+      <img ng-src="{{ cdnDomain + activity.media.image }}" fallback-src="{{ drrDomain + activity.media.image }}" />
     </div>
-    <figcaption ng-if="feed.media.caption != ''">{{ feed.media.caption }}</figcaption>
+    <figcaption ng-if="activity.media.caption != ''">{{ activity.media.caption }}</figcaption>
   </figure>
   
   <footer>
-    <span class="stats">{{ feed.stats.likes }} likes &bull; {{ feed.comments.length }} comments</span>
+    <span class="stats">{{ activity.stats.likes }} likes &bull; {{ activity.comments.length }} comments</span>
     
     <div class="row">
       <div class="col-xs-6" style="padding-right: 4px;">
-        <button type="button" ng-show="!feed.stats.user.like" class="btn btn-block btn-lg btn-default" element="{{ feed.like_type }}" id="{{ feed.like_id }}" like="1" model="feed" like-this><i>T</i> I Like This</button>
-        <button type="button" ng-show="feed.stats.user.like" class="btn btn-block btn-lg btn-liked" element="{{ feed.like_type }}" id="{{ feed.like_id }}" like="1" model="feed" like-this><i>T</i> I Liked This</button>
+        <button type="button" ng-show="!activity.stats.user.like" class="btn btn-block btn-lg btn-default" element="{{ activity.like_type }}" id="{{ activity.like_id }}" like="1" model="activity" like-this><i>T</i> I Like This</button>
+        <button type="button" ng-show="activity.stats.user.like" class="btn btn-block btn-lg btn-liked" element="{{ activity.like_type }}" id="{{ activity.like_id }}" like="1" model="activity" like-this><i>T</i> I Liked This</button>
       </div>
       <div class="col-xs-6" style="padding-left: 4px;">
-        <a href="javascript:void(0)" class="btn btn-block btn-lg btn-default" show-activity="feed" media="endPoint"><i>K</i> Comment</a>
+        <a href="javascript:void(0)" class="btn btn-block btn-lg btn-default" show-activity="activity" media="endPoint"><i>K</i> Comment</a>
       </div>
     </div>
   </footer>
