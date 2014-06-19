@@ -26,8 +26,6 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
       // Start with empty feed collection
       feed: [],
       load: function() {
-        console.log('Feed loading');
-
         if(!$scope.disabledScroll && !$scope.busy) {
           // Busy disables scrolling && shows/hides loader.
           $scope.busy = true;
