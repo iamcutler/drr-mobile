@@ -91,6 +91,12 @@ and (max-width : 1024px) {
       }
     }
   }
+
+  // Bootstrap modal
+  .modal {
+    // Keep scrolling smooth on webkit
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 // ------------ Smart phone Media Queries --------------
@@ -234,5 +240,11 @@ and (max-width : 568px) {
         }
       }
     }
+  }
+
+  // Bootstrap modal
+  .modal {
+    // Keep scrolling smooth on webkit
+    -webkit-overflow-scrolling: touch;
   }
 }
