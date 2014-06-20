@@ -26,6 +26,7 @@ module.exports = function(config) {
       'app/bower_components/jasmine-jquery/lib/jasmine-jquery.js',
       'app/bower_components/sinonjs/sinon.js',
       'app/bower_components/jasmine-sinon/lib/jasmine-sinon.js',
+      'app/bower_components/angular-easyfb/angular-easyfb.js',
       'app/scripts/*.js',
       'app/views/**/*.html',
       'app/scripts/**/*.js',
