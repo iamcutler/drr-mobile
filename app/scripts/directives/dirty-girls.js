@@ -54,3 +54,24 @@ app.directive('enlargeDirtyImage', ['$modal', function($modal) {
     }
   };
 }]);
+
+// Show dirty girl page
+app.directive('dirtyGirlPage', ['$modal', function($modal) {
+  return {
+    restrict: 'A',
+    scope: {
+      dirty_girl: '=dirtyGirlPage'
+    },
+    link: function(scope, elem) {
+      elem.bind('click', function() {
+        $modal.open({
+          controller: 'DirtyGirlPageCtrl',
+          scope: scope,
+          templateUrl: '/views/dirty-girls/page.html',
+          windowClass: 'activity',
+          backdrop: 'static'
+        });
+      });
+    }
+  };
+}]);

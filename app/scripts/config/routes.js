@@ -371,20 +371,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         }
       }
     })
-    .state('dirty-girl-page', {
-      parent: 'default',
-      url: '/dirty-girl/:id',
-      controller: 'DirtyGirlsController',
-      templateUrl: '/views/dirty-girls/page.html',
-      access: {
-        require_user: true
-      },
-      resolve: {
-        dirty_girls: function($stateParams, DirtyGirlsService) {
-          return DirtyGirlsService.get_girl_by_id($stateParams.id);
-        }
-      }
-    })
     .state('dirty-submission', {
       parent: 'default',
       url: '/dirty-submission',

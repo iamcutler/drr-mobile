@@ -1,4 +1,12 @@
-<ng-include src="'/views/shared-partials/navbar-back.html'"></ng-include>
+<nav class="navbar">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle back-button" ng-click="close()">
+      <img src="/images/back-arrow.png" alt="" />
+    </button>
+  </div>
+
+  <h1>{{ dirty_girl.name }}</h1>
+</nav>
 
 <section class="dirty-girl-page">
   <h4 ng-if="dirty_girl.type == 0">DIRTY GIRL {{ dirty_girl.campaign_month | uppercase }} {{ dirty_girl.campaign_year | uppercase }}:</h4>

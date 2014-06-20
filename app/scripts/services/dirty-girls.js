@@ -24,18 +24,6 @@ app.factory('DirtyGirlsService', ['$resource', '$http', '$q', '$upload', 'endPoi
 
       return deferred.promise;
     },
-    get_girl_by_id: function(id) {
-      var deferred = $q.defer();
-
-      // Call service to fetch dirty girl
-      DirtyGirl.get({id: id}, function(response) {
-        deferred.resolve(response);
-      }, function() {
-        deferred.reject();
-      });
-
-      return deferred.promise;
-    },
     submission: function(params) {
       var defer = $q.defer();
 

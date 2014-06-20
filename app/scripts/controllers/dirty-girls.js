@@ -10,13 +10,6 @@ app.controller('DirtyGirlsController', ['$scope', '$state', '$stateParams', '$up
     $scope.dirty_girls = dirty_girls;
   }
 
-  // Dirty girl page
-  if($state.current.name === 'dirty-girl-page') {
-    // Call dirty girl service to fetch dirty girl data
-    $scope.title = dirty_girls.name;
-    $scope.dirty_girl = dirty_girls;
-  }
-
   // Dirty girl submissions
   if($state.current.name === 'dirty-submission') {
     $scope.title = 'Dirty Girl Submission';
