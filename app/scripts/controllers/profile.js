@@ -111,7 +111,7 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
     $scope.photos = content;
 
     // Redirect if private album only to self or correct owner
-    if(content.permission == '40' && profile.relation.self != true || content.album_owner == false) {
+    if(content.permission == '40' && profile.relation.self != true) {
       window.history.back();
     }
   }
