@@ -1,19 +1,10 @@
-<ng-include src="'/views/shared-partials/navbar-back.html'"></ng-include>
+<span class="glyphicon glyphicon-remove icon-white pull-right" style="padding: 20px 30px;" ng-click="close()"></span>
 
 <section class="activity-container">
   <article class="main">
-    <header>
-      <div class="thumb">
-        <img ng-src="{{ cdnDomain + photo.user.thumbnail }}" fallback-src="{{ drrDomain + photo.user.thumbnail }}" />
-      </div>
-      <h2>{{ photo.user.name }}</h2>
-      <span am-time-ago="photo.created"></span>
-      <div class="clearfix"></div>
-    </header>
-
     <figure class="photo-container">
-      <div class="media-wrapper">
-        <img ng-src="{{ cdnDomain + photo.media.image }}" fallback-src="{{ drrDomain + photo.media.image }}" />
+      <div class="media-wrapper album-photo">
+        <img ng-src="{{ endPoint.cdn + photo.image }}" fallback-src="{{ endPoint.drr + photo.image }}" />
       </div>
       <figcaption ng-if="photo.media.caption != ''">{{ photo.media.caption }}</figcaption>
     </figure>
@@ -51,11 +42,13 @@
   <form name="AddComment" ng-submit="composeComment(AddComment, photo.comments, new_comment)" novalidate>
     <div class="row-fluid">
       <div class="col-xs-10">
-        <input type="text" ng-model="new_comment.comment" required />
+        <input type="text" ng-model="new_comment.comment" placeholder="write something..." required />
       </div>
       <div class="col-xs-2">
         <button type="submit">Post</button>
       </div>
     </div>
   </form>
+
+  <div class="clearfix"></div>
 </div>

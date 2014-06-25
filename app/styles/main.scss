@@ -854,6 +854,10 @@ section.activity-container {
         height: 300px;
         overflow: hidden;
 
+        &.album-photo {
+          height: auto;
+        }
+
         img {
           width: 100%;
         }

@@ -196,3 +196,25 @@ app.directive('zoomFeedPhoto', ['$modal', function($modal) {
     }
   };
 }]);
+
+// Open new modal for album photos
+app.directive('albumPhoto', ['$modal', function($modal) {
+  return {
+    restrict: 'A',
+    scope: {
+      photo: '=albumPhoto',
+      endPoint: '=media'
+    },
+    link: function(scope, elem) {
+      elem.bind('click', function() {
+        $modal.open({
+          controller: 'PhotoModalCtrl',
+          scope: scope,
+          templateUrl: '/views/profile/photo.html',
+          windowClass: 'activity',
+          backdrop: 'static'
+        });
+      });
+    }
+  };
+}]);

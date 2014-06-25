@@ -143,26 +143,6 @@ app.controller('ProfileController', ['$scope', '$state', '$stateParams', '$locat
     formatMediaDatetime($scope.video);
   }
 
-  // Photo page
-  if($state.current.name === 'profile.photo') {
-    $scope.title = 'Photo';
-    $scope.photo = content;
-
-    // If photo is emtpy, go back in history
-    if(content.length === 0) {
-      window.history.back();
-    }
-
-    $scope.new_comment = {
-      cid: $scope.photo.id,
-      app: 'photos',
-      user: AuthService.current_user().id
-    };
-
-    // Format momentJS
-    formatMediaDatetime($scope.photo);
-  }
-
   // Events
   if($state.current.name === 'profile.events') {
     $scope.title = $scope.profile.user.username + "'s events";
