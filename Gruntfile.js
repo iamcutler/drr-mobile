@@ -30,10 +30,10 @@ module.exports = function (grunt) {
         constants: {
           'environment': 'development',
           'endPoint': {
-            'api': 'http://localhost:8000',
-            'resourceApi': 'http://localhost:8000\:8000',
+            'api': 'http://drrapi.app:8000',
+            'resourceApi': 'http://drrapi.app:8000\:8000',
             'cdn': 'https://d1rbyr9vwfcumm.cloudfront.net',
-            'drr': 'http://localhost:8000'
+            'drr': 'http://drrapi.app:8000'
           },
           facebook: {
             'appId': '582280241891915'
