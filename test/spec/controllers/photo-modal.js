@@ -39,5 +39,15 @@ describe('Controller: PhotoModalCtrl', function () {
       scope.close();
       expect(modalInstance.dismiss).toHaveBeenCalled();
     });
+
+    describe('photo comments', function() {
+      it('should have app type defined', function() {
+        expect(scope.new_comment.app).toBe('photos');
+      });
+
+      it('should have content id defined', function() {
+        expect(scope.new_comment.cid).toEqual(1);
+      });
+    });
   });
 });
