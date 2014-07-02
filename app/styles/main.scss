@@ -839,7 +839,7 @@ section.activity-container {
       &.video-view {
         video, iframe, object, embed {
           background: #000;
-          max-width: 100%;
+          width: 100%;
           height: 300px;
         }
       }

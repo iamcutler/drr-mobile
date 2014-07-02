@@ -1,22 +1,13 @@
-<ng-include src="'/views/shared-partials/navbar-back.html'"></ng-include>
+<span class="glyphicon glyphicon-remove icon-white pull-right" style="padding: 20px 30px;" ng-click="close()"></span>
 
 <section class="activity-container">
   <article class="main">
-    <header>
-      <div class="thumb">
-        <img ng-src="{{ cdnDomain }}/{{ video.user.thumbnail || imgPlaceholder }}" />
-      </div>
-      <h2>{{ video.user.name }}</h2>
-      <span am-time-ago="video.created"></span>
-      <div class="clearfix"></div>
-    </header>
-
-    <div class="media-wrapper video-view" ng-switch="video.type">
-      <img ng-src="{{ cdnDomain }}/{{ video.media.thumbnail }}" ng-switch-when="file" show-media-video="{{ video.media.path }}" media-id="video-{{ video.id }}" media-type="{{ video.media.type }}" />
+    <div class="media-wrapper video-view" ng-switch="video.media.type">
+      <img ng-src="{{ endPoint.cdn + video.media.thumbnail }}" ng-switch-when="file" show-media-video="{{ video.media.path }}" media-id="video-{{ video.id }}" media-type="{{ video.media.type }}" />
       <embed ng-switch-when="youtube" ng-src="{{ video.media.video_id | trustVideoURL:'youtube' }}" width="{{ mediaWidth }}" height="300" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true">
       <iframe ng-switch-when="vimeo" ng-src="{{ video.media.video_id | trustVideoURL:'vimeo' }}" width="{{ mediaWidth }}" height="300" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       <a ng-href="{{ video.media.path }}" target="_blank" ng-switch-default>
-        <img ng-src="{{ cdnDomain }}/{{ video.media.thumbnail }}" />
+        <img ng-src="{{ endPoint.cdn + video.media.thumbnail }}" />
       </a>
     </div>
 
@@ -25,7 +16,8 @@
 
     <div class="row" style="padding: 0 10px;">
       <div class="col-xs-12">
-        <button type="button" class="btn btn-block btn-lg btn-default" element="{{ video.like_type }}" id="{{ video.like_id }}" like="1" model="video" like-this><i>T</i> I Like This</button>
+        <button type="button" ng-show="!video.stats.user.like" class="btn btn-block btn-lg btn-default" element="videos" id="{{ video.id }}" like="1" model="video" like-this><i>T</i> I Like This</button>
+        <button type="button" ng-show="video.stats.user.like" class="btn btn-block btn-lg btn-liked" element="videos" id="{{ video.id }}" like="1" model="video" like-this><i>T</i> I Liked This</button>
       </div>
     </div>
 
@@ -35,12 +27,12 @@
 
         <a ng-href="/#/profile/{{ comment.user.slug }}">
           <div class="thumb">
-            <img ng-src="{{ cdnDomain }}/{{ comment.user.thumbnail || imgPlaceholder }}" />
+            <img ng-src="{{ endPoint.cdn + comment.user.thumbnail || imgPlaceholder }}" />
           </div>
         </a>
 
         <div class="comment-body">
-          <span class="name">{{ comment.user.name }}</span><br />
+          <span class="name">{{ comment.user.username }}</span><br />
           <p>{{ comment.comment }}</p>
           <span class="timestamp" am-time-ago="comment.date"></span>
         </div>

@@ -218,3 +218,25 @@ app.directive('albumPhoto', ['$modal', function($modal) {
     }
   };
 }]);
+
+// Open new modal for user videos
+app.directive('userVideo', ['$modal', function($modal) {
+  return {
+    restrict: 'A',
+    scope: {
+      video: '=userVideo',
+      endPoint: '=media'
+    },
+    link: function(scope, elem) {
+      elem.bind('click', function() {
+        $modal.open({
+          controller: 'VideoModalCtrl',
+          scope: scope,
+          templateUrl: '/views/profile/video.html',
+          windowClass: 'activity',
+          backdrop: 'static'
+        });
+      });
+    }
+  };
+}]);
