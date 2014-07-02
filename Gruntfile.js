@@ -41,7 +41,7 @@ module.exports = function (grunt) {
           'imgPlaceholder': 'img_placeholder.png',
           // Location for session information within sessionStorage
           // Related to authentication & session
-          'sessionStore': "_starqle_session"
+          'sessionStore': '_starqle_session'
         }
       },
       staging: {
@@ -59,7 +59,7 @@ module.exports = function (grunt) {
           'imgPlaceholder': 'img_placeholder.png',
           // Location for session information within sessionStorage
           // Related to authentication & session
-          'sessionStore': "_starqle_session"
+          'sessionStore': '_starqle_session'
         }
       },
       production: {
@@ -77,7 +77,7 @@ module.exports = function (grunt) {
           'imgPlaceholder': 'img_placeholder.png',
           // Location for session information within sessionStorage
           // Related to authentication & session
-          'sessionStore': "_starqle_session"
+          'sessionStore': '_starqle_session'
         }
       }
     },
