@@ -15,9 +15,8 @@
 
   <div class="row-fluid">
     <div class="col-xs-12">
-      <button type="button" class="btn btn-block btn-primary" element="groups" id="{{ group.id }}" like="1" model="group" like-this>
-        Like This Group ({{ group.stats.likes }})
-      </button>
+      <button type="button" ng-show="!group.stats.user.like" class="btn btn-block btn-default" element="groups" id="{{ group.id }}" like="1" model="group" like-this>Like This Group ({{ group.stats.likes }})</button>
+      <button type="button" ng-show="group.stats.user.like" class="btn btn-block btn-liked" element="groups" id="{{ group.id }}" like="1" model="group" like-this>Liked This Group ({{ group.stats.likes }})</button>
     </div>
   </div>
 

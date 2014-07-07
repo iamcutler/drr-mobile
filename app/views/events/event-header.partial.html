@@ -12,9 +12,8 @@
 
   <div class="row-fluid">
     <div class="col-xs-12">
-      <button type="button" class="btn btn-block btn-primary" element="events" id="{{ event.event.id }}" like="1" model="event.event" like-this>
-        Like This Event ({{ event.event.stats.likes }})
-      </button>
+      <button type="button" ng-show="!event.event.stats.user.like" class="btn btn-block btn-default" element="events" id="{{ event.event.id }}" like="1" model="event.event" like-this>Like This Event ({{ event.event.stats.likes }})</button>
+      <button type="button" ng-show="event.event.stats.user.like" class="btn btn-block btn-liked" element="events" id="{{ event.event.id }}" like="1" model="event.event" like-this>Liked This Event ({{ event.event.stats.likes }})</button>
     </div>
   </div>
 
