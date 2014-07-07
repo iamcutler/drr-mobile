@@ -1,7 +1,7 @@
 <header class="group-header">
   <a ng-href="">
     <div class="thumbnail">
-      <img ng-src="{{ cdnDomain }}/{{ group.avatar || imgPlaceholder }}" alt="" />
+      <img ng-src="{{ cdnDomain + group.avatar }}" fallback-src="{{ drrDomain + group.avatar }}" alt="" />
     </div>
   </a>
   <div class="group-info">

@@ -2,7 +2,7 @@
   <a ng-href="/#/groups/discussions/{{ discuss.id }}" ng-repeat="discuss in group.discussions" ng-if="group.discussions.length != 0">
     <div class="discussion">
       <div class="thumbnail">
-        <img ng-src="{{ cdnDomain }}/{{ discuss.user.thumbnail || imgPlaceholder }}" alt="" />
+        <img ng-src="{{ cdnDomain + discuss.user.thumbnail }}" fallback-src="{{ drrDomain + discuss.user.thumbnail }}" alt="" />
       </div>
       <span>{{ discuss.content | strip_html_tags | substr:0:100 }}</span><span>&nbsp; ({{ discuss.comment_count }})</span>
       <div class="clearfix"></div>

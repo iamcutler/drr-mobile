@@ -1,7 +1,7 @@
 <header class="event-header">
   <a ng-href="">
     <div class="thumbnail">
-      <img ng-src="{{ cdnDomain }}/{{ event.event.avatar || imgPlaceholder }}" alt="" />
+      <img ng-src="{{ cdnDomain + event.event.avatar }}" fallback-src="{{ drrDomain + event.event.avatar }}" alt="" />
     </div>
   </a>
   <div class="event-info">

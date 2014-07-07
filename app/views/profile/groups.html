@@ -4,7 +4,7 @@
   <a ng-href="/#/groups/{{ group.id }}" ng-repeat="group in groups" ng-if="groups.length != '0' && profile.profile.settings.privacyProfileView == '0' || groups.length != '0' && profile.relation.self == true && profile.profile.settings.privacyProfileView == '40' || groups.length != '0' && profile.relation.friends == true">
     <div class="group">
       <div class="thumbnail">
-        <img ng-src="{{ cdnDomain }}/{{ group.thumbnail || imgPlaceholder }}" alt="" />
+        <img ng-src="{{ cdnDomain + group.thumbnail }}" fallback-src="{{ drrDomain + group.thumbnail }}" alt="" />
       </div>
       <span>{{ group.name }}</span>
       <div class="clearfix"></div>

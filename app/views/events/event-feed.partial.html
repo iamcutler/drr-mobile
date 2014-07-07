@@ -7,7 +7,7 @@
 
       <a ng-href="/#/profile/{{ article.user.slug }}">
         <div class="thumb">
-          <img ng-src="{{ cdnDomain }}/{{ article.user.thumbnail || imgPlaceholder }}" />
+          <img ng-src="{{ cdnDomain + article.user.thumbnail }}" fallback-src="{{ drrDomain + article.user.thumbnail }}" />
         </div>
       </a>
       <h2>{{ article.user.name }}</h2>

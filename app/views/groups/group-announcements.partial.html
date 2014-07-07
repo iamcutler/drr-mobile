@@ -3,7 +3,7 @@
     <header>
       <a ng-href="/#/profile/{{ announce.user.slug }}">
         <div class="thumb">
-          <img src="{{ cdnDomain }}/{{ announce.user.thumbnail || imgPlaceholder }}" />
+          <img src="{{ cdnDomain + announce.user.thumbnail }}" fallback-src="{{ drrDomain + announce.user.thumbnail }}" />
         </div>
         <h2>{{ announce.user.name }}</h2>
         <span am-time-ago="announce.date"></span>

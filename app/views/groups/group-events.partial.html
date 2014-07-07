@@ -2,7 +2,7 @@
   <a ng-href="/#/events/{{ event.id }}" ng-repeat="event in group.events" ng-if="group.events.length != 0">
     <div class="event">
       <div class="thumbnail">
-        <img ng-src="{{ cdnDomain }}/{{ event.thumbnail || imgPlaceholder }}" alt="" />
+        <img ng-src="{{ cdnDomain + event.thumbnail }}" fallback-src="{{ drrDomain + event.thumbnail }}" alt="" />
       </div>
       <span>{{ event.title }}</span>
       <div class="clearfix"></div>
