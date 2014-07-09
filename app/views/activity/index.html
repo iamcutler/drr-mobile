@@ -50,7 +50,8 @@
 
       <div class="row-fluid clearfix" style="padding: 0 10px 0px 10px;">
         <div class="col-xs-12" style="padding: 0 2px;">
-          <button type="button" class="btn btn-block btn-lg btn-default" element="{{ activity.like_type }}" id="{{ activity.like_id }}" like="1" model="activity" like-this><i>T</i> I Like This</button>
+          <button type="button" ng-show="!activity.stats.user.like" class="btn btn-block btn-lg btn-default" element="{{ activity.like_type }}" id="{{ activity.like_id }}" like="1" model="activity" like-this><i>T</i> I Like This</button>
+          <button type="button" ng-show="activity.stats.user.like" class="btn btn-block btn-lg btn-liked" element="{{ activity.like_type }}" id="{{ activity.like_id }}" like="1" model="activity" like-this><i>T</i> I Liked This</button>
         </div>
       </div>
 
