@@ -85,4 +85,21 @@ describe('Filter: Global', function () {
       expect(filter(time)._i).toEqual(time);
     });
   });
+
+  describe('trustVideoURL', function() {
+    var filter, videoId;
+
+    beforeEach(inject(function(_$filter_) {
+      videoId = 6541841;
+      filter = _$filter_('trustVideoURL');
+    }));
+
+    it('returns youtube video url', function() {
+      expect(filter(videoId, 'youtube').$$unwrapTrustedValue()).toEqual('http://www.youtube.com/v/6541841?version=3&amp;hl=en_US&amp;rel=0');
+    });
+
+    it('returns vimeo video url', function() {
+      expect(filter(videoId, 'vimeo').$$unwrapTrustedValue()).toEqual('http://player.vimeo.com/video/6541841?title=0&amp;byline=0&amp;portrait=0&amp;badge=0');
+    });
+  });
 });
