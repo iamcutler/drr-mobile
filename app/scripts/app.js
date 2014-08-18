@@ -72,7 +72,6 @@ var app = angular.module('DRRMobileApp', [
 
 app.config(function (ezfbProvider, facebook) {
   ezfbProvider.setInitParams({
-    // This is my FB app id for plunker demo app
     appId: facebook.appId
   });
 });
