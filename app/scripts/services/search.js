@@ -6,7 +6,7 @@ app.factory('SearchService', ['$http', '$q', 'endPoint', 'AuthService', function
     find_people: function(q) {
       var defer = $q.defer();
 
-      // Add user_hash to q object for backend authenication
+      // Add user_hash to q object for backend authentication
       q['user_hash'] = AuthService.current_user().hash;
 
       $http({
