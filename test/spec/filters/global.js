@@ -1,11 +1,10 @@
 'use strict';
 
 describe('Filter: Global', function () {
-
   // load the filter's module
   beforeEach(module('DRRMobileApp'));
 
-  describe('Filter: substr', function() {
+  describe('substr', function() {
     var substr;
 
     beforeEach(inject(function ($filter) {
@@ -23,7 +22,7 @@ describe('Filter: Global', function () {
     });
   });
 
-  describe('Filter: MessageStructure', function() {
+  describe('MessageStructure', function() {
     var MessageStructure,
         user;
 
@@ -41,7 +40,7 @@ describe('Filter: Global', function () {
     });
   });
 
-  describe('Filter: Strip_html_tags', function() {
+  describe('Strip_html_tags', function() {
     var strip_html;
 
     beforeEach(inject(function($filter) {
@@ -53,12 +52,10 @@ describe('Filter: Global', function () {
     });
   });
 
-  describe('Filter: Responsive sub string', function() {
+  describe('Responsive sub string', function() {
     var string,
         substr,
         $window;
-
-    beforeEach(module('DRRMobileApp'));
 
     beforeEach(inject(function($filter, _$window_) {
       string = "Testing the string based on a responsive window object";
@@ -69,6 +66,23 @@ describe('Filter: Global', function () {
     it('should format string based on phone width', function() {
       $window.innerWidth = 320;
       expect(substr(string)).toEqual("Testing the string based on a ...");
+    });
+  });
+
+  describe('momentTime', function() {
+    var filter, time;
+
+    beforeEach(inject(function($filter) {
+      time = '2013-08-23 16:35:44';
+      filter = $filter('momentTime');
+    }));
+
+    it('converts time to moment object', function() {
+      expect(filter(time)._isAMomentObject).toBe(true);
+    });
+
+    it('returns given time in moment object', function() {
+      expect(filter(time)._i).toEqual(time);
     });
   });
 });
